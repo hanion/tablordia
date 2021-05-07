@@ -6,7 +6,7 @@ export(int,2,30) var max_peer = 8
 var ip = "127.0.0.1"
 var port = 4014
 var Name = "0"
-var color = Color.red
+var color = Color.aqua
 
 
 onready var primer = $margin/primer

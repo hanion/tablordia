@@ -124,7 +124,7 @@ func on_stopped_dragging() -> void:
 
 
 func check_after_onesec():
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(0.1),"timeout")
 	if not env: return
 	if not env.back().is_in_trash: return
 	if not env.back().in_trash == self: return

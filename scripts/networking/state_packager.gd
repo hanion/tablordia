@@ -96,8 +96,8 @@ func package_subkey(key,subkey) -> void:
 
 
 func package_do(key) -> void:
-	if new_state[key].has("O"):
-		new_state[key].erase("O")
+#	if new_state[key].has("O"):
+#		new_state[key].erase("O")
 	
 	if not state_collection[key].has("DO"):
 		state_collection[key]["DO"] = new_state[key]["DO"].duplicate(true)

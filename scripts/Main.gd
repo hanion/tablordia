@@ -209,6 +209,7 @@ func process_received_dragged_over(dragged_name, over_name, pos) -> void:
 	var dragged = Std.get_object(dragged_name) as card
 	var over = Std.get_object(over_name)
 	
+	
 	if dragged.is_in_dispenser:
 		dragged.notify_dispenser()
 	
@@ -247,7 +248,7 @@ func process_received_dragged_over(dragged_name, over_name, pos) -> void:
 			print("    ¨added ",dragged_name," to ",over.name)
 			over.add_card_to_hand(dragged, pos)
 			
-
+	
 
 	"""
 	here

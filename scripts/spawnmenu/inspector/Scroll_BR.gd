@@ -19,6 +19,7 @@ func _on_amount_amount_changed(am):
 
 func spawn() -> void:
 	Spawner.request_spawn(type,val,amount)
+	get_node("vb/amount").amount = 1
 
 
 func spawn_misc() -> void:

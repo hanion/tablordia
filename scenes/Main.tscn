@@ -38,13 +38,13 @@ extents = Vector3( 29, 0.5, 20 )
 [sub_resource type="CubeMesh" id=6]
 size = Vector3( 59, 1, 40 )
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=7]
 extents = Vector3( 5.15, 0.05, 4.89 )
 
-[sub_resource type="CubeMesh" id=7]
+[sub_resource type="CubeMesh" id=8]
 size = Vector3( 10.3, 0.1, 9.78 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=9]
 albedo_texture = ExtResource( 1 )
 metallic_specular = 0.0
 roughness = 0.59
@@ -137,11 +137,11 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0331401, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="board/board"]
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="board/board"]
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
 
 [node name="boardsprite" type="Sprite3D" parent="board/board"]
 transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, 1, 0, -0.2, -4.37114e-08, 0, 0.0901401, 0 )

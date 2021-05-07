@@ -72,11 +72,16 @@ func remove_card_from_hand(var crd: card) -> void:
 	List.reparent_child(crd,cards)
 	
 	crd.translation = old_translation
-	
+	check_after_onemsec(crd,old_translation)
 	order_inventory()
 	resize_hand()
 
-
+func check_after_onemsec(cd,ot):
+	yield(get_tree().create_timer(0.05),"timeout")
+	if cd.translation == ot: return
+	
+	cd.translation = ot
+#	check_after_onesec(cd,ot)
 
 func order_inventory() -> void:
 	var half_of_handx = ( (inventory.size() - 1) * offsetx ) / 2

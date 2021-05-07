@@ -36,4 +36,5 @@ func _on_value_text_entered(new_text):
 
 func set_amount(am) -> void:
 	amount = am
+	val.text = str(amount)
 	emit_signal("amount_changed",amount)
