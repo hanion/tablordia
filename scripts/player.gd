@@ -26,7 +26,6 @@ var _do_pos: Vector3
 onready var camera = $CAM/position/elevation/zoom/Camera
 onready var pointer = $pointer as Spatial
 onready var close_up = $CAM/position/elevation/zoom/Camera/closeup as Spatial
-onready var oer = get_node("../oer") as Spatial
 onready var spawn_menu = get_node("../CanvasLayer/SpawnPanel")
 
 
@@ -122,11 +121,6 @@ func manage_oable(event) -> void:
 	if event is InputEventKey:
 		if event.is_action_pressed("spawn_menu"):
 			spawn_menu.open_menu()
-		
-		if current['collider']:
-			if event.is_action_pressed("oable"):
-				oer.o(current['collider'])
-
 
 
 func rotate_one_tick(obj, is_reverse := false) -> void:
