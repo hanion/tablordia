@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/font/title.tres" type="DynamicFont" id=1]
+
+[node name="nametag" type="Label"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -61.5
+margin_right = 640.0
+margin_bottom = 61.5
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "this is name tag"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

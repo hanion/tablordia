@@ -1,0 +1,2905 @@
+[gd_scene load_steps=71 format=2]
+
+[ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=1]
+[ext_resource path="res://assets/br/Steel.png" type="Texture" id=2]
+[ext_resource path="res://assets/br/Food.png" type="Texture" id=3]
+[ext_resource path="res://assets/br/Wood.png" type="Texture" id=4]
+[ext_resource path="res://assets/br/Gold.png" type="Texture" id=5]
+[ext_resource path="res://assets/br/Base1.png" type="Texture" id=6]
+[ext_resource path="res://assets/br/Stone.png" type="Texture" id=7]
+[ext_resource path="res://theme_monserati_m.tres" type="Theme" id=8]
+[ext_resource path="res://scripts/spawnmenu/BoardRoyale.gd" type="Script" id=9]
+[ext_resource path="res://scripts/spawnmenu/hs.gd" type="Script" id=10]
+[ext_resource path="res://scripts/spawnmenu/Inspector.gd" type="Script" id=11]
+[ext_resource path="res://scripts/spawnmenu/spawnpanel.gd" type="Script" id=12]
+[ext_resource path="res://scripts/spawnmenu/inspector/amount.gd" type="Script" id=13]
+[ext_resource path="res://scripts/spawnmenu/inspector/Scroll_BR.gd" type="Script" id=14]
+[ext_resource path="res://assets/br/base2.png" type="Texture" id=15]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 413, 0, 413, 574 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 826, 0, 413, 574 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 1239, 0, 413, 574 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 2058, 0, 392, 574 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 2461, 0, 413, 574 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 3283, 0, 414, 574 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 3691, 0, 402, 574 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 412, 574, 410, 574 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 1232, 574, 410, 574 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 1643, 574, 410, 574 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 2054, 574, 409, 574 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 2461, 574, 410, 574 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 2871, 574, 410, 574 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 3280, 574, 412, 574 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 3691, 574, 405, 574 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 0, 1148, 409, 574 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 820, 1148, 412, 574 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 2050, 1148, 412, 574 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 2873, 1148, 410, 574 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 3690, 1148, 405, 574 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 2436, 0, 487, 681 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 0, 679, 484, 686 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 969, 679, 490, 686 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 1456, 679, 491, 686 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 1941, 679, 492, 686 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 2430, 679, 492, 686 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 2920, 679, 493, 686 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 0, 1365, 490, 685 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 486, 1365, 488, 685 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 972, 1365, 488, 685 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 1458, 1365, 490, 685 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 1947, 1365, 487, 685 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 2434, 1365, 486, 685 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 2916, 1365, 496, 685 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 0, 2050, 490, 682 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 485, 2050, 491, 682 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 973, 2050, 490, 682 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 1458, 2050, 490, 682 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 1946, 2050, 487, 682 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 2433, 2050, 487, 682 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 2919, 2050, 493, 682 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 0, 2735, 486, 679 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 484, 2735, 491, 679 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 973, 2735, 487, 679 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 1461, 2732, 487, 683 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 1948, 2732, 487, 683 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 2435, 2732, 487, 683 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 2922, 2732, 487, 683 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 0, 3415, 487, 681 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 488, 3415, 485, 681 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 975, 3415, 485, 681 )
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 1462, 3415, 485, 681 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 1949, 3415, 485, 681 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 23
+atlas = ExtResource( 15 )
+region = Rect2( 2437, 3415, 484, 681 )
+
+[sub_resource type="StyleBoxFlat" id=55]
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color( 0.0862745, 0.105882, 0.117647, 0.498039 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0705882, 0.0862745, 0.0980392, 1 )
+
+[node name="SpawnPanel" type="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 8 )
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vb" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hb" type="HSplitContainer" parent="vb"]
+margin_right = 1920.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+collapsed = true
+dragger_visibility = 2
+
+[node name="Label" type="Label" parent="vb/hb"]
+margin_right = 1889.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Spawn Menu"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloseButton" type="Button" parent="vb/hb"]
+margin_left = 1889.0
+margin_right = 1920.0
+margin_bottom = 29.0
+text = " X "
+
+[node name="mrgn" type="MarginContainer" parent="vb"]
+margin_top = 33.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="hs" type="HSplitContainer" parent="vb/mrgn"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1915.0
+margin_bottom = 1042.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="games" type="TabContainer" parent="vb/mrgn/hs"]
+margin_right = 1410.0
+margin_bottom = 1037.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+drag_to_rearrange_enabled = true
+
+[node name="BoardRoyale" type="TabContainer" parent="vb/mrgn/hs/games"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_align = 0
+drag_to_rearrange_enabled = true
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Items" type="ScrollContainer" parent="vb/mrgn/hs/games/BoardRoyale"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items"]
+margin_right = 1378.0
+margin_bottom = 3890.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="i0" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+visible = false
+margin_right = 272.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i0/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i0/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "item"
+align = 1
+
+[node name="i1" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_right = 272.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i1/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i1/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Punch"
+align = 1
+
+[node name="i2" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_right = 548.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i2/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i2/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Kick"
+align = 1
+
+[node name="i3" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_right = 824.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i3/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i3/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Blow Dart"
+align = 1
+
+[node name="i4" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_right = 1100.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i4/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i4/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Spiked Club"
+align = 1
+
+[node name="i5" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 1104.0
+margin_right = 1376.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i5/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i5/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Fire"
+align = 1
+
+[node name="i6" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_top = 354.0
+margin_right = 272.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i6/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 6 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i6/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Torch"
+align = 1
+
+[node name="i7" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_top = 354.0
+margin_right = 548.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i7/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i7/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Revolution"
+align = 1
+
+[node name="i8" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_top = 354.0
+margin_right = 824.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i8/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 8 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i8/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Trap"
+align = 1
+
+[node name="i9" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_top = 354.0
+margin_right = 1100.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i9"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i9/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 9 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i9/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Sprint"
+align = 1
+
+[node name="i10" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 1104.0
+margin_top = 354.0
+margin_right = 1376.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i10"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i10/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i10/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Knockdown"
+align = 1
+
+[node name="i11" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_top = 708.0
+margin_right = 272.0
+margin_bottom = 1058.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i11"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i11/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 11 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i11/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Food Pile"
+align = 1
+
+[node name="i12" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_top = 708.0
+margin_right = 548.0
+margin_bottom = 1058.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i12"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i12/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 12 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i12/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Wood Pile"
+align = 1
+
+[node name="i13" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_top = 708.0
+margin_right = 824.0
+margin_bottom = 1058.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i13"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i13/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 13 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i13/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Iron Pile"
+align = 1
+
+[node name="i14" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_top = 708.0
+margin_right = 1100.0
+margin_bottom = 1058.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i14"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i14/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 14 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i14/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Stone Pile"
+align = 1
+
+[node name="i15" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 1104.0
+margin_top = 708.0
+margin_right = 1376.0
+margin_bottom = 1058.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i15"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i15/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i15/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Gold Pile"
+align = 1
+
+[node name="i16" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_top = 1062.0
+margin_right = 272.0
+margin_bottom = 1412.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i16"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i16/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 16 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i16/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Bandage"
+align = 1
+
+[node name="i17" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_top = 1062.0
+margin_right = 548.0
+margin_bottom = 1412.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i17"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i17/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 17 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i17/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Medkit"
+align = 1
+
+[node name="i18" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_top = 1062.0
+margin_right = 824.0
+margin_bottom = 1412.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i18"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i18/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 18 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i18/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Run Away"
+align = 1
+
+[node name="i19" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_top = 1062.0
+margin_right = 1100.0
+margin_bottom = 1412.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i19"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i19/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 19 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i19/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Grenade"
+align = 1
+
+[node name="i20" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 1104.0
+margin_top = 1062.0
+margin_right = 1376.0
+margin_bottom = 1412.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i20"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i20/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 20 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i20/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Bullet"
+align = 1
+
+[node name="i30" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_top = 1416.0
+margin_right = 272.0
+margin_bottom = 1766.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i30"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i30/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 21 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i30/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Airdrop"
+align = 1
+
+[node name="i31" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_top = 1416.0
+margin_right = 548.0
+margin_bottom = 1766.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i31"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i31/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 22 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i31/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Backpack"
+align = 1
+
+[node name="i32" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_top = 1416.0
+margin_right = 824.0
+margin_bottom = 1766.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i32"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i32/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 23 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i32/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Chest"
+align = 1
+
+[node name="i33" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_top = 1416.0
+margin_right = 1100.0
+margin_bottom = 1766.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i33"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i33/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 24 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i33/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Pocket Knife"
+align = 1
+
+[node name="i34" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 1104.0
+margin_top = 1416.0
+margin_right = 1376.0
+margin_bottom = 1766.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i34"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i34/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 25 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i34/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Fishing Rod"
+align = 1
+
+[node name="i35" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_top = 1770.0
+margin_right = 272.0
+margin_bottom = 2120.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i35"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i35/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 26 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i35/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Pot"
+align = 1
+
+[node name="i36" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_top = 1770.0
+margin_right = 548.0
+margin_bottom = 2120.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i36"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i36/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 27 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i36/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Swing Kit"
+align = 1
+
+[node name="i37" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_top = 1770.0
+margin_right = 824.0
+margin_bottom = 2120.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i37"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i37/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 28 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i37/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Pickaxe"
+align = 1
+
+[node name="i38" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_top = 1770.0
+margin_right = 1100.0
+margin_bottom = 2120.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i38"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i38/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 29 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i38/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Shovel"
+align = 1
+
+[node name="i39" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 1104.0
+margin_top = 1770.0
+margin_right = 1376.0
+margin_bottom = 2120.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i39"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i39/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 30 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i39/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Bow & Arrow"
+align = 1
+
+[node name="i40" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_top = 2124.0
+margin_right = 272.0
+margin_bottom = 2474.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i40"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i40/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 31 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i40/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Axe"
+align = 1
+
+[node name="i41" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_top = 2124.0
+margin_right = 548.0
+margin_bottom = 2474.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i41"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i41/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 32 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i41/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Slingshot"
+align = 1
+
+[node name="i42" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_top = 2124.0
+margin_right = 824.0
+margin_bottom = 2474.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i42"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i42/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 33 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i42/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Hammer"
+align = 1
+
+[node name="i43" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_top = 2124.0
+margin_right = 1100.0
+margin_bottom = 2474.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i43"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i43/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 34 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i43/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Spear"
+align = 1
+
+[node name="i44" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 1104.0
+margin_top = 2124.0
+margin_right = 1376.0
+margin_bottom = 2474.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i44"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i44/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 35 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i44/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Harpoon"
+align = 1
+
+[node name="i45" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_top = 2478.0
+margin_right = 272.0
+margin_bottom = 2828.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i45"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i45/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 36 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i45/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Knife"
+align = 1
+
+[node name="i46" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_top = 2478.0
+margin_right = 548.0
+margin_bottom = 2828.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i46"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i46/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 37 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i46/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Cowbar"
+align = 1
+
+[node name="i47" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_top = 2478.0
+margin_right = 824.0
+margin_bottom = 2828.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i47"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i47/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 38 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i47/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Revolver"
+align = 1
+
+[node name="i48" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_top = 2478.0
+margin_right = 1100.0
+margin_bottom = 2828.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i48"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i48/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 39 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i48/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Shotgun"
+align = 1
+
+[node name="i49" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 1104.0
+margin_top = 2478.0
+margin_right = 1376.0
+margin_bottom = 2828.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i49"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i49/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 40 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i49/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Old Pistol"
+align = 1
+
+[node name="i50" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_top = 2832.0
+margin_right = 272.0
+margin_bottom = 3182.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i50"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i50/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 41 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i50/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Sawed-off Shotgun"
+align = 1
+
+[node name="i51" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_top = 2832.0
+margin_right = 548.0
+margin_bottom = 3182.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i51"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i51/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 42 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i51/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Short Rifle"
+align = 1
+
+[node name="i52" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_top = 2832.0
+margin_right = 824.0
+margin_bottom = 3182.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i52"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i52/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 43 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i52/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Bola"
+align = 1
+
+[node name="i53" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_top = 2832.0
+margin_right = 1100.0
+margin_bottom = 3182.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i53"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i53/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 44 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i53/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Boomerang"
+align = 1
+
+[node name="i54" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 1104.0
+margin_top = 2832.0
+margin_right = 1376.0
+margin_bottom = 3182.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i54"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i54/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 45 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i54/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Bottle"
+align = 1
+
+[node name="i55" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_top = 3186.0
+margin_right = 272.0
+margin_bottom = 3536.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i55"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i55/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 46 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i55/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Sextant"
+align = 1
+
+[node name="i56" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_top = 3186.0
+margin_right = 548.0
+margin_bottom = 3536.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i56"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i56/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 47 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i56/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Raft"
+align = 1
+
+[node name="i57" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_top = 3186.0
+margin_right = 824.0
+margin_bottom = 3536.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i57"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i57/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 48 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i57/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Radio"
+align = 1
+
+[node name="i58" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_top = 3186.0
+margin_right = 1100.0
+margin_bottom = 3536.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i58"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i58/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 49 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i58/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Compass"
+align = 1
+
+[node name="i59" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 1104.0
+margin_top = 3186.0
+margin_right = 1376.0
+margin_bottom = 3536.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i59"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i59/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 50 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i59/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Sailboat"
+align = 1
+
+[node name="i60" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_top = 3540.0
+margin_right = 272.0
+margin_bottom = 3890.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i60"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i60/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 51 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i60/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Sailing 101"
+align = 1
+
+[node name="i61" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 276.0
+margin_top = 3540.0
+margin_right = 548.0
+margin_bottom = 3890.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i61"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i61/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 52 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i61/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Snorkel"
+align = 1
+
+[node name="i62" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 552.0
+margin_top = 3540.0
+margin_right = 824.0
+margin_bottom = 3890.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i62"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i62/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 53 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i62/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Spyglass"
+align = 1
+
+[node name="i63" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
+margin_left = 828.0
+margin_top = 3540.0
+margin_right = 1100.0
+margin_bottom = 3890.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i63"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i63/vb"]
+margin_right = 252.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 54 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i63/vb"]
+margin_top = 306.0
+margin_right = 252.0
+margin_bottom = 335.0
+text = "Buoy"
+align = 1
+
+[node name="Resources" type="ScrollContainer" parent="vb/mrgn/hs/games/BoardRoyale"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/BoardRoyale/Resources"]
+margin_right = 1390.0
+margin_bottom = 955.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="s0" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
+margin_right = 274.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s0/vb"]
+margin_right = 254.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s0/vb"]
+margin_top = 306.0
+margin_right = 254.0
+margin_bottom = 335.0
+text = "Wood"
+align = 1
+
+[node name="s1" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
+margin_left = 278.0
+margin_right = 552.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s1/vb"]
+margin_right = 254.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s1/vb"]
+margin_top = 306.0
+margin_right = 254.0
+margin_bottom = 335.0
+text = "Stone"
+align = 1
+
+[node name="s2" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
+margin_left = 556.0
+margin_right = 830.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s2/vb"]
+margin_right = 254.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s2/vb"]
+margin_top = 306.0
+margin_right = 254.0
+margin_bottom = 335.0
+text = "Food"
+align = 1
+
+[node name="s3" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
+margin_left = 834.0
+margin_right = 1108.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s3/vb"]
+margin_right = 254.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s3/vb"]
+margin_top = 306.0
+margin_right = 254.0
+margin_bottom = 335.0
+text = "Steel"
+align = 1
+
+[node name="s4" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
+margin_left = 1112.0
+margin_right = 1386.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s4/vb"]
+margin_right = 254.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s4/vb"]
+margin_top = 306.0
+margin_right = 254.0
+margin_bottom = 335.0
+text = "Gold"
+align = 1
+
+[node name="s5" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
+visible = false
+margin_top = 204.0
+margin_right = 167.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s5/vb"]
+margin_right = 147.0
+margin_bottom = 159.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s5/vb"]
+margin_top = 163.0
+margin_right = 147.0
+margin_bottom = 185.0
+text = "resource"
+align = 1
+
+[node name="Misc" type="ScrollContainer" parent="vb/mrgn/hs/games/BoardRoyale"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/BoardRoyale/Misc"]
+margin_right = 1390.0
+margin_bottom = 955.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="m0" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid"]
+visible = false
+margin_right = 211.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m0/vb"]
+margin_right = 191.0
+margin_bottom = 259.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m0/vb"]
+margin_top = 263.0
+margin_right = 191.0
+margin_bottom = 285.0
+text = "misc"
+align = 1
+
+[node name="m1" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid"]
+margin_right = 277.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1/vb"]
+process_priority = -5
+margin_right = 257.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1/vb"]
+margin_top = 306.0
+margin_right = 257.0
+margin_bottom = 335.0
+text = "Board"
+align = 1
+
+[node name="Monopoly" type="Control" parent="vb/mrgn/hs/games"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="configurer" type="TabContainer" parent="vb/mrgn/hs"]
+margin_left = 1418.0
+margin_right = 1910.0
+margin_bottom = 1037.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+drag_to_rearrange_enabled = true
+
+[node name="Inspector" type="Control" parent="vb/mrgn/hs/configurer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+script = ExtResource( 11 )
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/configurer/Inspector"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectionName" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb"]
+margin_right = 482.0
+margin_bottom = 29.0
+text = "Selected Object Name"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="vb/mrgn/hs/configurer/Inspector/vb"]
+visible = false
+margin_top = 39.0
+margin_right = 482.0
+margin_bottom = 43.0
+
+[node name="Scroll_sample" type="ScrollContainer" parent="vb/mrgn/hs/configurer/Inspector/vb"]
+visible = false
+margin_top = 39.0
+margin_right = 482.0
+margin_bottom = 482.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 55 )
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_sample"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 477.0
+margin_bottom = 438.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_sample/vb"]
+margin_right = 472.0
+margin_bottom = 29.0
+text = "some slider"
+align = 1
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_sample/vb"]
+margin_top = 33.0
+margin_right = 472.0
+margin_bottom = 49.0
+value = 50.0
+tick_count = 9
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="seperator" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_sample/vb"]
+margin_top = 53.0
+margin_right = 472.0
+margin_bottom = 82.0
+
+[node name="name" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_sample/vb"]
+margin_top = 86.0
+margin_right = 472.0
+margin_bottom = 115.0
+text = "name"
+align = 1
+valign = 1
+
+[node name="LineEdit" type="LineEdit" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_sample/vb"]
+margin_top = 119.0
+margin_right = 472.0
+margin_bottom = 148.0
+align = 1
+max_length = 20
+placeholder_text = "name"
+
+[node name="seperator2" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_sample/vb"]
+margin_top = 152.0
+margin_right = 472.0
+margin_bottom = 325.0
+text = "
+
+
+
+
+
+"
+
+[node name="Button" type="Button" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_sample/vb"]
+margin_top = 329.0
+margin_right = 472.0
+margin_bottom = 358.0
+text = "random button"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scroll_BR" type="ScrollContainer" parent="vb/mrgn/hs/configurer/Inspector/vb"]
+margin_top = 39.0
+margin_right = 482.0
+margin_bottom = 936.0
+focus_neighbour_bottom = NodePath("../SpawnButton")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/bg = SubResource( 55 )
+script = ExtResource( 14 )
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 477.0
+margin_bottom = 892.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="amount" type="HBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb"]
+margin_right = 472.0
+margin_bottom = 29.0
+script = ExtResource( 13 )
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount"]
+margin_right = 350.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+text = "Amount"
+align = 1
+
+[node name="minus" type="Button" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount"]
+margin_left = 354.0
+margin_right = 379.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 25, 0 )
+focus_neighbour_right = NodePath("../value")
+size_flags_stretch_ratio = 0.0
+text = "-"
+
+[node name="value" type="LineEdit" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount"]
+margin_left = 383.0
+margin_right = 443.0
+margin_bottom = 29.0
+focus_neighbour_left = NodePath("../minus")
+focus_neighbour_right = NodePath("../plus")
+size_flags_stretch_ratio = 0.0
+text = "1"
+align = 1
+max_length = 2
+
+[node name="plus" type="Button" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount"]
+margin_left = 447.0
+margin_right = 472.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 25, 0 )
+focus_neighbour_left = NodePath("../value")
+size_flags_stretch_ratio = 0.0
+text = "+"
+
+[node name="HSeparator2" type="HSeparator" parent="vb/mrgn/hs/configurer/Inspector/vb"]
+visible = false
+margin_top = 932.0
+margin_right = 482.0
+margin_bottom = 936.0
+
+[node name="SpawnButton" type="Button" parent="vb/mrgn/hs/configurer/Inspector/vb"]
+margin_top = 946.0
+margin_right = 482.0
+margin_bottom = 996.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+text = "Spawn"
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="pressed" from="vb/hb/CloseButton" to="." method="_on_CloseButton_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s0" to="vb/mrgn/hs/games/BoardRoyale" method="_on_s0_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s1" to="vb/mrgn/hs/games/BoardRoyale" method="_on_s1_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s2" to="vb/mrgn/hs/games/BoardRoyale" method="_on_s2_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s3" to="vb/mrgn/hs/games/BoardRoyale" method="_on_s3_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s4" to="vb/mrgn/hs/games/BoardRoyale" method="_on_s4_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1" to="vb/mrgn/hs/games/BoardRoyale" method="_on_m1_pressed"]
+[connection signal="amount_changed" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR" method="_on_amount_amount_changed"]
+[connection signal="pressed" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount/minus" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount" method="_on_minus_pressed"]
+[connection signal="text_entered" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount/value" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount" method="_on_value_text_entered"]
+[connection signal="pressed" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount/plus" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount" method="_on_plus_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/configurer/Inspector/vb/SpawnButton" to="vb/mrgn/hs/configurer/Inspector" method="_on_SpawnButton_pressed"]

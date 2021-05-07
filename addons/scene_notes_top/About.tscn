@@ -1,0 +1,35 @@
+[gd_scene format=2]
+
+[node name="Control" type="WindowDialog"]
+margin_right = 300.0
+margin_bottom = 200.0
+window_title = "About Scene Notes"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+margin_right = 296.0
+margin_bottom = 196.0
+bbcode_enabled = true
+bbcode_text = "[center]Scene Notes is written by [url=http://www.misc.work/]Jahn Johansen[/url].
+The repository can be found on [url=http://www.github.com/need12648430/godot3-scene-notes]Github[/url].
+It is distributed under the MIT license.
+
+If you find it useful and want to help support the author ('s coffee dependency), you can do so below.
+
+I'd appreciate it very much. <3
+
+[url=https://www.ko-fi.com/jjohansen][img]res://addons/scene_notes/kofi.png[/img][/url][/center]"
+text = "Scene Notes is written by Jahn Johansen.
+The repository can be found on Github.
+It is distributed under the MIT license.
+
+If you find it useful and want to help support the author ('s coffee dependency), you can do so below.
+
+I'd appreciate it very much. <3
+
+"
