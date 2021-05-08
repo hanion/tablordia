@@ -1,6 +1,6 @@
 extends Node
 
-var update_frame_time := 4
+var update_frame_time := 2
 var state_collection := {}
 var uid := 0
 

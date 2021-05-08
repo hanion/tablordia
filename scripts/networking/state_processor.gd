@@ -3,7 +3,7 @@ extends Node
 
 var world_state = {}
 var world_state_collection = {}
-export(int) var update_frame_time = 4
+var update_frame_time = 4
 
 func _physics_process(_delta):
 	if not get_tree().has_network_peer(): return
