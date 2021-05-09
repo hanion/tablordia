@@ -119,6 +119,16 @@ func setup_brc(brc) -> void:
 		card_value = objs_array[obj_index]
 	
 	brc.card_value = card_value
+	
+	# set back material
+	var mat: SpatialMaterial 
+	if brc.is_item:
+		mat = brc.item_mats[0].duplicate(true)
+		mat.set_uv1_offset(brc.items[0][0]) # back
+	elif brc.is_resource:
+		mat = brc.res_mats[0].duplicate(true) # back
+	
+	brc.get_node("mesh").set_material_override(mat)
 
 
 
