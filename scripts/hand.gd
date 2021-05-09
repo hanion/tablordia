@@ -168,17 +168,20 @@ func tweenit(obj: Object, prop: String, init, final, dur=tween_duration) -> void
 
 
 func on_started_dragging(_a) -> void:
-	if only_items and _a is item:
-		col.shape.extents.y = 0.16
+	if not _a is br_card: return
+	_a = _a as br_card
 	
-	elif only_resources and _a is resource:
-		col.shape.extents.y = 0.16
+	if only_resources and _a.is_resource:
+		col.shape.extents.y = 0.3
+	
+	elif only_items and _a.is_item:
+		col.shape.extents.y = 0.3
 	
 	for c in inventory:
 		c.set_collision_layer_bit(0,false)
 
 func on_stopped_dragging() -> void:
-	col.shape.extents.y = 0.078
+	col.shape.extents.y = 0.07
 	for c in inventory:
 		c.set_collision_layer_bit(0,true)
 
@@ -187,6 +190,7 @@ func on_stopped_dragging() -> void:
 
 
 func set_resource_hidden(res,is_) -> void:
+	# TODO not harcode it like that
 	var _name = "hand" + str(NetworkInterface.uid)
 	if name == _name:
 		is_ = false
