@@ -190,7 +190,7 @@ func on_stopped_dragging() -> void:
 
 
 func set_resource_hidden(res,is_) -> void:
-	# TODO not harcode it like that
+	# TODO don't harcode it like that, thats stupid
 	var _name = "hand" + str(NetworkInterface.uid)
 	if name == _name:
 		is_ = false

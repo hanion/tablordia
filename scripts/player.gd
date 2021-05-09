@@ -213,9 +213,6 @@ func clear_dragging_after_delay() -> void:
 	if is_dragging: return
 	if not dragging: return
 	
-	# TODO remove this shit, use global translations
-#	define_obj_state(dragging)
-#	update_object_state(dragging)
 	dragging = null
 
 

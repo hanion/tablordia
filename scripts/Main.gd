@@ -24,6 +24,7 @@ func _ready():
 	var my_mat = get_player_material(get_tree().get_network_unique_id())
 	player.get_node("pointer").set_surface_material(0,my_mat)
 	
+	# FIXME remove spawning had directly, make it optional
 	_spawn_hand(get_tree().get_network_unique_id())
 	
 	NetworkInterface.request_envs()
@@ -149,7 +150,6 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 	
 	var trans = obj_state["O"]
 	trans = Std.get_local(obj,trans)
-	# TODO WTF cant figure out local
 	
 	
 	# For slot, to not make it snap when others moving it

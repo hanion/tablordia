@@ -13,7 +13,6 @@ func change_resource(index: int) -> void:
 
 func notify_dispenser() -> void:
 #	if not is_hidden:
-	# TODO make it so that only owner of hand sees
 	is_hidden = false
 	is_in_dispenser = false
 	in_dispenser.notify()

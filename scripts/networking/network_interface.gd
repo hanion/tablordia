@@ -39,7 +39,7 @@ func got_info_of_new_peer(id) -> void:
 func _player_disconnected(id):
 	print("\nN: player disconnected, name:",List.players[id]["name"],", id:",id)
 #	world_state_collection.erase(id)(#)because if player accidentaly disconnects 
-	# TODO save players info somewhere 
+	# FUTURE save players info somewhere 
 	List.remove_player(id)
 
 ###################################INTERFACE###################################

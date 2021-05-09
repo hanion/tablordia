@@ -34,7 +34,6 @@ func start_game():
 	print("\nMenu: Connected to server.\n")
 	set_info()
 	add_me()
-	# FIXME read Notes
 #	yield(get_tree().create_timer(5),"timeout")
 	var game = preload("res://scenes/Main.tscn").instance()
 	get_parent().add_child(game)
