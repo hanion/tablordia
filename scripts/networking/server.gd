@@ -45,4 +45,6 @@ remote func request_invs() -> void:
 
 
 remote func request_spawn(_t,_v,_a) -> void:
+	var sender_id = get_tree().get_rpc_sender_id()
+	if not sender_id == 1: return
 	NetworkInterface.client.rpc("receive_requested_spawn",_t,_v,_a)
