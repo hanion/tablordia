@@ -5,7 +5,7 @@ class_name card
 
 var card_value := 0
 
-#var is_hidden := false
+var is_hidden := true setget set_is_hidden
 
 var is_in_deck := false
 var in_deck
@@ -27,3 +27,10 @@ var in_slot
 var off_y = 0.04
 onready var col = $CollisionShape
 
+
+
+
+
+
+func set_is_hidden(val) -> void:
+	is_hidden = val

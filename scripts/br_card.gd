@@ -7,8 +7,6 @@ export(Array,SpatialMaterial) var item_mats := []
 var is_resource := false
 var is_item := false
 
-var is_hidden := true setget set_is_hidden
-
 const items := [
 	[
 	Vector3(0.95,0,0.874), # 0 back
@@ -96,7 +94,6 @@ func set_material():
 
 
 func set_is_hidden(val) -> void:
-	is_hidden = val
 	if is_item: return
 	
 	var mat
