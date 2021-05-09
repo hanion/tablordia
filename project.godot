@@ -24,16 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/hand.gd"
 }, {
-"base": "card",
-"class": "item",
-"language": "GDScript",
-"path": "res://scripts/item.gd"
-}, {
-"base": "card",
-"class": "resource",
-"language": "GDScript",
-"path": "res://scripts/resource.gd"
-}, {
 "base": "Area",
 "class": "slot",
 "language": "GDScript",
@@ -48,8 +38,6 @@ _global_script_class_icons={
 "br_card": "",
 "card": "",
 "hand": "",
-"item": "",
-"resource": "",
 "slot": "",
 "trash": ""
 }
