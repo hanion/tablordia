@@ -24,6 +24,10 @@ var in_slot
 
 
 
+var is_resource := false
+var is_item := false
+
+
 var off_y = 0.04
 onready var col = $CollisionShape
 
@@ -34,3 +38,20 @@ onready var col = $CollisionShape
 
 func set_is_hidden(val) -> void:
 	is_hidden = val
+
+
+
+func set_type(tip:String) -> void:
+	is_resource = false
+	is_item = false
+	
+	
+	match tip:
+		"resource":
+			is_resource = true
+		"item":
+			is_item = true
+		
+
+
+

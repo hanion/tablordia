@@ -1,7 +1,6 @@
 extends Area
 const br_card_path = "res://scenes/br_card.tscn"
 
-
 export(String, "resource", "item") var dispense
 
 
@@ -104,12 +103,12 @@ func setup_brc(brc) -> void:
 	if dispense == "item":
 		obj_index = Spawner.item_index
 		objs_array = items
-		brc.is_item = true
+		
 	elif dispense == "resource":
 		obj_index = Spawner.resource_index
 		objs_array = env
-		brc.is_resource = true
 	
+	brc.set_type(dispense)
 	
 	var card_value
 	

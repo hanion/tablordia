@@ -1,11 +1,9 @@
 extends card
 class_name br_card
 
+
 export(Array,SpatialMaterial) var res_mats := []
 export(Array,SpatialMaterial) var item_mats := []
-
-var is_resource := false
-var is_item := false
 
 const items := [
 	[
@@ -77,7 +75,6 @@ const items := [
 	Vector3(0.928,0,0.917)  # 34 back
 	]
 	]
-
 
 func set_material():
 	var mat: SpatialMaterial 
