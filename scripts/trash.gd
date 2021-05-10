@@ -108,10 +108,18 @@ func on_started_dragging(it) -> void:
 	elif only_resources and it.is_resource:
 		col.shape.extents.y = 0.16
 		mes.visible = is_mesh_visible
+	
+	if env.empty(): return
+	if env.back():
+		env.back().set_collision_layer_bit(0,false)
 
 func on_stopped_dragging() -> void:
 	col.shape.extents.y = 0.04
 	mes.visible = false
+	
+	if env.empty(): return
+	if env.back():
+		env.back().set_collision_layer_bit(0,true)
 
 
 
