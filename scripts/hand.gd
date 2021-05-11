@@ -168,6 +168,10 @@ func tweenit(obj: Object, prop: String, init, final, dur=tween_duration) -> void
 
 
 func on_started_dragging(_a) -> void:
+	if _a == self:
+		for c in inventory:
+			c.set_collision_layer_bit(0,false)
+	
 	if not _a is br_card: return
 	_a = _a as br_card
 	
