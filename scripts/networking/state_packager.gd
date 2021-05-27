@@ -1,6 +1,6 @@
 extends Node
 
-var update_frame_time := 2
+var update_frame_time := 3
 var state_collection := {}
 var uid := 0
 
@@ -20,14 +20,12 @@ var _state := {
 	}
 }
 
-func collect_state(state: Dictionary) -> void:
+func collect_state(state:Dictionary) -> void:
 	if state.has("pointer"):
 		new_state["pointer"] = state["pointer"].duplicate(true)
 	else:
 		for obj_name in state.keys():
-#			print("-object : ",obj_name)
 			new_state[obj_name] = state[obj_name].duplicate(true)
-
 
 
 func _physics_process(_delta):
@@ -36,25 +34,47 @@ func _physics_process(_delta):
 		
 		if not packaged_state: return
 		
-#		print("\nPACKAGED SUCCESSFULLY, \n",packaged_state)
-#		print("\n\n\n\n\npkstate.:",packaged_state)
 		send_packaged_state(packaged_state)
 
 
 
 
 func package_state():
+	if new_state.empty(): return
+	
 	if state_collection.empty():
 		state_collection = new_state.duplicate(true)
 #		return
 	
-	for key in new_state.keys():
-		package_key(key)
+	
+	for key in new_state.keys(): # key = pointer, hand1, item0, ...
 		
-		for subkey in new_state[key].keys():
-			package_subkey(key,subkey)
+		if not state_collection.has(key):
+			state_collection[key] = new_state[key].duplicate(true)
+			continue
 		
-		Std.erase_if_empty(new_state,key)
+		for subkey in new_state[key].keys(): # subkey = O, R
+			if not subkey == "R" and not subkey == "O":
+				assert(
+					Std.has_all(state_collection,key,subkey),
+					"state_collection must have subkey"
+				)
+			
+			
+			if not state_collection[key].has(subkey):
+				state_collection[key][subkey] = new_state[key][subkey]
+				continue
+			
+			if state_collection[key][subkey] == new_state[key][subkey]:
+				new_state[key].erase(subkey)
+				Std.erase_if_empty(new_state,key)
+				# TEST this makes it so that it sends info every other tick
+				state_collection[key].erase(subkey)
+				continue
+			
+			state_collection[key][subkey] = new_state[key][subkey]
+			
+		
 	
 	if new_state.empty(): return
 	
@@ -63,55 +83,9 @@ func package_state():
 		uid:new_state.duplicate(true)
 	}
 	packaged_state[uid]["T"] = OS.get_system_time_msecs()
+	
 	return packaged_state
 
-
-func package_key(key) -> void:
-	if not state_collection.has(key):
-		state_collection[key] = new_state[key].duplicate(true)
-		return
-
-
-func package_subkey(key,subkey) -> void:
-	if subkey == "DO":
-		package_do(key)
-		return
-	
-	
-	if not subkey == "R" and not subkey == "O":
-		assert(
-			Std.has_all(state_collection,key,subkey),
-			"state_collection must have subkey"
-		)
-	
-	if not state_collection[key].has(subkey):
-		state_collection[key][subkey] = new_state[key][subkey]
-		return
-	
-	if state_collection[key][subkey] == new_state[key][subkey]:
-		new_state[key].erase(subkey)
-		return
-	
-	state_collection[key][subkey] = new_state[key][subkey]
-
-
-func package_do(key) -> void:
-#	if new_state[key].has("O"):
-#		new_state[key].erase("O")
-	
-	if not state_collection[key].has("DO"):
-		state_collection[key]["DO"] = new_state[key]["DO"].duplicate(true)
-		return
-	
-	var ws_p = new_state[key]["DO"]["p"]
-	var wsc_p = state_collection[key]["DO"]["p"]
-	
-	if ws_p == wsc_p:
-		new_state[key].erase("DO")
-		return
-	
-	state_collection[key]["DO"] = new_state[key]["DO"].duplicate(true)
-	state_collection[key].erase("DO")
 
 
 

@@ -13,13 +13,6 @@ var Main
 
 
 func _ready():
-	client.rpc_config("notify_existing_player_about_me",MultiplayerAPI.RPC_MODE_REMOTESYNC)
-	client.rpc_config("receive_world_state_from_server",MultiplayerAPI.RPC_MODE_REMOTESYNC)
-	
-#	server.rpc_config("request_invs",MultiplayerAPI.RPC_MODE_REMOTESYNC)
-	client.rpc_config("receive_invs",MultiplayerAPI.RPC_MODE_REMOTESYNC)
-	client.rpc_config("receive_requested_spawn",MultiplayerAPI.RPC_MODE_REMOTESYNC)
-	
 	# warning-ignore:return_value_discarded
 	get_tree().connect("network_peer_connected", self,"_player_connected")
 	# warning-ignore:return_value_discarded
@@ -29,6 +22,8 @@ func _ready():
 func _player_connected(id):
 	List.add_player(id)
 	client.give_my_info_to(id)
+	if get_tree().is_network_server():
+		client.rpc_id(id,"receive_alws",$server/state_processor.alws)
 
 func got_info_of_new_peer(id) -> void:
 	Main._spawn_player(id)
@@ -57,8 +52,17 @@ func host(var port: int = 4014, var max_peer: int = 4) -> void:
 	get_tree().set_network_peer(_net)
 
 
-func collect_state(state):
+func collect_state(state:Dictionary) -> void:
 	client.collect_state(state)
+
+
+
+""" DO """
+func send_do_state(do_state:Dictionary) -> void:
+	client.send_do_state(do_state)
+func send_received_do_to_main(do) -> void:
+	Main.process_received_do(do)
+""" /DO """
 
 
 
@@ -67,9 +71,8 @@ func send_received_world_state_to_main(world_state):
 
 
 
-func request_envs() -> void:
-	yield(get_tree().create_timer(1),"timeout")
-	server.rpc_id(1,"request_invs")
+func send_br_info(res_env,itm_env) -> void:
+	server.rpc_id(1,"receive_br_info",res_env,itm_env)
 
 
 

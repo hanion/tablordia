@@ -12,32 +12,26 @@ onready var player = $player
 onready var others = $others
 onready var cards = $cards
 
-onready var resource_dispenser = $board/dispenser
-onready var item_dispenser = $board/dispenser2
-
+var br
 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	NetworkInterface.Main = self
-	state_manager.player = player
-	state_manager.others = others
 	
-	List.cards_folder = cards
+	Spawner.cards_folder = cards
 	
 	var my_mat = get_player_material(get_tree().get_network_unique_id())
 	player.get_node("pointer").set_surface_material(0,my_mat)
 	
 	# FIXME remove spawning had directly, make it optional
 	_spawn_hand(get_tree().get_network_unique_id())
-	
-	NetworkInterface.request_envs()
 
 
 
 func _spawn_player(var pid):
 	if pid == get_tree().get_network_unique_id(): return
-	if get_node("others").has_node(str(pid)): return
+	if others.has_node(str(pid)): return
 	
 	
 	var plo = preload("res://scenes/otherPlayer.tscn").instance()
@@ -55,6 +49,8 @@ func _spawn_player(var pid):
 
 func get_player_material(id) -> SpatialMaterial:
 	var material = SpatialMaterial.new()
+	if not List.players.has(id): return null
+	if not List.players[id].has("color"): return null
 	material.albedo_color = List.players[id]["color"] 
 	return material
 
@@ -73,9 +69,12 @@ func _spawn_hand(pid) -> void:
 	
 	
 	var mat = get_player_material(pid)
-	ph.get_node("handMesh").set_surface_material(0, mat)
+	if mat:
+		ph.get_node("handMesh").set_surface_material(0, mat)
 	
-	ph.owner_name = List.players[pid]["name"]
+	ph.owner_id = pid
+	if List.players.has(pid) and List.players[pid].has("name"):
+		ph.owner_name = List.players[pid]["name"]
 	
 	
 	cards.add_child(ph)
@@ -89,6 +88,8 @@ func _spawn_hand(pid) -> void:
 func process_received_world_state(world_state) -> void:
 	state_manager.process_received_world_state(world_state)
 
+func process_received_do(do) -> void:
+	state_manager.process_received_do(do)
 
 
 

@@ -3,8 +3,8 @@ extends Spatial
 export(float,0.05,1.0) var tween_duration = 0.1
 
 
-var player
-var others
+onready var player = get_node("../player")
+onready var others = get_node("../others")
 var last_world_state_timestamp = 0
 onready var tween = $Tween
 
@@ -53,6 +53,8 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 	if _id == NetworkInterface.uid: return
 	
 	if obj_state.has("R"):
+#		obj.rotation = obj_state["R"]
+		
 		tween.interpolate_property(
 		obj,
 		"rotation",
@@ -124,6 +126,8 @@ func move_player_pointer(player_id, transform_origin):
 	tween.start()
 
 
+
+
 func process_received_do(do) -> void:
 	var dragged_name = do["d"]
 	var over_name = do["o"]
@@ -146,7 +150,6 @@ func process_received_do(do) -> void:
 	
 	elif dragged.is_in_slot:
 		dragged.in_slot.remove_from_slot(dragged)
-		
 	
 	elif dragged.is_in_hand:
 		if not over is hand:

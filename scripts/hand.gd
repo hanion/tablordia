@@ -20,6 +20,7 @@ onready var hand_mesh = $handMesh
 
 var inventory := []
 var owner_name: String
+var owner_id: int
 
 
 func _ready():
@@ -54,6 +55,7 @@ func add_card_to_hand(var crd: card, var pos: Vector3) -> void:
 	var global_pos = List.reparent_child(crd,self)
 	
 	crd.translation = Std.complex_rotate(global_pos - translation,rotation.y)
+	crd.rotation_degrees = Vector3(0,0,0)
 	
 	order_inventory()
 	resize_hand()
@@ -72,6 +74,7 @@ func remove_card_from_hand(var crd: card) -> void:
 	List.reparent_child(crd,cards)
 	
 	crd.translation = old_translation
+	crd.rotation = rotation
 	check_after_onemsec(crd,old_translation)
 	order_inventory()
 	resize_hand()
@@ -195,12 +198,9 @@ func on_stopped_dragging() -> void:
 
 func set_resource_hidden(res,is_) -> void:
 	# TODO don't harcode it like that, thats stupid
-	var _name = "hand" + str(NetworkInterface.uid)
-	if name == _name:
-		is_ = false
-	
-	if res.is_resource:
-		res.is_hidden = is_
+	if not NetworkInterface.uid == owner_id:
+		if res.is_resource:
+			res.is_hidden = is_
 
 
 

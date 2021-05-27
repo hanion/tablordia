@@ -16,6 +16,7 @@ func complex_rotate_reverse(var cord: Vector3, var angle) -> Vector3:
 
 func get_object(var object_name) -> Node:
 	var object_path = List.paths.get(object_name)
+	if not object_path: return null
 	
 	var object = get_node(object_path)
 	

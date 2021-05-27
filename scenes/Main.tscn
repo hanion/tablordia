@@ -1,15 +1,12 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/BackRessource.png" type="Texture" id=2]
 [ext_resource path="res://assets/br/BackItem.png" type="Texture" id=3]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=5]
 [ext_resource path="res://assets/materials/table.tres" type="Material" id=6]
 [ext_resource path="res://new_environment.tres" type="Environment" id=7]
-[ext_resource path="res://scenes/trash.tscn" type="PackedScene" id=8]
-[ext_resource path="res://scenes/slot.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/dispenser.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/state_manager.gd" type="Script" id=11]
 [ext_resource path="res://scenes/spawnpanel.tscn" type="PackedScene" id=12]
 
 [sub_resource type="GIProbeData" id=1]
@@ -38,25 +35,14 @@ extents = Vector3( 29, 0.5, 20 )
 [sub_resource type="CubeMesh" id=6]
 size = Vector3( 59, 1, 40 )
 
-[sub_resource type="BoxShape" id=7]
-extents = Vector3( 5.15, 0.05, 4.89 )
-
-[sub_resource type="CubeMesh" id=8]
-size = Vector3( 10.3, 0.1, 9.78 )
-
-[sub_resource type="SpatialMaterial" id=9]
-albedo_texture = ExtResource( 1 )
-metallic_specular = 0.0
-roughness = 0.59
-uv1_scale = Vector3( 0.097, 0.182, 0.102 )
-uv1_offset = Vector3( 0.5, 0.014, 0.499 )
-uv1_triplanar = true
-
 [node name="Main" type="Spatial"]
 script = ExtResource( 5 )
 positions = [ NodePath("positions/p1"), NodePath("positions/p2"), NodePath("positions/p3"), NodePath("positions/p4") ]
 
-[node name="state_manager(maybe)" type="Spatial" parent="."]
+[node name="state_manager" type="Spatial" parent="."]
+script = ExtResource( 11 )
+
+[node name="Tween" type="Tween" parent="state_manager"]
 
 [node name="player" parent="." instance=ExtResource( 4 )]
 
@@ -69,6 +55,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 visible = false
 
 [node name="environment" type="Spatial" parent="."]
+visible = false
 
 [node name="DirectionalLight" type="DirectionalLight" parent="environment"]
 transform = Transform( 0.974116, -0.210635, 0.0820423, -0.225518, -0.930426, 0.288874, 0.0154871, -0.299899, -0.953845, -2, 14.1591, -9.56406 )
@@ -125,57 +112,6 @@ transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, 1, 0, -0.1, -4.37114e-08, 3.2
 visible = false
 texture = ExtResource( 2 )
 
-[node name="board" type="Spatial" parent="." groups=[
-"rotatable",
-]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016, 0 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="board" type="StaticBody" parent="board"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0331401, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="board/board"]
-shape = SubResource( 7 )
-
-[node name="MeshInstance" type="MeshInstance" parent="board/board"]
-mesh = SubResource( 8 )
-material/0 = SubResource( 9 )
-
-[node name="boardsprite" type="Sprite3D" parent="board/board"]
-transform = Transform( 0.2, 0, 0, 0, -8.74228e-09, 1, 0, -0.2, -4.37114e-08, 0, 0.0901401, 0 )
-visible = false
-texture = ExtResource( 1 )
-
-[node name="trash" parent="board" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17472, 0.046, -2.7039 )
-only_resources = true
-
-[node name="dispenser" parent="board" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.169, 0.046, -2.599 )
-dispense = "resource"
-
-[node name="dispenser2" parent="board" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.169, 0.046, 2.599 )
-dispense = "item"
-
-[node name="trash2" parent="board" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.175, 0.046, 2.704 )
-only_items = true
-
-[node name="slot" parent="board" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88763, 0.046, 0 )
-
-[node name="slot2" parent="board" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.981272, 0.046, 0 )
-
-[node name="slot3" parent="board" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.957097, 0.046, 0 )
-
-[node name="slot4" parent="board" instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86737, 0.046, 0 )
-
 [node name="positions" type="Spatial" parent="."]
 visible = false
 
@@ -209,7 +145,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 [node name="others" type="Spatial" parent="."]
 
 [node name="cards" type="Spatial" parent="."]
-
-[node name="Tween" type="Tween" parent="."]
 
 [editable path="player"]

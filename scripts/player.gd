@@ -128,8 +128,13 @@ func rotate_one_tick(obj, is_reverse := false) -> void:
 	
 	var dir = -1 if is_reverse else 1
 	
-	obj.rotate_y(deg2rad(rotatiton_one_tick*dir))
-	define_obj_rotation_state(obj)
+	
+	if obj is card and obj.is_in_hand and obj.in_hand:
+		obj.in_hand.rotate_y(deg2rad(rotatiton_one_tick*dir))
+		define_obj_state(obj.in_hand)
+	else:
+		obj.rotate_y(deg2rad(rotatiton_one_tick*dir))
+		define_obj_state(obj)
 
 
 
@@ -222,12 +227,13 @@ func dragged_over(var dragged: card,var over: Spatial,var pos: Vector3) -> void:
 	
 	if not _should_send(dragged,over): return
 	
-	_do_dragged = dragged.name
-	_do_over = over.name
-	_do_pos = pos as Vector3
-	_do_is_dragged_over = true
-	print("dragged over")
-	define_obj_state(dragged)
+	print("\nᐳᐳ>nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
+	"\ndragged over",
+	"        d:",dragged.name,
+	",        o:",over.name,
+	",        p:",pos)
+	define_do_state(dragged,over,pos)
+
 
 func _should_send(drgd: card, ovr) -> bool:
 	if drgd.is_in_hand: return true
@@ -265,33 +271,23 @@ func define_pointer_state(origin: Vector3) -> void:
 	}
 	NetworkInterface.collect_state(state)
 
-func define_obj_state(drgn, _tr = Vector3(0,0,0)) -> void:
-	if _tr == Vector3(0,0,0):
-		_tr = Std.get_global(drgn)
-	
+func define_obj_state(drgn) -> void:
 	var state = {
 		drgn.name:{
-			"O": _tr
-		}
-	}
-	
-	if _do_is_dragged_over:
-		state[drgn.name]["DO"] = {
-			"d":_do_dragged,
-			"o":_do_over,
-			"p":_do_pos
-		}
-		_do_is_dragged_over = false
-	
-	
-	NetworkInterface.collect_state(state)
-
-
-func define_obj_rotation_state(obj) -> void:
-	var state = {
-		obj.name:{
-			"R":obj.rotation
+			"O": Std.get_global(drgn),
+			"R":drgn.rotation
 		}
 	}
 	
 	NetworkInterface.collect_state(state)
+
+
+func define_do_state(d,o,p) ->  void:
+	var do_state = {
+		"d":d.name,
+		"o":o.name,
+		"p":p
+		}
+	
+	NetworkInterface.send_do_state(do_state)
+	

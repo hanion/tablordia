@@ -1,10 +1,17 @@
 extends Spatial
 
+const br_card_path = "res://scenes/br_card.tscn"
+const br_board_path = "res://scenes/br/br.tscn"
+
+const hand_path = "res://scenes/hand.tscn"
+
+var cards_folder
+
 var resource_index:int = 0
 var item_index:int = 0
-var misc_index:int = 0
+var hand_index:int = 0
 
-const br_card_path = "res://scenes/br_card.tscn"
+
 
 func request_spawn(type,value,amount) -> void:
 	NetworkInterface.request_spawn(type,value,amount)
@@ -18,7 +25,7 @@ func _spawn(type,value,amount) -> void:
 			spawn_brc(type,value)
 	elif type == "misc":
 		for _i in range(amount):
-			spawn_misc()
+			spawn_misc(value)
 	else:
 		push_error("unknown type to spawn")
 
@@ -42,9 +49,9 @@ func spawn_brc(type,value) -> void:
 	brc.card_value = card_value
 	brc.is_hidden = false
 	
-	brc.set_material()
+	brc.update_material()
 	
-	List.cards_folder.add_child(brc)
+	cards_folder.add_child(brc)
 	List.paths[brc.name] = brc.get_path()
 	
 	tweenit(
@@ -55,11 +62,45 @@ func spawn_brc(type,value) -> void:
 
 
 
-func spawn_misc() -> void:
-	pass
+func spawn_misc(val) -> void:
+	match val:
+		1:
+			spawn_misc_br()
+		2:
+			spawn_misc_hand()
 
 
 
+func spawn_misc_br() -> void:
+	var br = load(br_board_path).instance()
+	get_node("/root/Main").add_child(br)
+	List.paths[br.name] = br.get_path()
+	tweenit(
+		br,
+		Vector3(0,-0.1,0),
+		Vector3(0,0.004,0)
+		)
+
+
+func spawn_misc_hand() -> void:
+	var ph = preload(hand_path).instance()
+	ph.set_name("hand"+str(hand_index))
+	hand_index += 1
+	
+	ph.translation = Vector3(0,0.5,0)
+	
+#	var mat = get_player_material(pid)
+#	if mat:
+#		ph.get_node("handMesh").set_surface_material(0, mat)
+#
+#	ph.owner_id = pid
+#	if List.players.has(pid) and List.players[pid].has("name"):
+#		ph.owner_name = List.players[pid]["name"]
+	
+	
+	cards_folder.add_child(ph)
+	
+	List.paths[ph.name] = ph.get_path()
 
 
 

@@ -1,6 +1,5 @@
 extends Node
 
-var cards_folder
 var players := {
 #	id:{
 #			"name": name,
@@ -24,7 +23,7 @@ func add_player(var id, var p: Dictionary = {}) -> void:
 	
 	players[id] = new_dict
 	
-	print("L: player added to List, name: , id: ",id)
+#	print("L: player added to List, id: ",id)
 	
 
 
@@ -61,18 +60,7 @@ func reparent_child(var child: Spatial, var new_parent: Spatial):
 var paths := {
 	"node_name":"node_path"
 	,
-	"board":"/root/Main/board/board",
-	"table":"/root/Main/tablo/table",
-	
-	"dispenser":"/root/Main/board/dispenser",
-	"dispenser2":"/root/Main/board/dispenser2",
-	"trash":"/root/Main/board/trash",
-	"trash2":"/root/Main/board/trash2",
-	
-	"slot":"/root/Main/board/slot",
-	"slot2":"/root/Main/board/slot2",
-	"slot3":"/root/Main/board/slot3",
-	"slot4":"/root/Main/board/slot4"
+	"table":"/root/Main/tablo/table"
 	
 }
 

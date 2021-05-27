@@ -25,10 +25,7 @@ var items := [
 	]
 
 
-func _ready():
-	yield(get_tree().create_timer(0.2),"timeout")
-	if not get_tree().is_network_server(): return
-	
+func create_inventory() -> void:
 	if dispense == "item":
 		shuffle(items)
 	elif dispense == "resource":
@@ -85,7 +82,7 @@ func spawn_brc() -> void:
 	
 	setup_brc(brc)
 	
-	List.cards_folder.add_child(brc)
+	Spawner.cards_folder.add_child(brc)
 	List.paths[brc.name] = brc.get_path()
 	
 	tweenit(
@@ -127,7 +124,7 @@ func setup_brc(brc) -> void:
 	elif brc.is_resource:
 		mat = brc.res_mats[0].duplicate(true) # back
 	
-	brc.get_node("mesh").set_material_override(mat)
+	brc.set_material(mat)
 
 
 

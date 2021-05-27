@@ -22,11 +22,6 @@ func spawn() -> void:
 	get_node("vb/amount").amount = 1
 
 
-func spawn_misc() -> void:
-	pass
-
-
-
 
 
 

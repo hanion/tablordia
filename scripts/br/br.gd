@@ -1,9 +1,13 @@
-extends card
-class_name br_card
-
+extends Spatial
 
 export(Array,SpatialMaterial) var res_mats := []
 export(Array,SpatialMaterial) var item_mats := []
+
+onready var Main = get_parent()
+
+onready var resource_dispenser = $dispenser
+onready var item_dispenser = $dispenser2
+
 
 const items := [
 	[
@@ -76,37 +80,42 @@ const items := [
 	]
 	]
 
-func update_material():
-	var mat: SpatialMaterial 
-	if is_resource:
-		mat = res_mats[card_value].duplicate(true)
-	elif is_item:
-		var base = 1 if card_value > 29 else 0
-		mat = item_mats[base].duplicate(true)
-		mat.set_uv1_offset(items[base][card_value-(30*base)])
+const my_paths := {
+	"board":"/root/Main/br/board",
 	
-	set_material(mat)
-
-
-
-
-func set_is_hidden(val) -> void:
-	if is_item: return
+	"dispenser":"/root/Main/br/dispenser",
+	"dispenser2":"/root/Main/br/dispenser2",
+	"trash":"/root/Main/br/trash",
+	"trash2":"/root/Main/br/trash2",
 	
-	var mat
+	"slot":"/root/Main/br/slot",
+	"slot2":"/root/Main/br/slot2",
+	"slot3":"/root/Main/br/slot3",
+	"slot4":"/root/Main/br/slot4"
+	}
+
+
+func _ready() -> void:
+	Main.br = self
 	
-	if val:
-		mat = res_mats[0].duplicate(true)
-	else:
-		mat = res_mats[card_value].duplicate(true)
+	write_paths()
 	
-	set_material(mat)
+	
+	if not get_tree().is_network_server(): return
+	
+	resource_dispenser.create_inventory()
+	item_dispenser.create_inventory()
+	
+	NetworkInterface.send_br_info(resource_dispenser.env,item_dispenser.items)
+
+func write_paths() -> void:
+	for objname in my_paths.keys():
+		if List.paths.has(objname):
+			push_error("List already has this objects path")
+		List.paths[objname] = my_paths[objname]
+	
 
 
-
-func notify_dispenser() -> void:
-	update_material()
-	is_hidden = false
-	is_in_dispenser = false
-	in_dispenser.notify()
-
+func receive_br_info(res,itm) -> void:
+	resource_dispenser.set_received_inv(res)
+	item_dispenser.set_received_inv(itm)

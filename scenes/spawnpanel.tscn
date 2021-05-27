@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/Steel.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://scripts/spawnmenu/inspector/amount.gd" type="Script" id=13]
 [ext_resource path="res://scripts/spawnmenu/inspector/Scroll_BR.gd" type="Script" id=14]
 [ext_resource path="res://assets/br/base2.png" type="Texture" id=15]
+[ext_resource path="res://goldicon.png" type="Texture" id=16]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 23
@@ -386,6 +387,7 @@ __meta__ = {
 }
 
 [node name="Items" type="ScrollContainer" parent="vb/mrgn/hs/games/BoardRoyale"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -400,7 +402,7 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items"]
-margin_right = 1378.0
+margin_right = 1390.0
 margin_bottom = 3890.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2601,7 +2603,6 @@ text = "resource"
 align = 1
 
 [node name="Misc" type="ScrollContainer" parent="vb/mrgn/hs/games/BoardRoyale"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -2656,7 +2657,7 @@ text = "misc"
 align = 1
 
 [node name="m1" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid"]
-margin_right = 277.0
+margin_right = 276.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 144, 350 )
 size_flags_horizontal = 3
@@ -2675,7 +2676,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1/vb"]
 process_priority = -5
-margin_right = 257.0
+margin_right = 256.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2685,9 +2686,45 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1/vb"]
 margin_top = 306.0
-margin_right = 257.0
+margin_right = 256.0
 margin_bottom = 335.0
-text = "Board"
+text = "Board Royale"
+align = 1
+
+[node name="m2" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid"]
+margin_left = 280.0
+margin_right = 556.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2/vb"]
+process_priority = -5
+margin_right = 256.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2/vb"]
+margin_top = 306.0
+margin_right = 256.0
+margin_bottom = 335.0
+text = "Hand"
 align = 1
 
 [node name="Monopoly" type="Control" parent="vb/mrgn/hs/games"]
@@ -2898,6 +2935,7 @@ text = "Spawn"
 [connection signal="pressed" from="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s3" to="vb/mrgn/hs/games/BoardRoyale" method="_on_s3_pressed"]
 [connection signal="pressed" from="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s4" to="vb/mrgn/hs/games/BoardRoyale" method="_on_s4_pressed"]
 [connection signal="pressed" from="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1" to="vb/mrgn/hs/games/BoardRoyale" method="_on_m1_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2" to="vb/mrgn/hs/games/BoardRoyale" method="_on_m2_pressed"]
 [connection signal="amount_changed" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR" method="_on_amount_amount_changed"]
 [connection signal="pressed" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount/minus" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount" method="_on_minus_pressed"]
 [connection signal="text_entered" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount/value" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount" method="_on_value_text_entered"]

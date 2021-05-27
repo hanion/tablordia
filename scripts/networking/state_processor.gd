@@ -1,15 +1,17 @@
 extends Node
 
 
-var world_state = {}
-var world_state_collection = {}
-var update_frame_time = 4
+var world_state := {}
+var world_state_collection := {}
+var alws := {} # all_latest_world_states
+var update_frame_time = 5
 
 func _physics_process(_delta):
 	if not get_tree().has_network_peer(): return
 	# if we are not the host, delete processor
 	if not get_tree().is_network_server(): 
 		queue_free()
+		print("State Processor: Aight, imma head out")
 		return
 	
 	
@@ -17,7 +19,10 @@ func _physics_process(_delta):
 #		print("**sending do _pp")
 		process_world_state()
 
-
+func _input(event):
+	if event is InputEventKey:
+		if event.is_action_pressed("camera_right"):
+			print("\n\n alws:\n",alws,"\n\n")
 
 func process_world_state():
 	if get_parent().world_state_up.empty(): return
@@ -25,110 +30,68 @@ func process_world_state():
 	world_state = get_parent().world_state_up.duplicate(true)
 	
 	
-	remove_redundant_and_save_to_collection()
+	var going_world_state = world_state
+	if not going_world_state: return
+	
+	# TMP What if we trust client and not process it
+#	print("  s:sp: processed state   ",world_state)
 	get_parent().world_state_up.clear()
 	
 	if world_state.empty(): return
 	
 	
-	
 	###########################################################################
 	# Anti cheat
 	# checks
-	world_state["T"] = OS.get_system_time_msecs()
-	var going_world_state = world_state.duplicate(true)
+	save_state_to_collection(world_state)
+	going_world_state["T"] = OS.get_system_time_msecs()
 	get_parent().send_processed_world_state_to_client(going_world_state)
 	###########################################################################
 
 
-# removes items   if last_world_state contains and identical to new ones
-# removes "T" from world_state before sending to client
-func remove_redundant_and_save_to_collection() -> void:
-	if world_state_collection.empty():
-		world_state_collection = world_state.duplicate(true)
-		return
+
+
+"""
+var all_latest_world_states = { # alws
+	obj_name:{
+		T:time,
+		pos:pos,
+		rot:rot,
+		DO:{"DO STATE"}
+		}
+	}
+"""
+
+func save_state_to_collection(state):
+	if state.empty(): return
 	
-#	print("\nupws:\n",world_state)
-#	print("\nwsc:\n",world_state_collection)
-	for id in world_state.keys():
-		rr_from_id(id)
-		
-		for key in world_state[id].keys():
-			if key == "T": continue
-			rr_from_key(id,key)
+	for sid in state.keys():
+		for key in state[sid].keys():
+			if key == "T":
+				continue
+			elif key == "pointer":
+				continue
+	#			update_pointer(sid,istate["pointer"],istate["T"])
+			else:
+				update_obj(key, state[sid][key], state[sid]["T"])
 			
-			for subkey in world_state[id][key].keys():
-				rr_from_subkey(id,key,subkey)
-				
-			
-			Std.erase_if_empty(world_state[id],key)
-		
-		Std.erase_if_empty(world_state,id)
-		
-	
-#	if not world_state.empty():
-#		print("\nws--------:\n",world_state)
-	
-
-func rr_from_id(id) -> void:
-	if not world_state_collection.has(id):
-		world_state_collection[id] = world_state[id].duplicate(true)
-#		continue
-	
-	
-	if world_state_collection[id]["T"] > world_state[id]["T"]:
-		world_state.erase(id)
-		print("noo")
-		return
-	
-	Std.erase_t(world_state[id])
 
 
-func rr_from_key(id,key) -> void:
-	if key == "T":
-		world_state_collection[id]["T"] = world_state[id]["T"]
-		Std.erase_t(world_state[id])
-		return
+func update_obj(obn, obs, time) -> void:
+	if not alws.has(obn):
+		alws[obn] = obs.duplicate(true)
+		alws[obn]["T"] = time
 	
-	if not world_state_collection[id].has(key):
-		world_state_collection[id][key] = world_state[id][key].duplicate(true)
-		return
-
-
-func rr_from_subkey(id,key,subkey) -> void:
-	if subkey == "DO":
-		rr_from_do(id,key)
-		return
+	assert(alws[obn].has("T"), "no")
 	
-	if not Std.has_all(world_state_collection,id,key,subkey):
-		world_state_collection[id][key][subkey] = world_state[id][key][subkey]
-		return
+	if alws[obn]["T"] < time:
+		alws[obn] = obs.duplicate(true)
+		alws[obn]["T"] = time
 	
-	if world_state_collection[id][key][subkey] == world_state[id][key][subkey]:
-		world_state[id][key].erase(subkey)
-		return
-	
-	world_state_collection[id][key][subkey] = world_state[id][key][subkey]
+#	print("obn:",obn,"\nobs:",obs,"\n")
 
 
 
-func rr_from_do(id,key) -> void:
-	
-	if not world_state_collection[id][key].has("DO"):
-		world_state_collection[id][key]["DO"] = world_state[id][key]["DO"].duplicate(true)
-		return
-	
-	var ws_p = world_state[id][key]["DO"]["p"]
-	var wsc_p = world_state_collection[id][key]["DO"]["p"]
-	
-	if ws_p == wsc_p:
-		world_state[id][key].erase("DO")
-		return
-	
-	world_state_collection[id][key]["DO"] = world_state[id][key]["DO"].duplicate(true)
-	world_state_collection[id][key].erase("DO")
-#	world_state[id][key].erase("DO")
-	
 
 
 

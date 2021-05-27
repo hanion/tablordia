@@ -33,9 +33,6 @@ onready var col = $CollisionShape
 
 
 
-
-
-
 func set_is_hidden(val) -> void:
 	is_hidden = val
 
@@ -52,6 +49,13 @@ func set_type(tip:String) -> void:
 		"item":
 			is_item = true
 		
+
+
+
+func set_material(mat:SpatialMaterial) -> void:
+	$mesh.set_material_override(mat)
+
+
 
 
 

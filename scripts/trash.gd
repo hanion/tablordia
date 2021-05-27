@@ -100,6 +100,9 @@ func bring_back_old_card() -> void:
 
 
 
+
+var _is_player_dragging := false
+
 func on_started_dragging(it) -> void:
 	if not it is br_card: return
 	if only_items and it.is_item:
@@ -112,6 +115,8 @@ func on_started_dragging(it) -> void:
 	if env.empty(): return
 	if env.back():
 		env.back().set_collision_layer_bit(0,false)
+	
+	_is_player_dragging = true
 
 func on_stopped_dragging() -> void:
 	col.shape.extents.y = 0.04
@@ -120,6 +125,8 @@ func on_stopped_dragging() -> void:
 	if env.empty(): return
 	if env.back():
 		env.back().set_collision_layer_bit(0,true)
+	
+	_is_player_dragging = false
 
 
 
@@ -138,9 +145,13 @@ func check_after_onesec():
 	if not env.back().in_trash == self: return
 	if env.back().translation == translation + Vector3(0, off_y ,0): return
 	
+	if _is_player_dragging:
+		return
+	
 	env.back().translation = translation + Vector3(0, off_y ,0)
 #	env.is_in_slot = true
 #	env.in_slot = self
+	
 	print("checked trash")
 	check_after_onesec()
 
