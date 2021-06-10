@@ -26,12 +26,8 @@ func set_inspector(gaem, type, naem, val) -> void:
 
 func set_inspector_for_br(type,naem,val) -> void:
 	BR.visible = true
-	BR.type = type
-	BR.naem = naem
-	BR.val = val
+	BR.set_scroll_for_selection(type,naem,val)
 	set_selection_name(naem)
-	
-	
 
 
 

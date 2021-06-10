@@ -6,22 +6,37 @@ var type:String
 var naem:String
 var val:int
 
+var hand_owner_id:int
+
 const br_card_path = "res://scenes/br_card.tscn"
 
 var off_y = 0.04
 
 onready var tween = get_node("../../../../../../../Tween")
 
-
-func _on_amount_amount_changed(am):
-	amount = am
-
-
 func spawn() -> void:
-	Spawner.request_spawn(type,val,amount)
+	var info  = {
+		"type":type,
+		"amount":amount,
+		"value":val,
+		"owner_id":hand_owner_id
+		
+		}
+	Spawner.request_spawn(info)
 	get_node("vb/amount").amount = 1
 
-
+func set_scroll_for_selection(_type,_naem,_val) -> void:
+	type = _type
+	naem = _naem
+	val = _val
+	
+	
+	
+	if naem == "Hand":
+		$vb/owner.visible = true
+	else:
+		$vb/owner.visible = false
+		
 
 
 
@@ -50,3 +65,12 @@ func tweenit(obj: Spatial, first, final) -> void:
 		Tween.EASE_IN_OUT
 		)
 	tween.start()
+
+
+
+func _on_amount_amount_changed(am):
+	amount = am
+
+
+func _on_owner_on_owner_changed(ownerid):
+	hand_owner_id = ownerid
