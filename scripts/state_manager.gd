@@ -149,7 +149,8 @@ func process_received_do(do) -> void:
 		dragged.in_trash.remove_from_trash(dragged)
 	
 	elif dragged.is_in_slot:
-		dragged.in_slot.remove_from_slot(dragged)
+		print("yeaa it is in slot")
+#		dragged.in_slot.remove_from_slot(dragged)
 	
 	elif dragged.is_in_hand:
 		if not over is hand:
@@ -163,7 +164,7 @@ func process_received_do(do) -> void:
 		over.add_to_trash(dragged)
 	
 	elif over is slot:
-		print("    ¨slotted ",dragged_name)
+		print("    ¨slotted ",dragged_name, dragged.is_in_slot)
 		over.add_to_slot(dragged)
 	
 	elif over is hand:

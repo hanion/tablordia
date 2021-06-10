@@ -51,8 +51,8 @@ func _on_s4_pressed():
 
 
 func _on_m1_pressed():
-	br_pressed("misc","Board",1)
+	br_pressed("misc","BoardRoyale",1)
 
 
 func _on_m2_pressed():
-	br_pressed("misc","Board",2)
+	br_pressed("misc","Hand",2)

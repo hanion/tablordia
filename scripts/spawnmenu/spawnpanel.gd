@@ -1,6 +1,7 @@
 extends Panel
 # SpawnPanel
-
+signal on_menu_opened()
+signal on_menu_closed()
 
 
 func open_menu() -> void:
@@ -12,6 +13,7 @@ func open_menu() -> void:
 	get_node("../..").player.is_blocked_by_ui = true
 	get_node("../..").player.get_node("CAM")._lock_movement = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	emit_signal("on_menu_opened")
 
 
 func close_menu() -> void:
@@ -19,7 +21,7 @@ func close_menu() -> void:
 	get_node("../..").player.is_blocked_by_ui = false
 	get_node("../..").player.get_node("CAM")._lock_movement = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
+	emit_signal("on_menu_closed")
 
 
 func _on_CloseButton_pressed():
