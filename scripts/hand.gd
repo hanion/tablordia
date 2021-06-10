@@ -17,26 +17,37 @@ export(float) var off_y = 0.25
 onready var cards = get_parent()
 onready var col = $handCol
 onready var hand_mesh = $handMesh
+onready var nametag = $nametag3d/Viewport/nametag
 
 var inventory := []
+
 var owner_name: String
 var owner_id: int
-
+var am_i_the_owner:bool = false
 
 func _ready():
 	col.shape = col.shape.duplicate(true)
 	hand_mesh.mesh = hand_mesh.mesh.duplicate(true)
 	
-	var nmtg = get_node("nametag3d/Viewport/nametag")
-	var nmtg2 = get_node("nametag3d2/Viewport/nametag")
-	nmtg.text = owner_name
-	nmtg2.text = owner_name
-	nmtg.set("custom_colors/font_color", hand_mesh.get_surface_material(0).albedo_color)
-	nmtg2.set("custom_colors/font_color", hand_mesh.get_surface_material(0).albedo_color)
-	
 	var player = get_node("../../player")
 	player.connect("started_dragging",self,"on_started_dragging")
 	player.connect("stopped_dragging",self,"on_stopped_dragging")
+
+
+func set_hand_color(color) -> void:
+	nametag.set("custom_colors/font_color", color)
+	
+	var mat = SpatialMaterial.new()
+	mat.set_albedo(color)
+	hand_mesh.set_surface_material(0,mat)
+
+
+func set_hand_owner(_owner_id, _owner_name) -> void:
+	owner_id = _owner_id
+	owner_name = _owner_name
+	nametag.text = owner_name
+
+
 
 
 
@@ -197,7 +208,6 @@ func on_stopped_dragging() -> void:
 
 
 func set_resource_hidden(res,is_) -> void:
-	# TODO don't harcode it like that, thats stupid
 	if not NetworkInterface.uid == owner_id:
 		if res.is_resource:
 			res.is_hidden = is_
