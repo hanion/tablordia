@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/Steel.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scripts/spawnmenu/inspector/Scroll_BR.gd" type="Script" id=14]
 [ext_resource path="res://assets/br/base2.png" type="Texture" id=15]
 [ext_resource path="res://goldicon.png" type="Texture" id=16]
+[ext_resource path="res://scripts/spawnmenu/inspector/owner.gd" type="Script" id=17]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 23
@@ -387,7 +388,6 @@ __meta__ = {
 }
 
 [node name="Items" type="ScrollContainer" parent="vb/mrgn/hs/games/BoardRoyale"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -402,7 +402,7 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items"]
-margin_right = 1390.0
+margin_right = 1378.0
 margin_bottom = 3890.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2603,6 +2603,7 @@ text = "resource"
 align = 1
 
 [node name="Misc" type="ScrollContainer" parent="vb/mrgn/hs/games/BoardRoyale"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -2912,6 +2913,26 @@ focus_neighbour_left = NodePath("../value")
 size_flags_stretch_ratio = 0.0
 text = "+"
 
+[node name="owner" type="HBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb"]
+visible = false
+margin_top = 33.0
+margin_right = 472.0
+margin_bottom = 62.0
+script = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/owner"]
+margin_right = 385.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+text = "Owner"
+align = 1
+
+[node name="OptionButton" type="OptionButton" parent="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/owner"]
+margin_left = 389.0
+margin_right = 472.0
+margin_bottom = 29.0
+text = "Owner"
+
 [node name="HSeparator2" type="HSeparator" parent="vb/mrgn/hs/configurer/Inspector/vb"]
 visible = false
 margin_top = 932.0
@@ -2940,4 +2961,6 @@ text = "Spawn"
 [connection signal="pressed" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount/minus" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount" method="_on_minus_pressed"]
 [connection signal="text_entered" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount/value" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount" method="_on_value_text_entered"]
 [connection signal="pressed" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount/plus" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/amount" method="_on_plus_pressed"]
+[connection signal="on_owner_changed" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/owner" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR" method="_on_owner_on_owner_changed"]
+[connection signal="item_selected" from="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/owner/OptionButton" to="vb/mrgn/hs/configurer/Inspector/vb/Scroll_BR/vb/owner" method="_on_OptionButton_item_selected"]
 [connection signal="pressed" from="vb/mrgn/hs/configurer/Inspector/vb/SpawnButton" to="vb/mrgn/hs/configurer/Inspector" method="_on_SpawnButton_pressed"]
