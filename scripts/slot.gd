@@ -13,6 +13,7 @@ onready var col = $CollisionShape
 onready var mes = $MeshInstance
 onready var tween = $Tween
 
+var _is_player_dragging = false
 
 func _ready():
 	col.shape = col.shape.duplicate(true)
@@ -39,7 +40,6 @@ func add_to_slot(obj: card) -> void:
 	
 	env = obj
 	obj.translation = translation + Vector3(0, off_y ,0)
-	
 	check_after_onesec()
 
 
@@ -69,26 +69,43 @@ func on_started_dragging(it) -> void:
 		env.is_in_slot = false
 		env.in_slot = null
 		env = null
-
+	
+	_is_player_dragging = true
 
 
 
 func on_stopped_dragging() -> void:
 	col.disabled = true
 	mes.visible = false
+	_is_player_dragging = false
 
 
 func check_after_onesec():
+	
 	yield(get_tree().create_timer(0.1),"timeout")
-	if not env: return
-	if not env.is_in_slot: return
-	if not env.in_slot == self: return
-	if env.translation == translation + Vector3(0, off_y ,0): return
+	if not env: 
+		print("slotcheck error: 1")
+		return
+	if not env.is_in_slot: 
+		prints("slotcheck error: 2",env.name,"as",self.name,env.is_in_slot)
+		env.is_in_slot = true
+		check_after_onesec()
+		return
+	if not env.in_slot == self: 
+		print("slotcheck error: 3")
+		return
+	if env.translation == translation + Vector3(0, off_y ,0): 
+		return
+	
+	if _is_player_dragging:
+		print("slotcheck error: 4")
+		return
+	
 	
 	env.translation = translation + Vector3(0, off_y ,0)
 #	env.is_in_slot = true
 #	env.in_slot = self
-	print("checked")
+	print("slotcheck: checked ", env.name, " as ", self.name)
 	check_after_onesec()
 
 
