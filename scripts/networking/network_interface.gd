@@ -27,7 +27,7 @@ func _player_connected(id):
 
 func got_info_of_new_peer(id) -> void:
 	Main._spawn_player(id)
-	Main._spawn_hand(id)
+#	Main._spawn_hand(id)
 
 
 
@@ -76,6 +76,6 @@ func send_br_info(res_env,itm_env) -> void:
 
 
 
-func request_spawn(_type,_value,_amount) -> void:
-	server.rpc_id(1,"request_spawn",_type,_value,_amount)
+func request_spawn(info) -> void:
+	server.rpc_id(1,"request_spawn",info)
 

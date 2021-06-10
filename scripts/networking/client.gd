@@ -99,8 +99,8 @@ remote func notify_existing_player_about_me(var you: Dictionary) -> void:
 remote func receive_br_info(res,itm) -> void:
 	NetworkInterface.Main.br.receive_br_info(res,itm)
 
-remote func receive_requested_spawn(_ty,_va,_am) -> void:
-	Spawner.receive_requested_spawn(_ty,_va,_am)
+remote func receive_requested_spawn(info) -> void:
+	Spawner.receive_requested_spawn(info)
 
 
 remote func receive_alws(alws) -> void:
