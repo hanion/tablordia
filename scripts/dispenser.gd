@@ -62,38 +62,21 @@ func shuffle(dict:Array) -> void:
 		dict[i] = second_val
 		dict[ran] = first_val
 
+func request_spawn_brc() -> void:
+	if not get_tree().is_network_server(): return
+	
+	var info = {
+		"in_dispenser":self.name,
+		"type":dispense,
+		"amount":1,
+		"value":_get_brc_card_value(),
+		"translation":(translation + Vector3(0,off_y,0))
+	}
+	Spawner.request_spawn(info)
+	
 
 
-func spawn_brc() -> void:
-	var brc = load(br_card_path).instance()
-	
-	brc.is_in_dispenser = true
-	brc.in_dispenser = self
-	
-	
-	
-	if dispense == "item":
-		brc.set_name("item"+str(Spawner.item_index))
-		Spawner.item_index += 1
-	elif dispense == "resource":
-		brc.set_name(dispense+str(Spawner.resource_index))
-		Spawner.resource_index += 1
-	
-	
-	setup_brc(brc)
-	
-	Spawner.cards_folder.add_child(brc)
-	List.paths[brc.name] = brc.get_path()
-	
-	tweenit(
-		brc,
-		translation - Vector3(0,off_y,0),
-		translation + Vector3(0,off_y,0)
-		)
-
-
-
-func setup_brc(brc) -> void:
+func _get_brc_card_value() -> int:
 	var obj_index
 	var objs_array
 	
@@ -105,7 +88,6 @@ func setup_brc(brc) -> void:
 		obj_index = Spawner.resource_index
 		objs_array = env
 	
-	brc.set_type(dispense)
 	
 	var card_value
 	
@@ -114,22 +96,12 @@ func setup_brc(brc) -> void:
 	else:
 		card_value = objs_array[obj_index]
 	
-	brc.card_value = card_value
-	
-	# set back material
-	var mat: SpatialMaterial 
-	if brc.is_item:
-		mat = brc.item_mats[0].duplicate(true)
-		mat.set_uv1_offset(brc.items[0][0]) # back
-	elif brc.is_resource:
-		mat = brc.res_mats[0].duplicate(true) # back
-	
-	brc.set_material(mat)
+	return card_value
 
 
 
 func notify() -> void:
-	spawn_brc()
+	request_spawn_brc()
 
 
 
@@ -138,7 +110,7 @@ func set_received_inv(inv) -> void:
 		items = inv
 	else:
 		env = inv
-	spawn_brc()
+	request_spawn_brc()
 
 
 
