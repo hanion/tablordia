@@ -91,7 +91,13 @@ func update_material():
 
 
 func set_is_hidden(val) -> void:
-	if is_item: return
+	if is_item:
+		var mat
+		if val:
+			mat = item_mats[0].duplicate(true)
+			mat.set_uv1_offset(items[0][0])
+			set_material(mat)
+		return
 	
 	var mat
 	
