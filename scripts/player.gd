@@ -204,7 +204,7 @@ func drag() -> void:
 		dragging,
 		"translation",
 		dragging.translation,
-		Std.get_local(dragging,new_coord),
+		new_coord,
 		Std.tween_duration/3,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN
