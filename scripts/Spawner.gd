@@ -1,9 +1,9 @@
 extends Spatial
 
-const br_card_path = "res://scenes/br_card.tscn"
-const br_board_path = "res://scenes/br/br.tscn"
+const br_card_path = "res://Games/br/br_card.tscn"
+const br_board_path = "res://Games/br/br.tscn"
 
-const hand_path = "res://scenes/hand.tscn"
+const hand_path = "res://Games/hand.tscn"
 
 var cards_folder
 

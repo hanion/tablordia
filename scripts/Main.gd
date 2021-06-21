@@ -3,7 +3,7 @@ extends Spatial
 
 
 export(Array,NodePath) var positions := []
-
+const hand_path = "res://Games/hand.tscn"
 
 var currently_moving := []
 
@@ -54,7 +54,7 @@ func get_player_material(id) -> SpatialMaterial:
 
 
 func _spawn_hand(pid) -> void:
-	var ph = preload("res://scenes/hand.tscn").instance()
+	var ph = preload(hand_path).instance()
 	ph.set_name("hand"+str(pid))
 	ph.set_network_master(pid)
 	

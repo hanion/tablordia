@@ -148,23 +148,23 @@ func drag_start() -> void:
 	if not dragging.is_in_group("draggable"): return
 	
 	
-	var card_translation = dragging.translation
+	var obj_translation = dragging.translation
 	var cast_translation = current["position"]
 	
 	var angle = dragging.get_parent().rotation.y
 	
 	# relative = global
-	var relative_translation = Std.complex_rotate_reverse(card_translation,angle)
+	var relative_translation = Std.complex_rotate_reverse(obj_translation,angle)
 	
 	var offset_from_center = relative_translation - cast_translation
 	
 	
 	offset_from_center = Std.complex_rotate(offset_from_center,angle)
 	
-	var off_y #= dragging.col.shape.extents.y
-	off_y = dragging.off_y
-	var siz_y = dragging.col.scale.y
-	_dragging_offset = (Vector3(0,off_y*siz_y,0) + offset_from_center)
+
+	
+	_dragging_offset = offset_from_center + \
+		Vector3(0,cast_translation.y-obj_translation.y,0)
 	
 	is_dragging = true
 	cast_ray()
@@ -194,7 +194,22 @@ func drag() -> void:
 	new_coord += Vector3(0,0.04,0) + _dragging_offset
 	
 	# translating object to desired location
-	dragging.set_translation(new_coord)
+#	dragging.set_translation(new_coord)
+
+	$Tween.stop_all()
+	$Tween.interpolate_property(
+		dragging,
+		"translation",
+		dragging.translation,
+		new_coord,
+		Std.tween_duration/3,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN
+		)
+	$Tween.start()
+
+	
+	
 	
 	# send loc
 	define_obj_state(dragging) 
@@ -205,8 +220,8 @@ func drag_stop() -> void:
 #		dragging.stopped_dragging()
 	emit_signal("stopped_dragging")
 	
+	$Tween.stop_all()
 	dragged_over(dragging, current['collider'], current['position'])
-	
 	
 	
 	is_dragging = false
