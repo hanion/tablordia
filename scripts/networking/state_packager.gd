@@ -69,7 +69,8 @@ func package_state():
 				new_state[key].erase(subkey)
 				Std.erase_if_empty(new_state,key)
 				# TEST this makes it so that it sends info every other tick
-				state_collection[key].erase(subkey)
+				# NO causes problems when dragging out of hand
+#				state_collection[key].erase(subkey)
 				continue
 			
 			state_collection[key][subkey] = new_state[key][subkey]
