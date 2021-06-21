@@ -1,12 +1,16 @@
 extends Spatial
 
 const my_paths := {
-	"chess_board":"/root/Main/chess/chess_board"
+	"chess":"/root/Main/chess"
 	}
+
 
 func _ready() -> void:
 	get_paths()
 	write_paths()
+	var player = get_node("../player")
+	player.connect("started_dragging",self,"on_started_dragging")
+	player.connect("stopped_dragging",self,"on_stopped_dragging")
 	
 	if not get_tree().is_network_server(): return
 
@@ -33,3 +37,45 @@ func write_paths() -> void:
 			push_error("List already has this objects path")
 		List.paths[objname] = my_paths[objname]
 	
+
+
+
+func on_started_dragging(drg) -> void:
+	if not drg == self: return
+	
+	for c in $w.get_children():
+		c.set_collision_layer_bit(0,false)
+		c.sleeping = true
+	for c in $b.get_children():
+		c.set_collision_layer_bit(0,false)
+		c.sleeping = true
+
+func on_stopped_dragging() -> void:
+	for c in $w.get_children():
+		c.set_collision_layer_bit(0,true)
+		c.sleeping = false
+	for c in $b.get_children():
+		c.set_collision_layer_bit(0,true)
+		c.sleeping = false
+
+
+func _on_started_dragging_via_network() -> void:
+	on_started_dragging(self)
+	
+	check_if_still_moving()
+
+func check_if_still_moving():
+	var old_pos = translation
+	yield(get_tree().create_timer(0.1),"timeout")
+	var new_pos = translation
+	
+	if old_pos == new_pos:
+		print("stopped")
+		on_stopped_dragging()
+	else:
+		check_if_still_moving()
+
+
+
+
+

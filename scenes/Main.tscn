@@ -1,6 +1,5 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Games/chess/chess.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/br/BackRessource.png" type="Texture" id=2]
 [ext_resource path="res://assets/br/BackItem.png" type="Texture" id=3]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
@@ -145,7 +144,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 [node name="others" type="Spatial" parent="."]
 
 [node name="cards" type="Spatial" parent="."]
-
-[node name="chess" parent="." instance=ExtResource( 1 )]
 
 [editable path="player"]

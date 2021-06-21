@@ -2,6 +2,7 @@ extends Spatial
 
 const br_card_path = "res://Games/br/br_card.tscn"
 const br_board_path = "res://Games/br/br.tscn"
+const Board_chess_path = "res://Games/chess/chess.tscn"
 
 const hand_path = "res://Games/hand.tscn"
 
@@ -37,6 +38,8 @@ func _spawn(info) -> void:
 	elif type == "misc":
 		for _i in range(amount):
 			spawn_misc(info)
+	elif type == "Board":
+		spawn_Board(info)
 	else:
 		push_error("unknown type to spawn")
 
@@ -144,6 +147,41 @@ func spawn_misc_hand(info) -> void:
 #	if List.players.has(pid) and List.players[pid].has("name"):
 #		ph.owner_name = List.players[pid]["name"]
 	
+
+
+
+func spawn_Board(info) -> void:
+	var board
+	if info["name"] == "Chess Board":
+		board = load(Board_chess_path).instance()
+	else:
+		return
+	
+	
+	get_node("/root/Main").add_child(board)
+	List.paths[board.name] = board.get_path()
+	tweenit(
+		board,
+		Vector3(0,-0.1,0),
+		Vector3(0,0.004,0)
+		)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

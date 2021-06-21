@@ -163,11 +163,12 @@ func drag_start() -> void:
 	
 
 	
-	_dragging_offset = offset_from_center + \
-		Vector3(0,cast_translation.y-obj_translation.y,0)
+	_dragging_offset = offset_from_center*Vector3(1,0,1) + \
+		Vector3(0,cast_translation.y-obj_translation.y,0)*0
 	
 	is_dragging = true
-	cast_ray()
+	if cast_ray():
+		move_pointer()
 	emit_signal("started_dragging",dragging)
 
 
@@ -191,7 +192,9 @@ func drag() -> void:
 	var trgt = (current['position'] - get_parent().translation) 
 	
 	var new_coord = Std.complex_rotate(trgt, dragging.get_parent().rotation.y)
-	new_coord += Vector3(0,0.04,0) + _dragging_offset
+	var fix_off = Vector3(0,0.05,0) if _dragging_offset.y <= 0.05 else Vector3.ZERO
+	new_coord += fix_off + _dragging_offset
+	
 	
 	# translating object to desired location
 #	dragging.set_translation(new_coord)
@@ -201,7 +204,7 @@ func drag() -> void:
 		dragging,
 		"translation",
 		dragging.translation,
-		new_coord,
+		Std.get_local(dragging,new_coord),
 		Std.tween_duration/3,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN

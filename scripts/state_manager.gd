@@ -2,6 +2,7 @@ extends Spatial
 
 export(float,0.05,1.0) var tween_duration = 0.1
 
+var currently_processing_do := []
 
 onready var player = get_node("../player")
 onready var others = get_node("../others")
@@ -70,6 +71,15 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 	
 	if not obj_state.has("O"): return
 	
+	if obj is RigidBody:
+		obj.sleeping = false
+		obj.linear_velocity = Vector3.ZERO
+	if obj is StaticBody:
+		obj._on_started_dragging_via_network()
+	
+	if currently_processing_do.has(obj_name):
+		return
+	
 	var trans = obj_state["O"]
 	trans = Std.get_local(obj,trans)
 	
@@ -133,6 +143,9 @@ func process_received_do(do) -> void:
 	var over_name = do["o"]
 	var pos = do["p"]
 	
+	##### add
+	currently_processing_do.append(dragged_name)
+	
 	var dragged = Std.get_object(dragged_name) as card
 	var over = Std.get_object(over_name) as Spatial
 	print(" + rdo      ",
@@ -181,8 +194,11 @@ func process_received_do(do) -> void:
 			print("    ¨added ",dragged_name," to ",over.name)
 			over.add_card_to_hand(dragged, pos)
 			
-
+	
 	print("<uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu\n\n")
+	
+	##### remove
+	currently_processing_do.erase(dragged_name)
 
 
 
