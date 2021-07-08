@@ -39,6 +39,9 @@ func add_to_trash(what: card) -> void:
 	env.append(what)
 	what.translation = translation + Vector3(0, off_y ,0)
 	
+	# to fix rotation  (and slot is always 000)
+	what.rotation = Vector3(0,0,0)
+	
 	hide_old_card()
 	check_after_onesec()
 

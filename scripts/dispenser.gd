@@ -67,7 +67,8 @@ func request_spawn_brc() -> void:
 	
 	var info = {
 		"in_dispenser":self.name,
-		"type":dispense,
+		"type":"Card",
+		"name":dispense,
 		"amount":1,
 		"value":_get_brc_card_value(),
 		"translation":(translation + Vector3(0,off_y,0))

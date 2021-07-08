@@ -40,6 +40,9 @@ func add_to_slot(obj: card) -> void:
 	
 	env = obj
 	obj.translation = translation + Vector3(0, off_y ,0)
+	
+	# to fix rotation  (and slot is always 000)
+	obj.rotation = Vector3(0,0,0)
 	check_after_onesec()
 
 
