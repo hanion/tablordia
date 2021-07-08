@@ -1,0 +1,10 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://assets/uno/edited_better_cut.png" type="Texture" id=1]
+
+[resource]
+flags_transparent = true
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 0.055, 1, 0.239 )
+uv1_offset = Vector3( 0.196, 0, 0.695 )
+uv1_triplanar = true
