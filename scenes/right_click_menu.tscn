@@ -1,0 +1,141 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/right_click_menu.gd" type="Script" id=2]
+
+[node name="right_click_menu" type="Control"]
+anchor_left = -0.00147317
+anchor_right = 0.998527
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.294118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+margin_left = 26.3656
+margin_top = 25.7609
+margin_right = 133.366
+margin_bottom = 120.761
+items = [ "Reset Game", null, 0, false, false, 0, 0, null, "", false, "Shuffle", null, 0, false, false, 1, 0, null, "", false, "Split", null, 0, false, false, 2, 0, null, "", false, "", null, 0, false, true, 3, 0, null, "", true, "Item 4", null, 0, false, false, 4, 0, null, "", false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WriteAmountPop" type="ConfirmationDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = -70.0
+margin_right = 112.0
+margin_bottom = 70.0
+popup_exclusive = true
+window_title = "Write Amount"
+resizable = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vbc" type="VBoxContainer" parent="WriteAmountPop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -47.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="period" type="HBoxContainer" parent="WriteAmountPop/vbc"]
+margin_top = 35.0
+margin_right = 208.0
+margin_bottom = 66.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="WriteAmountPop/vbc/period"]
+margin_right = 102.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Amount:"
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="WriteAmountPop/vbc/period"]
+margin_left = 106.0
+margin_right = 208.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="period2" type="HBoxContainer" parent="WriteAmountPop/vbc"]
+visible = false
+margin_top = 35.0
+margin_right = 208.0
+margin_bottom = 66.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="WriteAmountPop/vbc/period2"]
+margin_right = 102.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Amount:"
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="WriteAmountPop/vbc/period2"]
+margin_left = 106.0
+margin_right = 208.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="period3" type="HBoxContainer" parent="WriteAmountPop/vbc"]
+visible = false
+margin_top = 52.0
+margin_right = 208.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="WriteAmountPop/vbc/period3"]
+margin_right = 102.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Amount:"
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="WriteAmountPop/vbc/period3"]
+margin_left = 106.0
+margin_right = 208.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="index_pressed" from="PopupMenu" to="." method="_on_PopupMenu_index_pressed"]
+[connection signal="popup_hide" from="PopupMenu" to="." method="_on_PopupMenu_popup_hide"]
