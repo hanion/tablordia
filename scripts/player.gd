@@ -27,6 +27,7 @@ onready var camera = $CAM/position/elevation/zoom/Camera
 onready var pointer = $pointer as Spatial
 onready var close_up = $CAM/position/elevation/zoom/Camera/closeup as Spatial
 onready var spawn_menu = get_node("../CanvasLayer/SpawnPanel")
+onready var Controls = $Controls
 
 
 
@@ -91,7 +92,7 @@ func manage_dragging(event) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
 			if event.is_pressed():
-				
+				if Controls.ctrl_held_down: return
 				drag_start()
 				
 			else:
@@ -132,6 +133,9 @@ func rotate_one_tick(obj, is_reverse := false) -> void:
 	if obj is card and obj.is_in_hand and obj.in_hand:
 		obj.in_hand.rotate_y(deg2rad(rotatiton_one_tick*dir))
 		define_obj_state(obj.in_hand)
+	elif obj is card and obj.is_in_deck and obj.in_deck:
+		obj.in_deck.rotate_y(deg2rad(rotatiton_one_tick*dir))
+		define_obj_state(obj.in_deck)
 	else:
 		obj.rotate_y(deg2rad(rotatiton_one_tick*dir))
 		define_obj_state(obj)
@@ -145,7 +149,22 @@ func rotate_one_tick(obj, is_reverse := false) -> void:
 
 func drag_start() -> void:
 	dragging = current['collider']
-	if not dragging.is_in_group("draggable"): return
+	
+	if Controls.shift_held_down:
+		if not dragging.is_in_group("shift_draggable"): 
+			
+			if dragging.get_parent().is_in_group("shift_draggable"):
+				dragging = dragging.get_parent()
+			elif dragging.get_parent().get_parent().is_in_group("shift_draggable"):
+				dragging = dragging.get_parent().get_parent()
+			elif dragging is card and dragging.is_in_deck:
+				if dragging.in_deck.is_in_group("shift_draggable"):
+					dragging = dragging.in_deck
+					
+			else:
+				return
+	else:
+		if not dragging.is_in_group("draggable"): return
 	
 	
 	var obj_translation = dragging.translation
@@ -161,10 +180,13 @@ func drag_start() -> void:
 	
 	offset_from_center = Std.complex_rotate(offset_from_center,angle)
 	
-
-	
 	_dragging_offset = offset_from_center*Vector3(1,0,1) + \
 		Vector3(0,cast_translation.y-obj_translation.y,0)*0
+	
+	
+	if dragging.is_in_group("custom_offset"):
+		_dragging_offset += dragging.custom_offset
+	
 	
 	is_dragging = true
 	if cast_ray():
@@ -175,7 +197,11 @@ func drag_start() -> void:
 # called from _physics_process every frame while is_dragging is true
 func drag() -> void:
 	if not current: return
-	if not dragging.is_in_group("draggable"): return
+	if Controls.shift_held_down:
+		if not dragging.is_in_group("shift_draggable"): return
+	else:
+		if not dragging.is_in_group("draggable"): return
+	
 	
 	if dragging is RigidBody:
 	# if we are dragging a rigidbody we need to wake it
@@ -243,7 +269,7 @@ func dragged_over(var dragged: card,var over: Spatial,var pos: Vector3) -> void:
 	if dragged == null: return
 	if over == null: return
 	
-	if not _should_send(dragged,over): return
+	if not Std.should_i_send_dragged_state(dragged,over): return
 	
 	print("\nᐳᐳ>nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
 	"\ndragged over",
@@ -253,18 +279,6 @@ func dragged_over(var dragged: card,var over: Spatial,var pos: Vector3) -> void:
 	define_do_state(dragged,over,pos)
 
 
-func _should_send(drgd: card, ovr) -> bool:
-	if drgd.is_in_hand: return true
-	if drgd.is_in_dispenser: return true
-	if drgd.is_in_trash: return true
-	if drgd.is_in_slot: return true
-	if drgd.in_slot: return true
-	
-	if ovr is hand: return true
-	if ovr is trash: return true
-	if ovr is slot: return true
-	
-	return false
 
 
 

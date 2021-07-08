@@ -71,24 +71,24 @@ func _process(delta: float) -> void:
 	_pan(delta)
 
 
-func _input(event: InputEvent) -> void:
-	# zoom
-	if event.is_action_pressed("camera_zoom_in"):
-		zoom_direction = -1
-	if event.is_action_pressed("camera_zoom_out"):
-		zoom_direction = 1
-	# rotation
-	if event.is_action_pressed("camera_rotate"):
-		is_rotating = true
-		_last_mouse_position = get_viewport().get_mouse_position()
-	if event.is_action_released("camera_rotate"):
-		is_rotating = false
-	# pan
-	if event.is_action_pressed("camera_pan"):
-		is_panning = true
-		_last_mouse_position = get_viewport().get_mouse_position()
-	if event.is_action_released("camera_pan"):
-		is_panning = false
+#func _input(event: InputEvent) -> void:
+#	# zoom
+#	if event.is_action_pressed("camera_zoom_in"):
+#		zoom_direction = -1
+#	if event.is_action_pressed("camera_zoom_out"):
+#		zoom_direction = 1
+#	# rotation
+#	if event.is_action_pressed("camera_rotate"):
+#		is_rotating = true
+#		_last_mouse_position = get_viewport().get_mouse_position()
+#	if event.is_action_released("camera_rotate"):
+#		is_rotating = false
+#	# pan
+#	if event.is_action_pressed("camera_pan"):
+#		is_panning = true
+#		_last_mouse_position = get_viewport().get_mouse_position()
+#	if event.is_action_released("camera_pan"):
+#		is_panning = false
 
 
 
@@ -96,8 +96,8 @@ func _input(event: InputEvent) -> void:
 # MOVEMENT FUNCTIONS
 ##############################
 func _move(delta: float) -> void:
-#	if not allow_wasd_movement:
-#		return
+	if not allow_wasd_movement:
+		return
 	var velocity = _get_desiered_velocity() * delta * movement_speed
 	_translate_position(velocity)
 
