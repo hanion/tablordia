@@ -19,8 +19,8 @@ func get_paths() -> void:
 	var w = $w.get_children()
 	var b = $b.get_children()
 	
-	var base_w = "/root/Main/chess/w/"
-	var base_b = "/root/Main/chess/b/"
+	var base_w = my_paths["chess"] + "/w/"
+	var base_b = my_paths["chess"] + "/b/"
 	
 	
 	for piece in w:
@@ -29,14 +29,14 @@ func get_paths() -> void:
 	for piece in b:
 		var final_path: String = base_b + piece.name
 		my_paths[piece.name] = final_path
-	
+
 
 func write_paths() -> void:
 	for objname in my_paths.keys():
 		if List.paths.has(objname):
 			push_error("List already has this objects path")
 		List.paths[objname] = my_paths[objname]
-	
+
 
 
 
