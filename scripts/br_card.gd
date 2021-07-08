@@ -97,6 +97,11 @@ func set_is_hidden(val) -> void:
 			mat = item_mats[0].duplicate(true)
 			mat.set_uv1_offset(items[0][0])
 			set_material(mat)
+		else:
+			var base = 1 if card_value > 29 else 0
+			mat = item_mats[base].duplicate(true)
+			mat.set_uv1_offset(items[base][card_value-(30*base)])
+			set_material(mat)
 		return
 	
 	var mat

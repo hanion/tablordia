@@ -1,16 +1,22 @@
 extends Spatial
 
-const br_card_path = "res://Games/br/br_card.tscn"
-const br_board_path = "res://Games/br/br.tscn"
-const Board_chess_path = "res://Games/chess/chess.tscn"
+const br_card_pl = preload("res://Games/br/br_card.tscn")
+const br_board_pl = preload("res://Games/br/br.tscn")
+const Board_chess_pl = preload("res://Games/chess/chess.tscn")
+const uno_card_pl = preload("res://Games/uno/uno_card.tscn")
 
-const hand_path = "res://Games/hand.tscn"
+
+const deck_pl = preload("res://Games/deck.tscn")
+const hand_pl = preload("res://Games/hand.tscn")
 
 var cards_folder
 
 var resource_index:int = 0
 var item_index:int = 0
 var hand_index:int = 0
+var deck_index:int = 0
+
+var uno_index:int = 0
 
 
 
@@ -23,163 +29,130 @@ func receive_requested_spawn(info) -> void:
 func _spawn(info) -> void:
 #	var info  = {
 #		"type":type,
+#		"name":name,
 #		"amount":amount,
 #		"value":val,
 #		"owner_id":hand_owner_id,
+#		"in_deck":deck name,
 #		"in_dispenser":self.name,
-#		"translation":translation
+#		"translation":spawn translation
 #		}
-	var type = info["type"]
-	var amount = info["amount"]
 	
-	if type == "resource" or type == "item":
-		for _i in range(amount):
-			spawn_brc(info)
-	elif type == "misc":
-		for _i in range(amount):
-			spawn_misc(info)
-	elif type == "Board":
-		spawn_Board(info)
-	else:
-		push_error("unknown type to spawn")
+	match info["type"]:
+		"Game":
+			spawn_Game(info)
+		"Misc":
+			spawn_Misc(info)
+		"Card":
+			spawn_Card(info)
+		_:
+			print("!!!Spawner: Unknown type to spawn,\n    info: ",info)
+			push_error("Spawner: Unknown type to spawn")
 
 
-func spawn_brc(info) -> void:
-	var type = info["type"]
-	var value = info["value"]
-	
-	var brc = load(br_card_path).instance() 
-	
-	if type == "item":
-		brc.set_name("item"+str(Spawner.item_index))
-		Spawner.item_index += 1
-		
-		brc.is_item = true
-	elif type == "resource":
-		brc.set_name("resource"+str(Spawner.resource_index))
-		Spawner.resource_index += 1
-		
-		brc.is_resource = true
+
+
+func spawn_Game(info) -> void:
+	var board
+	match info["name"]:
+		"Chess Board":
+			board = Board_chess_pl.instance()
+			get_node("/root/Main").add_child(board)
+		"Board Royale":
+			board = br_board_pl.instance()
+			get_node("/root/Main").add_child(board)
+		_:
+			return
 	
 	
-	brc.set_type(type)
-	brc.card_value = value
-	brc.is_hidden = false
-	brc.update_material()
+	List.paths[board.name] = board.get_path()
+	tweenit(board, Vector3(0,-0.1,0), Vector3(0,0.004,0))
+
+
+
+func spawn_Misc(info) -> void:
+	var misc
 	
+	match info["name"]:
+		"Deck":
+			misc = deck_pl.instance()
+			misc.set_name("deck"+str(deck_index))
+			deck_index += 1
+			cards_folder.add_child(misc)
+		"Hand":
+			misc = hand_pl.instance()
+			misc.set_name("hand"+str(hand_index))
+			hand_index += 1
+			cards_folder.add_child(misc)
+			
+			var ownerid = info["owner_id"]
+			var ownername = List.players[ownerid]["name"]
+			var ownercolor = List.players[ownerid]["color"]
+			misc.set_hand_owner(ownerid,ownername)
+			misc.set_hand_color(ownercolor)
+			
+			
+	
+	List.paths[misc.name] = misc.get_path()
+	tweenit(misc, Vector3(0,-0.1,0), Vector3(0,0.4,0))
+
+
+
+func spawn_Card(info) -> void:
+	var crd : card
+	match info["name"]:
+		"item":
+			crd = br_card_pl.instance() as br_card
+			crd.set_name("item"+str(item_index))
+			item_index += 1
+			crd.is_item = true
+			crd.set_type("item")
+			crd.update_material()
+		"resource":
+			crd = br_card_pl.instance() as br_card
+			crd.set_name("item"+str(resource_index))
+			resource_index += 1
+			crd.is_resource = true
+			crd.set_type("resource")
+			crd.update_material()
+			
+		"Uno Card":
+			crd = uno_card_pl.instance() as uno_card
+			crd.set_name("unoc"+str(uno_index))
+			uno_index += 1
 	
 	
 	#spawn
-	cards_folder.add_child(brc)
-	List.paths[brc.name] = brc.get_path()
+	cards_folder.add_child(crd)
+	List.paths[crd.name] = crd.get_path()
 	
+	
+	
+	crd.card_value = info["value"]
+	if info.has("value_second"):
+		crd.card_value_second = info["value_second"]
+	
+	crd.set_is_hidden(false)
+	
+	
+	if info.has("in_deck"):
+		var dek = Std.get_object(info["in_deck"]) as deck
+		dek.add_to_deck(crd,true)
 	
 	
 	if info.has("in_dispenser"):
-		brc.is_in_dispenser = true
-		brc.in_dispenser = Std.get_object(info["in_dispenser"])
-		brc.set_is_hidden(true)
+		crd.is_in_dispenser = true
+		crd.in_dispenser = Std.get_object(info["in_dispenser"])
+		crd.set_is_hidden(true)
+	
+	
 	
 	
 	if info.has("translation"):
-		tweenit(
-			brc,
-			info["translation"] - Vector3(0,0.1,0),
-			info["translation"]
-			)
+		var tr = info["translation"]
+		tweenit(crd, tr - Vector3(0,0.1,0), tr)
 	else:
-		tweenit(
-		brc,
-		Vector3(0,0.04,0),
-		Vector3(0,1,0)
-		)
-	
-	
-	
-
-
-
-func spawn_misc(info) -> void:
-	match info["value"]:
-		1:
-			spawn_misc_br()
-		2:
-			spawn_misc_hand(info)
-
-
-
-func spawn_misc_br() -> void:
-	var br = load(br_board_path).instance()
-	get_node("/root/Main").add_child(br)
-	List.paths[br.name] = br.get_path()
-	tweenit(
-		br,
-		Vector3(0,-0.1,0),
-		Vector3(0,0.004,0)
-		)
-
-
-func spawn_misc_hand(info) -> void:
-	var ph = preload(hand_path).instance()
-	ph.set_name("hand"+str(hand_index))
-	hand_index += 1
-	
-	ph.translation = Vector3(0,0.5,0)
-	
-	
-	cards_folder.add_child(ph)
-	
-	List.paths[ph.name] = ph.get_path()
-	
-	
-	
-	var ownerid = info["owner_id"]
-	var ownername = List.players[ownerid]["name"]
-	ph.set_hand_owner(ownerid,ownername)
-	var ownercolor = List.players[ownerid]["color"]
-	ph.set_hand_color(ownercolor)
-	
-#	var mat = get_player_material(pid)
-#	if mat:
-#		ph.get_node("handMesh").set_surface_material(0, mat)
-#
-#	ph.owner_id = pid
-#	if List.players.has(pid) and List.players[pid].has("name"):
-#		ph.owner_name = List.players[pid]["name"]
-	
-
-
-
-func spawn_Board(info) -> void:
-	var board
-	if info["name"] == "Chess Board":
-		board = load(Board_chess_path).instance()
-	else:
-		return
-	
-	
-	get_node("/root/Main").add_child(board)
-	List.paths[board.name] = board.get_path()
-	tweenit(
-		board,
-		Vector3(0,-0.1,0),
-		Vector3(0,0.004,0)
-		)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		tweenit(crd, Vector3(0,0.04,0), Vector3(0,1,0))
 
 
 

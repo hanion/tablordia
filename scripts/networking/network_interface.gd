@@ -79,3 +79,10 @@ func send_br_info(res_env,itm_env) -> void:
 func request_spawn(info) -> void:
 	server.rpc_id(1,"request_spawn",info)
 
+
+func send_deck_to_others(named_deck,deck_name) -> void:
+	client.rpc_config("receive_deck_info",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	client.rpc_id(0,"receive_deck_info",named_deck,deck_name)
+
+
+

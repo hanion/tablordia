@@ -61,7 +61,7 @@ var paths := {
 	"node_name":"node_path"
 	,
 	"table":"/root/Main/tablo/table"
-	
+	,"deck":"/root/Main/cards/deck"
 }
 
 """

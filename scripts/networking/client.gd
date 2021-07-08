@@ -106,3 +106,11 @@ remote func receive_requested_spawn(info) -> void:
 remote func receive_alws(alws) -> void:
 	$alws_processor.process_alws(alws)
 
+remote func receive_deck_info(named_deck,deck_name) -> void:
+	if not get_tree().get_rpc_sender_id() == 1: return
+	if get_tree().get_network_unique_id() == 1: return
+	Std.get_object(deck_name).receive_deck_from_server(named_deck)
+
+
+
+

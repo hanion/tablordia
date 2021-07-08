@@ -41,14 +41,7 @@ func process_received_world_state(world_state:Dictionary) -> void:
 func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 	var obj = Std.get_object(obj_name)
 	
-	assert(
-		obj != null,
-		"M: !!! object is null"
-		)
-	
-	if obj_state.has("DO"):
-		push_error("SHOULD HAVE REMOVED THE DO FROM WORLD STATE")
-		return
+	assert(obj != null, "M: !!! object is null")
 	
 	if player.dragging == obj: return
 	if _id == NetworkInterface.uid: return
@@ -77,6 +70,8 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 	if obj is StaticBody:
 		obj._on_started_dragging_via_network()
 	
+#	if not currently_processing_do.empty():
+#		print("sm: currently processing: ",currently_processing_do)
 	if currently_processing_do.has(obj_name):
 		return
 	
@@ -88,7 +83,6 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 	if obj is br_card:
 		if obj.is_in_slot:
 			obj.is_in_slot = false
-	
 	
 #	obj.transform.origin = opss[obj_name]["O"]
 	tween.interpolate_property(
@@ -166,6 +160,10 @@ func process_received_do(do) -> void:
 		print("yeaa it is in slot")
 #		dragged.in_slot.remove_from_slot(dragged)
 	
+	elif dragged.is_in_deck:
+		print("sm: dragged is in deck")
+		dragged.in_deck.remove_from_deck(dragged)
+	
 	elif dragged.is_in_hand:
 		if not over is hand:
 			print("    ¨removed1 ",dragged_name," from ",dragged.in_hand.name)
@@ -180,6 +178,10 @@ func process_received_do(do) -> void:
 	elif over is slot:
 		print("    ¨slotted ",dragged_name, dragged.is_in_slot)
 		over.add_to_slot(dragged)
+	
+	elif over is deck:
+		print("    ¨decked ",dragged_name)
+		over.add_to_deck(dragged)
 	
 	elif over is hand:
 		if dragged.is_in_hand:
@@ -198,6 +200,7 @@ func process_received_do(do) -> void:
 	print("<uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu\n\n")
 	
 	##### remove
+	yield(get_tree().create_timer(0.5),"timeout")
 	currently_processing_do.erase(dragged_name)
 
 

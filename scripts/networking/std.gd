@@ -111,6 +111,22 @@ func has_all(dict: Dictionary, key, key1 = null, key2 = null) -> bool:
 	return true
 
 
+func should_i_send_dragged_state(drgd: card, ovr) -> bool:
+	if drgd.is_in_hand: return true
+	if drgd.is_in_dispenser: return true
+	if drgd.is_in_trash: return true
+	if drgd.is_in_slot: return true
+	if drgd.in_slot: return true
+	if drgd.is_in_deck: return true
+	if drgd.in_deck: return true
+	
+	if ovr is hand: return true
+	if ovr is trash: return true
+	if ovr is slot: return true
+	if ovr is deck: return true
+	
+	return false
+
 
 
 

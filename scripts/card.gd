@@ -4,6 +4,7 @@ class_name card
 
 
 var card_value := 0
+var card_value_second := 0
 
 var is_hidden := true setget set_is_hidden
 

@@ -2,11 +2,13 @@ extends HBoxContainer
 
 signal on_owner_changed(ownerid)
 
+export(NodePath) var spawnpanel
+
 onready var om = $OptionButton as OptionButton
 
+# warning-ignore:return_value_discarded
 func _ready():
-	var sp = get_node("../../../../../../../../..")
-	sp.connect("on_menu_opened",self,"on_sp_menu_opened")
+	get_node(spawnpanel).connect("on_menu_opened",self,"on_sp_menu_opened")
 
 
 func on_sp_menu_opened() -> void:

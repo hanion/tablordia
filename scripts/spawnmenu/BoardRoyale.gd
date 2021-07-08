@@ -10,21 +10,31 @@ func _ready():
 
 
 func _br_item_pressed() -> void:
-	var naem
-	var val
-	
 	for i in igrid.get_children():
 		i = i as Button
 		if i.pressed:
-			naem = i.get_node("vb/Label").text
-			val = int(i.name.right(1))
-			get_parent().get_parent().selected("br", "item", naem, val)
+			var val = int(i.name.right(1))
+			var inspector_text = i.get_node("vb/Label").text
+			
+			var info := {
+				"type":"Card",
+				"name":"item",
+				"inspector_text":inspector_text,
+				"value":val
+				}
+			get_parent().get_parent().selected(info)
 			return
 
 
 
-func br_pressed(type, naem, val) -> void:
-	get_parent().get_parent().selected("br", type, naem, val)
+func br_pressed(naame, naem, val) -> void:
+	var info := {
+		"type":"Card",
+		"name":naame,
+		"inspector_text":naem,
+		"value":val
+		}
+	get_parent().get_parent().selected(info)
 
 
 
@@ -51,8 +61,16 @@ func _on_s4_pressed():
 
 
 func _on_m1_pressed():
-	br_pressed("misc","BoardRoyale",1)
+	var info := {
+		"type":"Game",
+		"name":"Board Royale"
+		}
+	get_parent().get_parent().selected(info)
 
 
 func _on_m2_pressed():
-	br_pressed("misc","Hand",2)
+	var info := {
+		"type":"Misc",
+		"name":"Hand"
+		}
+	get_parent().get_parent().selected(info)

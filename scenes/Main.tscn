@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/br/BackRessource.png" type="Texture" id=2]
 [ext_resource path="res://assets/br/BackItem.png" type="Texture" id=3]
@@ -6,8 +6,9 @@
 [ext_resource path="res://scripts/Main.gd" type="Script" id=5]
 [ext_resource path="res://assets/materials/table.tres" type="Material" id=6]
 [ext_resource path="res://new_environment.tres" type="Environment" id=7]
+[ext_resource path="res://Games/uno/UNO.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scripts/state_manager.gd" type="Script" id=11]
-[ext_resource path="res://scenes/spawnpanel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://spawnpanel.tscn" type="PackedScene" id=12]
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -31.0748, -3.48583, -20.9707, 62.1497, 6.97166, 41.9414 )
@@ -144,5 +145,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 [node name="others" type="Spatial" parent="."]
 
 [node name="cards" type="Spatial" parent="."]
+
+[node name="UNO" parent="." instance=ExtResource( 8 )]
 
 [editable path="player"]

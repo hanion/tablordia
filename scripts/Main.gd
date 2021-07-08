@@ -1,7 +1,5 @@
 extends Spatial
 
-
-
 export(Array,NodePath) var positions := []
 const hand_path = "res://Games/hand.tscn"
 
@@ -14,7 +12,6 @@ onready var cards = $cards
 
 var br
 
-
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	NetworkInterface.Main = self
@@ -23,7 +20,6 @@ func _ready():
 	
 	var my_mat = get_player_material(get_tree().get_network_unique_id())
 	player.get_node("pointer").set_surface_material(0,my_mat)
-	
 
 
 

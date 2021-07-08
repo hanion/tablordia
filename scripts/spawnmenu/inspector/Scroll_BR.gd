@@ -12,10 +12,10 @@ var hand_owner_id:int
 func spawn() -> void:
 	var info  = {
 		"type":type,
+		"name":naem,
 		"amount":amount,
 		"value":val,
 		"owner_id":hand_owner_id
-		
 		}
 	Spawner.request_spawn(info)
 	get_node("vb/amount").amount = 1

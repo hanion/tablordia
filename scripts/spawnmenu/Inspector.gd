@@ -6,31 +6,18 @@ var selection_name:String setget set_selection_name
 
 onready var selection_label = $vb/SelectionName
 
-var current_scroll
-onready var BR = $vb/Scroll_BR
-onready var Boards = $vb/Scroll_Boards
+onready var scroll = $vb/vsc/Scroll_Boards
 
 
 
 
-func set_inspector(gaem, type, naem, val) -> void:
-	BR.visible = false
-	Boards.visible = false
+func set_inspector(info) -> void:
+	scroll.set_scroll_for_selection(info)
 	
-	match gaem:
-		"br":
-			current_scroll = BR
-			BR.set_scroll_for_selection(type,naem,val)
-			BR.visible = true
-		"Board":
-			current_scroll = Boards
-			Boards.set_scroll_for_selection(type,naem,val)
-			Boards.visible = true
-		_:
-			current_scroll = null
-			return
-	
-	set_selection_name(naem)
+	if info.has("inspector_text"):
+		set_selection_name(info["inspector_text"])
+	else:
+		set_selection_name(info["name"])
 
 
 
@@ -45,6 +32,5 @@ func set_selection_name(new) -> void:
 
 
 func _on_SpawnButton_pressed():
-	if current_scroll:
-		current_scroll.spawn()
-		get_node("../../../../..").close_menu()
+	scroll.spawn()
+	get_node("../../../../..").close_menu()
