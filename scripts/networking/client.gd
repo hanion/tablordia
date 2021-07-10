@@ -84,11 +84,8 @@ remote func notify_existing_player_about_me(var you: Dictionary) -> void:
 	var sender_id = get_tree().get_rpc_sender_id()
 	
 	print("\n",
-	"c: ",you["name"],
-	" connected",
-	", id: ",sender_id,
-	", color:",you["color"]
-	)
+	"c: ",
+	you["name"]," connected",", id: ",sender_id,", color:",you["color"])
 	
 	List.add_player(sender_id, you)
 	NetworkInterface.got_info_of_new_peer(sender_id)
@@ -107,9 +104,11 @@ remote func receive_alws(alws) -> void:
 	$alws_processor.process_alws(alws)
 
 remote func receive_deck_info(named_deck,deck_name) -> void:
+	print("oo there is new deck",named_deck)
 	if not get_tree().get_rpc_sender_id() == 1: return
 	if get_tree().get_network_unique_id() == 1: return
-	Std.get_object(deck_name).receive_deck_from_server(named_deck)
+	var d = Std.get_object(deck_name) as deck
+	d.receive_deck_from_server(named_deck)
 
 
 
