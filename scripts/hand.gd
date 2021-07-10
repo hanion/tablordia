@@ -276,6 +276,52 @@ remote func __schtow(_ih) -> void:
 
 
 
+func make_hand_collapse() -> void:
+	for c in inventory:
+		c.translation = Vector3(0,offsety,0)
+
+func shuffle_hand() -> void:
+	var dict := inventory
+	if not get_tree().is_network_server(): return
+	
+	randomize()
+	
+	var siz = dict.size()
+	for i in range(siz):
+		i = siz - i
+		i -= 1
+		
+		if i == 0: continue
+		
+		var ran = randi() % i
+		
+		var first_val = dict[i]
+		var second_val = dict[ran]
+		
+		dict[i] = second_val
+		dict[ran] = first_val
+	
+	inventory = dict
+	send_deck_to_others()
+
+
+func send_deck_to_others() -> void:
+#	print("sending deck to others")
+	var named_deck := []
+	for c in inventory:
+		named_deck.append(c.name)
+	NetworkInterface.send_deck_to_others(named_deck,self.name)
+func receive_deck_from_server(named_deck) -> void:
+#	print(self.name,": received named deck from server",named_deck)
+	inventory.clear()
+	for nc in named_deck:
+		var crd = Std.get_object(nc)
+		inventory.append(crd)
+	
+	order_inventory()
+
+
+
 
 ############################## RCM ##############################
 var cavt:PopupMenu
@@ -283,6 +329,10 @@ func prepare_rcm(popup:PopupMenu) -> void:
 	popup.clear()
 	
 	prepare_cavt(popup)
+	
+	popup.add_item("Shuffle hand",2)
+	if not am_i_the_owner:
+		popup.set_item_disabled(popup.get_item_index(2),true)
 	
 	popup.add_separator("")
 	
@@ -348,6 +398,10 @@ func rcm_selected(id, _index=-1, _text=-1) -> void:
 	match id:
 		1:
 			print("TODO: make hand settings ui in rcm and open from here")
+		2:
+			make_hand_collapse()
+			shuffle_hand()
+			order_inventory()
 		
 ############################## RCM ##############################
 

@@ -106,8 +106,7 @@ remote func receive_alws(alws) -> void:
 remote func receive_deck_info(named_deck,deck_name) -> void:
 	if not get_tree().get_rpc_sender_id() == 1: return
 	if get_tree().get_network_unique_id() == 1: return
-	var d = Std.get_object(deck_name) as deck
-	d.receive_deck_from_server(named_deck)
+	Std.get_object(deck_name).receive_deck_from_server(named_deck)
 
 
 
