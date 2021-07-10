@@ -41,3 +41,15 @@ func _on_m51_pressed():
 		"name":"UNO"
 		}
 	hs.selected(info)
+
+
+func _on_m5_pressed():
+	var info := {
+		"type":"Game",
+		"name":"52"
+		}
+	hs.selected(info)
+
+
+
+

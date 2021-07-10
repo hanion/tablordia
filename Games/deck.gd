@@ -4,6 +4,9 @@ class_name deck
 signal removed_card_from_deck
 signal added_card_to_deck
 
+
+export var DRAWING_DELAY := 0.3
+
 export var can_stack := true
 export var can_draw := true
 export var make_scale_effect := true
@@ -311,10 +314,9 @@ func draw_cards(amo) -> void:
 	
 
 	for i in drawing_amount:
-		yield(get_tree().create_timer(0.5),"timeout")
+		yield(get_tree().create_timer(DRAWING_DELAY),"timeout")
 		draw_card()
-	
-#	__draw_loop()
+
 
 func draw_card() -> void:
 	if cards_drawn > drawing_amount: return
@@ -333,49 +335,6 @@ func draw_card() -> void:
 	if drawing_amount == cards_drawn:
 		print(name,": Drawn ",cards_drawn," cards.")
 
-
-
-func __draw_loop() -> void:
-	if drawing_amount < 1: return
-	if cards_drawn > drawing_amount: return
-	
-	if env.size() == 0:
-		yield(get_tree().create_timer(0.5),"timeout")
-		__draw_loop()
-		return
-	
-	var cur_card = env.back()
-	remove_from_deck(cur_card)
-	requester_hand.add_card_to_hand(cur_card,Vector3.ZERO)
-	
-	cards_drawn += 1
-	
-	yield(get_tree().create_timer(0.2),"timeout")
-	
-	
-	if drawing_amount == cards_drawn:
-		print(name,": Drawn ",cards_drawn," cards.")
-		return
-	
-	
-	print(name,": Drawn ",cards_drawn,", Need to draw ",drawing_amount,
-	",      ",drawing_amount-cards_drawn," more left.")
-	
-	
-	if not name == "uno_draw_deck" and env.size() == 0:
-		
-		print(name,": No more cards left in deck to draw, ",
-		"             Totally drawn ",cards_drawn," cards.")
-		
-		return
-	elif name == "uno_draw_deck":
-		print("--")
-		pass
-		
-	
-	__draw_loop()
-	
-	
 
 
 

@@ -104,7 +104,6 @@ remote func receive_alws(alws) -> void:
 	$alws_processor.process_alws(alws)
 
 remote func receive_deck_info(named_deck,deck_name) -> void:
-	print("oo there is new deck",named_deck)
 	if not get_tree().get_rpc_sender_id() == 1: return
 	if get_tree().get_network_unique_id() == 1: return
 	var d = Std.get_object(deck_name) as deck

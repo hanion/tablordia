@@ -5,6 +5,8 @@ const br_board_pl = preload("res://Games/br/br.tscn")
 const Board_chess_pl = preload("res://Games/chess/chess.tscn")
 const uno_card_pl = preload("res://Games/uno/uno_card.tscn")
 const UNO_pl = preload("res://Games/uno/UNO.tscn")
+const _52_pl = preload("res://Games/52/52.tscn")
+const _52_card_pl = preload("res://Games/52/card_52.tscn")
 
 
 const deck_pl = preload("res://Games/deck.tscn")
@@ -18,6 +20,7 @@ var hand_index:int = 0
 var deck_index:int = 0
 
 var uno_index:int = 0
+var card_52_index:int = 0
 
 
 
@@ -58,17 +61,16 @@ func spawn_Game(info) -> void:
 	match info["name"]:
 		"Chess Board":
 			board = Board_chess_pl.instance()
-			get_node("/root/Main").add_child(board)
 		"Board Royale":
 			board = br_board_pl.instance()
-			get_node("/root/Main").add_child(board)
 		"UNO":
 			board = UNO_pl.instance()
-			get_node("/root/Main").add_child(board)
+		"52":
+			board = _52_pl.instance()
 		_:
 			return
 	
-	
+	get_node("/root/Main").add_child(board)
 	List.paths[board.name] = board.get_path()
 	tweenit(board, Vector3(0,-0.1,0), Vector3(0,0.004,0))
 
@@ -124,6 +126,10 @@ func spawn_Card(info) -> void:
 			crd = uno_card_pl.instance() as uno_card
 			crd.set_name("unoc"+str(uno_index))
 			uno_index += 1
+		"52 Card":
+			crd = _52_card_pl.instance() as card_52
+			crd.set_name("c52_"+str(card_52_index))
+			card_52_index += 1
 	
 	
 	#spawn

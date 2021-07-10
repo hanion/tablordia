@@ -1,0 +1,76 @@
+[gd_scene load_steps=50 format=2]
+
+[ext_resource path="res://Games/52/card_52.tres" type="Material" id=1]
+[ext_resource path="res://assets/52/cardClubs8.png" type="Texture" id=2]
+[ext_resource path="res://assets/52/cardClubs7.png" type="Texture" id=3]
+[ext_resource path="res://Games/52/card_52.gd" type="Script" id=4]
+[ext_resource path="res://assets/52/cardClubs3.png" type="Texture" id=5]
+[ext_resource path="res://assets/52/cardClubs2.png" type="Texture" id=6]
+[ext_resource path="res://assets/52/cardClubsA.png" type="Texture" id=7]
+[ext_resource path="res://assets/52/cardDiamonds6.png" type="Texture" id=8]
+[ext_resource path="res://assets/52/cardBack_green5.png" type="Texture" id=9]
+[ext_resource path="res://assets/52/cardClubs6.png" type="Texture" id=10]
+[ext_resource path="res://assets/52/cardDiamonds3.png" type="Texture" id=11]
+[ext_resource path="res://assets/52/cardClubs5.png" type="Texture" id=12]
+[ext_resource path="res://assets/52/cardClubsJ.png" type="Texture" id=13]
+[ext_resource path="res://assets/52/cardClubs4.png" type="Texture" id=14]
+[ext_resource path="res://assets/52/cardDiamonds5.png" type="Texture" id=15]
+[ext_resource path="res://assets/52/cardClubsK.png" type="Texture" id=16]
+[ext_resource path="res://assets/52/cardClubs9.png" type="Texture" id=17]
+[ext_resource path="res://assets/52/cardClubs10.png" type="Texture" id=18]
+[ext_resource path="res://assets/52/cardDiamonds2.png" type="Texture" id=19]
+[ext_resource path="res://assets/52/cardClubsQ.png" type="Texture" id=20]
+[ext_resource path="res://assets/52/cardDiamondsA.png" type="Texture" id=21]
+[ext_resource path="res://assets/52/cardDiamonds4.png" type="Texture" id=22]
+[ext_resource path="res://assets/52/cardDiamonds7.png" type="Texture" id=23]
+[ext_resource path="res://assets/52/cardDiamonds9.png" type="Texture" id=24]
+[ext_resource path="res://assets/52/cardDiamondsQ.png" type="Texture" id=25]
+[ext_resource path="res://assets/52/cardDiamonds8.png" type="Texture" id=26]
+[ext_resource path="res://assets/52/cardDiamonds10.png" type="Texture" id=27]
+[ext_resource path="res://assets/52/cardDiamondsJ.png" type="Texture" id=28]
+[ext_resource path="res://assets/52/cardDiamondsK.png" type="Texture" id=29]
+[ext_resource path="res://assets/52/cardHearts8.png" type="Texture" id=30]
+[ext_resource path="res://assets/52/cardHearts2.png" type="Texture" id=31]
+[ext_resource path="res://assets/52/cardHearts9.png" type="Texture" id=32]
+[ext_resource path="res://assets/52/cardHearts10.png" type="Texture" id=33]
+[ext_resource path="res://assets/52/cardHeartsK.png" type="Texture" id=34]
+[ext_resource path="res://assets/52/cardHearts6.png" type="Texture" id=35]
+[ext_resource path="res://assets/52/cardHearts5.png" type="Texture" id=36]
+[ext_resource path="res://assets/52/cardHeartsQ.png" type="Texture" id=37]
+[ext_resource path="res://assets/52/cardHearts7.png" type="Texture" id=38]
+[ext_resource path="res://assets/52/cardHearts3.png" type="Texture" id=39]
+[ext_resource path="res://assets/52/cardHearts4.png" type="Texture" id=40]
+[ext_resource path="res://assets/52/cardHeartsA.png" type="Texture" id=41]
+[ext_resource path="res://assets/52/cardHeartsJ.png" type="Texture" id=42]
+[ext_resource path="res://assets/52/cardSpadesJ.png" type="Texture" id=43]
+[ext_resource path="res://assets/52/cardSpadesQ.png" type="Texture" id=44]
+[ext_resource path="res://assets/52/cardSpadesK.png" type="Texture" id=45]
+[ext_resource path="res://assets/52/cardSpades10.png" type="Texture" id=46]
+[ext_resource path="res://assets/52/cardSpadesA.png" type="Texture" id=47]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.72, 0.04, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 1.44, 0.04, 2 )
+
+[node name="card_52" type="Area" groups=[
+"draggable",
+"rotatable",
+]]
+script = ExtResource( 4 )
+mesh = NodePath("mesh")
+mat = ExtResource( 1 )
+clubs = [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 16 ) ]
+diamonds = [ ExtResource( 9 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 11 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 29 ) ]
+hearts = [ ExtResource( 9 ), ExtResource( 41 ), ExtResource( 31 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 42 ), ExtResource( 37 ), ExtResource( 34 ) ]
+spades = [ ExtResource( 9 ), ExtResource( 47 ), ExtResource( 31 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )
+shape = SubResource( 1 )
+
+[node name="mesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )
