@@ -38,7 +38,7 @@ func _spawn_player(var pid):
 	plo.get_child(0).set_surface_material(0, material)
 	
 	others.add_child(plo)
-	print("M: spawned player and hand, id:",pid)
+	print("M: spawned player, id:",pid)
 
 
 func get_player_material(id) -> SpatialMaterial:
