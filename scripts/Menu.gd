@@ -23,6 +23,8 @@ onready var host_port = $margin/host/VBox/port
 
 func _ready():
 	primer.get_node("tempHBox/name").grab_focus()
+	$DataSaver.load_player_data()
+	
 # warning-ignore:return_value_discarded
 	get_tree().connect("connected_to_server",self,"start_game")
 	$margin/host/VBox/ip.text = (
@@ -36,7 +38,6 @@ func start_game():
 	print("\nMenu: Connected to server.\n")
 	set_info()
 	add_me()
-#	yield(get_tree().create_timer(5),"timeout")
 	
 	var game = preload("res://scenes/Main.tscn").instance()
 	get_parent().add_child(game)
@@ -71,6 +72,7 @@ func _on_primer_join_pressed():
 	listener.connect("new_server",self,"_on_ServerListener_new_server")
 	get_parent().add_child(listener)
 	
+	$DataSaver.save_player_data()
 
 
 func _on_primer_host_pressed():
@@ -98,6 +100,7 @@ func _on_join_join_pressed():
 	
 	get_node("/root/ServerListener").queue_free()
 	
+	$DataSaver.save_player_data()
 
 
 func _on_host_host_pressed():
@@ -105,6 +108,7 @@ func _on_host_host_pressed():
 	port = int(host_port.text)
 	NetworkInterface.host(port)
 	
+	$DataSaver.save_player_data()
 	
 	var ad = advertiser_pl.instance()
 	get_parent().add_child(ad)
