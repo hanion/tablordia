@@ -2,6 +2,7 @@ extends Area
 class_name deck
 
 signal removed_card_from_deck
+signal added_card_to_deck
 
 export var can_stack := true
 export var can_draw := true
@@ -17,7 +18,6 @@ export var custom_offset := 0.1
 export var can_make_cards_visible := true
 export var can_make_cards_hidden := true
 
-
 var env := []
 
 onready var old_pos = $old_card_pos
@@ -25,16 +25,16 @@ onready var col = $CollisionShape
 onready var mes = $MeshInstance
 onready var tween = $Tween
 
-
+var player
 func _ready():
 	col.shape = col.shape.duplicate(true)
-	var player = get_node("/root/Main/player")
+	player = get_node("/root/Main/player")
 	player.connect("started_dragging",self,"on_started_dragging")
 	player.connect("stopped_dragging",self,"on_stopped_dragging")
 
 
 
-func add_to_deck(what: card, bypass_can_stack_check:= false) -> void:
+func add_to_deck(what: card, bypass_can_stack_check:= false,should_check:=true) -> void:
 	if not bypass_can_stack_check and not can_stack: return
 	
 	if not env.empty():
@@ -56,8 +56,11 @@ func add_to_deck(what: card, bypass_can_stack_check:= false) -> void:
 	what.rotation = Vector3(0,0,0)
 	List.reparent_child(what,self)
 	
+	emit_signal("added_card_to_deck")
+	
 	order_env()
-	check_after_onesec()
+	if should_check:
+		check_after_onesec()
 
 
 func remove_from_deck(what: card) -> void:
@@ -200,13 +203,16 @@ func shuffle(dict:Array) -> void:
 	
 	send_deck_to_others()
 
+
+
 func send_deck_to_others() -> void:
+	print("sending deck to others")
 	var named_deck := []
 	for c in env:
 		named_deck.append(c.name)
 	NetworkInterface.send_deck_to_others(named_deck,self.name)
 func receive_deck_from_server(named_deck) -> void:
-	print(self.name,": received named deck from server")
+	print(self.name,": received named deck from server",named_deck)
 	env.clear()
 	for nc in named_deck:
 		var crd = Std.get_object(nc)
@@ -216,10 +222,10 @@ func receive_deck_from_server(named_deck) -> void:
 
 
 ############################## RCM ##############################
+var _wa
+var sender_id := 0
 func prepare_rcm(popup:PopupMenu) -> void:
 	popup.clear()
-	if env.size() > 1:
-		popup.add_item("Shuffle Deck",1)
 	if env.size() > 0:
 		
 		popup.add_item("Make cards visible",2)
@@ -229,23 +235,148 @@ func prepare_rcm(popup:PopupMenu) -> void:
 		popup.add_item("Make cards hidden",3)
 		if not can_make_cards_hidden:
 			popup.set_item_disabled(popup.get_item_index(3),true)
-
+		
+		popup.add_item("Draw",4)
+	
+	if env.size() > 1:
+		popup.add_item("Shuffle Deck",1)
 
 
 remote func rcms(a,b,c):
+	sender_id = get_tree().get_rpc_sender_id()
 	rcm_selected(a,b,c)
 
 func rcm_selected(id,_index,_text) -> void:
-	if id == 1:
-		shuffle(env)
-		order_env()
-	elif id == 2:
-		is_cards_hidden = false
-		order_env()
-	elif id == 3:
-		is_cards_hidden = true
-		order_env()
-		
-############################## RCM ##############################
+	match id:
+		1:
+			shuffle(env)
+			order_env()
+		2:
+			is_cards_hidden = false
+			order_env()
+		3:
+			is_cards_hidden = true
+			order_env()
+		4:
+			open_wa_panel()
+			
+			
 
+
+func open_wa_panel() -> void:
+	if not sender_id == get_tree().get_network_unique_id(): return
+	var _sigto := {"target":self,"method":"_on_wa_confirmed"}
+	_wa = RCM.open_wa(_sigto,"Draw Cards From Deck","Drawing amount:")
+
+
+
+func _on_wa_confirmed() -> void:
+	var amo = int(  _wa.get_node("vbc/period/LineEdit").text  )
+	
+	if not amo == 0:
+		
+		rpc_config("request_draw_cards",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+		rpc("request_draw_cards",amo)
+#		draw_cards(amo)
+		_wa.disconnect("confirmed",self,"_on_wa_confirmed")
+		RCM.close_wa()
+
+
+############################## RCM ##############################
+var requester_hand : hand
+var drawing_amount : int = 0
+var cards_drawn := 0
+
+
+
+
+
+remote func request_draw_cards(amoun) -> void:
+	draw_cards(amoun)
+
+func draw_cards(amo) -> void:
+	requester_hand = __find_requester_hand()
+	if requester_hand == null:
+		print(name,": Couldn't find the requester hand, returning")
+		return
+	drawing_amount = amo
+	cards_drawn = 0
+	
+
+	for i in drawing_amount:
+		yield(get_tree().create_timer(0.5),"timeout")
+		draw_card()
+	
+#	__draw_loop()
+
+func draw_card() -> void:
+	if cards_drawn > drawing_amount: return
+	
+	if env.size() == 0:
+		print(" Not enough cards in deck to draw ")
+	
+	
+	var cur_card = env.back()
+	remove_from_deck(cur_card)
+	requester_hand.add_card_to_hand(cur_card,Vector3(9999,9999,9999))
+	
+	
+	cards_drawn += 1
+	
+	if drawing_amount == cards_drawn:
+		print(name,": Drawn ",cards_drawn," cards.")
+
+
+
+func __draw_loop() -> void:
+	if drawing_amount < 1: return
+	if cards_drawn > drawing_amount: return
+	
+	if env.size() == 0:
+		yield(get_tree().create_timer(0.5),"timeout")
+		__draw_loop()
+		return
+	
+	var cur_card = env.back()
+	remove_from_deck(cur_card)
+	requester_hand.add_card_to_hand(cur_card,Vector3.ZERO)
+	
+	cards_drawn += 1
+	
+	yield(get_tree().create_timer(0.2),"timeout")
+	
+	
+	if drawing_amount == cards_drawn:
+		print(name,": Drawn ",cards_drawn," cards.")
+		return
+	
+	
+	print(name,": Drawn ",cards_drawn,", Need to draw ",drawing_amount,
+	",      ",drawing_amount-cards_drawn," more left.")
+	
+	
+	if not name == "uno_draw_deck" and env.size() == 0:
+		
+		print(name,": No more cards left in deck to draw, ",
+		"             Totally drawn ",cards_drawn," cards.")
+		
+		return
+	elif name == "uno_draw_deck":
+		print("--")
+		pass
+		
+	
+	__draw_loop()
+	
+	
+
+
+
+func __find_requester_hand() -> hand:
+	for h in get_tree().get_nodes_in_group("hand"):
+		if h.owner_id == sender_id:
+			print(name,": Found requester hand")
+			return h
+	print(name,": Couldn't find the requester hand")
+	return null
 

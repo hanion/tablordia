@@ -5,7 +5,7 @@ const my_paths := {
 	"uno_discard_deck":"/root/Main/UNO/uno_discard_deck"
 	}
 
-var deste := []
+var deste := [] # Array[Vector2(card_value,card_value_second)]
 
 onready var uno_draw_deck = $uno_draw_deck
 
@@ -13,9 +13,10 @@ func _ready() -> void:
 	write_paths()
 	
 	yield(get_tree().create_timer(1),"timeout")
+	
 	if not get_tree().is_network_server(): return
 	create_draw_deck()
-	prepare_next_card()
+	spawn_all_cards()
 
 
 func write_paths() -> void:
@@ -42,6 +43,7 @@ func create_draw_deck() -> void:
 	
 	deste = shuffle(deste)
 
+
 func shuffle(dict:Array) -> Array:
 	randomize()
 	
@@ -65,26 +67,64 @@ func shuffle(dict:Array) -> Array:
 
 
 
-func prepare_next_card() -> void:
-	var nev_card = deste.pop_back()
+
+
+func spawn_all_cards() -> void:
+	for c in deste:
+		yield(get_tree().create_timer(0.001),"timeout")
+		
+		var info := {
+			"type":"Card",
+			"name":"Uno Card",
+			"amount":1,
+			"value":c.x,
+			"value_second":c.y,
+			"in_deck":"uno_draw_deck",
+			"translation":(uno_draw_deck.translation + Vector3(0,-5,0))
+		}
+		
+		Spawner.request_spawn(info)
 	
-	if nev_card == null: return
-	
-	var info := {
-		"type":"Card",
-		"name":"Uno Card",
-		"amount":1,
-		"value":nev_card.x,
-		"value_second":nev_card.y,
-		"in_deck":"uno_draw_deck",
-		"translation":(uno_draw_deck.translation + Vector3(0,1,0))
+	yield(get_tree().create_timer(0.01),"timeout")
+	get_draw_deck_up()
+
+func get_draw_deck_up() -> void:
+	uno_draw_deck.translation = Vector3(2,0,0)
+	var state = {
+		uno_draw_deck.name:{
+			"O": Std.get_global(uno_draw_deck),
+			"R":uno_draw_deck.rotation
+		}
 	}
 	
-	Spawner.request_spawn(info)
+	NetworkInterface.collect_state(state)
 
 
-func _on_uno_draw_deck_removed_card_from_deck():
-	if not get_tree().is_network_server(): return
-	prepare_next_card()
+#
+#func prepare_next_card() -> void:
+#	return
+#	var nev_card = deste.pop_back()
+#
+#	if nev_card == null:
+#		print("UNO: No more cards left in drawing deck.")
+#		uno_draw_deck.queue_free()
+#		return
+#
+#	var info := {
+#		"type":"Card",
+#		"name":"Uno Card",
+#		"amount":1,
+#		"value":nev_card.x,
+#		"value_second":nev_card.y,
+#		"in_deck":"uno_draw_deck",
+#		"translation":(uno_draw_deck.translation + Vector3(0,1,0))
+#	}
+#
+#	Spawner.request_spawn(info)
+#
+#
+#func _on_uno_draw_deck_removed_card_from_deck():
+#	if not get_tree().is_network_server(): return
+#	prepare_next_card()
 
 
