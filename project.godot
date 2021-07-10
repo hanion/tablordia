@@ -68,6 +68,7 @@ Marketing: Simon Karataş, Ayşe Damla Pekgöz, İdris İsrapilov
 Community Management: Alper Nargileci
 "
 run/main_scene="res://scenes/Menu.tscn"
+config/use_custom_user_dir=true
 config/icon="res://goldicon.png"
 config/quit_on_go_back=false
 

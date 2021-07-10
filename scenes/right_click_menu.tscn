@@ -23,11 +23,11 @@ __meta__ = {
 }
 
 [node name="PopupMenu" type="PopupMenu" parent="."]
-margin_left = 26.3656
-margin_top = 25.7609
-margin_right = 133.366
-margin_bottom = 120.761
-items = [ "Reset Game", null, 0, false, false, 0, 0, null, "", false, "Shuffle", null, 0, false, false, 1, 0, null, "", false, "Split", null, 0, false, false, 2, 0, null, "", false, "", null, 0, false, true, 3, 0, null, "", true, "Item 4", null, 0, false, false, 4, 0, null, "", false ]
+margin_left = 904.0
+margin_top = 205.0
+margin_right = 1011.0
+margin_bottom = 356.0
+items = [ "Reset Game", null, 0, false, false, 0, 0, null, "", false, "Shuffle", null, 0, false, false, 1, 0, null, "", false, "Split", null, 0, false, false, 2, 0, null, "", false, "", null, 0, false, true, 3, 0, null, "", true, "Draw", null, 0, false, false, 5, 0, null, "", false ]
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -42,9 +42,11 @@ margin_left = -112.0
 margin_top = -70.0
 margin_right = 112.0
 margin_bottom = 70.0
+focus_next = NodePath("vbc/period/LineEdit")
 popup_exclusive = true
 window_title = "Write Amount"
 resizable = true
+dialog_hide_on_ok = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,9 +66,9 @@ __meta__ = {
 }
 
 [node name="period" type="HBoxContainer" parent="WriteAmountPop/vbc"]
-margin_top = 35.0
+margin_top = 27.0
 margin_right = 208.0
-margin_bottom = 66.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
