@@ -282,10 +282,15 @@ var cavt:PopupMenu
 func prepare_rcm(popup:PopupMenu) -> void:
 	popup.clear()
 	
+	prepare_cavt(popup)
+	
+	popup.add_separator("")
+	
+	popup.add_item("Hand Settings",1)
 	
 	
-	
-	
+
+func prepare_cavt(popup) -> void:
 	cavt = RCM.get_a_submenu(popup,self.name+"cavt") as PopupMenu
 	
 	cavt.add_check_item("owner (me)" if am_i_the_owner else "owner",11)
@@ -307,7 +312,6 @@ func prepare_rcm(popup:PopupMenu) -> void:
 	cavt.hide_on_checkable_item_selection = false
 	if not cavt.is_connected("id_pressed",self,"_on_cavt_pressed"):
 		var _er = cavt.connect("id_pressed",self,"_on_cavt_pressed")
-
 
 
 func _on_cavt_pressed(id) -> void:
@@ -343,7 +347,7 @@ remote func rcms(a,b=-1,c=-1):
 func rcm_selected(id, _index=-1, _text=-1) -> void:
 	match id:
 		1:
-			pass
+			print("TODO: make hand settings ui in rcm and open from here")
 		
 ############################## RCM ##############################
 
