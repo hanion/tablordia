@@ -1,6 +1,17 @@
 extends Control
 
 onready var popup = $PopupMenu
+
+onready var wa = $WriteAmountPop
+onready var wa_per0 = $WriteAmountPop/vbc/period
+onready var wa_per1 = $WriteAmountPop/vbc/period2
+onready var wa_per2 = $WriteAmountPop/vbc/period3
+onready var wa_label0 = $WriteAmountPop/vbc/period/Label
+onready var wa_label1 = $WriteAmountPop/vbc/period2/Label
+onready var wa_label2 = $WriteAmountPop/vbc/period3/Label
+
+
+
 var player
 var current_object = null
 var is_popup_open := false
@@ -37,11 +48,12 @@ func open_popup():
 
 func close_popup():
 	is_popup_open = false
+	player.is_blocked_by_ui = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	player.cast_ray()
 	player.move_pointer()
 	
-	player.is_blocked_by_ui = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 
@@ -77,8 +89,51 @@ func get_a_submenu(_popup,nam) -> PopupMenu:
 
 
 
+func open_wa(sigto:Dictionary, title, l0="",l1="",l2="") -> ConfirmationDialog:
+	wa.window_title = title
+	
+	if not l0 == "":
+		wa_per0.visible = true
+		wa_label0.text = l0
+		
+	
+	if not l1 == "":
+		wa_per1.visible = true
+		wa_label1.text = l1
+	
+	if not l2 == "":
+		wa_per2.visible = true
+		wa_label2.text = l2
+	
+	
+	wa.set_as_minsize()
+	wa.popup()
+	
+	
+	if not wa.is_connected("confirmed",sigto["target"],sigto["method"]):
+		wa.connect("confirmed",sigto["target"],sigto["method"])
+	
+	
+#	yield(get_tree().create_timer(1),"timeout")
+	
+	player.is_blocked_by_ui = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	wa_per0.get_node("LineEdit").grab_focus()
+	
+	return wa
+
+func close_wa() -> void:
+	wa.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	player = get_node("/root/Main/player")
+	player.is_blocked_by_ui = false
+
+
+
+
 func _on_PopupMenu_popup_hide():
-	close_popup()
+	if is_popup_open:
+		close_popup()
 
 
 func _on_PopupMenu_index_pressed(index):
