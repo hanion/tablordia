@@ -6,7 +6,7 @@ var type:String
 var naem:String
 var owner_id:int
 var val:int
-var val_second:int
+var val_second:int = 0
 
 
 func spawn() -> void:
@@ -33,6 +33,7 @@ func set_scroll_for_selection(info) -> void:
 		val_second = info["value_second"]
 	
 	$vb/owner.visible  =  (naem == "Hand")
+	$vb/uno_team.visible  =  (naem == "Uno Card")
 	
 
 
@@ -44,3 +45,7 @@ func _on_amount_amount_changed(am):
 
 func _on_owner_on_owner_changed(ownerid):
 	owner_id = ownerid
+
+
+func _on_uno_team_color_changed(a):
+	val_second = a
