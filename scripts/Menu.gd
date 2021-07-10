@@ -8,6 +8,8 @@ var port = 4014
 var Name = "0"
 var color = Color.aqua
 
+const advertiser_pl = preload("res://scenes/small/ServerAdvertiser.tscn")
+const listener_pl = preload("res://scenes/small/ServerListener.tscn")
 
 onready var primer = $margin/primer
 onready var join = $margin/join
@@ -35,6 +37,7 @@ func start_game():
 	set_info()
 	add_me()
 #	yield(get_tree().create_timer(5),"timeout")
+	
 	var game = preload("res://scenes/Main.tscn").instance()
 	get_parent().add_child(game)
 	
@@ -63,6 +66,11 @@ func add_me():
 func _on_primer_join_pressed():
 	primer.visible = false
 	join.visible = true
+	
+	var listener = listener_pl.instance()
+	listener.connect("new_server",self,"_on_ServerListener_new_server")
+	get_parent().add_child(listener)
+	
 
 
 func _on_primer_host_pressed():
@@ -87,12 +95,19 @@ func _on_join_join_pressed():
 	ip = join_ip.text
 	port = int(join_port.text)
 	NetworkInterface.join(ip,port)
+	
+	get_node("/root/ServerListener").queue_free()
+	
 
 
 func _on_host_host_pressed():
 	
 	port = int(host_port.text)
 	NetworkInterface.host(port)
+	
+	
+	var ad = advertiser_pl.instance()
+	get_parent().add_child(ad)
 	
 	start_game()
 
@@ -105,3 +120,9 @@ func _on_name_text_changed(new_text):
 func _on_ColorPicker_color_changed(_color):
 	self.color =  _color
 	NetworkInterface.color = _color
+
+
+func _on_ServerListener_new_server(__ip):
+	NetworkInterface.join(__ip,NetworkInterface.DEFAULT_PORT)
+	get_node("/root/ServerListener").queue_free()
+	print("                      ---- Joining to ",__ip)

@@ -1,7 +1,7 @@
 extends Node
 
 
-export (float) var broadcast_interval = 1.0
+export (float) var broadcast_interval = 3.0
 
 var socket_udp
 var broadcast_timer = Timer.new()
