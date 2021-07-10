@@ -156,12 +156,10 @@ func process_received_do(do) -> void:
 	elif dragged.is_in_trash:
 		dragged.in_trash.remove_from_trash(dragged)
 	
-	elif dragged.is_in_slot:
-		print("yeaa it is in slot")
+#	elif dragged.is_in_slot:
 #		dragged.in_slot.remove_from_slot(dragged)
 	
 	elif dragged.is_in_deck:
-		print("sm: dragged is in deck")
 		dragged.in_deck.remove_from_deck(dragged)
 	
 	elif dragged.is_in_hand:
@@ -197,7 +195,7 @@ func process_received_do(do) -> void:
 			over.add_card_to_hand(dragged, pos)
 			
 	
-	print("<uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu\n\n")
+#	print("<uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu\n\n")
 	
 	##### remove
 	yield(get_tree().create_timer(0.5),"timeout")
