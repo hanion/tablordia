@@ -4,6 +4,7 @@ const br_card_pl = preload("res://Games/br/br_card.tscn")
 const br_board_pl = preload("res://Games/br/br.tscn")
 const Board_chess_pl = preload("res://Games/chess/chess.tscn")
 const uno_card_pl = preload("res://Games/uno/uno_card.tscn")
+const UNO_pl = preload("res://Games/uno/UNO.tscn")
 
 
 const deck_pl = preload("res://Games/deck.tscn")
@@ -60,6 +61,9 @@ func spawn_Game(info) -> void:
 			get_node("/root/Main").add_child(board)
 		"Board Royale":
 			board = br_board_pl.instance()
+			get_node("/root/Main").add_child(board)
+		"UNO":
+			board = UNO_pl.instance()
 			get_node("/root/Main").add_child(board)
 		_:
 			return
@@ -137,7 +141,7 @@ func spawn_Card(info) -> void:
 	
 	if info.has("in_deck"):
 		var dek = Std.get_object(info["in_deck"]) as deck
-		dek.add_to_deck(crd,true)
+		dek.add_to_deck(crd,true,false)
 	
 	
 	if info.has("in_dispenser"):
