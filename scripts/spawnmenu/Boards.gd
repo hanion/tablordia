@@ -53,3 +53,22 @@ func _on_m5_pressed():
 
 
 
+
+
+func _on_m6_pressed():
+	var info := {
+		"type":"Card",
+		"name":"SNR Card",
+		"value":0
+		}
+	hs.selected(info)
+
+func _on_m7_pressed():
+	var info := {
+		"type":"Card",
+		"name":"SNR Card",
+		"value":1
+		}
+	hs.selected(info)
+
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=98 format=2]
 
 [ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/Steel.png" type="Texture" id=2]
@@ -23,6 +23,8 @@
 [ext_resource path="res://scripts/spawnmenu/UNO_UI.gd" type="Script" id=21]
 [ext_resource path="res://scripts/spawnmenu/inspector/uno_team.gd" type="Script" id=22]
 [ext_resource path="res://assets/52/cardSpadesA.png" type="Texture" id=23]
+[ext_resource path="res://assets/snr/skull0.jpg" type="Texture" id=24]
+[ext_resource path="res://assets/snr/rose0.jpg" type="Texture" id=25]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0980392, 0.121569, 0.137255, 1 )
@@ -744,6 +746,78 @@ margin_top = 306.0
 margin_right = 276.0
 margin_bottom = 335.0
 text = "Deck of 52 cards"
+align = 1
+
+[node name="m6" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
+margin_left = 300.0
+margin_top = 354.0
+margin_right = 596.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m6/vb"]
+process_priority = -5
+margin_right = 276.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 25 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m6/vb"]
+margin_top = 306.0
+margin_right = 276.0
+margin_bottom = 335.0
+text = "SNR Rose"
+align = 1
+
+[node name="m7" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
+margin_left = 600.0
+margin_top = 354.0
+margin_right = 896.0
+margin_bottom = 704.0
+rect_min_size = Vector2( 144, 350 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m7/vb"]
+process_priority = -5
+margin_right = 276.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 24 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m7/vb"]
+margin_top = 306.0
+margin_right = 276.0
+margin_bottom = 335.0
+text = "SNR Skull"
 align = 1
 
 [node name="UNO" type="ScrollContainer" parent="vb/mrgn/hs/games"]
@@ -3974,6 +4048,8 @@ text = "Spawn"
 [connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m3" to="vb/mrgn/hs/games/Boards" method="_on_m3_pressed"]
 [connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m4" to="vb/mrgn/hs/games/Boards" method="_on_m4_pressed"]
 [connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m5" to="vb/mrgn/hs/games/Boards" method="_on_m5_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m6" to="vb/mrgn/hs/games/Boards" method="_on_m6_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m7" to="vb/mrgn/hs/games/Boards" method="_on_m7_pressed"]
 [connection signal="pressed" from="vb/mrgn/hs/games/UNO/Grid/m51" to="vb/mrgn/hs/games/Boards" method="_on_m51_pressed"]
 [connection signal="pressed" from="vb/mrgn/hs/games/UNO/Grid/m10" to="vb/mrgn/hs/games/UNO" method="_on_m10_pressed"]
 [connection signal="pressed" from="vb/mrgn/hs/games/UNO/Grid/m11" to="vb/mrgn/hs/games/UNO" method="_on_m11_pressed"]

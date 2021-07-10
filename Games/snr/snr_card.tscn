@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Games/snr/snr_card.gd" type="Script" id=1]
+[ext_resource path="res://Games/snr/snr_back.tres" type="Material" id=2]
+[ext_resource path="res://Games/snr/snr_rose.tres" type="Material" id=3]
+[ext_resource path="res://Games/snr/snr_skull.tres" type="Material" id=4]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.7
+height = 0.03
+
+[sub_resource type="CylinderMesh" id=2]
+top_radius = 0.7
+bottom_radius = 0.7
+height = 0.05
+radial_segments = 32
+
+[node name="snr_card" type="Area" groups=[
+"draggable",
+"hand_custom_offset",
+"rotatable",
+]]
+script = ExtResource( 1 )
+mesh = NodePath("mesh")
+back_mat = ExtResource( 2 )
+rose_mat = ExtResource( 3 )
+skull_mat = ExtResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )
+shape = SubResource( 1 )
+
+[node name="mesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 2 )

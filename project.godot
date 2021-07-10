@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/slot.gd"
 }, {
+"base": "card",
+"class": "snr_card",
+"language": "GDScript",
+"path": "res://Games/snr/snr_card.gd"
+}, {
 "base": "Area",
 "class": "trash",
 "language": "GDScript",
@@ -56,6 +61,7 @@ _global_script_class_icons={
 "deck": "",
 "hand": "",
 "slot": "",
+"snr_card": "",
 "trash": "",
 "uno_card": ""
 }

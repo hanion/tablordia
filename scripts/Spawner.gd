@@ -7,6 +7,7 @@ const uno_card_pl = preload("res://Games/uno/uno_card.tscn")
 const UNO_pl = preload("res://Games/uno/UNO.tscn")
 const _52_pl = preload("res://Games/52/52.tscn")
 const _52_card_pl = preload("res://Games/52/card_52.tscn")
+const snr_card_pl = preload("res://Games/snr/snr_card.tscn")
 
 
 const deck_pl = preload("res://Games/deck.tscn")
@@ -21,6 +22,7 @@ var deck_index:int = 0
 
 var uno_index:int = 0
 var card_52_index:int = 0
+var snr_card_index:int = 0
 
 
 
@@ -130,6 +132,10 @@ func spawn_Card(info) -> void:
 			crd = _52_card_pl.instance() as card_52
 			crd.set_name("c52_"+str(card_52_index))
 			card_52_index += 1
+		"SNR Card":
+			crd = snr_card_pl.instance() as snr_card
+			crd.set_name("snrc"+str(snr_card_index))
+			snr_card_index += 1
 	
 	
 	#spawn
