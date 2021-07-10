@@ -19,11 +19,6 @@ func _physics_process(_delta):
 #		print("**sending do _pp")
 		process_world_state()
 
-func _input(event):
-	if event is InputEventKey:
-		if event.is_action_pressed("camera_right"):
-			print("\n\n alws:\n",alws,"\n\n")
-
 func process_world_state():
 	if get_parent().world_state_up.empty(): return
 	
@@ -49,18 +44,6 @@ func process_world_state():
 	###########################################################################
 
 
-
-
-"""
-var all_latest_world_states = { # alws
-	obj_name:{
-		T:time,
-		pos:pos,
-		rot:rot,
-		DO:{"DO STATE"}
-		}
-	}
-"""
 
 func save_state_to_collection(state):
 	if state.empty(): return

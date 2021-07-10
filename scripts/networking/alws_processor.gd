@@ -14,7 +14,7 @@ var all_latest_world_states = { # alws
 
 func process_alws(alws:Dictionary) -> void:
 	yield(get_tree().create_timer(2),"timeout")
-	print("\n\n\n\n                      ---- RECEİVED ALWS ----- \n.",alws)
+#	print("\n\n\n\n                      ---- RECEİVED ALWS ----- \n.",alws)
 	
 	for key in alws.keys():
 		var obj = Std.get_object(key)
