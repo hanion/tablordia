@@ -1,5 +1,7 @@
 extends Node
 
+const DEFAULT_PORT = 4014
+
 var uid: int
 var Name: String
 var color: Color
