@@ -34,4 +34,10 @@ func _on_m4_pressed():
 		"name":"Deck"
 		}
 	hs.selected(info)
-	
+
+func _on_m51_pressed():
+	var info := {
+		"type":"Game",
+		"name":"UNO"
+		}
+	hs.selected(info)
