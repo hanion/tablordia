@@ -227,6 +227,13 @@ var sender_id := 0
 func prepare_rcm(popup:PopupMenu) -> void:
 	popup.clear()
 	if env.size() > 0:
+		var txt = "Has "+str(env.size())+" card"
+		if env.size() > 1: txt += "s"
+		popup.add_item(txt,77)
+		popup.set_item_disabled(popup.get_item_index(77),true)
+		popup.add_separator()
+		
+		
 		
 		popup.add_item("Make cards visible",2)
 		if not can_make_cards_visible:
