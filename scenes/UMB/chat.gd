@@ -35,7 +35,7 @@ func _on_input_field_text_entered(txt:String) -> void:
 	if txt.length() > 50: return
 	
 	
-	UMB.logs(0,NetworkInterface.Name,txt,NetworkInterface.color)
+	UMB.logs(0,NetworkInterface.Name,txt)
 
 
 

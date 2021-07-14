@@ -11,18 +11,25 @@ const group_color = [# p
 
 
 func logs(p:int, carrier:String, txt:String, extra_color:=Color.white) ->  void:
+func logs(p:int, carrier:String, txt:String) ->  void:
 	rpc_config("_logs_to_log",MultiplayerAPI.RPC_MODE_REMOTESYNC)
-	rpc("_logs_to_log",p,carrier,txt,extra_color)
-remote func _logs_to_log(_p, _carrier, _txt,_extra_color) ->  void:
-	UMB.log(_p,_carrier,_txt,_extra_color)
+	rpc("_logs_to_log",p,carrier,txt)
+remote func _logs_to_log(_p, _carrier, _txt) ->  void:
+	UMB.log(_p,_carrier,_txt)
 
 
 func log(p:int, carrier:String, txt:String, extra_color:=Color.white) ->  void:
+func log(p:int, carrier:String, txt:String) ->  void:
 	
 	var bbtext:String
 	var color
 	if p == 0:
-		color = extra_color.to_html()
+		var col:Color
+		for pid in List.players:
+			if List.players[pid]["name"] == carrier:
+				col = List.players[pid]["color"] as Color
+		
+		color = col.to_html()
 	else:
 		color = group_color[p].to_html()
 	
