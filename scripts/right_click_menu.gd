@@ -42,14 +42,12 @@ func open_popup():
 	popup.popup()
 	
 	player.is_blocked_by_ui = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 
 func close_popup():
 	is_popup_open = false
 	player.is_blocked_by_ui = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	player.cast_ray()
 	player.move_pointer()
@@ -117,14 +115,12 @@ func open_wa(sigto:Dictionary, title, l0="",l1="",l2="") -> ConfirmationDialog:
 #	yield(get_tree().create_timer(1),"timeout")
 	
 	player.is_blocked_by_ui = true
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	wa_per0.get_node("LineEdit").grab_focus()
 	
 	return wa
 
 func close_wa() -> void:
 	wa.visible = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	player = get_node("/root/Main/player")
 	player.is_blocked_by_ui = false
 

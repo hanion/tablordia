@@ -93,10 +93,6 @@ func look_closeup(obj, show_mesh := true) -> void:
 
 func show_mesh(show_mesh) -> void:
 	$mesh.visible = show_mesh
-	if show_mesh:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func set_material(obj):

@@ -4,11 +4,12 @@ var ctrl_held_down := false
 var shift_held_down := false
 
 onready var cam = get_node("../CAM")
-
+onready var spawn_panel = get_node("../../CanvasLayer/SpawnPanel")
 
 func _unhandled_key_input(event:InputEventKey):
 	handle_control(event)
 	handle_shift(event)
+	handle_spawnmenu(event)
 
 
 func _input(event:InputEvent):
@@ -33,6 +34,16 @@ func handle_shift(event) -> void:
 	elif event.is_action_released("shift"):
 		shift_held_down = false
 
+
+
+func handle_spawnmenu(event) -> void:
+	if event is InputEventKey:
+		if event.is_action_pressed("spawn_menu"):
+			if spawn_panel.visible:
+				spawn_panel.close_menu()
+			else:
+				spawn_panel.open_menu()
+			
 
 
 

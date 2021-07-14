@@ -24,21 +24,19 @@ var _do_over: String
 var _do_pos: Vector3
 
 onready var camera = $CAM/position/elevation/zoom/Camera
-onready var pointer = $pointer as Spatial
 onready var close_up = $CAM/position/elevation/zoom/Camera/closeup as Spatial
-onready var spawn_menu = get_node("../CanvasLayer/SpawnPanel")
 onready var Controls = $Controls
 
 
 
 func _input(event):
 	if is_blocked_by_ui: return
+	
 	if cast_ray():
 		move_pointer()
 		manage_dragging(event)
 		manage_rotating(event)
 		manage_look_closeup(event)
-		manage_oable(event)
 
 func _physics_process(_delta):
 	if is_dragging:
@@ -80,11 +78,6 @@ func cast_ray():
 
 func move_pointer() -> void:
 	var pointing_at = current["position"] as Vector3
-#		$Tween.interpolate_property(pointer,"translation",pointer.translation,
-#		pointing_at,0.06,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT)
-#		$Tween.start()
-	pointer.translation = pointing_at
-	
 	define_pointer_state(pointing_at)
 
 
@@ -118,10 +111,7 @@ func manage_look_closeup(event) -> void:
 			close_up.look_closeup(current['collider'],false)
 
 
-func manage_oable(event) -> void:
-	if event is InputEventKey:
-		if event.is_action_pressed("spawn_menu"):
-			spawn_menu.open_menu()
+
 
 
 func rotate_one_tick(obj, is_reverse := false) -> void:
