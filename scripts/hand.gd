@@ -158,6 +158,11 @@ func resize_hand() -> void:
 	if inv_size == 0: inv_size = 0.5
 	
 	var siz = inv_size * offsetx + offsetx/6
+	
+#	for ca in inventory:
+#		if ca.is_in_group("hand_custom_offset"):
+#			siz += ca.hand_custom_offset - offsetx
+	
 	tweenit(col,"shape:extents:x",col.shape.extents.x,siz/2)
 	tweenit(hand_mesh,"mesh:size:x",hand_mesh.mesh.size.x, siz)
 	order_inventory()
