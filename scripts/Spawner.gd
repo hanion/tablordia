@@ -50,7 +50,8 @@ func _spawn(info) -> void:
 		"Misc":
 			spawn_Misc(info)
 		"Card":
-			spawn_Card(info)
+			for _a in range(info["amount"]):
+				spawn_Card(info)
 		_:
 			print("!!!Spawner: Unknown type to spawn,\n    info: ",info)
 			push_error("Spawner: Unknown type to spawn")
@@ -71,6 +72,21 @@ func spawn_Game(info) -> void:
 			board = _52_pl.instance()
 		_:
 			return
+	
+#
+#	var board_index := 0
+#	var new_name : String = board.name + str(board_index)
+#
+#	while List.paths.has(new_name):
+#		board_index += 1
+#		new_name = board.name + str(board_index)
+#
+#
+#	print(new_name,board.name)
+#	board.name = new_name
+#	print(new_name,board.name)
+	
+	
 	
 	get_node("/root/Main").add_child(board)
 	List.paths[board.name] = board.get_path()
