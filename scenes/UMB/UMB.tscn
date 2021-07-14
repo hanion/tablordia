@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/UMB/UMB.gd" type="Script" id=2]
+[ext_resource path="res://scenes/UMB/chat.gd" type="Script" id=3]
+[ext_resource path="res://scenes/UMB/msg.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/UMB/scroll.gd" type="Script" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.211765, 0.211765, 0.211765, 0.611765 )
+
+[sub_resource type="StyleBoxLine" id=2]
+content_margin_left = 10.0
+color = Color( 0, 0, 0, 0 )
+thickness = 5
+vertical = true
+
+[node name="UniversalMessageBus" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+chat = NodePath("chat")
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 551.0
+margin_right = -1076.0
+custom_styles/panel = SubResource( 1 )
+custom_constants/close_v_ofs = -5
+custom_constants/title_height = 0
+popup_exclusive = true
+resizable = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chat" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 837.0
+margin_right = -1293.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+chat_log = NodePath("hbox/Label/RichTextLabel")
+label = NodePath("hbox/Label")
+ledit = NodePath("hbox/input_field")
+scroll = NodePath("scroll")
+msg_container = NodePath("scroll/vb")
+
+[node name="scroll" type="ScrollContainer" parent="chat"]
+margin_right = 527.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+script = ExtResource( 5 )
+
+[node name="vb" type="VBoxContainer" parent="chat/scroll"]
+margin_right = 527.0
+margin_bottom = 108.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="msg" parent="chat/scroll/vb" instance=ExtResource( 4 )]
+margin_right = 527.0
+
+[node name="hbox" type="HBoxContainer" parent="chat"]
+margin_top = 112.0
+margin_right = 527.0
+margin_bottom = 143.0
+size_flags_horizontal = 3
+
+[node name="input_field" type="LineEdit" parent="chat/hbox"]
+margin_right = 527.0
+margin_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="chat/hbox"]
+visible = false
+margin_right = 47.0
+margin_bottom = 31.0
+text = "Chat:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="chat/hbox/Label"]
+visible = false
+margin_top = -112.0
+margin_right = 546.0
+margin_bottom = -70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/normal = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[color=green][Player0]:[/color] halooooo
+[color=red]{Spawner}: [/color] Spawned Chess"
+text = "[Player0]: halooooo
+{Spawner}:  Spawned Chess"
+scroll_following = true
+
+[connection signal="text_entered" from="chat/hbox/input_field" to="chat" method="_on_input_field_text_entered"]

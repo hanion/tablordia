@@ -35,7 +35,8 @@ func _ready():
 
 
 func start_game():
-	print("\nMenu: Connected to server.\n")
+	UMB.log(1,"Menu","Connected to server.")
+#	print("\nMenu: Connected to server.\n")
 	set_info()
 	add_me()
 	
@@ -54,7 +55,8 @@ func set_info():
 
 
 func add_me():
-	print("Mn: adding myself to the List")
+	UMB.log(1,"Main","Prepared List")
+#	print("Mn: adding myself to the List")
 	var host_dict = {
 		"name":Name,
 		"color":color
@@ -129,4 +131,5 @@ func _on_ColorPicker_color_changed(_color):
 func _on_ServerListener_new_server(__ip):
 	NetworkInterface.join(__ip,NetworkInterface.DEFAULT_PORT)
 	get_node("/root/ServerListener").queue_free()
+	UMB.log(1,"Menu","Joining to "+str(__ip))
 	print("                      ---- Joining to ",__ip)

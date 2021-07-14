@@ -91,20 +91,29 @@ NetworkInterface="*res://scenes/network_interface.tscn"
 List="*res://scenes/list.tscn"
 Spawner="*res://scenes/Spawner.tscn"
 RCM="*res://scenes/right_click_menu.tscn"
+UMB="*res://scenes/UMB/UMB.tscn"
+
+[debug]
+
+multirun/number_of_windows=1
+multirun/window_distance=1270
+multirun/add_custom_args=true
+multirun/first_window_args="listen"
+multirun/other_window_args="join"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
 window/size/always_on_top=true
-window/size/test_width=640
-window/size/test_height=360
+window/size/test_width=1280
+window/size/test_height=720
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg", "res://addons/scene_notes_top/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg", "res://addons/multirun/plugin.cfg", "res://addons/scene_notes_top/plugin.cfg" )
 
 [input]
 

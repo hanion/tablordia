@@ -83,6 +83,8 @@ func give_my_info_to(to_id) -> void:
 remote func notify_existing_player_about_me(var you: Dictionary) -> void:
 	var sender_id = get_tree().get_rpc_sender_id()
 	
+	
+	UMB.log(1, "Network", you["name"]+" connected")
 	print("\n",
 	"c: ",
 	you["name"]," connected",", id: ",sender_id,", color:",you["color"])

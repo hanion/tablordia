@@ -13,7 +13,7 @@ onready var cards = $cards
 var br
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+#	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	NetworkInterface.Main = self
 	
 	Spawner.cards_folder = cards
@@ -38,7 +38,8 @@ func _spawn_player(var pid):
 	plo.get_child(0).set_surface_material(0, material)
 	
 	others.add_child(plo)
-	print("M: spawned player, id:",pid)
+	
+	UMB.log(1,"Main","spawned player " + List.players[pid]["name"])
 
 
 func get_player_material(id) -> SpatialMaterial:

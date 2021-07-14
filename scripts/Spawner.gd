@@ -53,6 +53,7 @@ func _spawn(info) -> void:
 			for _a in range(info["amount"]):
 				spawn_Card(info)
 		_:
+			UMB.logs(2,"Spawner","Unknown type to spawn,\n    info: "+str(info))
 			print("!!!Spawner: Unknown type to spawn,\n    info: ",info)
 			push_error("Spawner: Unknown type to spawn")
 
