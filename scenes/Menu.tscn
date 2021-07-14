@@ -53,10 +53,10 @@ size_flags_horizontal = 3
 scroll_horizontal_enabled = false
 
 [node name="ColorPicker" type="ColorPicker" parent="margin/primer/tempHBox/ScrollContainer"]
-margin_left = 332.0
-margin_top = 8.0
-margin_right = 622.0
-margin_bottom = 455.0
+margin_left = 328.0
+margin_top = 4.0
+margin_right = 618.0
+margin_bottom = 451.0
 size_flags_horizontal = 6
 color = Color( 0.286275, 0.27451, 0.27451, 1 )
 edit_alpha = false
