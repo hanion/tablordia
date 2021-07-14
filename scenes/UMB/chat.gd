@@ -10,17 +10,29 @@ export(NodePath) onready var msg_container = get_node(msg_container) as Control
 
 export(NodePath) onready var tags = get_node(tags) as ScrollContainer
 
-
-func write(txt:String) -> Node:
+var last_carrier := ""
+var last_msg : RichTextLabel
+func write(bbstart:String, carrier:String, bbend:String) -> Node:
+	UMB.chat_closed()
+	
+	if last_carrier == carrier:
+		var ms = "[color=#00ffffff]"+carrier+"[/color]" # transparent name
+		
+		last_msg.bbcode_text += "\n" + ms + bbstart + bbend
+		return last_msg
 	
 	var msg = msg_pl.instance() as RichTextLabel
 	
-	msg.bbcode_text = txt
+	var text = bbstart+carrier+bbend
+	msg.bbcode_text = text
 	
 	msg_container.add_child(msg)
 	
-	UMB.chat_closed()
 	
+	
+	
+	last_carrier = carrier
+	last_msg = msg
 	return msg
 
 
