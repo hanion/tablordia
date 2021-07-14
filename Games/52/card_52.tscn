@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Games/52/card_52.tres" type="Material" id=1]
 [ext_resource path="res://assets/52/cardClubs8.png" type="Texture" id=2]
@@ -47,6 +47,14 @@
 [ext_resource path="res://assets/52/cardSpadesK.png" type="Texture" id=45]
 [ext_resource path="res://assets/52/cardSpades10.png" type="Texture" id=46]
 [ext_resource path="res://assets/52/cardSpadesA.png" type="Texture" id=47]
+[ext_resource path="res://assets/52/cardSpades7.png" type="Texture" id=48]
+[ext_resource path="res://assets/52/cardSpades3.png" type="Texture" id=49]
+[ext_resource path="res://assets/52/cardSpades6.png" type="Texture" id=50]
+[ext_resource path="res://assets/52/cardSpades9.png" type="Texture" id=51]
+[ext_resource path="res://assets/52/cardSpades8.png" type="Texture" id=52]
+[ext_resource path="res://assets/52/cardSpades5.png" type="Texture" id=53]
+[ext_resource path="res://assets/52/cardSpades2.png" type="Texture" id=54]
+[ext_resource path="res://assets/52/cardSpades4.png" type="Texture" id=55]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.72, 0.04, 1 )
@@ -64,7 +72,7 @@ mat = ExtResource( 1 )
 clubs = [ ExtResource( 9 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 16 ) ]
 diamonds = [ ExtResource( 9 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 11 ), ExtResource( 22 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 29 ) ]
 hearts = [ ExtResource( 9 ), ExtResource( 41 ), ExtResource( 31 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 42 ), ExtResource( 37 ), ExtResource( 34 ) ]
-spades = [ ExtResource( 9 ), ExtResource( 47 ), ExtResource( 31 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 38 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ]
+spades = [ ExtResource( 9 ), ExtResource( 47 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 55 ), ExtResource( 53 ), ExtResource( 50 ), ExtResource( 48 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 46 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )

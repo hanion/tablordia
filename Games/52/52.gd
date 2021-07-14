@@ -2,12 +2,12 @@ extends Spatial
 
 
 const my_paths := {
-	"deck_of_52":"/root/Main/52/deck_of_52"
+	"iskambil":"/root/Main/52/iskambil"
 	}
 
 var deste := [] # Array[Vector2(card_value,card_value_second)]
 
-onready var dek = $deck_of_52
+onready var dek = $iskambil
 
 func _ready() -> void:
 	write_paths()
