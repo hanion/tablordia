@@ -1,13 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/CAM.gd" type="Script" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
 [ext_resource path="res://scenes/closeup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/Controls.gd" type="Script" id=4]
-
-[sub_resource type="SphereMesh" id=1]
-radius = 0.1
-height = 0.2
 
 [node name="player" type="Spatial"]
 script = ExtResource( 2 )
@@ -34,9 +30,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 
 [node name="Controls" type="Spatial" parent="."]
 script = ExtResource( 4 )
-
-[node name="pointer" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
-material/0 = null
 
 [node name="Tween" type="Tween" parent="."]

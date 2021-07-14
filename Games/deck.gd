@@ -312,7 +312,8 @@ remote func request_draw_cards(amoun) -> void:
 func draw_cards(amo) -> void:
 	requester_hand = __find_requester_hand()
 	if requester_hand == null:
-		print(name,": Couldn't find the requester hand, returning")
+		UMB.log(2,name,"Couldn't find the requester hand, returning")
+#		print(name,": Couldn't find the requester hand, returning")
 		return
 	drawing_amount = amo
 	cards_drawn = 0
@@ -327,7 +328,8 @@ func draw_card() -> void:
 	if cards_drawn > drawing_amount: return
 	
 	if env.size() == 0:
-		print(" Not enough cards in deck to draw ")
+		UMB.log(1,name,"Not enough cards in deck to draw.")
+#		print(" Not enough cards in deck to draw ")
 	
 	
 	var cur_card = env.back()
@@ -338,7 +340,8 @@ func draw_card() -> void:
 	cards_drawn += 1
 	
 	if drawing_amount == cards_drawn:
-		print(name,": Drawn ",cards_drawn," cards.")
+		UMB.log(1,name,"Drawn " + str(cards_drawn) + " cards.")
+#		print(name,": Drawn ",cards_drawn," cards.")
 
 
 
@@ -346,8 +349,9 @@ func draw_card() -> void:
 func __find_requester_hand() -> hand:
 	for h in get_tree().get_nodes_in_group("hand"):
 		if h.owner_id == sender_id:
-			print(name,": Found requester hand")
+#			print(name,": Found requester hand")
 			return h
-	print(name,": Couldn't find the requester hand")
+#	UMB.log(2,name,"Couldn't find the requester hand")
+#	print(name,": Couldn't find the requester hand")
 	return null
 

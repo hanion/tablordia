@@ -334,13 +334,13 @@ func prepare_rcm(popup:PopupMenu) -> void:
 	popup.clear()
 	
 	prepare_cavt(popup)
+	if inventory.size() > 1:
+		popup.add_item("Shuffle hand",2)
+		if not am_i_the_owner:
+			popup.set_item_disabled(popup.get_item_index(2),true)
 	
-	popup.add_item("Shuffle hand",2)
-	if not am_i_the_owner:
-		popup.set_item_disabled(popup.get_item_index(2),true)
 	
 	popup.add_separator("")
-	
 	popup.add_item("Hand Settings",1)
 	
 	

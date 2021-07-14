@@ -55,7 +55,7 @@ func set_info():
 
 
 func add_me():
-	UMB.log(1,"Main","Prepared List")
+#	UMB.log(1,"Main","Prepared List")
 #	print("Mn: adding myself to the List")
 	var host_dict = {
 		"name":Name,

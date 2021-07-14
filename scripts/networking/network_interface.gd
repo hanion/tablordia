@@ -28,13 +28,26 @@ func _player_connected(id):
 		client.rpc_id(id,"receive_alws",$server/state_processor.alws)
 
 func got_info_of_new_peer(id) -> void:
+	var nam = List.players[id]["name"]
+	var col = List.players[id]["color"].to_html()
+	
+	var txt = "[color=#"+col+"]"+nam+"[/color] connected"
+	UMB.log(1, "Network", txt)
+	
 	Main._spawn_player(id)
 #	Main._spawn_hand(id)
 
 
 
 func _player_disconnected(id):
-	print("\nN: player disconnected, name:",List.players[id]["name"],", id:",id)
+	var nam = List.players[id]["name"]
+	var col = List.players[id]["color"] as Color
+	var txt = "[color=#"+str(col.to_html())+"]" + nam + "[/color]"
+	
+	UMB.log(1,"Network", txt + " disconnected")
+	
+	
+#	print("\nN: player disconnected, name:",nam,", id:",id)
 #	world_state_collection.erase(id)(#)because if player accidentaly disconnects 
 	# FUTURE save players info somewhere 
 	List.remove_player(id)
