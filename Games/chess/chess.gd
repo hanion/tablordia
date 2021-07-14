@@ -1,8 +1,6 @@
 extends Spatial
 
-const my_paths := {
-	"chess":"/root/Main/chess"
-	}
+var my_paths := {}
 
 
 func _ready() -> void:
@@ -12,6 +10,7 @@ func _ready() -> void:
 	player.connect("started_dragging",self,"on_started_dragging")
 	player.connect("stopped_dragging",self,"on_stopped_dragging")
 	
+	
 	if not get_tree().is_network_server(): return
 
 
@@ -19,8 +18,12 @@ func get_paths() -> void:
 	var w = $w.get_children()
 	var b = $b.get_children()
 	
-	var base_w = my_paths["chess"] + "/w/"
-	var base_b = my_paths["chess"] + "/b/"
+	var my_path = "/root/Main/" + self.name # /root/Main/chess0
+	
+	my_paths[self.name] = my_path
+	
+	var base_w = my_path + "/w/"
+	var base_b = my_path + "/b/"
 	
 	
 	for piece in w:
