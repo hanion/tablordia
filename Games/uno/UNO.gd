@@ -80,7 +80,8 @@ func spawn_all_cards() -> void:
 			"value":c.x,
 			"value_second":c.y,
 			"in_deck":"uno_draw_deck",
-			"translation":(uno_draw_deck.translation + Vector3(0,-5,0))
+			"translation":(uno_draw_deck.translation + Vector3(0,-5,0)),
+			"no UMB":true
 		}
 		
 		Spawner.request_spawn(info)

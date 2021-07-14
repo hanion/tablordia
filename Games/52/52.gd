@@ -71,7 +71,8 @@ func spawn_all_cards() -> void:
 			"value":c.x,
 			"value_second":c.y,
 			"in_deck":dek.name,
-			"translation":(dek.translation + Vector3(0,-5,0))
+			"translation":(dek.translation + Vector3(0,-5,0)),
+			"no UMB":true
 		}
 		
 		Spawner.request_spawn(info)

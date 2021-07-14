@@ -56,6 +56,10 @@ func _spawn(info) -> void:
 			UMB.logs(2,"Spawner","Unknown type to spawn,\n    info: "+str(info))
 			print("!!!Spawner: Unknown type to spawn,\n    info: ",info)
 			push_error("Spawner: Unknown type to spawn")
+			return
+	
+	if not info.has("no UMB"):
+		UMB.log(1,"Spawner","Spawned "+info["type"]+" "+info["name"])
 
 
 
