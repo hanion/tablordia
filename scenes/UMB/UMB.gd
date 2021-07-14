@@ -42,16 +42,15 @@ func log(p:int, carrier:String, txt:String, extra_color:=Color.white) ->  void:
 	msg.add_to_group("message")
 	
 	
-	if p == 0:
-		chat.tags.add_tag("Chat")
-		msg.add_to_group("Chat")
-	else: 
-		chat.tags.add_tag(str(p))
-		msg.add_to_group(str(p))
 	
-	msg.add_to_group(carrier)
-	chat.tags.add_tag(carrier)
+	chat.tags.add_tag(str(p))
+	msg.add_to_group(str(p))
 	
+#	msg.add_to_group(carrier)
+#	chat.tags.add_tag(carrier)
+	
+
+
 
 
 
@@ -74,7 +73,6 @@ func remove_focus() -> void:
 
 
 func _on_chat_mouse_entered():
-	print("enter")
 	chat_opened()
 
 func chat_opened() -> void:
