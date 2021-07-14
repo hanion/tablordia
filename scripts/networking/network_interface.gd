@@ -19,6 +19,8 @@ func _ready():
 	get_tree().connect("network_peer_connected", self,"_player_connected")
 	# warning-ignore:return_value_discarded
 	get_tree().connect("network_peer_disconnected", self,"_player_disconnected")
+	# warning-ignore:return_value_discarded
+	get_tree().connect("server_disconnected",self,"_on_server_disconnected")
 
 
 func _player_connected(id):
@@ -52,6 +54,9 @@ func _player_disconnected(id):
 	# FUTURE save players info somewhere 
 	List.remove_player(id)
 
+func _on_server_disconnected() -> void:
+	UMB.log(2,"Network","Server disconnected")
+	
 ###################################INTERFACE###################################
 
 
