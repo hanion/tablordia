@@ -10,7 +10,6 @@ const group_color = [# p
 	]
 
 
-func logs(p:int, carrier:String, txt:String, extra_color:=Color.white) ->  void:
 func logs(p:int, carrier:String, txt:String) ->  void:
 	rpc_config("_logs_to_log",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	rpc("_logs_to_log",p,carrier,txt)
@@ -18,7 +17,6 @@ remote func _logs_to_log(_p, _carrier, _txt) ->  void:
 	UMB.log(_p,_carrier,_txt)
 
 
-func log(p:int, carrier:String, txt:String, extra_color:=Color.white) ->  void:
 func log(p:int, carrier:String, txt:String) ->  void:
 	
 	var bbtext:String
