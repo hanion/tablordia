@@ -19,7 +19,7 @@ remote func _logs_to_log(_p, _carrier, _txt) ->  void:
 
 func log(p:int, carrier:String, txt:String) ->  void:
 	
-	var bbend:String
+	var context:String
 	var color
 	if p == 0:
 		var col:Color
@@ -33,14 +33,18 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	
 	
 	var bbstart:String = "[color=#" + color + "]"
+	var bbend:String = ""
 	
 	if p == 2:
 		bbstart += "[wave freq=40 amp=15]"
+		bbend += "[/wave]"
 	
-	bbend = ": " + txt
+	bbend += "[/color]"
+	
+	context = ": " + txt
 	
 	
-	var msg = chat.write(bbstart, carrier, bbend) as Node
+	var msg = chat.write(bbstart, carrier, context + bbend) as Node
 	
 	msg.add_to_group("message")
 	
