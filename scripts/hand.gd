@@ -4,8 +4,12 @@ class_name hand
 
 export var only_items := false
 export var only_resources := false
+
+
 export(int) var SQUEEZING_START = 10
 export(float) var SQUEEZING_X_OFFSET = 0.9
+export(bool) var SORT_BY_SECOND_VALUE = false
+
 
 export(float) var offsetx = 1.44
 export(float) var offsety = 0.15
@@ -350,6 +354,29 @@ func bubble_sort_hand() -> void:
 
 
 
+func bubble_sort_hand_by_second() -> void:
+	var arr:Array = inventory
+	var n = len(arr)
+	
+	for i in range(n):
+		for j in range(0, n-i-1):
+			
+			var objj = arr[j]
+			var objjpo = arr[j+1]
+			
+			if objj.card_value_second > objjpo.card_value_second:
+				arr[j] = objjpo
+				arr[j+1] = objj
+			
+			elif objj.card_value_second == objjpo.card_value_second:
+				if objj.card_value > objjpo.card_value:
+					arr[j] = objjpo
+					arr[j+1] = objj
+	
+	inventory = arr
+
+
+
 
 
 
@@ -425,24 +452,49 @@ remote func _make_cards_hidden(bo) -> void:
 
 
 
-
+var sender_id
 remote func rcms(a,b=-1,c=-1):
+	sender_id = get_tree().get_rpc_sender_id()
 	rcm_selected(a,b,c)
 
 func rcm_selected(id, _index=-1, _text=-1) -> void:
 	match id:
 		1:
-			print("TODO: make hand settings ui in rcm and open from here")
+			_open_hans_settings()
 		2:
 			make_hand_collapse()
 			shuffle_hand()
 			order_inventory()
 		3:
-			bubble_sort_hand()
+			if SORT_BY_SECOND_VALUE:
+				bubble_sort_hand_by_second()
+			else:
+				bubble_sort_hand()
 			order_inventory()
 		
 ############################## RCM ##############################
 
+var _hs:AcceptDialog
+func _open_hans_settings() -> void:
+	if not sender_id == get_tree().get_network_unique_id(): return
+	_hs = RCM.open_hand_settings(self,"_on_hs_confirmed")
 
+func _on_hs_confirmed() -> void:
+	var squeeze_spacing := float(_hs.get_node("vb/squeeze_spacing/input").text)
+	var squeeze_start := int(_hs.get_node("vb/squeeze_start/input").text)
+	var sort_by_second_val = _hs.get_node("vb/sort_by_second_value").pressed
+	
+	if not squeeze_spacing == 0 and not squeeze_start == 0:
+		rpc_config("set_hand_settings",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+		rpc("set_hand_settings",squeeze_spacing,squeeze_start,sort_by_second_val)
+		
+		_hs.disconnect("confirmed",self,"_on_hs_confirmed")
+		RCM.close_hand_settings()
+
+remote func set_hand_settings(sq_sp:float, sq_st:int, sbsv:bool) -> void:
+	print(sq_sp,sq_st,sbsv)
+	SQUEEZING_X_OFFSET = sq_sp
+	SQUEEZING_START = sq_st
+	SORT_BY_SECOND_VALUE = sbsv
 
 

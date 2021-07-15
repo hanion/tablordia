@@ -10,7 +10,7 @@ onready var wa_label0 = $WriteAmountPop/vbc/period/Label
 onready var wa_label1 = $WriteAmountPop/vbc/period2/Label
 onready var wa_label2 = $WriteAmountPop/vbc/period3/Label
 
-
+onready var hand_settings = $HandSettings
 
 var player
 var current_object = null
@@ -123,6 +123,25 @@ func close_wa() -> void:
 	wa.visible = false
 	player = get_node("/root/Main/player")
 	player.is_blocked_by_ui = false
+
+
+
+func open_hand_settings(target,method) -> AcceptDialog:
+	hand_settings.popup()
+	
+	if not hand_settings.is_connected("confirmed",target,method):
+		hand_settings.connect("confirmed",target,method)
+	
+	player.is_blocked_by_ui = true
+	
+	return hand_settings
+
+func close_hand_settings() -> void:
+	hand_settings.visible = false
+	player = get_node("/root/Main/player")
+	player.is_blocked_by_ui = false
+
+
 
 
 
