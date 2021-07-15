@@ -327,6 +327,27 @@ func receive_deck_from_server(named_deck) -> void:
 
 
 
+func bubble_sort_hand() -> void:
+	var arr:Array = inventory
+	var n = len(arr)
+	
+	for i in range(n):
+		for j in range(0, n-i-1):
+			
+			var objj = arr[j]
+			var objjpo = arr[j+1]
+			
+			if objj.card_value > objjpo.card_value:
+				arr[j] = objjpo
+				arr[j+1] = objj
+			
+	
+	inventory = arr
+
+
+
+
+
 
 ############################## RCM ##############################
 var cavt:PopupMenu
@@ -338,6 +359,11 @@ func prepare_rcm(popup:PopupMenu) -> void:
 		popup.add_item("Shuffle hand",2)
 		if not am_i_the_owner:
 			popup.set_item_disabled(popup.get_item_index(2),true)
+		
+		popup.add_item("Sort hand",3)
+		if not am_i_the_owner:
+			popup.set_item_disabled(popup.get_item_index(3),true)
+		
 	
 	
 	popup.add_separator("")
@@ -406,6 +432,9 @@ func rcm_selected(id, _index=-1, _text=-1) -> void:
 		2:
 			make_hand_collapse()
 			shuffle_hand()
+			order_inventory()
+		3:
+			bubble_sort_hand()
 			order_inventory()
 		
 ############################## RCM ##############################
