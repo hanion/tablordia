@@ -341,6 +341,10 @@ func bubble_sort_hand() -> void:
 				arr[j] = objjpo
 				arr[j+1] = objj
 			
+			elif objj.card_value == objjpo.card_value:
+				if objj.card_value_second > objjpo.card_value_second:
+					arr[j] = objjpo
+					arr[j+1] = objj
 	
 	inventory = arr
 
