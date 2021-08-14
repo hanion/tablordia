@@ -147,7 +147,7 @@ func _on_graphics_preset_change(preset: int) -> void:
 			"rendering/quality/filters/msaa":
 				get_viewport().msaa = value
 	
-	UMB.log(1,"System","Succesfully changed settings.")
+#	UMB.log(1,"System","Succesfully changed settings.")
 
 func _on_resolution_changed(id):
 	if id < res.get_item_count() - 1:

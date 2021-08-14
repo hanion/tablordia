@@ -19,6 +19,10 @@ func write(bbstart:String, carrier:String, bbend:String) -> Node:
 		var ms = "[color=#00ffffff]"+carrier+"[/color]" # transparent name
 		
 		last_msg.bbcode_text += "\n" + ms + bbstart + bbend
+		
+		if carrier == "Settings":
+			last_msg.bbcode_text = bbstart+carrier+bbend
+		
 		return last_msg
 	
 	var msg = msg_pl.instance() as RichTextLabel
