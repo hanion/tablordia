@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Theme/default.tres" type="Theme" id=1]
 [ext_resource path="res://Systems/Settings/settings_gui.gd" type="Script" id=2]
 [ext_resource path="res://Systems/Settings/SettingsUI.gd" type="Script" id=3]
+[ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=4]
+[ext_resource path="res://Theme/theme_monserati_m.tres" type="Theme" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.501961 )
@@ -36,12 +38,34 @@ anti_aliasing = false
 [node name="SettingsUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+theme = ExtResource( 5 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pu = NodePath("pu")
+res = NodePath("pu/VBoxContainer/DisplayResolution/OptionButton")
+gq = NodePath("pu/VBoxContainer/GraphicsQuality/OptionButton")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_left = -418.929
+margin_top = -324.957
+margin_right = 1743.07
+margin_bottom = 1007.04
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="SettingsGUI" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
@@ -89,30 +113,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GraphicsQuality" type="HBoxContainer" parent="SettingsGUI/Panel"]
-margin_left = 80.0
-margin_top = 160.0
-margin_right = 419.0
-margin_bottom = 191.0
-custom_constants/separation = 24
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Label" type="Label" parent="SettingsGUI/Panel/GraphicsQuality"]
-margin_top = 4.0
-margin_right = 111.0
-margin_bottom = 26.0
-text = "Graphics quality"
-
-[node name="OptionButton" type="OptionButton" parent="SettingsGUI/Panel/GraphicsQuality"]
-margin_left = 135.0
-margin_right = 186.0
-margin_bottom = 31.0
-text = "Low"
-items = [ "Low", null, false, 0, null, "Medium", null, false, 1, null, "High", null, false, 2, null, "Ultra", null, false, 3, null ]
-selected = 0
-
 [node name="GraphicsBlurb" type="RichTextLabel" parent="SettingsGUI/Panel"]
 margin_left = 32.0
 margin_top = 231.0
@@ -134,27 +134,6 @@ custom_styles/normal = SubResource( 2 )
 custom_constants/table_hseparation = 16
 custom_constants/line_separation = 2
 bbcode_enabled = true
-
-[node name="DisplayResolution" type="HBoxContainer" parent="SettingsGUI/Panel"]
-margin_left = 80.0
-margin_top = 418.0
-margin_right = 410.0
-margin_bottom = 449.0
-custom_constants/separation = 24
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Label" type="Label" parent="SettingsGUI/Panel/DisplayResolution"]
-margin_top = 4.0
-margin_right = 124.0
-margin_bottom = 26.0
-text = "Display resolution"
-
-[node name="OptionButton" type="OptionButton" parent="SettingsGUI/Panel/DisplayResolution"]
-margin_left = 148.0
-margin_right = 174.0
-margin_bottom = 31.0
 
 [node name="ConfirmButton" type="Button" parent="SettingsGUI/Panel"]
 anchor_left = 0.5
@@ -185,7 +164,77 @@ bbcode_enabled = true
 bbcode_text = "[color=#DDFFFFFF]Press [color=#DDFFFF77][Escape][/color] to toggle this menu.[/color]"
 text = "Press [Escape] to toggle this menu."
 
-[connection signal="item_selected" from="SettingsGUI/Panel/GraphicsQuality/OptionButton" to="SettingsGUI" method="_on_graphics_preset_change"]
-[connection signal="item_selected" from="SettingsGUI/Panel/DisplayResolution/OptionButton" to="SettingsGUI" method="_on_display_resolution_change"]
+[node name="pu" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -195.0
+margin_top = -107.5
+margin_right = 195.0
+margin_bottom = 107.5
+window_title = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphicsQuality" type="HBoxContainer" parent="pu/VBoxContainer"]
+margin_right = 390.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+custom_constants/separation = 24
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="pu/VBoxContainer/GraphicsQuality"]
+margin_left = 82.0
+margin_right = 222.0
+margin_bottom = 29.0
+text = "Graphics quality"
+
+[node name="OptionButton" type="OptionButton" parent="pu/VBoxContainer/GraphicsQuality"]
+margin_left = 246.0
+margin_right = 308.0
+margin_bottom = 30.0
+text = "Low"
+items = [ "Low", null, false, 0, null, "Medium", null, false, 1, null, "High", null, false, 2, null, "Ultra", null, false, 3, null ]
+selected = 0
+
+[node name="DisplayResolution" type="HBoxContainer" parent="pu/VBoxContainer"]
+margin_top = 34.0
+margin_right = 390.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 30 )
+custom_constants/separation = 24
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="pu/VBoxContainer/DisplayResolution"]
+margin_left = 92.0
+margin_right = 245.0
+margin_bottom = 29.0
+text = "Display resolution"
+
+[node name="OptionButton" type="OptionButton" parent="pu/VBoxContainer/DisplayResolution"]
+margin_left = 269.0
+margin_right = 297.0
+margin_bottom = 30.0
+
 [connection signal="pressed" from="SettingsGUI/Panel/ConfirmButton" to="SettingsGUI" method="_on_ConfirmButton_pressed"]
 [connection signal="pressed" from="SettingsGUI/Panel/QuitButton" to="SettingsGUI" method="_on_QuitButton_pressed"]
+[connection signal="item_selected" from="pu/VBoxContainer/GraphicsQuality/OptionButton" to="." method="_on_graphics_preset_change"]
+[connection signal="item_selected" from="pu/VBoxContainer/DisplayResolution/OptionButton" to="." method="_on_resolution_changed"]
