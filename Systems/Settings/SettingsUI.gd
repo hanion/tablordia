@@ -4,6 +4,7 @@ export(NodePath) onready var pu = get_node(pu) as WindowDialog
 export(NodePath) onready var res = get_node(res) as OptionButton
 export(NodePath) onready var gq = get_node(gq) as OptionButton
 
+var env_parent
 var environment
 
 
@@ -12,7 +13,7 @@ var environment
 # 1: Medium
 # 2: High
 # 3: Ultra
-const default_preset = 0
+const default_preset = 1
 
 # The available display resolutions
 const display_resolutions = [
@@ -83,8 +84,8 @@ func open_ui() -> void:
 	
 	if not environment == null: return
 	
-	environment = get_node("/root/Main/environment/WorldEnvironment")
-	environment = environment.get_environment()
+	env_parent = get_node("/root/Main/environment")
+	environment = env_parent.get_node("WorldEnvironment").get_environment()
 	
 	
 	
@@ -113,6 +114,7 @@ func close_ui() -> void:
 func construct_bbcode(preset: int) -> String:
 	return "Changed to:" + \
 	"""[table=2]
+	[cell][b]    Lightining [/b][/cell] [cell]""" + str("Disabled" if preset == 0 else "Enabled") + """[/cell]
 	[cell][b]    Anti-aliasing (MSAA)[/b][/cell] [cell]""" + str(presets[preset]["rendering/quality/filters/msaa"][1]) + """[/cell]
 	[cell][b]    Ambient occlusion[/b][/cell] [cell]""" + str(presets[preset]["environment/ssao_enabled"][1]) + """[/cell]
 	[cell][b]    Bloom[/b][/cell] [cell]""" + str(presets[preset]["environment/glow_enabled"][1]) + """[/cell]
@@ -129,7 +131,7 @@ func _on_graphics_preset_change(preset: int) -> void:
 	for setting in presets[preset]:
 		var value = presets[preset][setting][0]
 		ProjectSettings.set_setting(setting, value)
-
+		
 		match setting:
 			# Environment settings
 			"environment/glow_enabled":
@@ -142,12 +144,13 @@ func _on_graphics_preset_change(preset: int) -> void:
 				environment.ssao_blur = value
 			"environment/ssao_quality":
 				environment.ssao_quality = value
-
+				
 			# Project settings
 			"rendering/quality/filters/msaa":
 				get_viewport().msaa = value
 	
-#	UMB.log(1,"System","Succesfully changed settings.")
+	env_parent.visible = (not preset == 0)
+	
 
 func _on_resolution_changed(id):
 	if id < res.get_item_count() - 1:
