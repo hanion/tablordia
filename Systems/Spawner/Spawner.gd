@@ -139,7 +139,7 @@ func spawn_Card(info) -> void:
 			crd.update_material()
 		"resource":
 			crd = br_card_pl.instance() as br_card
-			crd.set_name("item"+str(resource_index))
+			crd.set_name("resource"+str(resource_index))
 			resource_index += 1
 			crd.is_resource = true
 			crd.set_type("resource")
