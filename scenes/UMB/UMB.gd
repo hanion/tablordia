@@ -2,6 +2,13 @@ extends Control
 
 export(NodePath) onready var chat = get_node(chat) as Control
 
+const bbcodes := [
+	"wave",
+	"tornado",
+	"rainbow",
+	"shake"
+	]
+
 
 const group_color = [# p
 	Color.white,     # 0 = chat message
@@ -38,6 +45,14 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	if p == 2:
 		bbstart += "[wave freq=40 amp=15]"
 		bbend += "[/wave]"
+	
+	
+	
+	for tx in bbcodes:
+		if not txt.find("["+tx+"]") == -1:
+			bbend += "[/"+tx+"]"
+		
+	
 	
 	bbend += "[/color]"
 	
