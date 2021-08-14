@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/goldicon.png-9ebe14e42e394fc2aebd70113fb1ca58.s3tc.stex"
 path.etc2="res://.import/goldicon.png-9ebe14e42e394fc2aebd70113fb1ca58.etc2.stex"
+path.etc="res://.import/goldicon.png-9ebe14e42e394fc2aebd70113fb1ca58.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://goldicon.png"
-dest_files=[ "res://.import/goldicon.png-9ebe14e42e394fc2aebd70113fb1ca58.s3tc.stex", "res://.import/goldicon.png-9ebe14e42e394fc2aebd70113fb1ca58.etc2.stex" ]
+dest_files=[ "res://.import/goldicon.png-9ebe14e42e394fc2aebd70113fb1ca58.s3tc.stex", "res://.import/goldicon.png-9ebe14e42e394fc2aebd70113fb1ca58.etc2.stex", "res://.import/goldicon.png-9ebe14e42e394fc2aebd70113fb1ca58.etc.stex" ]
 
 [params]
 
