@@ -1,24 +1,18 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
+[ext_resource path="res://scripts/small/Button_TEMP_m_test.gd" type="Script" id=1]
 [ext_resource path="res://assets/br/BackRessource.png" type="Texture" id=2]
 [ext_resource path="res://assets/br/BackItem.png" type="Texture" id=3]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/Main.gd" type="Script" id=5]
 [ext_resource path="res://assets/materials/table.tres" type="Material" id=6]
 [ext_resource path="res://new_environment.tres" type="Environment" id=7]
+[ext_resource path="res://scripts/small/Button_TEMP_touch_rc_mode.gd" type="Script" id=8]
+[ext_resource path="res://scripts/small/CanvasLayer.gd" type="Script" id=9]
 [ext_resource path="res://scripts/state_manager.gd" type="Script" id=11]
 [ext_resource path="res://scenes/spawnpanel.tscn" type="PackedScene" id=12]
 
 [sub_resource type="GIProbeData" id=1]
-bounds = AABB( -31.0748, -3.48583, -20.9707, 62.1497, 6.97166, 41.9414 )
-cell_size = 0.485544
-to_cell_xform = Transform( 2.05954, 0, 0, 0, 2.05954, 0, 0, 0, 2.05954, 64, 7.17922, 43.1901 )
-dynamic_data = PoolIntArray( 0, 8, 128, 16, 128, 1, 0, 0, 1102053376, 1110966272, 1065353216, 0, 1102053376, 1115160576, 1065353216, 1065353216, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
-dynamic_range = 4
-energy = 0.1
-bias = 1.5
-normal_bias = 0.0
-propagation = 0.7
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 1, 1, 1 )
@@ -50,9 +44,56 @@ script = ExtResource( 11 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
 
 [node name="SpawnPanel" parent="CanvasLayer" instance=ExtResource( 12 )]
 visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -640.0
+margin_top = 74.0
+margin_right = -519.0
+margin_bottom = 171.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+text = "M"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control2" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -640.0
+margin_top = 204.0
+margin_right = -519.0
+margin_bottom = 295.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/Control2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+text = "RCM"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="environment" type="Spatial" parent="."]
 
@@ -90,6 +131,7 @@ mesh = SubResource( 4 )
 material/0 = null
 
 [node name="table" type="StaticBody" parent="tablo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.520203, -0.040184, 0.0415487 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -144,5 +186,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 [node name="others" type="Spatial" parent="."]
 
 [node name="cards" type="Spatial" parent="."]
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="CanvasLayer/Control/Button" method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control2/Button" to="CanvasLayer/Control2/Button" method="_on_Button_pressed"]
 
 [editable path="player"]

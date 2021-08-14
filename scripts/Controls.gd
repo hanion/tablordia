@@ -13,12 +13,24 @@ func _unhandled_key_input(event:InputEventKey):
 
 
 func _input(event:InputEvent):
+	if OS.has_touchscreen_ui_hint(): 
+		handle_touch(event)
+		return
+	
 	handle_pan(event)
 	handle_rotation(event)
 	handle_zoom(event)
 	handle_rcm(event)
 
-
+###
+var rc_mode : bool = false
+func handle_touch(_event) -> void:
+	if rc_mode:
+		var obj = get_parent().cast_ray()
+		if obj["collider"]:
+			RCM.right_clicked(obj["collider"])
+	
+###
 
 
 func handle_control(event) -> void:
