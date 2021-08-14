@@ -83,17 +83,23 @@ const presets = [
 ]
 
 # The Sponza scene root
-onready var root := $"/root/Scene Root" as WorldEnvironment
+var root: WorldEnvironment
 
 # The environment resource used for settings adjustments
-onready var environment := root.get_environment()
+var environment
 
 onready var graphics_blurb := $"Panel/GraphicsBlurb" as RichTextLabel
 onready var graphics_info := $"Panel/GraphicsInfo" as RichTextLabel
-onready var resolution_dropdown := $"Panel/DisplayResolution/OptionButton" as OptionButton
+var resolution_dropdown# := $"Panel/DisplayResolution/OptionButton" as OptionButton
 
 
 func _ready() -> void:
+	queue_free()
+	return
+#	yield(get_tree().create_timer(5),"timeout")
+# warning-ignore:unreachable_code
+	root = $"/root/Main/environment/WorldEnvironment" as WorldEnvironment
+	environment = root.get_environment()
 	# Initialize the project on the default preset
 	$"Panel/GraphicsQuality/OptionButton".select(default_preset)
 	_on_graphics_preset_change(default_preset)
@@ -112,7 +118,9 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	return
 	# Toggle the menu when pressing Escape
+# warning-ignore:unreachable_code
 	if event.is_action_pressed("toggle_menu"):
 		visible = !visible
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if visible else Input.MOUSE_MODE_CAPTURED)
@@ -125,11 +133,11 @@ func _input(event: InputEvent) -> void:
 # Returns a string containing BBCode text of the preset description.
 func construct_bbcode(preset: int) -> String:
 	return """[table=2]
-[cell][b]Anti-aliasing (MSAA)[/b][/cell] [cell]""" + str(presets[preset]["rendering/quality/filters/msaa"][1]) + """[/cell]
-[cell][b]Ambient occlusion[/b][/cell] [cell]""" + str(presets[preset]["environment/ssao_enabled"][1]) + """[/cell]
-[cell][b]Bloom[/b][/cell] [cell]""" + str(presets[preset]["environment/glow_enabled"][1]) + """[/cell]
-[cell][b]Screen-space reflections[/b][/cell] [cell]""" + str(presets[preset]["environment/ss_reflections_enabled"][1]) + """[/cell]
-[/table]"""
+	[cell][b]Anti-aliasing (MSAA)[/b][/cell] [cell]""" + str(presets[preset]["rendering/quality/filters/msaa"][1]) + """[/cell]
+	[cell][b]Ambient occlusion[/b][/cell] [cell]""" + str(presets[preset]["environment/ssao_enabled"][1]) + """[/cell]
+	[cell][b]Bloom[/b][/cell] [cell]""" + str(presets[preset]["environment/glow_enabled"][1]) + """[/cell]
+	[cell][b]Screen-space reflections[/b][/cell] [cell]""" + str(presets[preset]["environment/ss_reflections_enabled"][1]) + """[/cell]
+	[/table]"""
 
 
 func _on_graphics_preset_change(preset: int) -> void:
