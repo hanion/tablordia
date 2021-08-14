@@ -36,25 +36,25 @@ __meta__ = {
 [node name="primer" type="VBoxContainer" parent="margin"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 1900.0
-margin_bottom = 1060.0
+margin_right = 1260.0
+margin_bottom = 700.0
 custom_constants/separation = 20
 
 [node name="tempHBox" type="HBoxContainer" parent="margin/primer"]
-margin_right = 1880.0
-margin_bottom = 510.0
+margin_right = 1240.0
+margin_bottom = 330.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ScrollContainer" type="ScrollContainer" parent="margin/primer/tempHBox"]
-margin_right = 938.0
-margin_bottom = 510.0
+margin_right = 618.0
+margin_bottom = 330.0
 size_flags_horizontal = 3
 scroll_horizontal_enabled = false
 
 [node name="ColorPicker" type="ColorPicker" parent="margin/primer/tempHBox/ScrollContainer"]
-margin_left = 324.0
-margin_right = 614.0
+margin_left = 158.0
+margin_right = 448.0
 margin_bottom = 447.0
 size_flags_horizontal = 6
 color = Color( 0.286275, 0.27451, 0.27451, 1 )
@@ -63,9 +63,9 @@ presets_enabled = false
 presets_visible = false
 
 [node name="name" type="LineEdit" parent="margin/primer/tempHBox"]
-margin_left = 942.0
-margin_right = 1880.0
-margin_bottom = 510.0
+margin_left = 622.0
+margin_right = 1240.0
+margin_bottom = 330.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
@@ -74,25 +74,25 @@ max_length = 16
 placeholder_text = "Name"
 
 [node name="HBox" type="HBoxContainer" parent="margin/primer"]
-margin_top = 530.0
-margin_right = 1880.0
-margin_bottom = 1040.0
+margin_top = 350.0
+margin_right = 1240.0
+margin_bottom = 680.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 
 [node name="join" type="Button" parent="margin/primer/HBox"]
-margin_right = 930.0
-margin_bottom = 510.0
+margin_right = 610.0
+margin_bottom = 330.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
 text = "JOIN"
 
 [node name="host" type="Button" parent="margin/primer/HBox"]
-margin_left = 950.0
-margin_right = 1880.0
-margin_bottom = 510.0
+margin_left = 630.0
+margin_right = 1240.0
+margin_bottom = 330.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
@@ -102,8 +102,8 @@ text = "HOST"
 visible = false
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 1900.0
-margin_bottom = 1060.0
+margin_right = 1260.0
+margin_bottom = 700.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
@@ -173,8 +173,8 @@ text = "CANCEL"
 visible = false
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 1900.0
-margin_bottom = 1060.0
+margin_right = 1260.0
+margin_bottom = 700.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
