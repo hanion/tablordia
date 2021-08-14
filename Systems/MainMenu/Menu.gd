@@ -40,7 +40,7 @@ func start_game():
 	set_info()
 	add_me()
 	
-	var game = preload("res://scenes/Main.tscn").instance()
+	var game = preload("res://Systems/MainMenu/Main.tscn").instance()
 	get_parent().add_child(game)
 	
 	queue_free()

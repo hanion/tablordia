@@ -24,7 +24,7 @@ func _spawn_player(var pid):
 	if others.has_node(str(pid)): return
 	
 	
-	var plo = preload("res://scenes/otherPlayer.tscn").instance()
+	var plo = preload("res://Systems/Small/otherPlayer.tscn").instance()
 	plo.set_name(str(pid))
 	plo.set_network_master(pid)
 	
