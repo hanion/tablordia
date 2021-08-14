@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Systems/UMB/tag.gd" type="Script" id=1]
+
+[node name="tag" type="CheckBox"]
+margin_right = 67.0
+margin_bottom = 31.0
+focus_mode = 0
+pressed = true
+text = "System"
+align = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="." to="." method="_on_tag_toggled"]

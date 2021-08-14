@@ -1,0 +1,191 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Theme/default.tres" type="Theme" id=1]
+[ext_resource path="res://Systems/Settings/settings_gui.gd" type="Script" id=2]
+[ext_resource path="res://Systems/Settings/SettingsUI.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.501961 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.627451 )
+corner_detail = 1
+shadow_color = Color( 0, 0, 0, 0 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=2]
+content_margin_left = 16.0
+content_margin_right = 16.0
+content_margin_top = 16.0
+content_margin_bottom = 16.0
+bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.313726 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.54902 )
+corner_detail = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[node name="SettingsUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsGUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="SettingsGUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -488.0
+margin_top = -264.0
+margin_right = 488.0
+margin_bottom = 264.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="WelcomeTitle" type="Label" parent="SettingsGUI/Panel"]
+margin_top = 16.0
+margin_right = 1024.0
+margin_bottom = 74.0
+text = "Welcome"
+align = 1
+
+[node name="WelcomeText" type="Label" parent="SettingsGUI/Panel"]
+margin_left = 32.0
+margin_top = 88.0
+margin_right = 676.0
+margin_bottom = 509.0
+text = "This Sponza demo showcases the capabilities of the Godot 3 renderer.
+Please choose a preset suited to your hardware below:
+
+
+
+
+
+
+
+
+
+For more reproducible benchmarks, choose a display resolution:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphicsQuality" type="HBoxContainer" parent="SettingsGUI/Panel"]
+margin_left = 80.0
+margin_top = 160.0
+margin_right = 419.0
+margin_bottom = 191.0
+custom_constants/separation = 24
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="SettingsGUI/Panel/GraphicsQuality"]
+margin_top = 4.0
+margin_right = 111.0
+margin_bottom = 26.0
+text = "Graphics quality"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsGUI/Panel/GraphicsQuality"]
+margin_left = 135.0
+margin_right = 186.0
+margin_bottom = 31.0
+text = "Low"
+items = [ "Low", null, false, 0, null, "Medium", null, false, 1, null, "High", null, false, 2, null, "Ultra", null, false, 3, null ]
+selected = 0
+
+[node name="GraphicsBlurb" type="RichTextLabel" parent="SettingsGUI/Panel"]
+margin_left = 32.0
+margin_top = 231.0
+margin_right = 480.0
+margin_bottom = 338.0
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+custom_constants/table_hseparation = 16
+custom_constants/line_separation = 2
+bbcode_enabled = true
+
+[node name="GraphicsInfo" type="RichTextLabel" parent="SettingsGUI/Panel"]
+margin_left = 512.0
+margin_top = 185.0
+margin_right = 952.0
+margin_bottom = 384.0
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+custom_constants/table_hseparation = 16
+custom_constants/line_separation = 2
+bbcode_enabled = true
+
+[node name="DisplayResolution" type="HBoxContainer" parent="SettingsGUI/Panel"]
+margin_left = 80.0
+margin_top = 418.0
+margin_right = 410.0
+margin_bottom = 449.0
+custom_constants/separation = 24
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="SettingsGUI/Panel/DisplayResolution"]
+margin_top = 4.0
+margin_right = 124.0
+margin_bottom = 26.0
+text = "Display resolution"
+
+[node name="OptionButton" type="OptionButton" parent="SettingsGUI/Panel/DisplayResolution"]
+margin_left = 148.0
+margin_right = 174.0
+margin_bottom = 31.0
+
+[node name="ConfirmButton" type="Button" parent="SettingsGUI/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -86.5
+margin_top = -65.0
+margin_right = 86.5
+margin_bottom = -20.0
+text = "OK"
+
+[node name="QuitButton" type="Button" parent="SettingsGUI/Panel"]
+margin_left = 877.0
+margin_top = 468.0
+margin_right = 950.0
+margin_bottom = 506.0
+text = "Quit"
+
+[node name="MenuTip" type="RichTextLabel" parent="SettingsGUI/Panel"]
+margin_left = 33.0
+margin_top = 478.0
+margin_right = 353.0
+margin_bottom = 506.0
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[color=#DDFFFFFF]Press [color=#DDFFFF77][Escape][/color] to toggle this menu.[/color]"
+text = "Press [Escape] to toggle this menu."
+
+[connection signal="item_selected" from="SettingsGUI/Panel/GraphicsQuality/OptionButton" to="SettingsGUI" method="_on_graphics_preset_change"]
+[connection signal="item_selected" from="SettingsGUI/Panel/DisplayResolution/OptionButton" to="SettingsGUI" method="_on_display_resolution_change"]
+[connection signal="pressed" from="SettingsGUI/Panel/ConfirmButton" to="SettingsGUI" method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="SettingsGUI/Panel/QuitButton" to="SettingsGUI" method="_on_QuitButton_pressed"]

@@ -1,0 +1,221 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Theme/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Systems/UMB/UMB.gd" type="Script" id=2]
+[ext_resource path="res://Systems/UMB/chat.gd" type="Script" id=3]
+[ext_resource path="res://Systems/UMB/outsite.gd" type="Script" id=4]
+[ext_resource path="res://Systems/UMB/scroll.gd" type="Script" id=5]
+[ext_resource path="res://Systems/UMB/tags.gd" type="Script" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.211765, 0.211765, 0.211765, 0.611765 )
+
+[sub_resource type="StyleBoxLine" id=7]
+content_margin_left = 10.0
+color = Color( 0, 0, 0, 0 )
+thickness = 5
+vertical = true
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[node name="UniversalMessageBus" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+chat = NodePath("hs/vs/chat")
+
+[node name="out" type="Button" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -90.0
+margin_top = -62.0
+margin_right = 64.0
+margin_bottom = 83.0
+focus_next = NodePath("../chat/hbox/input_field")
+focus_previous = NodePath("../chat/hbox/input_field")
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+shortcut_in_tooltip = false
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 551.0
+margin_right = -1076.0
+custom_styles/panel = SubResource( 6 )
+custom_constants/close_v_ofs = -5
+custom_constants/title_height = 0
+popup_exclusive = true
+resizable = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="focus mask" type="Control" parent="."]
+margin_top = 790.0
+margin_right = 527.0
+margin_bottom = 980.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hs" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+split_offset = -139
+dragger_visibility = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vs" type="VSplitContainer" parent="hs"]
+margin_right = 481.0
+margin_bottom = 680.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SPACE" type="Control" parent="hs/vs"]
+margin_right = 481.0
+margin_bottom = 395.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="hs/vs/SPACE"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+color = Color( 0.603922, 0.603922, 0.603922, 0.0431373 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="chat" type="VBoxContainer" parent="hs/vs"]
+margin_top = 403.0
+margin_right = 481.0
+margin_bottom = 680.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+ledit = NodePath("hbox/input_field")
+scroll = NodePath("scroll")
+msg_container = NodePath("scroll/vb")
+tags = NodePath("tags")
+
+[node name="tags" type="ScrollContainer" parent="hs/vs/chat"]
+margin_right = 481.0
+scroll_vertical_enabled = false
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+tag_container = NodePath("hb")
+
+[node name="hb" type="HBoxContainer" parent="hs/vs/chat/tags"]
+margin_right = 481.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="scroll" type="ScrollContainer" parent="hs/vs/chat"]
+margin_top = 4.0
+margin_right = 481.0
+margin_bottom = 250.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+script = ExtResource( 5 )
+
+[node name="vb" type="VBoxContainer" parent="hs/vs/chat/scroll"]
+margin_right = 481.0
+margin_bottom = 246.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="hbox" type="HBoxContainer" parent="hs/vs/chat"]
+margin_top = 254.0
+margin_right = 481.0
+margin_bottom = 277.0
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="hs/vs/chat/hbox"]
+visible = false
+margin_top = -4.0
+margin_right = 47.0
+margin_bottom = 27.0
+text = "Chat:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="hs/vs/chat/hbox/Label"]
+visible = false
+margin_top = -112.0
+margin_right = 546.0
+margin_bottom = -70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/normal = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[color=green][Player0]:[/color] halooooo
+[color=red]{Spawner}: [/color] Spawned Chess"
+text = "[Player0]: halooooo
+{Spawner}:  Spawned Chess"
+scroll_following = true
+
+[node name="input_field" type="LineEdit" parent="hs/vs/chat/hbox"]
+margin_right = 481.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/normal = SubResource( 8 )
+
+[node name="SPACE" type="Control" parent="hs"]
+margin_left = 481.0
+margin_right = 1240.0
+margin_bottom = 680.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="hs/SPACE"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+color = Color( 0.603922, 0.603922, 0.603922, 0.0431373 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="out" to="out" method="_on_out_pressed"]
+[connection signal="focus_entered" from="hs/vs/chat/hbox/input_field" to="out" method="_on_input_field_focus_entered"]
+[connection signal="focus_exited" from="hs/vs/chat/hbox/input_field" to="." method="_on_input_field_focus_exited"]
+[connection signal="text_entered" from="hs/vs/chat/hbox/input_field" to="hs/vs/chat" method="_on_input_field_text_entered"]

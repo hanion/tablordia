@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "card",
 "class": "br_card",
 "language": "GDScript",
-"path": "res://scripts/br_card.gd"
+"path": "res://Games/br/br_card.gd"
 }, {
 "base": "Spatial",
 "class": "card",
 "language": "GDScript",
-"path": "res://scripts/card.gd"
+"path": "res://InGame/Card/card.gd"
 }, {
 "base": "card",
 "class": "card_52",
@@ -27,17 +27,17 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "deck",
 "language": "GDScript",
-"path": "res://Games/deck.gd"
+"path": "res://InGame/Deck/deck.gd"
 }, {
 "base": "Spatial",
 "class": "hand",
 "language": "GDScript",
-"path": "res://scripts/hand.gd"
+"path": "res://InGame/Hand/hand.gd"
 }, {
 "base": "Area",
 "class": "slot",
 "language": "GDScript",
-"path": "res://scripts/slot.gd"
+"path": "res://Games/br/slot.gd"
 }, {
 "base": "card",
 "class": "snr_card",
@@ -47,7 +47,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "trash",
 "language": "GDScript",
-"path": "res://scripts/trash.gd"
+"path": "res://Games/br/trash.gd"
 }, {
 "base": "card",
 "class": "uno_card",
@@ -79,19 +79,19 @@ Development: Mesut Usta
 Marketing: Simon Karataş, Ayşe Damla Pekgöz, İdris İsrapilov
 Community Management: Alper Nargileci
 "
-run/main_scene="res://scenes/Menu.tscn"
+run/main_scene="res://Systems/MainMenu/Menu.tscn"
 config/use_custom_user_dir=true
 config/icon="res://goldicon.png"
 config/quit_on_go_back=false
 
 [autoload]
 
-Std="*res://scenes/std.tscn"
-NetworkInterface="*res://scenes/network_interface.tscn"
-List="*res://scenes/list.tscn"
-Spawner="*res://scenes/Spawner.tscn"
-RCM="*res://scenes/right_click_menu.tscn"
-UMB="*res://scenes/UMB/UMB.tscn"
+Std="*res://Systems/std/std.tscn"
+NetworkInterface="*res://Systems/networking/network_interface.tscn"
+List="*res://Systems/networking/list.tscn"
+Spawner="*res://Systems/Spawner/Spawner.tscn"
+RCM="*res://Systems/RCM/right_click_menu.tscn"
+UMB="*res://Systems/UMB/UMB.tscn"
 
 [debug]
 
