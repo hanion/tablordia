@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/BackRessource.png-4ef2cd2836e85738b8c356a16d8cf0d3.s3tc.stex"
 path.etc2="res://.import/BackRessource.png-4ef2cd2836e85738b8c356a16d8cf0d3.etc2.stex"
+path.etc="res://.import/BackRessource.png-4ef2cd2836e85738b8c356a16d8cf0d3.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/br/BackRessource.png"
-dest_files=[ "res://.import/BackRessource.png-4ef2cd2836e85738b8c356a16d8cf0d3.s3tc.stex", "res://.import/BackRessource.png-4ef2cd2836e85738b8c356a16d8cf0d3.etc2.stex" ]
+dest_files=[ "res://.import/BackRessource.png-4ef2cd2836e85738b8c356a16d8cf0d3.s3tc.stex", "res://.import/BackRessource.png-4ef2cd2836e85738b8c356a16d8cf0d3.etc2.stex", "res://.import/BackRessource.png-4ef2cd2836e85738b8c356a16d8cf0d3.etc.stex" ]
 
 [params]
 

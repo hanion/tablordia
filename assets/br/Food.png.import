@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Food.png-15d6588f9851fd125c295c1966a0ea4d.s3tc.stex"
 path.etc2="res://.import/Food.png-15d6588f9851fd125c295c1966a0ea4d.etc2.stex"
+path.etc="res://.import/Food.png-15d6588f9851fd125c295c1966a0ea4d.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/br/Food.png"
-dest_files=[ "res://.import/Food.png-15d6588f9851fd125c295c1966a0ea4d.s3tc.stex", "res://.import/Food.png-15d6588f9851fd125c295c1966a0ea4d.etc2.stex" ]
+dest_files=[ "res://.import/Food.png-15d6588f9851fd125c295c1966a0ea4d.s3tc.stex", "res://.import/Food.png-15d6588f9851fd125c295c1966a0ea4d.etc2.stex", "res://.import/Food.png-15d6588f9851fd125c295c1966a0ea4d.etc.stex" ]
 
 [params]
 

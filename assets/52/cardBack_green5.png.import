@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/cardBack_green5.png-20bf6145e91fe7dedbd8be4b154afaa4.s3tc.stex"
 path.etc2="res://.import/cardBack_green5.png-20bf6145e91fe7dedbd8be4b154afaa4.etc2.stex"
+path.etc="res://.import/cardBack_green5.png-20bf6145e91fe7dedbd8be4b154afaa4.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/52/cardBack_green5.png"
-dest_files=[ "res://.import/cardBack_green5.png-20bf6145e91fe7dedbd8be4b154afaa4.s3tc.stex", "res://.import/cardBack_green5.png-20bf6145e91fe7dedbd8be4b154afaa4.etc2.stex" ]
+dest_files=[ "res://.import/cardBack_green5.png-20bf6145e91fe7dedbd8be4b154afaa4.s3tc.stex", "res://.import/cardBack_green5.png-20bf6145e91fe7dedbd8be4b154afaa4.etc2.stex", "res://.import/cardBack_green5.png-20bf6145e91fe7dedbd8be4b154afaa4.etc.stex" ]
 
 [params]
 

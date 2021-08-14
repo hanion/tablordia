@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Gold.png-06e56b994b009a6e6d868dada6998ac9.s3tc.stex"
 path.etc2="res://.import/Gold.png-06e56b994b009a6e6d868dada6998ac9.etc2.stex"
+path.etc="res://.import/Gold.png-06e56b994b009a6e6d868dada6998ac9.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/br/Gold.png"
-dest_files=[ "res://.import/Gold.png-06e56b994b009a6e6d868dada6998ac9.s3tc.stex", "res://.import/Gold.png-06e56b994b009a6e6d868dada6998ac9.etc2.stex" ]
+dest_files=[ "res://.import/Gold.png-06e56b994b009a6e6d868dada6998ac9.s3tc.stex", "res://.import/Gold.png-06e56b994b009a6e6d868dada6998ac9.etc2.stex", "res://.import/Gold.png-06e56b994b009a6e6d868dada6998ac9.etc.stex" ]
 
 [params]
 

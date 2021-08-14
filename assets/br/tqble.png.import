@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/tqble.png-7d32f4e0a8dc2b5e52963b449a777573.s3tc.stex"
 path.etc2="res://.import/tqble.png-7d32f4e0a8dc2b5e52963b449a777573.etc2.stex"
+path.etc="res://.import/tqble.png-7d32f4e0a8dc2b5e52963b449a777573.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/br/tqble.png"
-dest_files=[ "res://.import/tqble.png-7d32f4e0a8dc2b5e52963b449a777573.s3tc.stex", "res://.import/tqble.png-7d32f4e0a8dc2b5e52963b449a777573.etc2.stex" ]
+dest_files=[ "res://.import/tqble.png-7d32f4e0a8dc2b5e52963b449a777573.s3tc.stex", "res://.import/tqble.png-7d32f4e0a8dc2b5e52963b449a777573.etc2.stex", "res://.import/tqble.png-7d32f4e0a8dc2b5e52963b449a777573.etc.stex" ]
 
 [params]
 
