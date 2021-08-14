@@ -77,6 +77,7 @@ func cast_ray():
 
 
 func move_pointer() -> void:
+	if not current: return
 	var pointing_at = current["position"] as Vector3
 	define_pointer_state(pointing_at)
 

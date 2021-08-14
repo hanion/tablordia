@@ -100,7 +100,7 @@ func handle_rcm(event) -> void:
 	
 	if event.is_action_pressed("right_mouse"):
 		var obj = get_parent().cast_ray()
-		if obj["collider"]:
+		if obj and obj["collider"]:
 			RCM.right_clicked(obj["collider"])
 		
 	elif event.is_action_released("right_mouse"):
