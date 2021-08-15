@@ -24,363 +24,363 @@
 [ext_resource path="res://Systems/Spawner/spawnmenu/inspector/uno_team.gd" type="Script" id=22]
 [ext_resource path="res://assets/52/cardSpadesA.png" type="Texture" id=23]
 
-[sub_resource type="StyleBoxFlat" id=73]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.117647, 0.141176, 0.156863, 0.207843 )
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0980392, 0.121569, 0.137255, 1 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 20
-atlas = ExtResource( 14 )
-region = Rect2( 660, 550, 238, 129 )
 
 [sub_resource type="AtlasTexture" id=3]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 98, 82, 245, 328 )
+region = Rect2( 660, 550, 238, 129 )
 
 [sub_resource type="AtlasTexture" id=4]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 343, 82, 294, 328 )
+region = Rect2( 98, 82, 245, 328 )
 
 [sub_resource type="AtlasTexture" id=5]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 637, 82, 245, 328 )
+region = Rect2( 343, 82, 294, 328 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 98, 492, 245, 246 )
+region = Rect2( 637, 82, 245, 328 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 3620, 80, 280, 340 )
+region = Rect2( 98, 492, 245, 246 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 900, 120, 280, 260 )
+region = Rect2( 3620, 80, 280, 340 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 1200, 120, 240, 260 )
+region = Rect2( 900, 120, 280, 260 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 1480, 120, 200, 260 )
+region = Rect2( 1200, 120, 240, 260 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 1780, 120, 160, 260 )
+region = Rect2( 1480, 120, 200, 260 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 2060, 120, 140, 260 )
+region = Rect2( 1780, 120, 160, 260 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 2320, 120, 160, 240 )
+region = Rect2( 2060, 120, 140, 260 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 2580, 120, 180, 240 )
+region = Rect2( 2320, 120, 160, 240 )
 
 [sub_resource type="AtlasTexture" id=15]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 2860, 120, 160, 240 )
+region = Rect2( 2580, 120, 180, 240 )
 
 [sub_resource type="AtlasTexture" id=16]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 3140, 120, 160, 240 )
+region = Rect2( 2860, 120, 160, 240 )
 
 [sub_resource type="AtlasTexture" id=17]
 flags = 20
 atlas = ExtResource( 14 )
-region = Rect2( 3440, 120, 100, 240 )
+region = Rect2( 3140, 120, 160, 240 )
 
 [sub_resource type="AtlasTexture" id=18]
-flags = 23
-atlas = ExtResource( 6 )
-region = Rect2( 413, 0, 413, 574 )
+flags = 20
+atlas = ExtResource( 14 )
+region = Rect2( 3440, 120, 100, 240 )
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 826, 0, 413, 574 )
+region = Rect2( 413, 0, 413, 574 )
 
 [sub_resource type="AtlasTexture" id=20]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 1239, 0, 413, 574 )
+region = Rect2( 826, 0, 413, 574 )
 
 [sub_resource type="AtlasTexture" id=21]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 2058, 0, 392, 574 )
+region = Rect2( 1239, 0, 413, 574 )
 
 [sub_resource type="AtlasTexture" id=22]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 2461, 0, 413, 574 )
+region = Rect2( 2058, 0, 392, 574 )
 
 [sub_resource type="AtlasTexture" id=23]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 3283, 0, 414, 574 )
+region = Rect2( 2461, 0, 413, 574 )
 
 [sub_resource type="AtlasTexture" id=24]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 3691, 0, 402, 574 )
+region = Rect2( 3283, 0, 414, 574 )
 
 [sub_resource type="AtlasTexture" id=25]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 412, 574, 410, 574 )
+region = Rect2( 3691, 0, 402, 574 )
 
 [sub_resource type="AtlasTexture" id=26]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 1232, 574, 410, 574 )
+region = Rect2( 412, 574, 410, 574 )
 
 [sub_resource type="AtlasTexture" id=27]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 1643, 574, 410, 574 )
+region = Rect2( 1232, 574, 410, 574 )
 
 [sub_resource type="AtlasTexture" id=28]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 2054, 574, 409, 574 )
+region = Rect2( 1643, 574, 410, 574 )
 
 [sub_resource type="AtlasTexture" id=29]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 2461, 574, 410, 574 )
+region = Rect2( 2054, 574, 409, 574 )
 
 [sub_resource type="AtlasTexture" id=30]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 2871, 574, 410, 574 )
+region = Rect2( 2461, 574, 410, 574 )
 
 [sub_resource type="AtlasTexture" id=31]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 3280, 574, 412, 574 )
+region = Rect2( 2871, 574, 410, 574 )
 
 [sub_resource type="AtlasTexture" id=32]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 3691, 574, 405, 574 )
+region = Rect2( 3280, 574, 412, 574 )
 
 [sub_resource type="AtlasTexture" id=33]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 0, 1148, 409, 574 )
+region = Rect2( 3691, 574, 405, 574 )
 
 [sub_resource type="AtlasTexture" id=34]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 820, 1148, 412, 574 )
+region = Rect2( 0, 1148, 409, 574 )
 
 [sub_resource type="AtlasTexture" id=35]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 2050, 1148, 412, 574 )
+region = Rect2( 820, 1148, 412, 574 )
 
 [sub_resource type="AtlasTexture" id=36]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 2873, 1148, 410, 574 )
+region = Rect2( 2050, 1148, 412, 574 )
 
 [sub_resource type="AtlasTexture" id=37]
 flags = 23
 atlas = ExtResource( 6 )
-region = Rect2( 3690, 1148, 405, 574 )
+region = Rect2( 2873, 1148, 410, 574 )
 
 [sub_resource type="AtlasTexture" id=38]
 flags = 23
-atlas = ExtResource( 15 )
-region = Rect2( 2436, 0, 487, 681 )
+atlas = ExtResource( 6 )
+region = Rect2( 3690, 1148, 405, 574 )
 
 [sub_resource type="AtlasTexture" id=39]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 0, 679, 484, 686 )
+region = Rect2( 2436, 0, 487, 681 )
 
 [sub_resource type="AtlasTexture" id=40]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 969, 679, 490, 686 )
+region = Rect2( 0, 679, 484, 686 )
 
 [sub_resource type="AtlasTexture" id=41]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 1456, 679, 491, 686 )
+region = Rect2( 969, 679, 490, 686 )
 
 [sub_resource type="AtlasTexture" id=42]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 1941, 679, 492, 686 )
+region = Rect2( 1456, 679, 491, 686 )
 
 [sub_resource type="AtlasTexture" id=43]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 2430, 679, 492, 686 )
+region = Rect2( 1941, 679, 492, 686 )
 
 [sub_resource type="AtlasTexture" id=44]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 2920, 679, 493, 686 )
+region = Rect2( 2430, 679, 492, 686 )
 
 [sub_resource type="AtlasTexture" id=45]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 0, 1365, 490, 685 )
+region = Rect2( 2920, 679, 493, 686 )
 
 [sub_resource type="AtlasTexture" id=46]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 486, 1365, 488, 685 )
+region = Rect2( 0, 1365, 490, 685 )
 
 [sub_resource type="AtlasTexture" id=47]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 972, 1365, 488, 685 )
+region = Rect2( 486, 1365, 488, 685 )
 
 [sub_resource type="AtlasTexture" id=48]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 1458, 1365, 490, 685 )
+region = Rect2( 972, 1365, 488, 685 )
 
 [sub_resource type="AtlasTexture" id=49]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 1947, 1365, 487, 685 )
+region = Rect2( 1458, 1365, 490, 685 )
 
 [sub_resource type="AtlasTexture" id=50]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 2434, 1365, 486, 685 )
+region = Rect2( 1947, 1365, 487, 685 )
 
 [sub_resource type="AtlasTexture" id=51]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 2916, 1365, 496, 685 )
+region = Rect2( 2434, 1365, 486, 685 )
 
 [sub_resource type="AtlasTexture" id=52]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 0, 2050, 490, 682 )
+region = Rect2( 2916, 1365, 496, 685 )
 
 [sub_resource type="AtlasTexture" id=53]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 485, 2050, 491, 682 )
+region = Rect2( 0, 2050, 490, 682 )
 
 [sub_resource type="AtlasTexture" id=54]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 973, 2050, 490, 682 )
+region = Rect2( 485, 2050, 491, 682 )
 
 [sub_resource type="AtlasTexture" id=55]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 1458, 2050, 490, 682 )
+region = Rect2( 973, 2050, 490, 682 )
 
 [sub_resource type="AtlasTexture" id=56]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 1946, 2050, 487, 682 )
+region = Rect2( 1458, 2050, 490, 682 )
 
 [sub_resource type="AtlasTexture" id=57]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 2433, 2050, 487, 682 )
+region = Rect2( 1946, 2050, 487, 682 )
 
 [sub_resource type="AtlasTexture" id=58]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 2919, 2050, 493, 682 )
+region = Rect2( 2433, 2050, 487, 682 )
 
 [sub_resource type="AtlasTexture" id=59]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 0, 2735, 486, 679 )
+region = Rect2( 2919, 2050, 493, 682 )
 
 [sub_resource type="AtlasTexture" id=60]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 484, 2735, 491, 679 )
+region = Rect2( 0, 2735, 486, 679 )
 
 [sub_resource type="AtlasTexture" id=61]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 973, 2735, 487, 679 )
+region = Rect2( 484, 2735, 491, 679 )
 
 [sub_resource type="AtlasTexture" id=62]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 1461, 2732, 487, 683 )
+region = Rect2( 973, 2735, 487, 679 )
 
 [sub_resource type="AtlasTexture" id=63]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 1948, 2732, 487, 683 )
+region = Rect2( 1461, 2732, 487, 683 )
 
 [sub_resource type="AtlasTexture" id=64]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 2435, 2732, 487, 683 )
+region = Rect2( 1948, 2732, 487, 683 )
 
 [sub_resource type="AtlasTexture" id=65]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 2922, 2732, 487, 683 )
+region = Rect2( 2435, 2732, 487, 683 )
 
 [sub_resource type="AtlasTexture" id=66]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 0, 3415, 487, 681 )
+region = Rect2( 2922, 2732, 487, 683 )
 
 [sub_resource type="AtlasTexture" id=67]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 488, 3415, 485, 681 )
+region = Rect2( 0, 3415, 487, 681 )
 
 [sub_resource type="AtlasTexture" id=68]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 975, 3415, 485, 681 )
+region = Rect2( 488, 3415, 485, 681 )
 
 [sub_resource type="AtlasTexture" id=69]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 1462, 3415, 485, 681 )
+region = Rect2( 975, 3415, 485, 681 )
 
 [sub_resource type="AtlasTexture" id=70]
 flags = 23
 atlas = ExtResource( 15 )
-region = Rect2( 1949, 3415, 485, 681 )
+region = Rect2( 1462, 3415, 485, 681 )
 
 [sub_resource type="AtlasTexture" id=71]
 flags = 23
 atlas = ExtResource( 15 )
+region = Rect2( 1949, 3415, 485, 681 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 23
+atlas = ExtResource( 15 )
 region = Rect2( 2437, 3415, 484, 681 )
 
-[sub_resource type="StyleBoxFlat" id=72]
+[sub_resource type="StyleBoxFlat" id=73]
 content_margin_left = 5.0
 content_margin_right = 5.0
 content_margin_top = 5.0
@@ -395,8 +395,12 @@ border_color = Color( 0.0705882, 0.0862745, 0.0980392, 1 )
 [node name="SpawnPanel" type="Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = 44.0
+margin_right = -54.0
+margin_bottom = -59.0
 theme = ExtResource( 8 )
-custom_styles/panel = SubResource( 73 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -410,14 +414,14 @@ __meta__ = {
 }
 
 [node name="hb" type="HSplitContainer" parent="vb"]
-margin_right = 1280.0
+margin_right = 1186.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 collapsed = true
 dragger_visibility = 2
 
 [node name="Label" type="Label" parent="vb/hb"]
-margin_right = 1249.0
+margin_right = 1155.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -428,15 +432,15 @@ __meta__ = {
 }
 
 [node name="CloseButton" type="Button" parent="vb/hb"]
-margin_left = 1249.0
-margin_right = 1280.0
+margin_left = 1155.0
+margin_right = 1186.0
 margin_bottom = 29.0
 text = " X "
 
 [node name="mrgn" type="MarginContainer" parent="vb"]
 margin_top = 33.0
-margin_right = 1280.0
-margin_bottom = 720.0
+margin_right = 1186.0
+margin_bottom = 617.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 5
@@ -447,19 +451,19 @@ custom_constants/margin_bottom = 5
 [node name="hs" type="HSplitContainer" parent="vb/mrgn"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 1275.0
-margin_bottom = 682.0
+margin_right = 1181.0
+margin_bottom = 579.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-split_offset = 100
+split_offset = 50
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="games" type="TabContainer" parent="vb/mrgn/hs"]
-margin_right = 1036.0
-margin_bottom = 677.0
+margin_right = 917.0
+margin_bottom = 574.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 drag_to_rearrange_enabled = true
@@ -475,8 +479,8 @@ scroll_horizontal_enabled = false
 script = ExtResource( 18 )
 
 [node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/Boards"]
-margin_right = 1026.0
-margin_bottom = 636.0
+margin_right = 907.0
+margin_bottom = 533.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
@@ -516,11 +520,11 @@ text = "misc"
 align = 1
 
 [node name="m1" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
-margin_right = 202.0
+margin_right = 178.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 144, 250 )
 size_flags_horizontal = 3
-custom_styles/normal = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
 flat = true
 
 [node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m1"]
@@ -536,7 +540,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m1/vb"]
 process_priority = -5
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -546,14 +550,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m1/vb"]
 margin_top = 206.0
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 235.0
 text = "Board Royale"
 align = 1
 
 [node name="m2" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
-margin_left = 206.0
-margin_right = 408.0
+margin_left = 182.0
+margin_right = 360.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 144, 250 )
 size_flags_horizontal = 3
@@ -572,7 +576,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m2/vb"]
 process_priority = -5
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -582,14 +586,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m2/vb"]
 margin_top = 206.0
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 235.0
 text = "Chess Board"
 align = 1
 
 [node name="m51" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
-margin_left = 412.0
-margin_right = 614.0
+margin_left = 364.0
+margin_right = 542.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 144, 250 )
 size_flags_horizontal = 3
@@ -608,24 +612,24 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m51/vb"]
 process_priority = -5
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 2 )
+texture = SubResource( 3 )
 expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m51/vb"]
 margin_top = 206.0
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 235.0
 text = "UNO"
 align = 1
 
 [node name="m3" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
-margin_left = 618.0
-margin_right = 820.0
+margin_left = 546.0
+margin_right = 724.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 144, 250 )
 size_flags_horizontal = 3
@@ -654,7 +658,7 @@ expand = true
 stretch_mode = 6
 
 [node name="Label2" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m3/vb"]
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -664,14 +668,14 @@ valign = 1
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m3/vb"]
 margin_top = 206.0
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 235.0
 text = "Hand"
 align = 1
 
 [node name="m4" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
-margin_left = 824.0
-margin_right = 1026.0
+margin_left = 728.0
+margin_right = 906.0
 margin_bottom = 250.0
 rect_min_size = Vector2( 144, 250 )
 size_flags_horizontal = 3
@@ -700,7 +704,7 @@ expand = true
 stretch_mode = 6
 
 [node name="Label2" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m4/vb"]
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -710,14 +714,14 @@ valign = 1
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m4/vb"]
 margin_top = 206.0
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 235.0
 text = "Deck"
 align = 1
 
 [node name="m5" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
 margin_top = 254.0
-margin_right = 202.0
+margin_right = 178.0
 margin_bottom = 504.0
 rect_min_size = Vector2( 144, 250 )
 size_flags_horizontal = 3
@@ -736,7 +740,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m5/vb"]
 process_priority = -5
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -745,15 +749,15 @@ stretch_mode = 4
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m5/vb"]
 margin_top = 206.0
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 235.0
 text = "Deck of 52 cards"
 align = 1
 
 [node name="m6" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
-margin_left = 206.0
+margin_left = 182.0
 margin_top = 254.0
-margin_right = 408.0
+margin_right = 360.0
 margin_bottom = 504.0
 rect_min_size = Vector2( 144, 250 )
 size_flags_horizontal = 3
@@ -772,7 +776,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m6/vb"]
 process_priority = -5
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -780,15 +784,15 @@ stretch_mode = 4
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m6/vb"]
 margin_top = 206.0
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 235.0
 text = "SNR Rose"
 align = 1
 
 [node name="m7" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
-margin_left = 412.0
+margin_left = 364.0
 margin_top = 254.0
-margin_right = 614.0
+margin_right = 542.0
 margin_bottom = 504.0
 rect_min_size = Vector2( 144, 250 )
 size_flags_horizontal = 3
@@ -807,7 +811,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m7/vb"]
 process_priority = -5
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 202.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -815,7 +819,7 @@ stretch_mode = 4
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m7/vb"]
 margin_top = 206.0
-margin_right = 182.0
+margin_right = 158.0
 margin_bottom = 235.0
 text = "SNR Skull"
 align = 1
@@ -833,7 +837,7 @@ scroll_vertical = 100
 script = ExtResource( 21 )
 
 [node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/UNO"]
-margin_right = 1026.0
+margin_right = 907.0
 margin_bottom = 1412.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -897,7 +901,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 2 )
+texture = SubResource( 3 )
 expand = true
 stretch_mode = 6
 
@@ -932,7 +936,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 3 )
+texture = SubResource( 4 )
 expand = true
 stretch_mode = 6
 
@@ -967,7 +971,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 4 )
+texture = SubResource( 5 )
 expand = true
 stretch_mode = 6
 
@@ -1002,7 +1006,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 5 )
+texture = SubResource( 6 )
 expand = true
 stretch_mode = 6
 
@@ -1037,7 +1041,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 6 )
+texture = SubResource( 7 )
 expand = true
 stretch_mode = 6
 
@@ -1072,7 +1076,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 7 )
+texture = SubResource( 8 )
 expand = true
 stretch_mode = 6
 
@@ -1108,7 +1112,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 8 )
+texture = SubResource( 9 )
 expand = true
 stretch_mode = 6
 
@@ -1144,7 +1148,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 9 )
+texture = SubResource( 10 )
 expand = true
 stretch_mode = 6
 
@@ -1180,7 +1184,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 10 )
+texture = SubResource( 11 )
 expand = true
 stretch_mode = 6
 
@@ -1216,7 +1220,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 11 )
+texture = SubResource( 12 )
 expand = true
 stretch_mode = 6
 
@@ -1251,7 +1255,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 12 )
+texture = SubResource( 13 )
 expand = true
 stretch_mode = 6
 
@@ -1287,7 +1291,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 13 )
+texture = SubResource( 14 )
 expand = true
 stretch_mode = 6
 
@@ -1323,7 +1327,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 14 )
+texture = SubResource( 15 )
 expand = true
 stretch_mode = 6
 
@@ -1359,7 +1363,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 15 )
+texture = SubResource( 16 )
 expand = true
 stretch_mode = 6
 
@@ -1395,7 +1399,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 16 )
+texture = SubResource( 17 )
 expand = true
 stretch_mode = 6
 
@@ -1430,7 +1434,7 @@ margin_right = 274.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 17 )
+texture = SubResource( 18 )
 expand = true
 stretch_mode = 6
 
@@ -1474,8 +1478,8 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/BoardRoyale/Resources"]
-margin_right = 1016.0
-margin_bottom = 595.0
+margin_right = 897.0
+margin_bottom = 492.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
@@ -1706,7 +1710,7 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/BoardRoyale/Items"]
-margin_right = 1016.0
+margin_right = 897.0
 margin_bottom = 3890.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1769,7 +1773,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 18 )
+texture = SubResource( 19 )
 expand = true
 stretch_mode = 6
 
@@ -1804,7 +1808,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 19 )
+texture = SubResource( 20 )
 expand = true
 stretch_mode = 6
 
@@ -1839,7 +1843,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 20 )
+texture = SubResource( 21 )
 expand = true
 stretch_mode = 6
 
@@ -1874,7 +1878,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 21 )
+texture = SubResource( 22 )
 expand = true
 stretch_mode = 6
 
@@ -1909,7 +1913,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 22 )
+texture = SubResource( 23 )
 expand = true
 stretch_mode = 6
 
@@ -1944,7 +1948,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 23 )
+texture = SubResource( 24 )
 expand = true
 stretch_mode = 6
 
@@ -1980,7 +1984,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 24 )
+texture = SubResource( 25 )
 expand = true
 stretch_mode = 6
 
@@ -2016,7 +2020,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 25 )
+texture = SubResource( 26 )
 expand = true
 stretch_mode = 6
 
@@ -2052,7 +2056,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 26 )
+texture = SubResource( 27 )
 expand = true
 stretch_mode = 6
 
@@ -2088,7 +2092,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 27 )
+texture = SubResource( 28 )
 expand = true
 stretch_mode = 6
 
@@ -2123,7 +2127,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 28 )
+texture = SubResource( 29 )
 expand = true
 stretch_mode = 6
 
@@ -2159,7 +2163,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 29 )
+texture = SubResource( 30 )
 expand = true
 stretch_mode = 6
 
@@ -2195,7 +2199,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 30 )
+texture = SubResource( 31 )
 expand = true
 stretch_mode = 6
 
@@ -2231,7 +2235,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 31 )
+texture = SubResource( 32 )
 expand = true
 stretch_mode = 6
 
@@ -2267,7 +2271,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 32 )
+texture = SubResource( 33 )
 expand = true
 stretch_mode = 6
 
@@ -2302,7 +2306,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 33 )
+texture = SubResource( 34 )
 expand = true
 stretch_mode = 6
 
@@ -2338,7 +2342,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 34 )
+texture = SubResource( 35 )
 expand = true
 stretch_mode = 6
 
@@ -2374,7 +2378,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 35 )
+texture = SubResource( 36 )
 expand = true
 stretch_mode = 6
 
@@ -2410,7 +2414,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 36 )
+texture = SubResource( 37 )
 expand = true
 stretch_mode = 6
 
@@ -2446,7 +2450,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 37 )
+texture = SubResource( 38 )
 expand = true
 stretch_mode = 6
 
@@ -2481,7 +2485,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 38 )
+texture = SubResource( 39 )
 expand = true
 stretch_mode = 6
 
@@ -2517,7 +2521,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 39 )
+texture = SubResource( 40 )
 expand = true
 stretch_mode = 6
 
@@ -2553,7 +2557,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 40 )
+texture = SubResource( 41 )
 expand = true
 stretch_mode = 6
 
@@ -2589,7 +2593,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 41 )
+texture = SubResource( 42 )
 expand = true
 stretch_mode = 6
 
@@ -2625,7 +2629,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 42 )
+texture = SubResource( 43 )
 expand = true
 stretch_mode = 6
 
@@ -2660,7 +2664,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 43 )
+texture = SubResource( 44 )
 expand = true
 stretch_mode = 6
 
@@ -2696,7 +2700,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 44 )
+texture = SubResource( 45 )
 expand = true
 stretch_mode = 6
 
@@ -2732,7 +2736,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 45 )
+texture = SubResource( 46 )
 expand = true
 stretch_mode = 6
 
@@ -2768,7 +2772,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 46 )
+texture = SubResource( 47 )
 expand = true
 stretch_mode = 6
 
@@ -2804,7 +2808,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 47 )
+texture = SubResource( 48 )
 expand = true
 stretch_mode = 6
 
@@ -2839,7 +2843,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 48 )
+texture = SubResource( 49 )
 expand = true
 stretch_mode = 6
 
@@ -2875,7 +2879,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 49 )
+texture = SubResource( 50 )
 expand = true
 stretch_mode = 6
 
@@ -2911,7 +2915,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 50 )
+texture = SubResource( 51 )
 expand = true
 stretch_mode = 6
 
@@ -2947,7 +2951,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 51 )
+texture = SubResource( 52 )
 expand = true
 stretch_mode = 6
 
@@ -2983,7 +2987,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 52 )
+texture = SubResource( 53 )
 expand = true
 stretch_mode = 6
 
@@ -3018,7 +3022,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 53 )
+texture = SubResource( 54 )
 expand = true
 stretch_mode = 6
 
@@ -3054,7 +3058,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 54 )
+texture = SubResource( 55 )
 expand = true
 stretch_mode = 6
 
@@ -3090,7 +3094,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 55 )
+texture = SubResource( 56 )
 expand = true
 stretch_mode = 6
 
@@ -3126,7 +3130,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 56 )
+texture = SubResource( 57 )
 expand = true
 stretch_mode = 6
 
@@ -3162,7 +3166,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 57 )
+texture = SubResource( 58 )
 expand = true
 stretch_mode = 6
 
@@ -3197,7 +3201,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 58 )
+texture = SubResource( 59 )
 expand = true
 stretch_mode = 6
 
@@ -3233,7 +3237,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 59 )
+texture = SubResource( 60 )
 expand = true
 stretch_mode = 6
 
@@ -3269,7 +3273,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 60 )
+texture = SubResource( 61 )
 expand = true
 stretch_mode = 6
 
@@ -3305,7 +3309,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 61 )
+texture = SubResource( 62 )
 expand = true
 stretch_mode = 6
 
@@ -3341,7 +3345,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 62 )
+texture = SubResource( 63 )
 expand = true
 stretch_mode = 6
 
@@ -3376,7 +3380,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 63 )
+texture = SubResource( 64 )
 expand = true
 stretch_mode = 6
 
@@ -3412,7 +3416,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 64 )
+texture = SubResource( 65 )
 expand = true
 stretch_mode = 6
 
@@ -3448,7 +3452,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 65 )
+texture = SubResource( 66 )
 expand = true
 stretch_mode = 6
 
@@ -3484,7 +3488,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 66 )
+texture = SubResource( 67 )
 expand = true
 stretch_mode = 6
 
@@ -3520,7 +3524,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 67 )
+texture = SubResource( 68 )
 expand = true
 stretch_mode = 6
 
@@ -3555,7 +3559,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 68 )
+texture = SubResource( 69 )
 expand = true
 stretch_mode = 6
 
@@ -3591,7 +3595,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 69 )
+texture = SubResource( 70 )
 expand = true
 stretch_mode = 6
 
@@ -3627,7 +3631,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 70 )
+texture = SubResource( 71 )
 expand = true
 stretch_mode = 6
 
@@ -3663,7 +3667,7 @@ margin_right = 252.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 71 )
+texture = SubResource( 72 )
 expand = true
 stretch_mode = 6
 
@@ -3689,8 +3693,8 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/BoardRoyale/Misc"]
-margin_right = 1016.0
-margin_bottom = 595.0
+margin_right = 897.0
+margin_bottom = 492.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
@@ -3810,9 +3814,9 @@ margin_right = -5.0
 margin_bottom = -5.0
 
 [node name="configurer" type="TabContainer" parent="vb/mrgn/hs"]
-margin_left = 1044.0
-margin_right = 1270.0
-margin_bottom = 677.0
+margin_left = 925.0
+margin_right = 1176.0
+margin_bottom = 574.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3837,7 +3841,7 @@ __meta__ = {
 }
 
 [node name="SelectionName" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb"]
-margin_right = 216.0
+margin_right = 241.0
 margin_bottom = 29.0
 text = "Selected Object Name"
 align = 1
@@ -3845,8 +3849,8 @@ valign = 1
 
 [node name="vsc" type="VSplitContainer" parent="vb/mrgn/hs/configurer/Inspector/vb"]
 margin_top = 39.0
-margin_right = 216.0
-margin_bottom = 636.0
+margin_right = 241.0
+margin_bottom = 533.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -3856,7 +3860,7 @@ margin_right = 382.0
 margin_bottom = 474.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/bg = SubResource( 72 )
+custom_styles/bg = SubResource( 73 )
 
 [node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_sample"]
 margin_left = 5.0
@@ -3927,37 +3931,37 @@ __meta__ = {
 }
 
 [node name="Scroll_Boards" type="ScrollContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc"]
-margin_right = 216.0
-margin_bottom = 294.0
+margin_right = 241.0
+margin_bottom = 243.0
 focus_neighbour_bottom = NodePath("../SpawnButton")
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/bg = SubResource( 72 )
+custom_styles/bg = SubResource( 73 )
 script = ExtResource( 20 )
 
 [node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 211.0
-margin_bottom = 289.0
+margin_right = 236.0
+margin_bottom = 238.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="amount" type="HBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb"]
-margin_right = 206.0
+margin_right = 231.0
 margin_bottom = 29.0
 script = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount"]
-margin_right = 84.0
+margin_right = 109.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 text = "Amount"
 align = 1
 
 [node name="minus" type="Button" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount"]
-margin_left = 88.0
-margin_right = 113.0
+margin_left = 113.0
+margin_right = 138.0
 margin_bottom = 29.0
 rect_min_size = Vector2( 25, 0 )
 focus_neighbour_right = NodePath("../value")
@@ -3965,8 +3969,8 @@ size_flags_stretch_ratio = 0.0
 text = "-"
 
 [node name="value" type="LineEdit" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount"]
-margin_left = 117.0
-margin_right = 177.0
+margin_left = 142.0
+margin_right = 202.0
 margin_bottom = 29.0
 focus_neighbour_left = NodePath("../minus")
 focus_neighbour_right = NodePath("../plus")
@@ -3976,8 +3980,8 @@ align = 1
 max_length = 2
 
 [node name="plus" type="Button" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount"]
-margin_left = 181.0
-margin_right = 206.0
+margin_left = 206.0
+margin_right = 231.0
 margin_bottom = 29.0
 rect_min_size = Vector2( 25, 0 )
 focus_neighbour_left = NodePath("../value")
@@ -3986,39 +3990,39 @@ text = "+"
 
 [node name="owner" type="HBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb"]
 margin_top = 33.0
-margin_right = 206.0
+margin_right = 231.0
 margin_bottom = 62.0
 script = ExtResource( 17 )
 spawnpanel = NodePath("../../../../../../../../../..")
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/owner"]
-margin_right = 174.0
+margin_right = 199.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 text = "Owner"
 align = 1
 
 [node name="OptionButton" type="OptionButton" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/owner"]
-margin_left = 178.0
-margin_right = 206.0
+margin_left = 203.0
+margin_right = 231.0
 margin_bottom = 29.0
 
 [node name="uno_team" type="HBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb"]
 margin_top = 66.0
-margin_right = 206.0
+margin_right = 231.0
 margin_bottom = 95.0
 script = ExtResource( 22 )
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/uno_team"]
-margin_right = 141.0
+margin_right = 166.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 text = "Color"
 align = 1
 
 [node name="OptionButton" type="OptionButton" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/uno_team"]
-margin_left = 145.0
-margin_right = 206.0
+margin_left = 170.0
+margin_right = 231.0
 margin_bottom = 29.0
 text = "Red"
 items = [ "Red", null, false, 0, null, "Yellow", null, false, 1, null, "Blue", null, false, 2, null, "Green", null, false, 3, null ]
@@ -4031,9 +4035,9 @@ margin_right = 482.0
 margin_bottom = 887.0
 
 [node name="SpawnButton" type="Button" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc"]
-margin_top = 302.0
-margin_right = 216.0
-margin_bottom = 597.0
+margin_top = 251.0
+margin_right = 241.0
+margin_bottom = 494.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
