@@ -9,6 +9,7 @@ export var only_resources := false
 export(int) var SQUEEZING_START = 10
 export(float) var SQUEEZING_X_OFFSET = 0.9
 export(bool) var SORT_BY_SECOND_VALUE = false
+export(float) var ON_DRAG_EXTENTS = 0.3
 
 
 export(float) var offsetx = 1.44
@@ -253,13 +254,13 @@ func on_started_dragging(_a) -> void:
 	_a = _a as card
 	
 	if only_resources and _a.is_resource:
-		col.shape.extents.y = 0.5
+		col.shape.extents.y = ON_DRAG_EXTENTS
 	
 	elif only_items and _a.is_item:
-		col.shape.extents.y = 0.5
+		col.shape.extents.y = ON_DRAG_EXTENTS
 	
 	elif not only_items and not only_resources:
-		col.shape.extents.y = 0.5
+		col.shape.extents.y = ON_DRAG_EXTENTS
 	
 	
 	for c in inventory:
