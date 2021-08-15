@@ -171,22 +171,27 @@ func resize_hand() -> void:
 	tweenit(hand_mesh,"mesh:size:x",hand_mesh.mesh.size.x, siz)
 	order_inventory()
 
-
+# finds where(index) card should go 
 func find_index(var relativex: float) -> int:
 	var inv_size = inventory.size()
 	
+	# because positions are relative to hand
+	# we need to find where is center of hand
 	var half_of_handx = ( (inv_size - 1) * offsetx ) / 2
 	
 	
-	
 	for i in inv_size:
-		var posx = (i * offsetx) - half_of_handx
+		# position of (i)cards left edge
+		var posx = (i * offsetx) - half_of_handx - (1.44/2)
 		
+		# test to see if new card is further than posx(i)card
 		if relativex > posx:
+			# if its further than (i)card go to next card
 			continue
 		else:
+			# if its not further than (i)card return this index
 			return i
-	
+	# if its bigger than every card, its last
 	return inv_size
 
 
