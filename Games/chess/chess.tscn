@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Games/chess/chess_piece.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Games/chess/chess_board_mesh.tres" type="ArrayMesh" id=2]
@@ -18,9 +18,6 @@
 [ext_resource path="res://Games/chess/chess_piece_king_collision.tres" type="Shape" id=21]
 [ext_resource path="res://Games/chess/chess_piece_king.tres" type="ArrayMesh" id=22]
 
-[sub_resource type="SpatialMaterial" id=1]
-metallic = 1.0
-
 [node name="chess" type="StaticBody" groups=[
 "shift_draggable",
 ]]
@@ -29,7 +26,7 @@ script = ExtResource( 14 )
 [node name="board" type="MeshInstance" parent="."]
 transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0.048, 0 )
 mesh = ExtResource( 2 )
-material/0 = SubResource( 1 )
+material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = ExtResource( 3 )
