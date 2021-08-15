@@ -1,39 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Theme/default.tres" type="Theme" id=1]
-[ext_resource path="res://Systems/Settings/settings_gui.gd" type="Script" id=2]
 [ext_resource path="res://Systems/Settings/SettingsUI.gd" type="Script" id=3]
 [ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=4]
 [ext_resource path="res://Theme/theme_monserati_m.tres" type="Theme" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.501961 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.627451 )
-corner_detail = 1
-shadow_color = Color( 0, 0, 0, 0 )
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=2]
-content_margin_left = 16.0
-content_margin_right = 16.0
-content_margin_top = 16.0
-content_margin_bottom = 16.0
-bg_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.313726 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0.0627451, 0.0627451, 0.0627451, 0.54902 )
-corner_detail = 1
-anti_aliasing = false
-
-[sub_resource type="StyleBoxEmpty" id=3]
-
-[sub_resource type="StyleBoxEmpty" id=4]
+bg_color = Color( 0.117647, 0.141176, 0.156863, 0.705882 )
+expand_margin_top = 25.0
 
 [node name="SettingsUI" type="Control"]
 anchor_right = 1.0
@@ -48,8 +21,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 pu = NodePath("pu")
-res = NodePath("pu/VBoxContainer/DisplayResolution/OptionButton")
-gq = NodePath("pu/VBoxContainer/GraphicsQuality/OptionButton")
+res = NodePath("pu/tabs/Simple/DisplayResolution/OptionButton")
+gq = NodePath("pu/tabs/Simple/GraphicsQuality/OptionButton")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visible = false
@@ -64,135 +37,47 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SettingsGUI" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 1 )
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="Panel" parent="SettingsGUI"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -488.0
-margin_top = -264.0
-margin_right = 488.0
-margin_bottom = 264.0
-custom_styles/panel = SubResource( 1 )
-
-[node name="WelcomeTitle" type="Label" parent="SettingsGUI/Panel"]
-margin_top = 16.0
-margin_right = 1024.0
-margin_bottom = 74.0
-text = "Welcome"
-align = 1
-
-[node name="WelcomeText" type="Label" parent="SettingsGUI/Panel"]
-margin_left = 32.0
-margin_top = 88.0
-margin_right = 676.0
-margin_bottom = 509.0
-text = "This Sponza demo showcases the capabilities of the Godot 3 renderer.
-Please choose a preset suited to your hardware below:
-
-
-
-
-
-
-
-
-
-For more reproducible benchmarks, choose a display resolution:"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GraphicsBlurb" type="RichTextLabel" parent="SettingsGUI/Panel"]
-margin_left = 32.0
-margin_top = 231.0
-margin_right = 480.0
-margin_bottom = 338.0
-custom_styles/focus = SubResource( 2 )
-custom_styles/normal = SubResource( 2 )
-custom_constants/table_hseparation = 16
-custom_constants/line_separation = 2
-bbcode_enabled = true
-
-[node name="GraphicsInfo" type="RichTextLabel" parent="SettingsGUI/Panel"]
-margin_left = 512.0
-margin_top = 185.0
-margin_right = 952.0
-margin_bottom = 384.0
-custom_styles/focus = SubResource( 2 )
-custom_styles/normal = SubResource( 2 )
-custom_constants/table_hseparation = 16
-custom_constants/line_separation = 2
-bbcode_enabled = true
-
-[node name="ConfirmButton" type="Button" parent="SettingsGUI/Panel"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -86.5
-margin_top = -65.0
-margin_right = 86.5
-margin_bottom = -20.0
-text = "OK"
-
-[node name="QuitButton" type="Button" parent="SettingsGUI/Panel"]
-margin_left = 877.0
-margin_top = 468.0
-margin_right = 950.0
-margin_bottom = 506.0
-text = "Quit"
-
-[node name="MenuTip" type="RichTextLabel" parent="SettingsGUI/Panel"]
-margin_left = 33.0
-margin_top = 478.0
-margin_right = 353.0
-margin_bottom = 506.0
-custom_styles/focus = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-bbcode_enabled = true
-bbcode_text = "[color=#DDFFFFFF]Press [color=#DDFFFF77][Escape][/color] to toggle this menu.[/color]"
-text = "Press [Escape] to toggle this menu."
-
 [node name="pu" type="WindowDialog" parent="."]
 visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -195.0
-margin_top = -107.5
-margin_right = 195.0
-margin_bottom = 107.5
+margin_left = -216.0
+margin_top = -118.0
+margin_right = 216.0
+margin_bottom = 118.0
+rect_min_size = Vector2( 300, 220 )
+custom_styles/panel = SubResource( 1 )
 window_title = "Settings"
 resizable = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="pu"]
+[node name="tabs" type="TabContainer" parent="pu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 5.0
-margin_right = -20.0
-margin_bottom = -20.0
+margin_left = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GraphicsQuality" type="HBoxContainer" parent="pu/VBoxContainer"]
-margin_right = 350.0
+[node name="Simple" type="VBoxContainer" parent="pu/tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GraphicsQuality" type="HBoxContainer" parent="pu/tabs/Simple"]
+margin_right = 412.0
 margin_bottom = 30.0
 rect_min_size = Vector2( 0, 30 )
 custom_constants/separation = 24
@@ -202,24 +87,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="pu/VBoxContainer/GraphicsQuality"]
-margin_right = 163.0
+[node name="Label" type="Label" parent="pu/tabs/Simple/GraphicsQuality"]
+margin_right = 194.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 text = "Graphics quality"
 
-[node name="OptionButton" type="OptionButton" parent="pu/VBoxContainer/GraphicsQuality"]
-margin_left = 187.0
-margin_right = 350.0
+[node name="OptionButton" type="OptionButton" parent="pu/tabs/Simple/GraphicsQuality"]
+margin_left = 218.0
+margin_right = 412.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 text = "Low"
 items = [ "Low", null, false, 0, null, "Medium", null, false, 1, null, "High", null, false, 2, null, "Ultra", null, false, 3, null ]
 selected = 0
 
-[node name="DisplayResolution" type="HBoxContainer" parent="pu/VBoxContainer"]
+[node name="DisplayResolution" type="HBoxContainer" parent="pu/tabs/Simple"]
 margin_top = 34.0
-margin_right = 350.0
+margin_right = 412.0
 margin_bottom = 64.0
 rect_min_size = Vector2( 0, 30 )
 custom_constants/separation = 24
@@ -229,19 +114,69 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="pu/VBoxContainer/DisplayResolution"]
-margin_right = 163.0
+[node name="Label" type="Label" parent="pu/tabs/Simple/DisplayResolution"]
+margin_right = 194.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 text = "Display resolution"
 
-[node name="OptionButton" type="OptionButton" parent="pu/VBoxContainer/DisplayResolution"]
-margin_left = 187.0
-margin_right = 350.0
+[node name="OptionButton" type="OptionButton" parent="pu/tabs/Simple/DisplayResolution"]
+margin_left = 218.0
+margin_right = 412.0
 margin_bottom = 30.0
 size_flags_horizontal = 3
 
-[connection signal="pressed" from="SettingsGUI/Panel/ConfirmButton" to="SettingsGUI" method="_on_ConfirmButton_pressed"]
-[connection signal="pressed" from="SettingsGUI/Panel/QuitButton" to="SettingsGUI" method="_on_QuitButton_pressed"]
-[connection signal="item_selected" from="pu/VBoxContainer/GraphicsQuality/OptionButton" to="." method="_on_graphics_preset_change"]
-[connection signal="item_selected" from="pu/VBoxContainer/DisplayResolution/OptionButton" to="." method="_on_resolution_changed"]
+[node name="space" type="Label" parent="pu/tabs/Simple"]
+margin_top = 68.0
+margin_right = 412.0
+margin_bottom = 97.0
+
+[node name="space3" type="Label" parent="pu/tabs/Simple"]
+margin_top = 101.0
+margin_right = 412.0
+margin_bottom = 130.0
+
+[node name="space2" type="Label" parent="pu/tabs/Simple"]
+margin_top = 134.0
+margin_right = 412.0
+margin_bottom = 163.0
+
+[node name="Advanced" type="ScrollContainer" parent="pu/tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+follow_focus = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vb" type="VBoxContainer" parent="pu/tabs/Advanced"]
+margin_right = 412.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="s_0" type="HBoxContainer" parent="pu/tabs/Advanced/vb"]
+margin_right = 422.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+
+[node name="s_label" type="Label" parent="pu/tabs/Advanced/vb/s_0"]
+margin_right = 209.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[node name="s_ob" type="OptionButton" parent="pu/tabs/Advanced/vb/s_0"]
+margin_left = 213.0
+margin_right = 422.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+
+[connection signal="item_selected" from="pu/tabs/Simple/GraphicsQuality/OptionButton" to="." method="_on_graphics_preset_change"]
+[connection signal="item_selected" from="pu/tabs/Simple/DisplayResolution/OptionButton" to="." method="_on_resolution_changed"]

@@ -6,7 +6,7 @@ export(NodePath) onready var gq = get_node(gq) as OptionButton
 
 var env_parent
 var environment
-
+var table_mesh : MeshInstance
 
 # The preset to use when starting the project
 # 0: Low
@@ -70,8 +70,6 @@ const presets = [
 
 
 
-
-
 func _ready():
 	visible = false
 	pu.connect("popup_hide",self,"close_ui")
@@ -86,10 +84,11 @@ func open_ui() -> void:
 func initialize() -> void:
 	if not environment == null: return
 	
+	
 	env_parent = get_node("/root/Main/environment")
 	environment = env_parent.get_node("WorldEnvironment").get_environment()
 	
-	
+	table_mesh = get_node("/root/Main/tablo/table/tableMesh")
 	
 	# Initialize the project on the default preset
 	gq.select(default_preset)
@@ -153,6 +152,11 @@ func _on_graphics_preset_change(preset: int) -> void:
 	
 	env_parent.visible = (not preset == 0)
 	
+	var mat = table_mesh.get_surface_material(0) as SpatialMaterial
+	mat.flags_unshaded = (preset == 0)
+	table_mesh.set_surface_material(0,mat)
+	
+	
 
 func _on_resolution_changed(id):
 	if id < res.get_item_count() - 1:
@@ -163,4 +167,5 @@ func _on_resolution_changed(id):
 	else:
 		# The last item of the OptionButton is always "Fullscreen"
 		OS.set_window_fullscreen(true)
+
 
