@@ -81,7 +81,9 @@ func _ready():
 func open_ui() -> void:
 	pu.popup()
 	visible = true
-	
+	initialize()
+
+func initialize() -> void:
 	if not environment == null: return
 	
 	env_parent = get_node("/root/Main/environment")

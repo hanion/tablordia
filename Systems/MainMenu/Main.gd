@@ -15,6 +15,7 @@ var br
 func _ready():
 	NetworkInterface.Main = self
 	Spawner.cards_folder = cards
+	SettingsUI.initialize()
 
 
 
