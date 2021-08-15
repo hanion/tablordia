@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://InGame/Table/Marble016_2K-PNG/marble.tres" type="Material" id=1]
+[ext_resource path="res://InGame/Table/Wood067_2K-PNG/wood.tres" type="Material" id=1]
 
 [sub_resource type="BoxShape" id=1]
-extents = Vector3( 30, 0.5, 30 )
+extents = Vector3( 50, 0.5, 50 )
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 100, 1, 100 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+albedo_color = Color( 0.105469, 0.105469, 0.105469, 1 )
 
 [node name="table" type="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )
@@ -20,3 +27,43 @@ shape = SubResource( 1 )
 [node name="tableMesh" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
 material/0 = ExtResource( 1 )
+
+[node name="wall0" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 50.0568, 50, 0 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="wall0"]
+shape = SubResource( 1 )
+
+[node name="tableMesh2" type="MeshInstance" parent="wall0"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="wall1" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -49.6223, 50, 0 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="wall1"]
+shape = SubResource( 1 )
+
+[node name="tableMesh2" type="MeshInstance" parent="wall1"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="wall2" type="StaticBody" parent="."]
+transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.977731, 50, -50 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="wall2"]
+shape = SubResource( 1 )
+
+[node name="tableMesh2" type="MeshInstance" parent="wall2"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="wall3" type="StaticBody" parent="."]
+transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0.977731, 50, 49 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="wall3"]
+shape = SubResource( 1 )
+
+[node name="tableMesh2" type="MeshInstance" parent="wall3"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
