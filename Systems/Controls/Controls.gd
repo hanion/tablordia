@@ -3,8 +3,9 @@ extends Spatial
 var ctrl_held_down := false
 var shift_held_down := false
 
-onready var cam = get_node("../CAM")
+onready var camera = get_node("../CAM")
 onready var spawn_panel = get_node("../../CanvasLayer/SpawnPanel")
+onready var ccs = get_node("../CCS")
 
 func _unhandled_key_input(event:InputEventKey):
 	handle_control(event)
@@ -37,15 +38,19 @@ func handle_touch(_event) -> void:
 func handle_control(event) -> void:
 	if event.is_action_pressed("ctrl"):
 		ctrl_held_down = true
+		ccs.change_icon("cam")
 	elif event.is_action_released("ctrl"):
+		ccs.change_icon()
 		ctrl_held_down = false
 
 
 func handle_shift(event) -> void:
 	if event.is_action_pressed("shift"):
 		shift_held_down = true
+		ccs.change_icon("hand")
 	elif event.is_action_released("shift"):
 		shift_held_down = false
+		ccs.change_icon()
 
 
 
@@ -62,37 +67,41 @@ func handle_spawnmenu(event) -> void:
 
 func handle_pan(event) -> void:
 	if not ctrl_held_down:
-		cam.is_panning = false
+		camera.is_panning = false
 		return
 	
 	if event.is_action_pressed("left_mouse"):
-		cam.is_panning = true
-		cam._last_mouse_position = get_viewport().get_mouse_position()
+		camera.is_panning = true
+		camera._last_mouse_position = get_viewport().get_mouse_position()
+		ccs.change_icon("cammove")
 	elif event.is_action_released("left_mouse"):
-		cam.is_panning = false
+		camera.is_panning = false
+		ccs.change_icon("cam")
 
 
 func handle_rotation(event) -> void:
 	if not ctrl_held_down:
-		cam.is_rotating = false
+		camera.is_rotating = false
 		return
 	
 	if event.is_action_pressed("right_mouse"):
-		cam.is_rotating = true
-		cam._last_mouse_position = get_viewport().get_mouse_position()
+		camera.is_rotating = true
+		camera._last_mouse_position = get_viewport().get_mouse_position()
+		ccs.change_icon("camrotate")
 	elif event.is_action_released("right_mouse"):
-		cam.is_rotating = false
+		camera.is_rotating = false
+		ccs.change_icon("cam")
 
 
 func handle_zoom(event) -> void:
 	if not ctrl_held_down:
-		cam.zoom_direction = 0
+		camera.zoom_direction = 0
 		return
 	
 	if event.is_action_pressed("camera_zoom_in"):
-		cam.zoom_direction = -1
+		camera.zoom_direction = -1
 	if event.is_action_pressed("camera_zoom_out"):
-		cam.zoom_direction = 1
+		camera.zoom_direction = 1
 
 
 func handle_rcm(event) -> void:

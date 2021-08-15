@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Systems/Controls/CAM.gd" type="Script" id=1]
 [ext_resource path="res://Systems/Controls/player.gd" type="Script" id=2]
 [ext_resource path="res://Systems/closeup/closeup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Systems/Controls/Controls.gd" type="Script" id=4]
+[ext_resource path="res://Systems/Controls/CCS.gd" type="Script" id=5]
+[ext_resource path="res://assets/cursors/Camera2D.png" type="Texture" id=6]
 
 [node name="player" type="Spatial"]
 script = ExtResource( 2 )
@@ -11,6 +13,33 @@ rotatiton_one_tick = 45.0
 
 [node name="Controls" type="Spatial" parent="."]
 script = ExtResource( 4 )
+
+[node name="CCS" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+mouse_default_cursor_shape = 3
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="texture" type="TextureRect" parent="CCS"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CAM" type="Spatial" parent="."]
 script = ExtResource( 1 )
