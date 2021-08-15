@@ -69,21 +69,27 @@ func add_card_to_hand(var crd: card, var pos: Vector3) -> void:
 	crd.is_in_hand = true
 	crd.in_hand = self
 	
+	
 	var difference = pos - translation
 	difference = Std.complex_rotate(difference,rotation.y)
+	# index = where card should be inserted
 	var index = find_index(difference.x)
+	# move cards from index to one right
 	var hole_in_list = cut_list(index)
+	# add current card to opened index
 	inventory[hole_in_list] = crd
 	
+	
+	# keep the global position of card
 	var global_pos = List.reparent_child(crd,self)
 	
 	crd.translation = Std.complex_rotate(global_pos - translation,rotation.y)
 	crd.rotation_degrees = Vector3(0,0,0)
 	
+	# change cards hidden val
 	set_card_hidden(crd,is_cards_hidden_to_others)
 	if am_i_the_owner:
 		set_card_hidden(crd,is_cards_hidden_to_owner)
-	
 	
 	resize_hand()
 
@@ -91,12 +97,13 @@ func remove_card_from_hand(var crd: card) -> void:
 	crd.is_in_hand = false
 	crd.in_hand = null
 	
+	# cards are visible to everyone in global context
 	set_card_hidden(crd,false)
 	
 	inventory.erase(crd)
 	
+	# keep the global position of card
 	var old_translation = to_global(crd.translation)
-#	print("in hand old pos: ",old_translation)
 	
 	List.reparent_child(crd,cards)
 	
@@ -105,23 +112,27 @@ func remove_card_from_hand(var crd: card) -> void:
 	check_after_onemsec(crd,old_translation)
 	resize_hand()
 
+# checks if card is accidentally moved by user and puts it back to place
 func check_after_onemsec(cd,ot):
 	yield(get_tree().create_timer(0.05),"timeout")
 	if cd.translation == ot: return
 	
 	cd.translation = ot
-#	check_after_onesec(cd,ot)
 
 func order_inventory() -> void:
+	# because positions are relative to hand
+	# we need to find where is center of hand
 	var half_of_handx = ( (inventory.size() - 1) * offsetx ) / 2
 	
 	for i in inventory.size():
+		# position.x of (i)card relative to hand
 		var posx = (i * offsetx) - half_of_handx
 		var posy:float
 		
 		var kart = inventory[i]
 		
 		if is_squeezing:
+			# (rotate) and (move in y) card slightly to make them not zfight
 			kart.rotation_degrees = Vector3(0,0,-0.2)
 			posy = ((i+1)*1.01 - 1)/400
 		else:
@@ -140,13 +151,16 @@ func reorder_card(crd, pos:Vector3) -> void:
 	
 	var difference = pos - translation
 	difference = Std.complex_rotate(difference,rotation.y)
+	# index = where card should be inserted
 	var index = find_index(difference.x)
+	# move cards from index to one right
 	var hole_in_list = cut_list(index)
+	# add current card to opened index
 	inventory[hole_in_list] = crd
 	
 	resize_hand()
 
-
+# resize mesh and collision shape
 func resize_hand() -> void:
 	var inv_size = (inventory.size())
 	
@@ -159,13 +173,11 @@ func resize_hand() -> void:
 		is_squeezing = false
 	
 	
+	# to not make it tiny when there is no card
 	if inv_size == 0: inv_size = 0.5
 	
 	var siz = inv_size * offsetx + offsetx/6
 	
-#	for ca in inventory:
-#		if ca.is_in_group("hand_custom_offset"):
-#			siz += ca.hand_custom_offset - offsetx
 	
 	tweenit(col,"shape:extents:x",col.shape.extents.x,siz/2)
 	tweenit(hand_mesh,"mesh:size:x",hand_mesh.mesh.size.x, siz)
@@ -190,11 +202,14 @@ func find_index(var relativex: float) -> int:
 			continue
 		else:
 			# if its not further than (i)card return this index
+			# we are returning (i)cards index because this is gonna be new -
+			# cards position and (i)card will be moved to next index
 			return i
+	
 	# if its bigger than every card, its last
 	return inv_size
 
-
+# moves cards from index to one right and opens a hole(empty space) in list
 func cut_list(var index: int) -> int:
 	var inv_size = inventory.size()
 	inventory.append(null)
