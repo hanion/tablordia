@@ -59,6 +59,8 @@ func _spawn(info) -> void:
 			return
 	
 	if not info.has("no UMB"):
+		if info["name"] == "resource": return
+		if info["name"] == "item": return
 		UMB.log(1,"Spawner","Spawned "+info["type"]+" "+info["name"])
 
 
