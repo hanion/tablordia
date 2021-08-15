@@ -71,8 +71,11 @@ _global_script_class_icons={
 config/name="tablordia"
 config/description="made by hanion
 
-Board Royale:
-CREDITS
+
+Contains assets from ambientCG.com, licensed under CC0 1.0 Universal.
+
+
+Board Royale CREDITS:
 Game Design: Atakan Cankorur, Tuna Pamir, Meriç Tanzer
 Art & Visual Design: Ali Yağız Kani, Can Oğan
 Development: Mesut Usta
@@ -81,7 +84,7 @@ Community Management: Alper Nargileci
 "
 run/main_scene="res://Systems/MainMenu/Menu.tscn"
 config/use_custom_user_dir=true
-config/icon="res://goldicon.png"
+config/icon="res://tablordia.svg"
 config/quit_on_go_back=false
 
 [autoload]
