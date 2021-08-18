@@ -4,6 +4,13 @@ export(NodePath) onready var pu = get_node(pu) as WindowDialog
 export(NodePath) onready var res = get_node(res) as OptionButton
 export(NodePath) onready var gq = get_node(gq) as OptionButton
 
+export(NodePath) onready var sul = get_node(sul) as VBoxContainer
+
+
+
+
+
+
 var env_parent
 var environment
 var table_mesh : MeshInstance
@@ -93,7 +100,7 @@ func initialize() -> void:
 	
 	# Initialize the project on the default preset
 	gq.select(default_preset)
-	_on_graphics_preset_change(default_preset)
+#	_on_graphics_preset_change(default_preset)
 
 	# Cache screen size into a variable
 	var screen_size := OS.get_screen_size()
@@ -106,6 +113,7 @@ func initialize() -> void:
 	# Add a "Fullscreen" item at the end and select it by default
 	res.add_item("Fullscreen")
 	res.select(0)
+	$SettingsSaver.load_settings()
 
 
 func close_ui() -> void:
@@ -128,37 +136,19 @@ func construct_bbcode(preset: int) -> String:
 
 
 func _on_graphics_preset_change(preset: int) -> void:
-	var txtbb = construct_bbcode(preset)
-	UMB.log(1,"Settings",txtbb)
+#	var txtbb = construct_bbcode(preset)
+#	UMB.log(1,"Settings",txtbb)
+	
 	# Apply settings from the preset
 	for setting in presets[preset]:
 		var value = presets[preset][setting][0]
-		ProjectSettings.set_setting(setting, value)
-		
-		match setting:
-			# Environment settings
-			"environment/glow_enabled":
-				environment.glow_enabled = value
-			"environment/ss_reflections_enabled":
-				environment.ss_reflections_enabled = value
-			"environment/ssao_enabled":
-				environment.ssao_enabled = value
-			"environment/ssao_blur":
-				environment.ssao_blur = value
-			"environment/ssao_quality":
-				environment.ssao_quality = value
-				
-			# Project settings
-			"rendering/quality/filters/msaa":
-				get_viewport().msaa = value
+		seset(setting, value)
 	
-	env_parent.visible = (not preset == 0)
+	seset("shading",(not preset == 0))
 	
-	var mat = table_mesh.get_surface_material(0) as SpatialMaterial
-	mat.flags_unshaded = (preset == 0)
-	table_mesh.set_surface_material(0,mat)
+	seset("shade_table",(not preset == 0))
 	
-	
+	$SettingsSaver.load_settings()
 
 func _on_resolution_changed(id):
 	if id < res.get_item_count() - 1:
@@ -171,3 +161,66 @@ func _on_resolution_changed(id):
 		OS.set_window_fullscreen(true)
 
 
+
+###############################################################################
+############################## ADVANCED SETTINGS ##############################
+###############################################################################
+# Set Setting
+func seset(pth:String, val) -> void:
+	match pth:
+		"rendering/quality/filters/msaa":
+			get_viewport().msaa = val
+		"environment/ssao_enabled":
+			environment.ssao_enabled = val
+		"environment/ssao_quality":
+			environment.ssao_quality = val
+		"environment/ssao_blur":
+			environment.ssao_blur = val
+		"environment/dof_blur_near_enabled":
+			environment.dof_blur_near_enabled = val
+		
+		"environment/ss_reflections_enabled":
+			environment.ss_reflections_enabled = val
+		"environment/glow_enabled":
+			environment.glow_enabled = val
+		
+		
+		"shading":
+			env_parent.visible = val
+		"shade_table":
+			var mat = table_mesh.get_surface_material(0) as SpatialMaterial
+			mat.flags_unshaded = not val
+			table_mesh.set_surface_material(0,mat)
+	
+	$SettingsSaver.write_seset(pth, val)
+
+func load_set_to_ui(pth:String, val) -> void:
+	sul.load_settings_to_ui(pth,val)
+
+
+func _on_msaa_option_button_item_selected(index):
+	seset("rendering/quality/filters/msaa",index)
+
+func _on_ao_option_button_item_selected(index):
+	var enabled = (not index == 0)
+	seset("environment/ssao_enabled",enabled)
+	
+	seset("environment/ssao_quality", index)
+
+func _on_ssao_blur_option_button_item_selected(index):
+	seset("environment/ssao_blur", index)
+
+func _on_dof_near_check_box_toggled(val):
+	seset("environment/dof_blur_near_enabled",val)
+
+func _on_shading_check_box_toggled(val):
+	seset("shading",val)
+
+func _on_shade_table_check_box_toggled(val):
+	seset("shade_table",val)
+
+func _on_ssr_check_box_toggled(val):
+	seset("environment/ss_reflections_enabled",val)
+
+func _on_glow_check_box_toggled(val):
+	seset("environment/glow_enabled",val)
