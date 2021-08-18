@@ -16,7 +16,6 @@ var is_dragging := false # is state
 var _dragging_offset: Vector3
 
 var is_rotated := false
-var is_blocked_by_ui := false
 
 var _do_is_dragged_over: bool = false
 var _do_dragged: String
@@ -30,7 +29,7 @@ onready var Controls = $Controls
 
 
 func _input(event):
-	if is_blocked_by_ui: return
+	if Std.is_blocked_by_ui: return
 	
 	if cast_ray():
 		move_pointer()

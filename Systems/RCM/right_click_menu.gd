@@ -41,13 +41,13 @@ func open_popup():
 	popup.set_as_minsize()
 	popup.popup()
 	
-	player.is_blocked_by_ui = true
+	Std.is_blocked_by_ui = true
 
 
 
 func close_popup():
 	is_popup_open = false
-	player.is_blocked_by_ui = false
+	Std.is_blocked_by_ui = false
 	
 	player.cast_ray()
 	player.move_pointer()
@@ -114,15 +114,14 @@ func open_wa(sigto:Dictionary, title, l0="",l1="",l2="") -> ConfirmationDialog:
 	
 #	yield(get_tree().create_timer(1),"timeout")
 	
-	player.is_blocked_by_ui = true
+	Std.is_blocked_by_ui = true
 	wa_per0.get_node("LineEdit").grab_focus()
 	
 	return wa
 
 func close_wa() -> void:
 	wa.visible = false
-	player = get_node("/root/Main/player")
-	player.is_blocked_by_ui = false
+	Std.is_blocked_by_ui = false
 
 
 
@@ -132,14 +131,13 @@ func open_hand_settings(target,method) -> AcceptDialog:
 	if not hand_settings.is_connected("confirmed",target,method):
 		hand_settings.connect("confirmed",target,method)
 	
-	player.is_blocked_by_ui = true
+	Std.is_blocked_by_ui = true
 	
 	return hand_settings
 
 func close_hand_settings() -> void:
 	hand_settings.visible = false
-	player = get_node("/root/Main/player")
-	player.is_blocked_by_ui = false
+	Std.is_blocked_by_ui = false
 
 
 

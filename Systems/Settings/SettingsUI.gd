@@ -79,6 +79,7 @@ func _ready():
 func open_ui() -> void:
 	pu.popup()
 	visible = true
+	Std.is_blocked_by_ui = true
 	initialize()
 
 func initialize() -> void:
@@ -109,6 +110,7 @@ func initialize() -> void:
 
 func close_ui() -> void:
 	visible = false
+	Std.is_blocked_by_ui = false
 
 
 # Returns a string containing BBCode text of the preset description.

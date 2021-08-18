@@ -1,6 +1,8 @@
 extends Node
 
 export(float,0.05,1.0) var tween_duration = 0.1
+# for player
+var is_blocked_by_ui := false
 
 func complex_rotate(var cord: Vector3, var angle) -> Vector3:
 	# ( cos(angle)+sin(angle)i )  (x+zi)

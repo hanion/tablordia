@@ -10,15 +10,15 @@ func open_menu() -> void:
 		return
 	
 	visible = true
-	get_node("../..").player.is_blocked_by_ui = true
-	get_node("../..").player.get_node("CAM")._lock_movement = true
+	Std.is_blocked_by_ui = true
+#	get_node("../..").player.get_node("CAM")._lock_movement = true
 	emit_signal("on_menu_opened")
 
 
 func close_menu() -> void:
 	visible = false
-	get_node("../..").player.is_blocked_by_ui = false
-	get_node("../..").player.get_node("CAM")._lock_movement = false
+	Std.is_blocked_by_ui = false
+#	get_node("../..").player.get_node("CAM")._lock_movement = false
 	emit_signal("on_menu_closed")
 
 
