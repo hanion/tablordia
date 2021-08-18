@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pan.png-db0ede1c138da08b46c18546cbd29097.stex"
+path="res://.import/Camera2D.png-2b2e748f7612138f7157f24adc822a66.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cursors/pan.png"
-dest_files=[ "res://.import/pan.png-db0ede1c138da08b46c18546cbd29097.stex" ]
+source_file="res://assets/2d/Camera2D.png"
+dest_files=[ "res://.import/Camera2D.png-2b2e748f7612138f7157f24adc822a66.stex" ]
 
 [params]
 

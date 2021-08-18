@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ToolRotate.png-e274efa60a0d124b10863e7f65ea3fa0.stex"
+path="res://.import/pan.png-6af4f4ecf87d72593a44379efd545cf6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cursors/ToolRotate.png"
-dest_files=[ "res://.import/ToolRotate.png-e274efa60a0d124b10863e7f65ea3fa0.stex" ]
+source_file="res://assets/2d/pan.png"
+dest_files=[ "res://.import/pan.png-6af4f4ecf87d72593a44379efd545cf6.stex" ]
 
 [params]
 
