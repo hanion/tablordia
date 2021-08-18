@@ -5,7 +5,7 @@
 [ext_resource path="res://Systems/closeup/closeup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Systems/Controls/Controls.gd" type="Script" id=4]
 [ext_resource path="res://Systems/Controls/CCS.gd" type="Script" id=5]
-[ext_resource path="res://assets/cursors/Camera2D.png" type="Texture" id=6]
+[ext_resource path="res://assets/2d/Camera2D.png" type="Texture" id=6]
 
 [node name="player" type="Spatial"]
 script = ExtResource( 2 )
