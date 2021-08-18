@@ -223,5 +223,5 @@ settings_ui={
 
 [rendering]
 
-quality/filters/msaa=1
-environment/default_environment="res://default_env.tres"
+quality/filters/msaa=3
+environment/default_environment="res://new_environment.tres"

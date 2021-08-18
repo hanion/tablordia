@@ -5,10 +5,10 @@ onready var img = $texture
 
 var is_showing := false
 
-const cr_cam = preload("res://assets/cursors/Camera2D.png")
-const cr_move = preload("res://assets/cursors/ToolMove.png")
-const cr_rotate = preload("res://assets/cursors/ToolRotate.png")
-const cr_hand = preload("res://assets/cursors/pan.png")
+const cr_cam = preload("res://assets/2d/Camera2D.png")
+const cr_move = preload("res://assets/2d/ToolMove.png")
+const cr_rotate = preload("res://assets/2d/ToolRotate.png")
+const cr_hand = preload("res://assets/2d/pan.png")
 
 
 class mode:
