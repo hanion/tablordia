@@ -118,7 +118,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/Todo_Manager/plugin.cfg", "res://addons/multirun/plugin.cfg", "res://addons/scene_notes_top/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/multirun/plugin.cfg" )
 
 [input]
 
