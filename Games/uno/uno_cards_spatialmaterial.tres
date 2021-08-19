@@ -4,6 +4,7 @@
 
 [resource]
 flags_transparent = true
+flags_unshaded = true
 albedo_texture = ExtResource( 1 )
 uv1_scale = Vector3( 0.055, 1, 0.239 )
 uv1_offset = Vector3( 0.196, 0, 0.695 )
