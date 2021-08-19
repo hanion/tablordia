@@ -1,6 +1,10 @@
 extends Control
 
 export(NodePath) onready var chat = get_node(chat) as Control
+export(NodePath) onready var out0 = get_node(out0) as Control
+export(NodePath) onready var out1 = get_node(out1) as Control
+
+
 
 const bbcodes := [
 	"wave",
@@ -98,7 +102,8 @@ func _on_input_field_focus_exited():
 
 func remove_focus() -> void:
 	chat.ledit.visible = false
-	$out.visible = false
+	out0.visible = false
+	out1.visible = false
 	chat.ledit.visible = true
 
 
