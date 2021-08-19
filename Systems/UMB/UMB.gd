@@ -28,6 +28,9 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	
 	var context:String
 	var color
+	
+	# 0 == player message
+	# finds player color
 	if p == 0:
 		var col:Color
 		for pid in List.players:
@@ -42,6 +45,7 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	var bbstart:String = "[color=#" + color + "]"
 	var bbend:String = ""
 	
+	# Add wave if its error
 	if p == 2:
 		bbstart += "[wave freq=40 amp=15]"
 		bbend += "[/wave]"
@@ -58,19 +62,25 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	
 	context = ": " + txt
 	
-	
+	# spawn richlabel text node
 	var msg = chat.write(bbstart, carrier, context + bbend) as Node
 	
 	msg.add_to_group("message")
 	
+	# add msg to according group
+	var tag_number := str(p)
+	chat.tags.add_tag(tag_number)
+	msg.add_to_group(tag_number)
 	
 	
-	chat.tags.add_tag(str(p))
-	msg.add_to_group(str(p))
+	# Make msg invisible if its tag is unchecked by user
+	var tag_text = chat.tags.turn_tag_to_text(tag_number)
+	msg.visible = chat.tags.tag_texts_array[tag_text]
+	
+	
 	
 #	msg.add_to_group(carrier)
 #	chat.tags.add_tag(carrier)
-	
 
 
 

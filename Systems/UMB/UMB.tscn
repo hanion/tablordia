@@ -7,18 +7,18 @@
 [ext_resource path="res://Systems/UMB/scroll.gd" type="Script" id=5]
 [ext_resource path="res://Systems/UMB/tags.gd" type="Script" id=6]
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.211765, 0.211765, 0.211765, 0.611765 )
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxLine" id=7]
+[sub_resource type="StyleBoxLine" id=3]
 content_margin_left = 10.0
 color = Color( 0, 0, 0, 0 )
 thickness = 5
 vertical = true
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [node name="UniversalMessageBus" type="Control"]
 anchor_right = 1.0
@@ -42,7 +42,7 @@ anchor_bottom = 1.0
 margin_top = 404.0
 margin_right = -759.0
 margin_bottom = 1.0
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 1 )
 custom_constants/close_v_ofs = -5
 custom_constants/title_height = 0
 popup_exclusive = true
@@ -69,11 +69,11 @@ margin_right = 64.0
 margin_bottom = 83.0
 focus_next = NodePath("../chat/hbox/input_field")
 focus_previous = NodePath("../chat/hbox/input_field")
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/focus = SubResource( 9 )
-custom_styles/disabled = SubResource( 9 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
 shortcut_in_tooltip = false
 script = ExtResource( 4 )
 __meta__ = {
@@ -182,7 +182,7 @@ margin_right = 546.0
 margin_bottom = -70.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/normal = SubResource( 7 )
+custom_styles/normal = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[color=green][Player0]:[/color] halooooo
 [color=red]{Spawner}: [/color] Spawned Chess"
@@ -195,7 +195,7 @@ margin_right = 481.0
 margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/normal = SubResource( 8 )
+custom_styles/normal = SubResource( 4 )
 
 [node name="SPACE" type="Control" parent="hs"]
 margin_left = 481.0

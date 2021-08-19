@@ -31,9 +31,9 @@ size = Vector3( 1, 1, 1 )
 [sub_resource type="CubeMesh" id=3]
 size = Vector3( 1, 1, 1 )
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=4]
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=5]
 size = Vector3( 1, 1, 1 )
 
 [node name="Main" type="Spatial"]
@@ -134,12 +134,12 @@ material/0 = null
 transform = Transform( 0.980109, 0, 0.198461, 0, 1, 0, -0.198461, 0, 0.980109, -6.529, 0.99, -5.614 )
 visible = false
 mesh = SubResource( 3 )
-material/0 = SubResource( 5 )
+material/0 = SubResource( 4 )
 
 [node name="metercube3" type="MeshInstance" parent="tablo"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48118, 0.99, -8.31099 )
 visible = false
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="table" parent="tablo" instance=ExtResource( 4 )]
