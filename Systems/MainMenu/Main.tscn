@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/br/BackRessource.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/BackItem.png" type="Texture" id=2]
@@ -11,7 +11,6 @@
 [ext_resource path="res://Systems/Small/SmallScript/Button_TEMP_touch_rc_mode.gd" type="Script" id=9]
 [ext_resource path="res://Systems/Small/SmallScript/CanvasLayer.gd" type="Script" id=10]
 [ext_resource path="res://Systems/MainMenu/Main.gd" type="Script" id=11]
-[ext_resource path="res://Games/chess/chess.tscn" type="PackedScene" id=12]
 
 [sub_resource type="GIProbeData" id=1]
 bounds = AABB( -57.2819, -11, -57, 114.564, 22, 114 )
@@ -187,8 +186,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 [node name="others" type="Spatial" parent="."]
 
 [node name="cards" type="Spatial" parent="."]
-
-[node name="chess" parent="." instance=ExtResource( 12 )]
 
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="CanvasLayer/Control/Button" method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control2/Button" to="CanvasLayer/Control2/Button" method="_on_Button_pressed"]
