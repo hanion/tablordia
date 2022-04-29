@@ -10,13 +10,7 @@ extents = Vector3( 0.7, 0.07, 1 )
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 1.4, 0.14, 2 )
 
-[node name="hand" type="Area" groups=[
-"draggable",
-"hand",
-"has_rcm",
-"rotatable",
-"shift_draggable",
-]]
+[node name="hand" type="Area" groups=["draggable", "hand", "has_rcm", "rotatable", "shift_draggable"]]
 script = ExtResource( 1 )
 
 [node name="handCol" type="CollisionShape" parent="."]

@@ -20,7 +20,7 @@ var table_mesh : MeshInstance
 # 1: Medium
 # 2: High
 # 3: Ultra
-const default_preset = 1
+const default_preset = 0
 
 # The available display resolutions
 const display_resolutions = [

@@ -6,7 +6,7 @@ var is_blocked_by_ui := false
 
 func complex_rotate(var cord: Vector3, var angle) -> Vector3:
 	# ( cos(angle)+sin(angle)i )  (x+zi)
-	# ( xcos(angle)-zsin(angle) ) + (zcos(angle)+xsin(angle))
+	# ( xcos(angle)-zsin(angle) ) , (zcos(angle)+xsin(angle))
 	var new_coord = cord
 	new_coord.x = (cord.x * cos(angle) - cord.z * sin(angle))
 	new_coord.z = (cord.z * cos(angle) + cord.x * sin(angle))

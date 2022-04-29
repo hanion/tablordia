@@ -4,15 +4,16 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/Marble016_2K_Color.png-19e108c2d7720b6678bbe7d578deda9b.s3tc.stex"
 path.etc2="res://.import/Marble016_2K_Color.png-19e108c2d7720b6678bbe7d578deda9b.etc2.stex"
+path.etc="res://.import/Marble016_2K_Color.png-19e108c2d7720b6678bbe7d578deda9b.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc2" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://InGame/Table/Marble016_2K-PNG/Marble016_2K_Color.png"
-dest_files=[ "res://.import/Marble016_2K_Color.png-19e108c2d7720b6678bbe7d578deda9b.s3tc.stex", "res://.import/Marble016_2K_Color.png-19e108c2d7720b6678bbe7d578deda9b.etc2.stex" ]
+dest_files=[ "res://.import/Marble016_2K_Color.png-19e108c2d7720b6678bbe7d578deda9b.s3tc.stex", "res://.import/Marble016_2K_Color.png-19e108c2d7720b6678bbe7d578deda9b.etc2.stex", "res://.import/Marble016_2K_Color.png-19e108c2d7720b6678bbe7d578deda9b.etc.stex" ]
 
 [params]
 
@@ -30,6 +31,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

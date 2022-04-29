@@ -121,6 +121,7 @@ func check_after_onemsec(cd,ot):
 	cd.translation = ot
 
 func order_inventory() -> void:
+	print("asdasd")
 	# because positions are relative to hand
 	# we need to find where is center of hand
 	var half_of_handx = ( (inventory.size() - 1) * offsetx ) / 2
