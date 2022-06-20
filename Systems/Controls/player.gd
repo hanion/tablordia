@@ -237,7 +237,13 @@ func drag_stop() -> void:
 #		dragging.stopped_dragging()
 	emit_signal("stopped_dragging")
 	
-	$Tween.stop_all()
+	"""
+#	$Tween.stop_all()
+	this fucker is the problem for flickering
+	tween should end even if player stopped clicking
+	dragged object should reach its destination
+	"""
+	
 	dragged_over(dragging, current['collider'], current['position'])
 	
 	
