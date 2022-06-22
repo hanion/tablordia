@@ -4,8 +4,6 @@ export(NodePath) onready var chat = get_node(chat) as Control
 export(NodePath) onready var out0 = get_node(out0) as Control
 export(NodePath) onready var out1 = get_node(out1) as Control
 
-
-
 const bbcodes := [
 	"wave",
 	"tornado",
@@ -56,10 +54,28 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	
 	
 	
+	
+	
+	var found_bbs = {}
 	for tx in bbcodes:
-		if not txt.find("["+tx+"]") == -1:
-			bbend += "[/"+tx+"]"
+		var prefix = "["+tx
+		if not (txt.find(prefix) == -1):
+			found_bbs[tx] = txt.find(prefix)
+	
+	
+	while not found_bbs.empty():
+		var biggest_tx: String
+		var bigness = -2
+		for tx in found_bbs.keys():
+			if found_bbs[tx] > bigness:
+				biggest_tx = tx
+				bigness = found_bbs[tx]
 		
+		bbend += "[/"+biggest_tx+"]"
+		found_bbs.erase(biggest_tx)
+	
+	
+	
 	
 	
 	bbend += "[/color]"
@@ -106,13 +122,43 @@ func remove_focus() -> void:
 	out1.visible = false
 	chat.ledit.visible = true
 
+######################
+####### auto hide chat
+var auto_hide_chat := true
+var auto_hide_chat_time := 3
+var __chat_alpha_process = 0
+func reset_alpha() -> void:
+	__chat_alpha_process = 1
+	for _i in range(6):
+		if __chat_alpha_process == 2: return
+		yield(get_tree().create_timer(0.01),"timeout")
+		modulate.a = lerp(modulate.a,SettingsUI.chat_alpha,0.2)
+	modulate.a = SettingsUI.chat_alpha
+	__chat_alpha_process = 0
 
+func fade() -> void:
+	if not auto_hide_chat: return
+	if __chat_alpha_process == 1: return
+	__chat_alpha_process = 2
+	yield(get_tree().create_timer(auto_hide_chat_time),"timeout")
+	if not auto_hide_chat: return
+	if __chat_alpha_process == 1: return
+	
+	for _i in range(100):
+		if __chat_alpha_process == 1: return
+		yield(get_tree().create_timer(0.01),"timeout")
+		modulate.a = lerp(modulate.a,-0.5,0.01)
+	__chat_alpha_process = 0
+####### /auto hide chat
+######################
 
 
 func _on_chat_mouse_entered():
 	chat_opened()
 
 func chat_opened() -> void:
+	Std.is_blocked_by_ui = true
+	auto_hide_chat = false
 	chat.ledit.grab_focus()
 	chat.scroll.scroll_to_end()
 	
@@ -120,9 +166,12 @@ func chat_opened() -> void:
 	
 	var vs = chat.scroll.get_v_scrollbar() as VScrollBar
 	vs.modulate = Color.white
+	reset_alpha()
 
 
 func chat_closed() -> void:
+	Std.is_blocked_by_ui = false
+	auto_hide_chat = SettingsUI.auto_hide_chat
 	remove_focus()
 	chat.scroll.scroll_to_end()
 	
@@ -132,5 +181,6 @@ func chat_closed() -> void:
 	vs.modulate = Color.transparent
 	
 	chat.ledit.text = ""
+	fade()
 
 

@@ -14,6 +14,7 @@ var last_carrier := ""
 var last_msg : RichTextLabel
 func write(bbstart:String, carrier:String, bbend:String) -> Node:
 	UMB.chat_closed()
+	UMB.reset_alpha()
 	
 	if last_carrier == carrier:
 		var ms = "[color=#00ffffff]"+carrier+"[/color]" # transparent name
@@ -52,7 +53,6 @@ func _on_input_field_text_entered(txt:String) -> void:
 	
 	
 	UMB.logs(0,NetworkInterface.Name,txt)
-
 
 
 

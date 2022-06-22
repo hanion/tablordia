@@ -225,4 +225,4 @@ settings_ui={
 
 vram_compression/import_etc=true
 quality/filters/msaa=3
-environment/default_environment="res://new_environment.tres"
+environment/default_environment="res://default_env.tres"

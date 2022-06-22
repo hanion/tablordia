@@ -79,7 +79,9 @@ func write_seset(ss_path : String, val) -> void:
 	if ProjectSettings.has_setting(ss_path):
 		ProjectSettings.set_setting(ss_path, val)
 	settings[ss_path] = val
-	UMB.log(1, "Settings", ss_path + " : " + str(val))
+	
+#	Removed for more clean look
+#	UMB.log(1, "Settings", ss_path + " : " + str(val))
 	save_settings()
 
 

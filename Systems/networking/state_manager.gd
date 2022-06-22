@@ -73,6 +73,7 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 #	if not currently_processing_do.empty():
 #		print("sm: currently processing: ",currently_processing_do)
 	if currently_processing_do.has(obj_name):
+		print("sm: currently processing: ",currently_processing_do)
 		return
 	
 	var trans = obj_state["O"]
@@ -148,17 +149,17 @@ func process_received_do(do) -> void:
 	",        p:",do["p"]
 	)
 	
-	tween.stop_all()
-	
+#	tween.stop_all()
+
 	if dragged.is_in_dispenser:
 		dragged.notify_dispenser()
-	
+
 	elif dragged.is_in_trash:
 		dragged.in_trash.remove_from_trash(dragged)
-	
+
 #	elif dragged.is_in_slot:
 #		dragged.in_slot.remove_from_slot(dragged)
-	
+
 	elif dragged.is_in_deck:
 		dragged.in_deck.remove_from_deck(dragged)
 	
@@ -166,21 +167,22 @@ func process_received_do(do) -> void:
 		if not over is hand:
 			print("    ¨removed1 ",dragged_name," from ",dragged.in_hand.name)
 			dragged.in_hand.remove_card_from_hand(dragged)
+			hotfix_snap_when_removing_from_hand(dragged)
 	
-	
-	
+
+
 	if over is trash:
 		print("    ¨trashed ",dragged_name)
 		over.add_to_trash(dragged)
-	
+
 	elif over is slot:
 		print("    ¨slotted ",dragged_name, dragged.is_in_slot)
 		over.add_to_slot(dragged)
-	
+
 	elif over is deck:
 		print("    ¨decked ",dragged_name)
 		over.add_to_deck(dragged)
-	
+
 	elif over is hand:
 		if dragged.is_in_hand:
 			if over == dragged.in_hand:
@@ -193,14 +195,41 @@ func process_received_do(do) -> void:
 		else:
 			print("    ¨added ",dragged_name," to ",over.name)
 			over.add_card_to_hand(dragged, pos)
-			
-	
+
+
 #	print("<uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu\n\n")
 	
 	##### remove
-	yield(get_tree().create_timer(0.5),"timeout")
+	yield(get_tree().create_timer(0.3),"timeout")
 	currently_processing_do.erase(dragged_name)
 
 
 
+
+func hotfix_snap_when_removing_from_hand(var crd):
+#	"""
+	
+#	TODO: wtf bro 
+#		it flicks when dragged out of hand
+	
+	var __a = crd.translation
+	for i in range(10):
+		yield(get_tree().create_timer(0.005),"timeout")
+		var diff = __a - crd.translation
+		
+		if diff.x > 0.01 or diff.z > 0.01:
+#			prints(__a,crd.translation, i, diff)
+			crd.translation=__a
+			continue
+		
+		if diff.x < 0.01 and diff.z < 0.01:
+			prints("			'nosnap took ",i)
+			break
+#	"""
+	
+	"""
+	var __pos0 = crd.translation
+	yield(get_tree().create_timer(0.01559),"timeout")
+	crd.translation = __pos0
+	"""
 

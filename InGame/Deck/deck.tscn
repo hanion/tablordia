@@ -11,12 +11,7 @@ size = Vector3( 1.5, 0.08, 2.1 )
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0.101961, 0.184314, 0.235294, 1 )
 
-[node name="deck" type="Area" groups=[
-"draggable",
-"has_rcm",
-"rotatable",
-"shift_draggable",
-]]
+[node name="deck" type="Area" groups=["draggable", "has_rcm", "rotatable", "shift_draggable"]]
 script = ExtResource( 1 )
 is_cards_hidden = false
 

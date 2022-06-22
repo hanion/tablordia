@@ -4,7 +4,7 @@ const SAVE_DIR = "user://saves/"
 
 var save_path = SAVE_DIR + "save.dat"
 
-onready var color_picker = get_node("../margin/primer/tempHBox/ScrollContainer/ColorPicker")
+onready var color_picker = get_node("../margin/primer/tempHBox/ScrollContainer/Panel/ColorPicker")
 onready var name_box = get_node("../margin/primer/tempHBox/name")
 
 

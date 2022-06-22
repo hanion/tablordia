@@ -44,7 +44,7 @@ func package_state():
 	
 	if state_collection.empty():
 		state_collection = new_state.duplicate(true)
-#		return
+#		return#this was commented
 	
 	
 	for key in new_state.keys(): # key = pointer, hand1, item0, ...

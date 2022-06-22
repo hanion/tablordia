@@ -1,15 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Systems/Settings/set_0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Systems/Settings/SettingsSaver.gd" type="Script" id=2]
 [ext_resource path="res://Systems/Settings/SettingsUI.gd" type="Script" id=3]
 [ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=4]
-[ext_resource path="res://Theme/theme_monserati_m.tres" type="Theme" id=5]
+[ext_resource path="res://Theme/GREEN_theme.tres" type="Theme" id=5]
 [ext_resource path="res://Systems/Settings/SetUiLoader.gd" type="Script" id=6]
+[ext_resource path="res://Systems/UMB/msg.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Systems/Small/SmallScript/credit.gd" type="Script" id=8]
+[ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Theme/credit_stylebox.tres" type="StyleBox" id=10]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.117647, 0.141176, 0.156863, 0.705882 )
-expand_margin_top = 25.0
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 9 )
 
 [node name="SettingsUI" type="Control"]
 anchor_right = 1.0
@@ -20,13 +27,11 @@ margin_right = -50.0
 margin_bottom = -50.0
 theme = ExtResource( 5 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 pu = NodePath("pu")
 res = NodePath("pu/tabs/Simple/DisplayResolution/OptionButton")
 gq = NodePath("pu/tabs/Simple/GraphicsQuality/OptionButton")
-sul = NodePath("pu/tabs/Advanced/vb")
+sul = NodePath("pu/tabs/Graphics/vb")
+msg_example = NodePath("pu/tabs/Misc/vb/msg")
 
 [node name="SettingsSaver" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -55,12 +60,8 @@ margin_top = -155.0
 margin_right = 243.0
 margin_bottom = 155.0
 rect_min_size = Vector2( 300, 220 )
-custom_styles/panel = SubResource( 1 )
 window_title = "Settings"
 resizable = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="tabs" type="TabContainer" parent="pu"]
 anchor_right = 1.0
@@ -68,11 +69,85 @@ anchor_bottom = 1.0
 margin_left = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
+
+[node name="Simple" type="VBoxContainer" parent="pu/tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Advanced" type="ScrollContainer" parent="pu/tabs"]
+[node name="GraphicsQuality" type="HBoxContainer" parent="pu/tabs/Simple"]
+margin_right = 466.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+custom_constants/separation = 24
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="pu/tabs/Simple/GraphicsQuality"]
+margin_right = 221.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+text = "Graphics quality"
+
+[node name="OptionButton" type="OptionButton" parent="pu/tabs/Simple/GraphicsQuality"]
+margin_left = 245.0
+margin_right = 466.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+text = "Low"
+items = [ "Low", null, false, 0, null, "Medium", null, false, 1, null, "High", null, false, 2, null, "Ultra", null, false, 3, null ]
+selected = 0
+
+[node name="DisplayResolution" type="HBoxContainer" parent="pu/tabs/Simple"]
+margin_top = 34.0
+margin_right = 466.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 0, 30 )
+custom_constants/separation = 24
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="pu/tabs/Simple/DisplayResolution"]
+margin_right = 221.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+text = "Display resolution"
+
+[node name="OptionButton" type="OptionButton" parent="pu/tabs/Simple/DisplayResolution"]
+margin_left = 245.0
+margin_right = 466.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+
+[node name="space" type="Label" parent="pu/tabs/Simple"]
+margin_top = 68.0
+margin_right = 466.0
+margin_bottom = 97.0
+
+[node name="space3" type="Label" parent="pu/tabs/Simple"]
+margin_top = 101.0
+margin_right = 466.0
+margin_bottom = 130.0
+
+[node name="space2" type="Label" parent="pu/tabs/Simple"]
+margin_top = 134.0
+margin_right = 466.0
+margin_bottom = 163.0
+
+[node name="Graphics" type="ScrollContainer" parent="pu/tabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -84,7 +159,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="vb" type="VBoxContainer" parent="pu/tabs/Advanced"]
+[node name="vb" type="VBoxContainer" parent="pu/tabs/Graphics"]
 margin_right = 466.0
 margin_bottom = 264.0
 size_flags_horizontal = 3
@@ -98,157 +173,157 @@ c_dof = NodePath("dof_near/set_check_box")
 c_ssr = NodePath("ssr/set_check_box")
 c_glow = NodePath("glow/set_check_box")
 
-[node name="shading" parent="pu/tabs/Advanced/vb" instance=ExtResource( 1 )]
+[node name="shading" parent="pu/tabs/Graphics/vb" instance=ExtResource( 1 )]
 margin_right = 466.0
 
-[node name="set_label" parent="pu/tabs/Advanced/vb/shading" index="0"]
+[node name="set_label" parent="pu/tabs/Graphics/vb/shading" index="0"]
 margin_right = 231.0
 text = "Shading"
 
-[node name="set_option_button" parent="pu/tabs/Advanced/vb/shading" index="2"]
+[node name="set_option_button" parent="pu/tabs/Graphics/vb/shading" index="2"]
 visible = false
 
-[node name="set_check_box" parent="pu/tabs/Advanced/vb/shading" index="3"]
+[node name="set_check_box" parent="pu/tabs/Graphics/vb/shading" index="3"]
 visible = true
 margin_left = 235.0
 margin_right = 466.0
 
-[node name="shade_table" parent="pu/tabs/Advanced/vb" instance=ExtResource( 1 )]
+[node name="shade_table" parent="pu/tabs/Graphics/vb" instance=ExtResource( 1 )]
 margin_top = 33.0
 margin_right = 466.0
 margin_bottom = 62.0
 
-[node name="set_label" parent="pu/tabs/Advanced/vb/shade_table" index="0"]
+[node name="set_label" parent="pu/tabs/Graphics/vb/shade_table" index="0"]
 margin_right = 231.0
 text = "Shade Table"
 
-[node name="set_option_button" parent="pu/tabs/Advanced/vb/shade_table" index="2"]
+[node name="set_option_button" parent="pu/tabs/Graphics/vb/shade_table" index="2"]
 visible = false
 
-[node name="set_check_box" parent="pu/tabs/Advanced/vb/shade_table" index="3"]
+[node name="set_check_box" parent="pu/tabs/Graphics/vb/shade_table" index="3"]
 visible = true
 margin_left = 235.0
 margin_right = 466.0
 
-[node name="msaa" parent="pu/tabs/Advanced/vb" instance=ExtResource( 1 )]
+[node name="msaa" parent="pu/tabs/Graphics/vb" instance=ExtResource( 1 )]
 margin_top = 66.0
 margin_right = 466.0
 margin_bottom = 95.0
 
-[node name="set_label" parent="pu/tabs/Advanced/vb/msaa" index="0"]
+[node name="set_label" parent="pu/tabs/Graphics/vb/msaa" index="0"]
 margin_right = 231.0
 text = "Anti-aliasing (MSAA)"
 
-[node name="set_option_button" parent="pu/tabs/Advanced/vb/msaa" index="2"]
+[node name="set_option_button" parent="pu/tabs/Graphics/vb/msaa" index="2"]
 margin_left = 235.0
 margin_right = 466.0
 text = "Disabled"
 items = [ "Disabled", null, false, 0, null, "2x", null, false, 1, null, "4x", null, false, 2, null, "8x", null, false, 3, null, "16x", null, false, 4, null ]
 selected = 0
 
-[node name="ao" parent="pu/tabs/Advanced/vb" instance=ExtResource( 1 )]
+[node name="ao" parent="pu/tabs/Graphics/vb" instance=ExtResource( 1 )]
 margin_top = 99.0
 margin_right = 466.0
 margin_bottom = 128.0
 
-[node name="set_label" parent="pu/tabs/Advanced/vb/ao" index="0"]
+[node name="set_label" parent="pu/tabs/Graphics/vb/ao" index="0"]
 margin_right = 231.0
 text = "Ambient occlusion"
 
-[node name="set_option_button" parent="pu/tabs/Advanced/vb/ao" index="2"]
+[node name="set_option_button" parent="pu/tabs/Graphics/vb/ao" index="2"]
 margin_left = 235.0
 margin_right = 466.0
 text = "Disabled"
 items = [ "Disabled", null, false, 0, null, "Medium-quality", null, false, 1, null, "High-quality", null, false, 2, null ]
 selected = 0
 
-[node name="ssao_blur" parent="pu/tabs/Advanced/vb" instance=ExtResource( 1 )]
+[node name="ssao_blur" parent="pu/tabs/Graphics/vb" instance=ExtResource( 1 )]
 visible = false
 margin_top = 132.0
 margin_bottom = 161.0
 
-[node name="set_label" parent="pu/tabs/Advanced/vb/ssao_blur" index="0"]
+[node name="set_label" parent="pu/tabs/Graphics/vb/ssao_blur" index="0"]
 text = "Ambient occlusion Blur"
 
-[node name="set_option_button" parent="pu/tabs/Advanced/vb/ssao_blur" index="2"]
+[node name="set_option_button" parent="pu/tabs/Graphics/vb/ssao_blur" index="2"]
 text = "Disabled"
 items = [ "Disabled", null, false, 0, null, "1x1", null, false, 1, null, "2x2", null, false, 2, null, "3x3", null, false, 3, null ]
 selected = 0
 
-[node name="ssr" parent="pu/tabs/Advanced/vb" instance=ExtResource( 1 )]
+[node name="ssr" parent="pu/tabs/Graphics/vb" instance=ExtResource( 1 )]
 margin_top = 132.0
 margin_right = 466.0
 margin_bottom = 161.0
 
-[node name="set_label" parent="pu/tabs/Advanced/vb/ssr" index="0"]
+[node name="set_label" parent="pu/tabs/Graphics/vb/ssr" index="0"]
 margin_right = 231.0
 text = "Screen-space reflections"
 
-[node name="set_option_button" parent="pu/tabs/Advanced/vb/ssr" index="2"]
+[node name="set_option_button" parent="pu/tabs/Graphics/vb/ssr" index="2"]
 visible = false
 
-[node name="set_check_box" parent="pu/tabs/Advanced/vb/ssr" index="3"]
+[node name="set_check_box" parent="pu/tabs/Graphics/vb/ssr" index="3"]
 visible = true
 margin_left = 235.0
 margin_right = 466.0
 
-[node name="bloom" parent="pu/tabs/Advanced/vb" instance=ExtResource( 1 )]
+[node name="bloom" parent="pu/tabs/Graphics/vb" instance=ExtResource( 1 )]
 visible = false
 margin_top = 165.0
 margin_right = 466.0
 margin_bottom = 194.0
 
-[node name="set_label" parent="pu/tabs/Advanced/vb/bloom" index="0"]
+[node name="set_label" parent="pu/tabs/Graphics/vb/bloom" index="0"]
 margin_right = 231.0
 text = "Bloom"
 
-[node name="set_option_button" parent="pu/tabs/Advanced/vb/bloom" index="2"]
+[node name="set_option_button" parent="pu/tabs/Graphics/vb/bloom" index="2"]
 visible = false
 
-[node name="set_check_box" parent="pu/tabs/Advanced/vb/bloom" index="3"]
+[node name="set_check_box" parent="pu/tabs/Graphics/vb/bloom" index="3"]
 visible = true
 margin_left = 235.0
 margin_right = 466.0
 
-[node name="set_spin_box" parent="pu/tabs/Advanced/vb/bloom" index="5"]
+[node name="set_spin_box" parent="pu/tabs/Graphics/vb/bloom" index="5"]
 margin_left = 371.0
 margin_right = 447.0
 
-[node name="dof_near" parent="pu/tabs/Advanced/vb" instance=ExtResource( 1 )]
+[node name="dof_near" parent="pu/tabs/Graphics/vb" instance=ExtResource( 1 )]
 margin_top = 165.0
 margin_right = 466.0
 margin_bottom = 194.0
 
-[node name="set_label" parent="pu/tabs/Advanced/vb/dof_near" index="0"]
+[node name="set_label" parent="pu/tabs/Graphics/vb/dof_near" index="0"]
 margin_right = 231.0
 text = "Depth-of-field Near Blur"
 
-[node name="set_option_button" parent="pu/tabs/Advanced/vb/dof_near" index="2"]
+[node name="set_option_button" parent="pu/tabs/Graphics/vb/dof_near" index="2"]
 visible = false
 
-[node name="set_check_box" parent="pu/tabs/Advanced/vb/dof_near" index="3"]
+[node name="set_check_box" parent="pu/tabs/Graphics/vb/dof_near" index="3"]
 visible = true
 margin_left = 235.0
 margin_right = 466.0
 
-[node name="glow" parent="pu/tabs/Advanced/vb" instance=ExtResource( 1 )]
+[node name="glow" parent="pu/tabs/Graphics/vb" instance=ExtResource( 1 )]
 margin_top = 198.0
 margin_right = 466.0
 margin_bottom = 227.0
 
-[node name="set_label" parent="pu/tabs/Advanced/vb/glow" index="0"]
+[node name="set_label" parent="pu/tabs/Graphics/vb/glow" index="0"]
 margin_right = 231.0
 text = "Glow"
 
-[node name="set_option_button" parent="pu/tabs/Advanced/vb/glow" index="2"]
+[node name="set_option_button" parent="pu/tabs/Graphics/vb/glow" index="2"]
 visible = false
 
-[node name="set_check_box" parent="pu/tabs/Advanced/vb/glow" index="3"]
+[node name="set_check_box" parent="pu/tabs/Graphics/vb/glow" index="3"]
 visible = true
 margin_left = 235.0
 margin_right = 466.0
 
-[node name="Simple" type="VBoxContainer" parent="pu/tabs"]
+[node name="Misc" type="ScrollContainer" parent="pu/tabs"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -256,92 +331,283 @@ margin_left = 5.0
 margin_top = 36.0
 margin_right = -5.0
 margin_bottom = -5.0
+follow_focus = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GraphicsQuality" type="HBoxContainer" parent="pu/tabs/Simple"]
-margin_right = 536.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 30 )
-custom_constants/separation = 24
-alignment = 1
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="pu/tabs/Simple/GraphicsQuality"]
-margin_right = 256.0
-margin_bottom = 29.0
+[node name="vb" type="VBoxContainer" parent="pu/tabs/Misc"]
+margin_right = 466.0
+margin_bottom = 264.0
 size_flags_horizontal = 3
-text = "Graphics quality"
+size_flags_vertical = 3
 
-[node name="OptionButton" type="OptionButton" parent="pu/tabs/Simple/GraphicsQuality"]
-margin_left = 280.0
-margin_right = 536.0
-margin_bottom = 30.0
-size_flags_horizontal = 3
-text = "Low"
-items = [ "Low", null, false, 0, null, "Medium", null, false, 1, null, "High", null, false, 2, null, "Ultra", null, false, 3, null ]
-selected = 0
+[node name="chat" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_right = 466.0
 
-[node name="DisplayResolution" type="HBoxContainer" parent="pu/tabs/Simple"]
-margin_top = 34.0
-margin_right = 536.0
-margin_bottom = 64.0
-rect_min_size = Vector2( 0, 30 )
-custom_constants/separation = 24
-alignment = 1
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
+[node name="set_label" parent="pu/tabs/Misc/vb/chat" index="0"]
+margin_right = 231.0
+text = "Chat "
 
-[node name="Label" type="Label" parent="pu/tabs/Simple/DisplayResolution"]
-margin_right = 256.0
-margin_bottom = 29.0
-size_flags_horizontal = 3
-text = "Display resolution"
+[node name="set_reload_button" parent="pu/tabs/Misc/vb/chat" index="1"]
+margin_left = 446.0
+margin_right = 466.0
 
-[node name="OptionButton" type="OptionButton" parent="pu/tabs/Simple/DisplayResolution"]
-margin_left = 280.0
-margin_right = 536.0
-margin_bottom = 30.0
-size_flags_horizontal = 3
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat" index="2"]
+visible = false
+margin_left = 235.0
+margin_right = 466.0
 
-[node name="space" type="Label" parent="pu/tabs/Simple"]
-margin_top = 68.0
-margin_right = 536.0
-margin_bottom = 97.0
+[node name="set_check_box" parent="pu/tabs/Misc/vb/chat" index="3"]
+visible = true
+margin_left = 235.0
+margin_right = 466.0
+pressed = true
 
-[node name="space3" type="Label" parent="pu/tabs/Simple"]
-margin_top = 101.0
-margin_right = 536.0
-margin_bottom = 130.0
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat" index="4"]
+margin_left = 313.0
+margin_right = 466.0
 
-[node name="space2" type="Label" parent="pu/tabs/Simple"]
-margin_top = 134.0
-margin_right = 536.0
-margin_bottom = 163.0
+[node name="set_spin_box" parent="pu/tabs/Misc/vb/chat" index="5"]
+margin_left = 351.0
+margin_right = 427.0
 
-[connection signal="check_box_toggled" from="pu/tabs/Advanced/vb/shading" to="." method="_on_shading_check_box_toggled"]
-[connection signal="check_box_toggled" from="pu/tabs/Advanced/vb/shade_table" to="." method="_on_shade_table_check_box_toggled"]
-[connection signal="option_button_item_selected" from="pu/tabs/Advanced/vb/msaa" to="." method="_on_msaa_option_button_item_selected"]
-[connection signal="option_button_item_selected" from="pu/tabs/Advanced/vb/ao" to="." method="_on_ao_option_button_item_selected"]
-[connection signal="option_button_item_selected" from="pu/tabs/Advanced/vb/ssao_blur" to="." method="_on_ssao_blur_option_button_item_selected"]
-[connection signal="check_box_toggled" from="pu/tabs/Advanced/vb/ssr" to="." method="_on_ssr_check_box_toggled"]
-[connection signal="check_box_toggled" from="pu/tabs/Advanced/vb/dof_near" to="." method="_on_dof_near_check_box_toggled"]
-[connection signal="check_box_toggled" from="pu/tabs/Advanced/vb/glow" to="." method="_on_glow_check_box_toggled"]
+[node name="chat_fade" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_top = 33.0
+margin_right = 466.0
+margin_bottom = 62.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat_fade" index="0"]
+margin_right = 231.0
+text = "Auto hide chat"
+
+[node name="set_reload_button" parent="pu/tabs/Misc/vb/chat_fade" index="1"]
+margin_left = 446.0
+margin_right = 466.0
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_fade" index="2"]
+visible = false
+margin_left = 235.0
+margin_right = 466.0
+focus_mode = 2
+
+[node name="set_check_box" parent="pu/tabs/Misc/vb/chat_fade" index="3"]
+visible = true
+margin_left = 235.0
+margin_right = 466.0
+focus_mode = 2
+pressed = true
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_fade" index="4"]
+margin_left = 313.0
+margin_right = 466.0
+
+[node name="set_spin_box" parent="pu/tabs/Misc/vb/chat_fade" index="5"]
+margin_left = 351.0
+margin_right = 427.0
+
+[node name="chatautohide_time" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_top = 66.0
+margin_right = 466.0
+margin_bottom = 95.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chatautohide_time" index="0"]
+margin_right = 231.0
+text = "Auto hide in"
+
+[node name="set_reload_button" parent="pu/tabs/Misc/vb/chatautohide_time" index="1"]
+margin_left = 446.0
+margin_right = 466.0
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chatautohide_time" index="2"]
+visible = false
+margin_left = 235.0
+margin_right = 466.0
+focus_mode = 2
+
+[node name="set_check_box" parent="pu/tabs/Misc/vb/chatautohide_time" index="3"]
+margin_left = 235.0
+margin_right = 466.0
+focus_mode = 2
+pressed = true
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chatautohide_time" index="4"]
+margin_left = 313.0
+margin_right = 466.0
+
+[node name="set_spin_box" parent="pu/tabs/Misc/vb/chatautohide_time" index="5"]
+visible = true
+margin_left = 312.0
+margin_right = 388.0
+min_value = 2.0
+value = 4.0
+
+[node name="chat_size_y" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_top = 99.0
+margin_right = 466.0
+margin_bottom = 128.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat_size_y" index="0"]
+margin_right = 231.0
+text = "Chat size y"
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_size_y" index="2"]
+visible = false
+margin_left = 235.0
+margin_right = 466.0
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_size_y" index="4"]
+visible = true
+margin_left = 235.0
+margin_right = 466.0
+max_value = 1.0
+step = 0.01
+value = 0.2
+
+[node name="chat_size_x" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_top = 132.0
+margin_right = 466.0
+margin_bottom = 161.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat_size_x" index="0"]
+margin_right = 231.0
+text = "Chat size x"
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_size_x" index="2"]
+visible = false
+margin_left = 235.0
+margin_right = 466.0
+focus_mode = 2
+
+[node name="set_check_box" parent="pu/tabs/Misc/vb/chat_size_x" index="3"]
+focus_mode = 2
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_size_x" index="4"]
+visible = true
+margin_left = 235.0
+margin_right = 466.0
+max_value = 1.0
+step = 0.01
+value = 0.4
+
+[node name="chat_alpha" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_top = 165.0
+margin_right = 466.0
+margin_bottom = 194.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat_alpha" index="0"]
+margin_right = 231.0
+text = "Chat visibility"
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_alpha" index="2"]
+visible = false
+margin_left = 156.0
+margin_right = 309.0
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_alpha" index="4"]
+visible = true
+margin_left = 235.0
+margin_right = 466.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="chat_bg_alpha" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_top = 198.0
+margin_right = 466.0
+margin_bottom = 227.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat_bg_alpha" index="0"]
+margin_right = 231.0
+text = "Chat background opacity"
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_bg_alpha" index="2"]
+visible = false
+margin_left = 156.0
+margin_right = 309.0
+focus_mode = 2
+
+[node name="set_check_box" parent="pu/tabs/Misc/vb/chat_bg_alpha" index="3"]
+focus_mode = 2
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_bg_alpha" index="4"]
+visible = true
+margin_left = 235.0
+margin_right = 466.0
+max_value = 1.0
+step = 0.01
+value = 0.9
+
+[node name="msg" parent="pu/tabs/Misc/vb" instance=ExtResource( 7 )]
+visible = false
+margin_top = 99.0
+margin_right = 466.0
+margin_bottom = 121.0
+bbcode_text = "[center][wave]Text Example"
+text = "Text Example"
+
+[node name="Credits" type="Panel" parent="pu/tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="credit" type="RichTextLabel" parent="pu/tabs/Credits"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+rect_clip_content = false
+theme = ExtResource( 5 )
+custom_fonts/normal_font = SubResource( 2 )
+custom_styles/normal = ExtResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[rainbow freq=0.02][center][wave freq=2 amp=200] yigithanion [/wave]
+
+[url=https://github.com/hanion]github - hanion[/url]"
+text = " yigithanion 
+
+github - hanion"
+script = ExtResource( 8 )
+
 [connection signal="item_selected" from="pu/tabs/Simple/GraphicsQuality/OptionButton" to="." method="_on_graphics_preset_change"]
 [connection signal="item_selected" from="pu/tabs/Simple/DisplayResolution/OptionButton" to="." method="_on_resolution_changed"]
+[connection signal="check_box_toggled" from="pu/tabs/Graphics/vb/shading" to="." method="_on_shading_check_box_toggled"]
+[connection signal="check_box_toggled" from="pu/tabs/Graphics/vb/shade_table" to="." method="_on_shade_table_check_box_toggled"]
+[connection signal="option_button_item_selected" from="pu/tabs/Graphics/vb/msaa" to="." method="_on_msaa_option_button_item_selected"]
+[connection signal="option_button_item_selected" from="pu/tabs/Graphics/vb/ao" to="." method="_on_ao_option_button_item_selected"]
+[connection signal="option_button_item_selected" from="pu/tabs/Graphics/vb/ssao_blur" to="." method="_on_ssao_blur_option_button_item_selected"]
+[connection signal="check_box_toggled" from="pu/tabs/Graphics/vb/ssr" to="." method="_on_ssr_check_box_toggled"]
+[connection signal="check_box_toggled" from="pu/tabs/Graphics/vb/dof_near" to="." method="_on_dof_near_check_box_toggled"]
+[connection signal="check_box_toggled" from="pu/tabs/Graphics/vb/glow" to="." method="_on_glow_check_box_toggled"]
+[connection signal="check_box_toggled" from="pu/tabs/Misc/vb/chat" to="." method="_on_chat_check_box_toggled"]
+[connection signal="check_box_toggled" from="pu/tabs/Misc/vb/chat_fade" to="." method="_on_chat_fade_check_box_toggled"]
+[connection signal="spin_box_value_changed" from="pu/tabs/Misc/vb/chatautohide_time" to="." method="_on_chatautohide_time_spin_box_value_changed"]
+[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_size_y" to="." method="_on_chat_size_y_h_slider_value_changed"]
+[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_size_x" to="." method="_on_chat_size_x_h_slider_value_changed"]
+[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_alpha" to="." method="_on_chat_alpha_h_slider_value_changed"]
+[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_bg_alpha" to="." method="_on_chat_bg_alpha_h_slider_value_changed"]
+[connection signal="meta_clicked" from="pu/tabs/Credits/credit" to="pu/tabs/Credits/credit" method="_on_credit_meta_clicked"]
 
-[editable path="pu/tabs/Advanced/vb/shading"]
-[editable path="pu/tabs/Advanced/vb/shade_table"]
-[editable path="pu/tabs/Advanced/vb/msaa"]
-[editable path="pu/tabs/Advanced/vb/ao"]
-[editable path="pu/tabs/Advanced/vb/ssao_blur"]
-[editable path="pu/tabs/Advanced/vb/ssr"]
-[editable path="pu/tabs/Advanced/vb/bloom"]
-[editable path="pu/tabs/Advanced/vb/dof_near"]
-[editable path="pu/tabs/Advanced/vb/glow"]
+[editable path="pu/tabs/Graphics/vb/shading"]
+[editable path="pu/tabs/Graphics/vb/shade_table"]
+[editable path="pu/tabs/Graphics/vb/msaa"]
+[editable path="pu/tabs/Graphics/vb/ao"]
+[editable path="pu/tabs/Graphics/vb/ssao_blur"]
+[editable path="pu/tabs/Graphics/vb/ssr"]
+[editable path="pu/tabs/Graphics/vb/bloom"]
+[editable path="pu/tabs/Graphics/vb/dof_near"]
+[editable path="pu/tabs/Graphics/vb/glow"]
+[editable path="pu/tabs/Misc/vb/chat"]
+[editable path="pu/tabs/Misc/vb/chat_fade"]
+[editable path="pu/tabs/Misc/vb/chatautohide_time"]
+[editable path="pu/tabs/Misc/vb/chat_size_y"]
+[editable path="pu/tabs/Misc/vb/chat_size_x"]
+[editable path="pu/tabs/Misc/vb/chat_alpha"]
+[editable path="pu/tabs/Misc/vb/chat_bg_alpha"]
+[editable path="pu/tabs/Misc/vb/msg"]

@@ -95,23 +95,35 @@ func add_card_to_hand(var crd: card, var pos: Vector3) -> void:
 	resize_hand()
 
 func remove_card_from_hand(var crd: card) -> void:
+	
 	crd.is_in_hand = false
 	crd.in_hand = null
 	
+	
+#	var difference = crd.translation - translation
+#	difference = Std.complex_rotate(difference,rotation.y)
+	# keep the global position of card
+	List.reparent_child(crd,cards)
+	
+#	crd.translation = Std.complex_rotate(global_pos - translation,rotation.y)
+#	crd.rotation_degrees = Vector3(0,0,0)
+	
+	
 	# cards are visible to everyone in global context
-	set_card_hidden(crd,false)
+#	set_card_hidden(crd,false)
 	
 	inventory.erase(crd)
-	
-	# keep the global position of card
+#	# keep the global position of card
 	var old_translation = to_global(crd.translation)
 	
 	List.reparent_child(crd,cards)
-	
-	crd.translation = old_translation
-	crd.rotation = rotation
-	check_after_onemsec(crd,old_translation)
 	resize_hand()
+	crd.translation = old_translation
+	crd.rotation.y = rotation.y
+	
+#	check_after_onemsec(crd,__a)
+
+
 
 # checks if card is accidentally moved by user and puts it back to place
 func check_after_onemsec(cd,ot):
@@ -121,7 +133,6 @@ func check_after_onemsec(cd,ot):
 	cd.translation = ot
 
 func order_inventory() -> void:
-	print("asdasd")
 	# because positions are relative to hand
 	# we need to find where is center of hand
 	var half_of_handx = ( (inventory.size() - 1) * offsetx ) / 2

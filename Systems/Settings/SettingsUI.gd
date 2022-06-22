@@ -5,15 +5,17 @@ export(NodePath) onready var res = get_node(res) as OptionButton
 export(NodePath) onready var gq = get_node(gq) as OptionButton
 
 export(NodePath) onready var sul = get_node(sul) as VBoxContainer
-
-
-
-
+export(NodePath) onready var msg_example = get_node(msg_example) as RichTextLabel
 
 
 var env_parent
 var environment
 var table_mesh : MeshInstance
+var chat_dragger_v : VSplitContainer
+var chat_dragger_h : HSplitContainer
+var chat_alpha : float = 1.0
+var auto_hide_chat : bool = true
+var auto_hide_chat_time : int = 3
 
 # The preset to use when starting the project
 # 0: Low
@@ -80,7 +82,6 @@ const presets = [
 func _ready():
 	visible = false
 	pu.connect("popup_hide",self,"close_ui")
-	
 
 
 func open_ui() -> void:
@@ -96,7 +97,11 @@ func initialize() -> void:
 	env_parent = get_node("/root/Main/environment")
 	environment = env_parent.get_node("WorldEnvironment").get_environment()
 	
+	chat_dragger_h = UMB.get_node("hs")
+	chat_dragger_v = UMB.get_node("hs/vs")
+	
 	table_mesh = get_node("/root/Main/tablo/table/tableMesh")
+	
 	
 	# Initialize the project on the default preset
 	gq.select(default_preset)
@@ -119,7 +124,6 @@ func initialize() -> void:
 func close_ui() -> void:
 	visible = false
 	Std.is_blocked_by_ui = false
-
 
 # Returns a string containing BBCode text of the preset description.
 func construct_bbcode(preset: int) -> String:
@@ -224,3 +228,39 @@ func _on_ssr_check_box_toggled(val):
 
 func _on_glow_check_box_toggled(val):
 	seset("environment/glow_enabled",val)
+
+
+func _on_chat_check_box_toggled(val):
+	UMB.visible = val
+
+
+func _on_chat_alpha_h_slider_value_changed(value):
+	UMB.modulate.a = value
+	chat_alpha = value
+
+
+func _on_chat_bg_alpha_h_slider_value_changed(value):
+	msg_example.get_stylebox("normal").bg_color.a = value
+
+
+func _on_chat_size_y_h_slider_value_changed(value):
+	chat_dragger_v.split_offset = (1-value) * 371 - 200
+
+func _on_chat_size_x_h_slider_value_changed(value): #-400 -150
+	chat_dragger_h.split_offset = (1-value) * (-250) - 150
+
+
+
+func _on_chat_fade_check_box_toggled(val):
+	UMB.auto_hide_chat = val
+	auto_hide_chat = val
+	if val: 
+		UMB.fade()
+	else:
+		UMB.reset_alpha()
+
+
+
+func _on_chatautohide_time_spin_box_value_changed(value):
+	auto_hide_chat_time = value
+	UMB.auto_hide_chat_time = value
