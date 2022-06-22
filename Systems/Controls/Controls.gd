@@ -19,6 +19,7 @@ func _input(event:InputEvent):
 		handle_touch(event)
 		return
 	
+	if Std.is_blocked_by_ui: return
 	handle_pan(event)
 	handle_rotation(event)
 	handle_zoom(event)
