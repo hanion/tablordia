@@ -147,7 +147,7 @@ func fade() -> void:
 	for _i in range(100):
 		if __chat_alpha_process == 1: return
 		yield(get_tree().create_timer(0.01),"timeout")
-		modulate.a = lerp(modulate.a,-0.5,0.01)
+		modulate.a = lerp(modulate.a,-1,0.01)
 	__chat_alpha_process = 0
 ####### /auto hide chat
 ######################
