@@ -18,9 +18,7 @@
 [ext_resource path="res://Games/chess/chess_piece_king_collision.tres" type="Shape" id=21]
 [ext_resource path="res://Games/chess/chess_piece_king.tres" type="ArrayMesh" id=22]
 
-[node name="chess" type="StaticBody" groups=[
-"shift_draggable",
-]]
+[node name="chess" type="StaticBody" groups=["shift_draggable"]]
 script = ExtResource( 14 )
 
 [node name="board" type="MeshInstance" parent="."]
@@ -341,6 +339,7 @@ shape = ExtResource( 11 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.515831, 0.856691, 0, -0.856691, 0.515831, 0, 4.95302, 6.66652 )
+visible = false
 light_energy = 0.36
 spot_range = 26.9367
 spot_angle = 58.1097

@@ -51,12 +51,13 @@ allow_wasd_movement = false
 [node name="position" type="Spatial" parent="CAM"]
 
 [node name="elevation" type="Spatial" parent="CAM/position"]
-transform = Transform( 1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 0.535827, 0.844327, 0, -0.844327, 0.535827, 0, 0, 0 )
 
 [node name="zoom" type="Spatial" parent="CAM/position/elevation"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 
 [node name="Camera" type="Camera" parent="CAM/position/elevation/zoom"]
+transform = Transform( 1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0 )
 
 [node name="closeup" parent="CAM/position/elevation/zoom/Camera" instance=ExtResource( 3 )]
 transform = Transform( 0.8, 0, 0, 0, 0, -0.8, 0, 0.8, 0, 0, 0, -1.5 )

@@ -22,8 +22,8 @@ size = Vector3( 10.3, 0.1, 9.78 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 1 )
-metallic_specular = 0.0
-roughness = 0.59
+metallic_specular = 0.12
+roughness = 0.27
 uv1_scale = Vector3( 0.097, 0.182, 0.102 )
 uv1_offset = Vector3( 0.5, 0.014, 0.499 )
 uv1_triplanar = true

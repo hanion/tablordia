@@ -5,3 +5,10 @@
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+fog_color = Color( 0, 0, 0, 1 )
+tonemap_mode = 2
+tonemap_exposure = 1.12
+tonemap_white = 2.77
+auto_exposure_enabled = true
+auto_exposure_min_luma = 0.48
+auto_exposure_max_luma = 10.43
