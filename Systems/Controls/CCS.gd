@@ -48,8 +48,8 @@ func change_icon(_mode : String = "nothing") -> void:
 
 
 func _input(event):
-	if not event is InputEventMouseMotion: return
 	if not is_showing: return
+	if not event is InputEventMouseMotion: return
 	move_img()
 
 

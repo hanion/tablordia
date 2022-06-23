@@ -17,6 +17,10 @@ var chat_alpha : float = 1.0
 var auto_hide_chat : bool = true
 var auto_hide_chat_time : int = 3
 
+var table_mat_marble = preload("res://InGame/Table/Marble016_2K-PNG/marble.tres")
+var table_mat_wood = preload("res://InGame/Table/Wood067_2K-PNG/wood.tres")
+var table_mat_carpet = preload("res://InGame/Table/Carpet012_2K-PNG/carpet.tres")
+
 # The preset to use when starting the project
 # 0: Low
 # 1: Medium
@@ -123,6 +127,7 @@ func initialize() -> void:
 
 func close_ui() -> void:
 	visible = false
+	pu.visible = false
 	Std.is_blocked_by_ui = false
 
 # Returns a string containing BBCode text of the preset description.
@@ -264,3 +269,19 @@ func _on_chat_fade_check_box_toggled(val):
 func _on_chatautohide_time_spin_box_value_changed(value):
 	auto_hide_chat_time = value
 	UMB.auto_hide_chat_time = value
+
+
+func _on_table_mat_option_button_item_selected(index):
+	var mat
+	match index:
+		0:
+			mat = table_mat_wood
+		1:
+			mat = table_mat_marble
+		2:
+			mat = table_mat_carpet
+		_:
+			return
+	
+	table_mesh.set_surface_material(0,mat)
+	

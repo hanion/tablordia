@@ -36,18 +36,22 @@ msg_example = NodePath("pu/tabs/Misc/vb/msg")
 [node name="SettingsSaver" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect1" type="TextureRect" parent="."]
 visible = false
-margin_left = -418.929
-margin_top = -324.957
-margin_right = 1743.07
-margin_bottom = 1007.04
+margin_left = -149.012
+margin_top = -361.928
+margin_right = 5001.99
+margin_bottom = 4528.07
 texture = ExtResource( 4 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_use_anchors_": false
-}
+
+[node name="TextureRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -65.0
+margin_top = -65.0
+margin_right = 72.0
+margin_bottom = 62.0
+color = Color( 0.0705882, 0.0705882, 0.0705882, 0.721569 )
 
 [node name="pu" type="WindowDialog" parent="."]
 visible = true
@@ -56,10 +60,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -243.0
-margin_top = -155.0
+margin_top = -168.0
 margin_right = 243.0
-margin_bottom = 155.0
-rect_min_size = Vector2( 300, 220 )
+margin_bottom = 168.0
+rect_min_size = Vector2( 480, 335 )
+popup_exclusive = true
 window_title = "Settings"
 resizable = true
 
@@ -70,7 +75,277 @@ margin_left = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
 
+[node name="Misc" type="ScrollContainer" parent="pu/tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+follow_focus = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vb" type="VBoxContainer" parent="pu/tabs/Misc"]
+margin_right = 466.0
+margin_bottom = 290.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSeparator" type="HSeparator" parent="pu/tabs/Misc/vb"]
+margin_right = 466.0
+margin_bottom = 4.0
+
+[node name="label_chat" type="Label" parent="pu/tabs/Misc/vb"]
+margin_top = 8.0
+margin_right = 466.0
+margin_bottom = 37.0
+text = "Chat"
+align = 1
+valign = 2
+
+[node name="chat" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_top = 41.0
+margin_right = 466.0
+margin_bottom = 70.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat" index="0"]
+margin_right = 231.0
+text = "Chat "
+
+[node name="set_reload_button" parent="pu/tabs/Misc/vb/chat" index="1"]
+margin_left = 446.0
+margin_right = 466.0
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat" index="2"]
+visible = false
+margin_left = 235.0
+margin_right = 466.0
+
+[node name="set_check_box" parent="pu/tabs/Misc/vb/chat" index="3"]
+visible = true
+margin_left = 235.0
+margin_right = 466.0
+pressed = true
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat" index="4"]
+margin_left = 313.0
+margin_right = 466.0
+
+[node name="set_spin_box" parent="pu/tabs/Misc/vb/chat" index="5"]
+margin_left = 351.0
+margin_right = 427.0
+
+[node name="chat_fade" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_top = 74.0
+margin_right = 466.0
+margin_bottom = 103.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat_fade" index="0"]
+margin_right = 231.0
+text = "Auto hide chat"
+
+[node name="set_reload_button" parent="pu/tabs/Misc/vb/chat_fade" index="1"]
+margin_left = 446.0
+margin_right = 466.0
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_fade" index="2"]
+visible = false
+margin_left = 235.0
+margin_right = 466.0
+focus_mode = 2
+
+[node name="set_check_box" parent="pu/tabs/Misc/vb/chat_fade" index="3"]
+visible = true
+margin_left = 235.0
+margin_right = 466.0
+focus_mode = 2
+pressed = true
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_fade" index="4"]
+margin_left = 313.0
+margin_right = 466.0
+
+[node name="set_spin_box" parent="pu/tabs/Misc/vb/chat_fade" index="5"]
+margin_left = 351.0
+margin_right = 427.0
+
+[node name="chatautohide_time" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_top = 107.0
+margin_right = 466.0
+margin_bottom = 136.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chatautohide_time" index="0"]
+margin_right = 231.0
+text = "Auto hide in"
+
+[node name="set_reload_button" parent="pu/tabs/Misc/vb/chatautohide_time" index="1"]
+margin_left = 446.0
+margin_right = 466.0
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chatautohide_time" index="2"]
+visible = false
+margin_left = 235.0
+margin_right = 466.0
+focus_mode = 2
+
+[node name="set_check_box" parent="pu/tabs/Misc/vb/chatautohide_time" index="3"]
+margin_left = 235.0
+margin_right = 466.0
+focus_mode = 2
+pressed = true
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chatautohide_time" index="4"]
+margin_left = 313.0
+margin_right = 466.0
+
+[node name="set_spin_box" parent="pu/tabs/Misc/vb/chatautohide_time" index="5"]
+visible = true
+margin_left = 312.0
+margin_right = 388.0
+min_value = 2.0
+value = 4.0
+
+[node name="chat_size" type="HBoxContainer" parent="pu/tabs/Misc/vb"]
+margin_top = 140.0
+margin_right = 466.0
+margin_bottom = 169.0
+
+[node name="chat_size_y" parent="pu/tabs/Misc/vb/chat_size" instance=ExtResource( 1 )]
+margin_right = 231.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat_size/chat_size_y" index="0"]
+margin_right = 113.0
+text = "Chat size y"
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_size/chat_size_y" index="2"]
+visible = false
+margin_left = 235.0
+margin_right = 466.0
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_size/chat_size_y" index="4"]
+visible = true
+margin_left = 117.0
+margin_right = 231.0
+max_value = 1.0
+step = 0.01
+value = 0.2
+
+[node name="chat_size_x" parent="pu/tabs/Misc/vb/chat_size" instance=ExtResource( 1 )]
+margin_left = 235.0
+margin_right = 466.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat_size/chat_size_x" index="0"]
+margin_right = 113.0
+text = "Chat size x"
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_size/chat_size_x" index="2"]
+visible = false
+margin_left = 235.0
+margin_right = 466.0
+focus_mode = 2
+
+[node name="set_check_box" parent="pu/tabs/Misc/vb/chat_size/chat_size_x" index="3"]
+focus_mode = 2
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_size/chat_size_x" index="4"]
+visible = true
+margin_left = 117.0
+margin_right = 231.0
+max_value = 1.0
+step = 0.01
+value = 0.45
+
+[node name="chat_aplha" type="HBoxContainer" parent="pu/tabs/Misc/vb"]
+margin_top = 173.0
+margin_right = 466.0
+margin_bottom = 202.0
+
+[node name="chat_alpha" parent="pu/tabs/Misc/vb/chat_aplha" instance=ExtResource( 1 )]
+margin_right = 231.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat_aplha/chat_alpha" index="0"]
+margin_right = 116.0
+text = "Chat visibility"
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_aplha/chat_alpha" index="2"]
+visible = false
+margin_left = 156.0
+margin_right = 309.0
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_aplha/chat_alpha" index="4"]
+visible = true
+margin_left = 120.0
+margin_right = 231.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="chat_bg_alpha" parent="pu/tabs/Misc/vb/chat_aplha" instance=ExtResource( 1 )]
+margin_left = 235.0
+margin_right = 466.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/chat_aplha/chat_bg_alpha" index="0"]
+margin_right = 144.0
+text = "Message opacity"
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_aplha/chat_bg_alpha" index="2"]
+visible = false
+margin_left = 156.0
+margin_right = 309.0
+focus_mode = 2
+
+[node name="set_check_box" parent="pu/tabs/Misc/vb/chat_aplha/chat_bg_alpha" index="3"]
+focus_mode = 2
+
+[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_aplha/chat_bg_alpha" index="4"]
+visible = true
+margin_left = 148.0
+margin_right = 231.0
+max_value = 1.0
+step = 0.01
+value = 0.9
+
+[node name="msg" parent="pu/tabs/Misc/vb" instance=ExtResource( 7 )]
+visible = false
+margin_top = 231.0
+margin_right = 466.0
+margin_bottom = 253.0
+bbcode_text = "[center][wave]Text Example"
+text = "Text Example"
+
+[node name="HSeparator2" type="HSeparator" parent="pu/tabs/Misc/vb"]
+margin_top = 206.0
+margin_right = 466.0
+margin_bottom = 210.0
+
+[node name="label_table" type="Label" parent="pu/tabs/Misc/vb"]
+margin_top = 214.0
+margin_right = 466.0
+margin_bottom = 243.0
+text = "Table"
+align = 1
+valign = 2
+
+[node name="table_mat" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
+margin_top = 247.0
+margin_right = 466.0
+margin_bottom = 276.0
+
+[node name="set_label" parent="pu/tabs/Misc/vb/table_mat" index="0"]
+margin_right = 231.0
+text = "Table material"
+
+[node name="set_option_button" parent="pu/tabs/Misc/vb/table_mat" index="2"]
+margin_left = 235.0
+margin_right = 466.0
+text = "Wood"
+items = [ "Wood", null, false, 0, null, "Marble", null, false, 1, null, "Carpet", null, false, 2, null ]
+selected = 0
+
 [node name="Simple" type="VBoxContainer" parent="pu/tabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -161,7 +436,7 @@ __meta__ = {
 
 [node name="vb" type="VBoxContainer" parent="pu/tabs/Graphics"]
 margin_right = 466.0
-margin_bottom = 264.0
+margin_bottom = 290.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 6 )
@@ -323,229 +598,6 @@ visible = true
 margin_left = 235.0
 margin_right = 466.0
 
-[node name="Misc" type="ScrollContainer" parent="pu/tabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 36.0
-margin_right = -5.0
-margin_bottom = -5.0
-follow_focus = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="vb" type="VBoxContainer" parent="pu/tabs/Misc"]
-margin_right = 466.0
-margin_bottom = 264.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="chat" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
-margin_right = 466.0
-
-[node name="set_label" parent="pu/tabs/Misc/vb/chat" index="0"]
-margin_right = 231.0
-text = "Chat "
-
-[node name="set_reload_button" parent="pu/tabs/Misc/vb/chat" index="1"]
-margin_left = 446.0
-margin_right = 466.0
-
-[node name="set_option_button" parent="pu/tabs/Misc/vb/chat" index="2"]
-visible = false
-margin_left = 235.0
-margin_right = 466.0
-
-[node name="set_check_box" parent="pu/tabs/Misc/vb/chat" index="3"]
-visible = true
-margin_left = 235.0
-margin_right = 466.0
-pressed = true
-
-[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat" index="4"]
-margin_left = 313.0
-margin_right = 466.0
-
-[node name="set_spin_box" parent="pu/tabs/Misc/vb/chat" index="5"]
-margin_left = 351.0
-margin_right = 427.0
-
-[node name="chat_fade" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
-margin_top = 33.0
-margin_right = 466.0
-margin_bottom = 62.0
-
-[node name="set_label" parent="pu/tabs/Misc/vb/chat_fade" index="0"]
-margin_right = 231.0
-text = "Auto hide chat"
-
-[node name="set_reload_button" parent="pu/tabs/Misc/vb/chat_fade" index="1"]
-margin_left = 446.0
-margin_right = 466.0
-
-[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_fade" index="2"]
-visible = false
-margin_left = 235.0
-margin_right = 466.0
-focus_mode = 2
-
-[node name="set_check_box" parent="pu/tabs/Misc/vb/chat_fade" index="3"]
-visible = true
-margin_left = 235.0
-margin_right = 466.0
-focus_mode = 2
-pressed = true
-
-[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_fade" index="4"]
-margin_left = 313.0
-margin_right = 466.0
-
-[node name="set_spin_box" parent="pu/tabs/Misc/vb/chat_fade" index="5"]
-margin_left = 351.0
-margin_right = 427.0
-
-[node name="chatautohide_time" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
-margin_top = 66.0
-margin_right = 466.0
-margin_bottom = 95.0
-
-[node name="set_label" parent="pu/tabs/Misc/vb/chatautohide_time" index="0"]
-margin_right = 231.0
-text = "Auto hide in"
-
-[node name="set_reload_button" parent="pu/tabs/Misc/vb/chatautohide_time" index="1"]
-margin_left = 446.0
-margin_right = 466.0
-
-[node name="set_option_button" parent="pu/tabs/Misc/vb/chatautohide_time" index="2"]
-visible = false
-margin_left = 235.0
-margin_right = 466.0
-focus_mode = 2
-
-[node name="set_check_box" parent="pu/tabs/Misc/vb/chatautohide_time" index="3"]
-margin_left = 235.0
-margin_right = 466.0
-focus_mode = 2
-pressed = true
-
-[node name="set_h_slider" parent="pu/tabs/Misc/vb/chatautohide_time" index="4"]
-margin_left = 313.0
-margin_right = 466.0
-
-[node name="set_spin_box" parent="pu/tabs/Misc/vb/chatautohide_time" index="5"]
-visible = true
-margin_left = 312.0
-margin_right = 388.0
-min_value = 2.0
-value = 4.0
-
-[node name="chat_size_y" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
-margin_top = 99.0
-margin_right = 466.0
-margin_bottom = 128.0
-
-[node name="set_label" parent="pu/tabs/Misc/vb/chat_size_y" index="0"]
-margin_right = 231.0
-text = "Chat size y"
-
-[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_size_y" index="2"]
-visible = false
-margin_left = 235.0
-margin_right = 466.0
-
-[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_size_y" index="4"]
-visible = true
-margin_left = 235.0
-margin_right = 466.0
-max_value = 1.0
-step = 0.01
-value = 0.2
-
-[node name="chat_size_x" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
-margin_top = 132.0
-margin_right = 466.0
-margin_bottom = 161.0
-
-[node name="set_label" parent="pu/tabs/Misc/vb/chat_size_x" index="0"]
-margin_right = 231.0
-text = "Chat size x"
-
-[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_size_x" index="2"]
-visible = false
-margin_left = 235.0
-margin_right = 466.0
-focus_mode = 2
-
-[node name="set_check_box" parent="pu/tabs/Misc/vb/chat_size_x" index="3"]
-focus_mode = 2
-
-[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_size_x" index="4"]
-visible = true
-margin_left = 235.0
-margin_right = 466.0
-max_value = 1.0
-step = 0.01
-value = 0.4
-
-[node name="chat_alpha" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
-margin_top = 165.0
-margin_right = 466.0
-margin_bottom = 194.0
-
-[node name="set_label" parent="pu/tabs/Misc/vb/chat_alpha" index="0"]
-margin_right = 231.0
-text = "Chat visibility"
-
-[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_alpha" index="2"]
-visible = false
-margin_left = 156.0
-margin_right = 309.0
-
-[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_alpha" index="4"]
-visible = true
-margin_left = 235.0
-margin_right = 466.0
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="chat_bg_alpha" parent="pu/tabs/Misc/vb" instance=ExtResource( 1 )]
-margin_top = 198.0
-margin_right = 466.0
-margin_bottom = 227.0
-
-[node name="set_label" parent="pu/tabs/Misc/vb/chat_bg_alpha" index="0"]
-margin_right = 231.0
-text = "Chat background opacity"
-
-[node name="set_option_button" parent="pu/tabs/Misc/vb/chat_bg_alpha" index="2"]
-visible = false
-margin_left = 156.0
-margin_right = 309.0
-focus_mode = 2
-
-[node name="set_check_box" parent="pu/tabs/Misc/vb/chat_bg_alpha" index="3"]
-focus_mode = 2
-
-[node name="set_h_slider" parent="pu/tabs/Misc/vb/chat_bg_alpha" index="4"]
-visible = true
-margin_left = 235.0
-margin_right = 466.0
-max_value = 1.0
-step = 0.01
-value = 0.9
-
-[node name="msg" parent="pu/tabs/Misc/vb" instance=ExtResource( 7 )]
-visible = false
-margin_top = 99.0
-margin_right = 466.0
-margin_bottom = 121.0
-bbcode_text = "[center][wave]Text Example"
-text = "Text Example"
-
 [node name="Credits" type="Panel" parent="pu/tabs"]
 visible = false
 anchor_right = 1.0
@@ -575,6 +627,14 @@ text = " yigithanion
 github - hanion"
 script = ExtResource( 8 )
 
+[connection signal="check_box_toggled" from="pu/tabs/Misc/vb/chat" to="." method="_on_chat_check_box_toggled"]
+[connection signal="check_box_toggled" from="pu/tabs/Misc/vb/chat_fade" to="." method="_on_chat_fade_check_box_toggled"]
+[connection signal="spin_box_value_changed" from="pu/tabs/Misc/vb/chatautohide_time" to="." method="_on_chatautohide_time_spin_box_value_changed"]
+[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_size/chat_size_y" to="." method="_on_chat_size_y_h_slider_value_changed"]
+[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_size/chat_size_x" to="." method="_on_chat_size_x_h_slider_value_changed"]
+[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_aplha/chat_alpha" to="." method="_on_chat_alpha_h_slider_value_changed"]
+[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_aplha/chat_bg_alpha" to="." method="_on_chat_bg_alpha_h_slider_value_changed"]
+[connection signal="option_button_item_selected" from="pu/tabs/Misc/vb/table_mat" to="." method="_on_table_mat_option_button_item_selected"]
 [connection signal="item_selected" from="pu/tabs/Simple/GraphicsQuality/OptionButton" to="." method="_on_graphics_preset_change"]
 [connection signal="item_selected" from="pu/tabs/Simple/DisplayResolution/OptionButton" to="." method="_on_resolution_changed"]
 [connection signal="check_box_toggled" from="pu/tabs/Graphics/vb/shading" to="." method="_on_shading_check_box_toggled"]
@@ -585,15 +645,17 @@ script = ExtResource( 8 )
 [connection signal="check_box_toggled" from="pu/tabs/Graphics/vb/ssr" to="." method="_on_ssr_check_box_toggled"]
 [connection signal="check_box_toggled" from="pu/tabs/Graphics/vb/dof_near" to="." method="_on_dof_near_check_box_toggled"]
 [connection signal="check_box_toggled" from="pu/tabs/Graphics/vb/glow" to="." method="_on_glow_check_box_toggled"]
-[connection signal="check_box_toggled" from="pu/tabs/Misc/vb/chat" to="." method="_on_chat_check_box_toggled"]
-[connection signal="check_box_toggled" from="pu/tabs/Misc/vb/chat_fade" to="." method="_on_chat_fade_check_box_toggled"]
-[connection signal="spin_box_value_changed" from="pu/tabs/Misc/vb/chatautohide_time" to="." method="_on_chatautohide_time_spin_box_value_changed"]
-[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_size_y" to="." method="_on_chat_size_y_h_slider_value_changed"]
-[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_size_x" to="." method="_on_chat_size_x_h_slider_value_changed"]
-[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_alpha" to="." method="_on_chat_alpha_h_slider_value_changed"]
-[connection signal="h_slider_value_changed" from="pu/tabs/Misc/vb/chat_bg_alpha" to="." method="_on_chat_bg_alpha_h_slider_value_changed"]
 [connection signal="meta_clicked" from="pu/tabs/Credits/credit" to="pu/tabs/Credits/credit" method="_on_credit_meta_clicked"]
 
+[editable path="pu/tabs/Misc/vb/chat"]
+[editable path="pu/tabs/Misc/vb/chat_fade"]
+[editable path="pu/tabs/Misc/vb/chatautohide_time"]
+[editable path="pu/tabs/Misc/vb/chat_size/chat_size_y"]
+[editable path="pu/tabs/Misc/vb/chat_size/chat_size_x"]
+[editable path="pu/tabs/Misc/vb/chat_aplha/chat_alpha"]
+[editable path="pu/tabs/Misc/vb/chat_aplha/chat_bg_alpha"]
+[editable path="pu/tabs/Misc/vb/msg"]
+[editable path="pu/tabs/Misc/vb/table_mat"]
 [editable path="pu/tabs/Graphics/vb/shading"]
 [editable path="pu/tabs/Graphics/vb/shade_table"]
 [editable path="pu/tabs/Graphics/vb/msaa"]
@@ -603,11 +665,3 @@ script = ExtResource( 8 )
 [editable path="pu/tabs/Graphics/vb/bloom"]
 [editable path="pu/tabs/Graphics/vb/dof_near"]
 [editable path="pu/tabs/Graphics/vb/glow"]
-[editable path="pu/tabs/Misc/vb/chat"]
-[editable path="pu/tabs/Misc/vb/chat_fade"]
-[editable path="pu/tabs/Misc/vb/chatautohide_time"]
-[editable path="pu/tabs/Misc/vb/chat_size_y"]
-[editable path="pu/tabs/Misc/vb/chat_size_x"]
-[editable path="pu/tabs/Misc/vb/chat_alpha"]
-[editable path="pu/tabs/Misc/vb/chat_bg_alpha"]
-[editable path="pu/tabs/Misc/vb/msg"]

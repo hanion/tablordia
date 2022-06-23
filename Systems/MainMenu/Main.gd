@@ -17,6 +17,7 @@ func _ready():
 	Spawner.cards_folder = cards
 	SettingsUI.initialize()
 	RCM.player = player
+	HUD.player = player
 
 
 

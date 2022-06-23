@@ -93,8 +93,9 @@ Std="*res://Systems/std/std.tscn"
 NetworkInterface="*res://Systems/networking/network_interface.tscn"
 List="*res://Systems/networking/list.tscn"
 Spawner="*res://Systems/Spawner/Spawner.tscn"
-RCM="*res://Systems/RCM/right_click_menu.tscn"
 UMB="*res://Systems/UMB/UMB.tscn"
+HUD="*res://Systems/HUD/HUD.tscn"
+RCM="*res://Systems/RCM/right_click_menu.tscn"
 SettingsUI="*res://Systems/Settings/SettingsUI.tscn"
 
 [debug]
