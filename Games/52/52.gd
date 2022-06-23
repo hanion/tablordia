@@ -70,7 +70,7 @@ func spawn_all_cards() -> void:
 			"amount":1,
 			"value":c.x,
 			"value_second":c.y,
-			"in_deck":dek.name,
+			"in_deck":"iskambil",
 			"translation":(dek.translation + Vector3(0,-5,0)),
 			"no UMB":true
 		}

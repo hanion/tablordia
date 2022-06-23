@@ -7,9 +7,10 @@
 script = ExtResource( 2 )
 
 [node name="uno_draw_deck" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.672548, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.672548, 0 )
 can_stack = false
 is_cards_hidden = true
 can_make_cards_visible = false
 
 [node name="uno_discard_deck" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0 )

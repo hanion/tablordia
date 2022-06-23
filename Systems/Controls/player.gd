@@ -156,6 +156,9 @@ func drag_start() -> void:
 	else:
 		if not dragging.is_in_group("draggable"): return
 	
+	if dragging is card:
+		if dragging.is_in_deck and dragging.in_deck.env.back() != dragging: return
+	
 	
 	var obj_translation = dragging.translation
 	var cast_translation = current["position"]

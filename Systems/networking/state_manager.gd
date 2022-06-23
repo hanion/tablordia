@@ -77,6 +77,7 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 		return
 	
 	var trans = obj_state["O"]
+	trans.y = clamp(trans.y,0,100) # genius clamp, cards never go under zero
 	trans = Std.get_local(obj,trans)
 	
 	
@@ -137,6 +138,7 @@ func process_received_do(do) -> void:
 	var dragged_name = do["d"]
 	var over_name = do["o"]
 	var pos = do["p"]
+	pos.y = clamp(pos.y,0,100) # genius clamp, cards never go under zero
 	
 	##### add
 	currently_processing_do.append(dragged_name)
@@ -162,6 +164,8 @@ func process_received_do(do) -> void:
 
 	elif dragged.is_in_deck:
 		dragged.in_deck.remove_from_deck(dragged)
+#		if not over is hand:
+#			hotfix_snap_when_removing_from_hand(dragged)
 	
 	elif dragged.is_in_hand:
 		if not over is hand:

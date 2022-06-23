@@ -90,7 +90,7 @@ func spawn_all_cards() -> void:
 	get_draw_deck_up()
 
 func get_draw_deck_up() -> void:
-	uno_draw_deck.translation = Vector3(2,0,0)
+	uno_draw_deck.translation = Vector3(0,0,0)
 	var state = {
 		uno_draw_deck.name:{
 			"O": Std.get_global(uno_draw_deck),

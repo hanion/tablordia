@@ -99,11 +99,19 @@ func order_env() -> void:
 		crd.scale = Vector3(1,1,1)
 	
 	var up_card = env.back()
+	if name == "uno_draw_deck" or name == "iskambil":
+		yield(get_tree().create_timer(0.2),"timeout")
+		if not up_card == env.back(): 
+			up_card.visible = false
+			return
+	
+	up_card.visible = true
 	up_card.set_is_hidden(is_cards_hidden)
 	tween_up_card(up_card)
 	
 
 func tween_up_card(obj:Spatial) -> void:
+	print("	¨tweenup ",obj.name)
 	tween.stop_all()
 	if make_scale_effect:
 		var old_scale = obj.scale
