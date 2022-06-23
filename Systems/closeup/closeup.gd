@@ -3,6 +3,7 @@ extends Spatial
 
 export(Array,SpatialMaterial) var res_mats := []
 export(Array,SpatialMaterial) var itm_mats := []
+onready var mes = $mesh
 
 const items := [
 	[
@@ -92,7 +93,20 @@ func look_closeup(obj, show_mesh := true) -> void:
 	show_mesh(true)
 
 func show_mesh(show_mesh) -> void:
-	$mesh.visible = show_mesh
+	mes.visible = show_mesh
+	move_mesh(get_viewport().get_mouse_position())
+
+
+func _input(event):
+	if not mes.visible: return
+	if event is InputEventMouseMotion:
+		move_mesh(event.position)
+
+func move_mesh(var pos) -> void:
+	mes.translation = Vector3(0,0,0)
+	mes.translate_object_local(Vector3((4*2*pos.x/1280)-4,0,(3.3*2*pos.y/1280)-1.9))
+
+
 
 
 func set_material(obj):

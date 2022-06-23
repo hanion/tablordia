@@ -191,4 +191,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 [connection signal="pressed" from="CanvasLayer/Control2/Button" to="CanvasLayer/Control2/Button" method="_on_Button_pressed"]
 
 [editable path="player"]
+[editable path="player/CAM/position/elevation/zoom/Camera/closeup"]
 [editable path="tablo/table"]

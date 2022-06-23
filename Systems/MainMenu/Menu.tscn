@@ -54,9 +54,10 @@ scroll_horizontal_enabled = false
 [node name="Panel" type="Panel" parent="margin/primer/tempHBox/ScrollContainer"]
 
 [node name="ColorPicker" type="ColorPicker" parent="margin/primer/tempHBox/ScrollContainer/Panel"]
-margin_left = 118.0
-margin_right = 408.0
-margin_bottom = 447.0
+margin_left = 122.0
+margin_top = 4.0
+margin_right = 412.0
+margin_bottom = 451.0
 rect_scale = Vector2( 0.84, 0.84 )
 size_flags_horizontal = 6
 color = Color( 0.623529, 0.137255, 0.607843, 1 )
