@@ -16,9 +16,10 @@ var player
 var current_object = null
 var is_popup_open := false
 
+
 func right_clicked(to:Spatial) -> void:
 	if is_popup_open: return
-	player = get_node("/root/Main/player")
+#	player = get_node("/root/Main/player")
 	if not to.is_in_group("has_rcm"): 
 		if to.get_parent().is_in_group("has_rcm"):
 			to = to.get_parent()
