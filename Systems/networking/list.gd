@@ -38,21 +38,29 @@ func remove_player(var id: int) -> void:
 
 
 func reparent_child(var child: Spatial, var new_parent: Spatial):
+	
 	if not paths.has(child.name):
 		push_error("L: child name is not in paths dictionary")
 		return 
 	
 	
-	var old_child_local_pos =  child.translation
+	
+	var old_child_local_pos =  child.translation + child.get_parent().translation
+#	var old_child_local_pos =  Std.get_global(child)
 	
 	child.get_parent().remove_child(child)
+	child.translation = old_child_local_pos
+#	yield(get_tree().create_timer(5),"timeout")
+#	print("3")
 	new_parent.add_child(child)
+	child.translation = old_child_local_pos
 	
 	
 	
 	paths[child.name] = (str(new_parent.get_path()) + "/" + child.name)
-#	print("reparented : ",child.name," to ",paths[child.name]
-#		,"\n   & returned:",old_child_local_pos)
+	print("reparented : ",child.name," to ",paths[child.name]
+		,"\n   & returned:",old_child_local_pos,child.translation)
+	
 	return old_child_local_pos
 
 

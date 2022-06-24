@@ -85,7 +85,7 @@ func remove_from_deck(what: card) -> void:
 	what.rotation = rotation
 	
 	what.set_is_hidden(false)
-	
+#
 	emit_signal("removed_card_from_deck")
 	
 	order_env()

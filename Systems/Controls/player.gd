@@ -25,6 +25,7 @@ var _do_pos: Vector3
 onready var camera = $CAM/position/elevation/zoom/Camera
 onready var close_up = $CAM/position/elevation/zoom/Camera/closeup as Spatial
 onready var Controls = $Controls
+onready var twen = $Tween
 
 
 
@@ -218,8 +219,9 @@ func drag() -> void:
 	# translating object to desired location
 #	dragging.set_translation(new_coord)
 
-	$Tween.stop_all()
-	$Tween.interpolate_property(
+	twen.stop_all()
+	
+	twen.interpolate_property(
 		dragging,
 		"translation",
 		dragging.translation,
@@ -228,7 +230,7 @@ func drag() -> void:
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN
 		)
-	$Tween.start()
+	twen.start()
 	
 	
 	# send loc
@@ -248,6 +250,7 @@ func drag_stop() -> void:
 	"""
 	
 	dragged_over(dragging, current['collider'], current['position'])
+#	dragged_over(dragging, current['collider'], current['collider'].global_transform.origin)
 	
 	
 	is_dragging = false
@@ -307,6 +310,7 @@ func define_obj_state(drgn) -> void:
 	var state = {
 		drgn.name:{
 			"O": Std.get_global(drgn),
+#			"O": drgn.global_transform.origin,
 			"R":drgn.rotation
 		}
 	}

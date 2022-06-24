@@ -46,19 +46,20 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 	if player.dragging == obj: return
 	if _id == NetworkInterface.uid: return
 	
+	
 	if obj_state.has("R"):
-#		obj.rotation = obj_state["R"]
+		obj.rotation = obj_state["R"]
 		
-		tween.interpolate_property(
-		obj,
-		"rotation",
-		obj.rotation,
-		obj_state["R"],
-		tween_duration,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_IN_OUT
-		)
-		tween.start()
+#		tween.interpolate_property(
+#		obj,
+#		"rotation",
+#		obj.rotation,
+#		obj_state["R"],
+#		tween_duration,
+#		Tween.TRANS_LINEAR,
+#		Tween.EASE_IN_OUT
+#		)
+#		tween.start()
 	
 	
 	
@@ -77,8 +78,8 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 		return
 	
 	var trans = obj_state["O"]
-	trans.y = clamp(trans.y,0,100) # genius clamp, cards never go under zero
 	trans = Std.get_local(obj,trans)
+	trans.y = clamp(trans.y,0,100) # genius clamp, cards never go under zero
 	
 	
 	# For slot, to not make it snap when others moving it
@@ -86,17 +87,31 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 		if obj.is_in_slot:
 			obj.is_in_slot = false
 	
-#	obj.transform.origin = opss[obj_name]["O"]
-	tween.interpolate_property(
-		obj,
-		"translation",
-		obj.transform.origin,
-		trans,
-		tween_duration,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_IN_OUT
-	)
-	tween.start()
+	if obj is card_52:
+		print("a")
+		
+	
+	obj.transform.origin = trans
+	
+
+
+	"""
+	//||\\ this works NOOOOOOOOOOOO
+	IT WAS TWEEN NOOOOOOOOOOOOOOOO
+
+	"""
+#	tween.seek(99999)
+#	tween.stop_all()
+#	tween.interpolate_property(
+#		obj,
+#		"translation",
+#		obj.transform.origin,
+#		trans,
+#		tween_duration,
+#		Tween.TRANS_LINEAR,
+#		Tween.EASE_IN_OUT
+#	)
+#	tween.start()
 
 
 
@@ -148,7 +163,7 @@ func process_received_do(do) -> void:
 	print(" + rdo      ",
 	"        d:",dragged_name,
 	",        o:",over_name,
-	",        p:",do["p"]
+	",        p:",pos
 	)
 	
 #	tween.stop_all()
@@ -164,8 +179,8 @@ func process_received_do(do) -> void:
 
 	elif dragged.is_in_deck:
 		dragged.in_deck.remove_from_deck(dragged)
-#		if not over is hand:
-#			hotfix_snap_when_removing_from_hand(dragged)
+		if not over is hand:
+			hotfix_snap_when_removing_from_hand(dragged)
 	
 	elif dragged.is_in_hand:
 		if not over is hand:

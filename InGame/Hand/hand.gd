@@ -103,7 +103,7 @@ func remove_card_from_hand(var crd: card) -> void:
 #	var difference = crd.translation - translation
 #	difference = Std.complex_rotate(difference,rotation.y)
 	# keep the global position of card
-	List.reparent_child(crd,cards)
+#	List.reparent_child(crd,cards)
 	
 #	crd.translation = Std.complex_rotate(global_pos - translation,rotation.y)
 #	crd.rotation_degrees = Vector3(0,0,0)

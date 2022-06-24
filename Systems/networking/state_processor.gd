@@ -4,7 +4,7 @@ extends Node
 var world_state := {}
 var world_state_collection := {}
 var alws := {} # all_latest_world_states
-var update_frame_time = 5
+var update_frame_time = 1
 
 func _physics_process(_delta):
 	if not get_tree().has_network_peer(): return

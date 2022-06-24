@@ -10,6 +10,7 @@ export(Array,Texture) var diamonds
 export(Array,Texture) var hearts
 export(Array,Texture) var spades
 
+
 func _ready():
 	mat = mat.duplicate(true) as SpatialMaterial
 
