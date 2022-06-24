@@ -11,14 +11,6 @@ var color = Color.aqua
 const advertiser_pl = preload("res://Systems/networking/ServerAdvertiser.tscn")
 const listener_pl = preload("res://Systems/networking/ServerListener.tscn")
 
-onready var primer = $margin/primer
-onready var join = $margin/join
-onready var host = $margin/host
-
-onready var join_ip = $margin/join/VBox/ip
-onready var join_port = $margin/join/VBox/port
-
-onready var host_port = $margin/host/VBox/port
 onready var lineip = $hbmenu/vb/vb2host/lineip
 
 
@@ -28,8 +20,6 @@ func _ready():
 	# warning-ignore:return_value_discarded
 	get_tree().connect("connected_to_server",self,"start_game")
 	lineip.text = (str(IP.get_local_addresses()).split(",",false)[0].right(1))
-#			+ "," +
-#			str(IP.get_local_addresses()).split(",",false)[1].right(1))
 
 
 func start_game():
@@ -114,43 +104,4 @@ func _on_ServerListener_new_server(__ip):
 	print("                      ---- Joining to ",__ip)
 
 
-
-
-
-
-
-
-
-#################################### OLD UI ####################################
-
-func _on_primer_join_pressed():
-	primer.visible = false
-	join.visible = true
-	deploy_server_listener()
-
-
-func _on_primer_host_pressed():
-	primer.visible = false
-	host.visible = true
-
-
-func _on_join_cancel_pressed():
-	primer.visible = true
-	join.visible = false
-
-
-func _on_host_cancel_pressed():
-	primer.visible = true
-	host.visible = false
-
-
-
-
-func _on_join_join_pressed():
-	Join(join_ip.text,join_port.text)
-
-
-
-func _on_host_host_pressed():
-	Host(host_port.text)
 

@@ -7,6 +7,8 @@ export(NodePath) onready var vb3join = get_node(vb3join) as VBoxContainer
 export(NodePath) onready var join_ip = get_node(join_ip) as LineEdit
 export(NodePath) onready var join_port = get_node(join_port) as LineEdit
 export(NodePath) onready var host_port = get_node(host_port) as LineEdit
+
+export(NodePath) onready var credits_popup = get_node(credits_popup) as AcceptDialog
 onready var menu = get_parent()
 
 func _ready() -> void:
@@ -65,3 +67,8 @@ func _on_join_pressed() -> void:
 func _on_autojoin_pressed() -> void:
 	menu.deploy_server_listener()
 
+
+
+func _on_credits_pressed() -> void:
+	credits_popup.popup(Rect2(Vector2(420,300),Vector2(440,350)))
+	credits_popup.get_close_button().visible = false
