@@ -1,30 +1,401 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Theme/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Theme/GREEN_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/font/title.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Systems/MainMenu/Menu.gd" type="Script" id=3]
 [ext_resource path="res://Systems/Small/SmallScript/DataSaver.gd" type="Script" id=4]
+[ext_resource path="res://assets/2d/ss06_24-1.png" type="Texture" id=5]
+[ext_resource path="res://assets/font/Montserrat-Black.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/font/title2.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Systems/MainMenu/vb1.gd" type="Script" id=8]
+[ext_resource path="res://Systems/MainMenu/hbmenu.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 45
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [node name="Menu" type="Control"]
+show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_clip_content = true
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.17276, 0.289062, 0.183762, 1 )
 
 [node name="DataSaver" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 4 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.17276, 0.289062, 0.183762, 1 )
+
+[node name="Ss0624-1" type="Sprite" parent="."]
+visible = false
+position = Vector2( 636.77, 355.863 )
+scale = Vector2( 2.65, 2.65 )
+texture = ExtResource( 5 )
+
+[node name="hbmenu" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+script = ExtResource( 9 )
+vb0pq = NodePath("vb/vb0pq")
+vb1info = NodePath("vb/vb1info")
+vb2host = NodePath("vb/vb2host")
+vb3join = NodePath("vb/vb3join")
+join_ip = NodePath("vb/vb3join/lineip")
+join_port = NodePath("vb/vb3join/lineport")
+host_port = NodePath("vb/vb2host/lineport")
+
+[node name="space" type="Control" parent="hbmenu"]
+margin_right = 467.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.39
+
+[node name="vb" type="VBoxContainer" parent="hbmenu"]
+margin_left = 471.0
+margin_right = 808.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="space3" type="Control" parent="hbmenu/vb"]
+margin_right = 337.0
+margin_bottom = 3.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="title" type="RichTextLabel" parent="hbmenu/vb"]
+margin_top = 7.0
+margin_right = 337.0
+margin_bottom = 157.0
+rect_min_size = Vector2( 0, 150 )
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "
+[center][wave freq=7 amp=50][rainbow freq=0.1]TABLORDİA
+"
+text = "
+TABLORDİA
+"
+scroll_active = false
+
+[node name="space5" type="Control" parent="hbmenu/vb"]
+margin_top = 161.0
+margin_right = 337.0
+margin_bottom = 163.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.37
+
+[node name="vb0pq" type="VBoxContainer" parent="hbmenu/vb"]
+margin_top = 167.0
+margin_right = 337.0
+margin_bottom = 261.0
+
+[node name="play" type="Button" parent="hbmenu/vb/vb0pq"]
+margin_right = 337.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+focus_mode = 0
+custom_fonts/font = ExtResource( 7 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "PLAY"
+
+[node name="settings" type="Button" parent="hbmenu/vb/vb0pq"]
+visible = false
+margin_top = 49.0
+margin_right = 337.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 45 )
+focus_mode = 0
+custom_fonts/font = ExtResource( 7 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "SETTINGS"
+
+[node name="quit" type="Button" parent="hbmenu/vb/vb0pq"]
+margin_top = 49.0
+margin_right = 337.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 45 )
+focus_mode = 0
+custom_fonts/font = ExtResource( 7 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "QUIT"
+
+[node name="vb1info" type="VBoxContainer" parent="hbmenu/vb"]
+margin_top = 265.0
+margin_right = 337.0
+margin_bottom = 416.0
+script = ExtResource( 8 )
+vbcolor = NodePath("vbcolor")
+colorpicker = NodePath("vbcolor/ColorPickerButton")
+vbjh = NodePath("vbjh")
+jbut = NodePath("vbjh/join")
+hbut = NodePath("vbjh/host")
+
+[node name="linename" type="LineEdit" parent="hbmenu/vb/vb1info"]
+margin_right = 337.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.61
+custom_fonts/font = ExtResource( 7 )
+align = 1
+max_length = 20
+placeholder_text = "name"
+
+[node name="HSeparator" type="HSeparator" parent="hbmenu/vb/vb1info"]
+visible = false
+margin_top = 49.0
+margin_right = 337.0
+margin_bottom = 53.0
+
+[node name="vbcolor" type="VBoxContainer" parent="hbmenu/vb/vb1info"]
+margin_top = 49.0
+margin_right = 337.0
+margin_bottom = 94.0
+
+[node name="Label" type="Label" parent="hbmenu/vb/vb1info/vbcolor"]
+visible = false
+margin_right = 337.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.49
+custom_fonts/font = ExtResource( 7 )
+text = "COLOR"
+align = 1
+valign = 1
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="hbmenu/vb/vb1info/vbcolor"]
+margin_right = 337.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+text = "COLOR"
+color = Color( 0.00784314, 0.752941, 0.596078, 1 )
+edit_alpha = false
+
+[node name="HSeparator2" type="HSeparator" parent="hbmenu/vb/vb1info"]
+margin_top = 98.0
+margin_right = 337.0
+margin_bottom = 102.0
+
+[node name="vbjh" type="HBoxContainer" parent="hbmenu/vb/vb1info"]
+margin_top = 106.0
+margin_right = 337.0
+margin_bottom = 151.0
+
+[node name="join" type="Button" parent="hbmenu/vb/vb1info/vbjh"]
+margin_right = 166.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "JOIN"
+
+[node name="host" type="Button" parent="hbmenu/vb/vb1info/vbjh"]
+margin_left = 170.0
+margin_right = 337.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "HOST"
+
+[node name="Tween" type="Tween" parent="hbmenu/vb/vb1info"]
+
+[node name="vb2host" type="VBoxContainer" parent="hbmenu/vb"]
+margin_top = 420.0
+margin_right = 337.0
+margin_bottom = 563.0
+
+[node name="lineip" type="LineEdit" parent="hbmenu/vb/vb2host"]
+margin_right = 337.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.61
+custom_fonts/font = ExtResource( 7 )
+align = 1
+max_length = 20
+editable = false
+placeholder_text = "ip"
+
+[node name="lineport" type="LineEdit" parent="hbmenu/vb/vb2host"]
+margin_top = 49.0
+margin_right = 337.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.61
+custom_fonts/font = ExtResource( 7 )
+text = "4014"
+align = 1
+max_length = 20
+placeholder_text = "port"
+
+[node name="vbch" type="HBoxContainer" parent="hbmenu/vb/vb2host"]
+margin_top = 98.0
+margin_right = 337.0
+margin_bottom = 143.0
+
+[node name="cancel" type="Button" parent="hbmenu/vb/vb2host/vbch"]
+self_modulate = Color( 0.533333, 0.533333, 0.533333, 1 )
+margin_right = 166.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "CANCEL"
+
+[node name="host" type="Button" parent="hbmenu/vb/vb2host/vbch"]
+margin_left = 170.0
+margin_right = 337.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "HOST"
+
+[node name="vb3join" type="VBoxContainer" parent="hbmenu/vb"]
+margin_top = 567.0
+margin_right = 337.0
+margin_bottom = 710.0
+
+[node name="lineip" type="LineEdit" parent="hbmenu/vb/vb3join"]
+margin_right = 337.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.61
+custom_fonts/font = ExtResource( 7 )
+text = "127.0.0.1"
+align = 1
+max_length = 20
+placeholder_text = "ip"
+
+[node name="lineport" type="LineEdit" parent="hbmenu/vb/vb3join"]
+margin_top = 49.0
+margin_right = 337.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.61
+custom_fonts/font = ExtResource( 7 )
+text = "4014"
+align = 1
+max_length = 20
+placeholder_text = "port"
+
+[node name="vbjc" type="HBoxContainer" parent="hbmenu/vb/vb3join"]
+margin_top = 98.0
+margin_right = 337.0
+margin_bottom = 143.0
+
+[node name="join" type="Button" parent="hbmenu/vb/vb3join/vbjc"]
+margin_right = 166.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "JOIN"
+
+[node name="cancel" type="Button" parent="hbmenu/vb/vb3join/vbjc"]
+self_modulate = Color( 0.533333, 0.533333, 0.533333, 1 )
+margin_left = 170.0
+margin_right = 337.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "CANCEL"
+
+[node name="space4" type="Control" parent="hbmenu/vb"]
+margin_top = 714.0
+margin_right = 337.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.6
+
+[node name="space2" type="Control" parent="hbmenu"]
+margin_left = 812.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.39
+
+[node name="autojoin" type="Button" parent="hbmenu/space2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -83.0
+margin_top = -22.5
+margin_right = 83.0
+margin_bottom = 22.5
+rect_min_size = Vector2( 0, 45 )
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 7 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "AUTO JOIN"
+
 [node name="margin" type="MarginContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/margin_right = 100
@@ -33,6 +404,7 @@ custom_constants/margin_left = 100
 custom_constants/margin_bottom = 100
 
 [node name="primer" type="VBoxContainer" parent="margin"]
+visible = false
 margin_left = 100.0
 margin_top = 100.0
 margin_right = 1180.0
@@ -54,10 +426,10 @@ scroll_horizontal_enabled = false
 [node name="Panel" type="Panel" parent="margin/primer/tempHBox/ScrollContainer"]
 
 [node name="ColorPicker" type="ColorPicker" parent="margin/primer/tempHBox/ScrollContainer/Panel"]
-margin_left = 122.0
-margin_top = 4.0
-margin_right = 412.0
-margin_bottom = 451.0
+margin_left = 134.0
+margin_top = 16.0
+margin_right = 424.0
+margin_bottom = 463.0
 rect_scale = Vector2( 0.84, 0.84 )
 size_flags_horizontal = 6
 color = Color( 0.623529, 0.137255, 0.607843, 1 )
@@ -112,15 +484,15 @@ size_flags_vertical = 3
 custom_constants/separation = 20
 
 [node name="VBox" type="VBoxContainer" parent="margin/join"]
-margin_right = 1880.0
-margin_bottom = 510.0
+margin_right = 1080.0
+margin_bottom = 282.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 
 [node name="ip" type="LineEdit" parent="margin/join/VBox"]
-margin_right = 1880.0
-margin_bottom = 245.0
+margin_right = 1080.0
+margin_bottom = 131.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
@@ -129,9 +501,9 @@ align = 1
 placeholder_text = "ip"
 
 [node name="port" type="LineEdit" parent="margin/join/VBox"]
-margin_top = 265.0
-margin_right = 1880.0
-margin_bottom = 510.0
+margin_top = 151.0
+margin_right = 1080.0
+margin_bottom = 282.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
@@ -140,16 +512,16 @@ align = 1
 placeholder_text = "port"
 
 [node name="HBox" type="HBoxContainer" parent="margin/join"]
-margin_top = 530.0
-margin_right = 1880.0
-margin_bottom = 1040.0
+margin_top = 302.0
+margin_right = 1080.0
+margin_bottom = 520.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 
 [node name="join" type="Button" parent="margin/join/HBox"]
-margin_right = 930.0
-margin_bottom = 510.0
+margin_right = 530.0
+margin_bottom = 218.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color_disabled = Color( 0.0509804, 0.341176, 0, 1 )
@@ -160,9 +532,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "JOIN"
 
 [node name="cancel" type="Button" parent="margin/join/HBox"]
-margin_left = 950.0
-margin_right = 1880.0
-margin_bottom = 510.0
+margin_left = 550.0
+margin_right = 1080.0
+margin_bottom = 218.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color_disabled = Color( 0.384314, 0, 0, 1 )
@@ -183,15 +555,15 @@ size_flags_vertical = 3
 custom_constants/separation = 20
 
 [node name="VBox" type="VBoxContainer" parent="margin/host"]
-margin_right = 1240.0
-margin_bottom = 330.0
+margin_right = 1080.0
+margin_bottom = 282.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 
 [node name="ip" type="LineEdit" parent="margin/host/VBox"]
-margin_right = 1240.0
-margin_bottom = 155.0
+margin_right = 1080.0
+margin_bottom = 131.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
@@ -200,9 +572,9 @@ editable = false
 placeholder_text = "ip"
 
 [node name="port" type="LineEdit" parent="margin/host/VBox"]
-margin_top = 175.0
-margin_right = 1240.0
-margin_bottom = 330.0
+margin_top = 151.0
+margin_right = 1080.0
+margin_bottom = 282.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
@@ -211,16 +583,16 @@ align = 1
 placeholder_text = "port"
 
 [node name="HBox" type="HBoxContainer" parent="margin/host"]
-margin_top = 350.0
-margin_right = 1240.0
-margin_bottom = 680.0
+margin_top = 302.0
+margin_right = 1080.0
+margin_bottom = 520.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 20
 
 [node name="cancel" type="Button" parent="margin/host/HBox"]
-margin_right = 610.0
-margin_bottom = 330.0
+margin_right = 530.0
+margin_bottom = 218.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color_disabled = Color( 0.384314, 0, 0, 1 )
@@ -231,9 +603,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "CANCEL"
 
 [node name="host" type="Button" parent="margin/host/HBox"]
-margin_left = 630.0
-margin_right = 1240.0
-margin_bottom = 330.0
+margin_left = 550.0
+margin_right = 1080.0
+margin_bottom = 218.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_colors/font_color_disabled = Color( 0.0509804, 0.341176, 0, 1 )
@@ -243,6 +615,18 @@ custom_colors/font_color_pressed = Color( 0.14902, 1, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "HOST"
 
+[connection signal="pressed" from="hbmenu/vb/vb0pq/play" to="hbmenu" method="_on_play_pressed"]
+[connection signal="pressed" from="hbmenu/vb/vb0pq/settings" to="hbmenu" method="_on_settings_pressed"]
+[connection signal="pressed" from="hbmenu/vb/vb0pq/quit" to="hbmenu" method="_on_quit_pressed"]
+[connection signal="text_changed" from="hbmenu/vb/vb1info/linename" to="hbmenu/vb/vb1info" method="_on_linename_text_changed"]
+[connection signal="color_changed" from="hbmenu/vb/vb1info/vbcolor/ColorPickerButton" to="hbmenu/vb/vb1info" method="_on_ColorPickerButton_color_changed"]
+[connection signal="pressed" from="hbmenu/vb/vb1info/vbjh/join" to="hbmenu" method="_on_first_join_pressed"]
+[connection signal="pressed" from="hbmenu/vb/vb1info/vbjh/host" to="hbmenu" method="_on_first_host_pressed"]
+[connection signal="pressed" from="hbmenu/vb/vb2host/vbch/cancel" to="hbmenu" method="_on_vbch_cancel_pressed"]
+[connection signal="pressed" from="hbmenu/vb/vb2host/vbch/host" to="hbmenu" method="_on_host_pressed"]
+[connection signal="pressed" from="hbmenu/vb/vb3join/vbjc/join" to="hbmenu" method="_on_join_pressed"]
+[connection signal="pressed" from="hbmenu/vb/vb3join/vbjc/cancel" to="hbmenu" method="_on_vbjc_cancel_pressed"]
+[connection signal="pressed" from="hbmenu/space2/autojoin" to="hbmenu" method="_on_autojoin_pressed"]
 [connection signal="color_changed" from="margin/primer/tempHBox/ScrollContainer/Panel/ColorPicker" to="." method="_on_ColorPicker_color_changed"]
 [connection signal="text_changed" from="margin/primer/tempHBox/name" to="." method="_on_name_text_changed"]
 [connection signal="pressed" from="margin/primer/HBox/join" to="." method="_on_primer_join_pressed"]

@@ -19,24 +19,21 @@ onready var join_ip = $margin/join/VBox/ip
 onready var join_port = $margin/join/VBox/port
 
 onready var host_port = $margin/host/VBox/port
+onready var lineip = $hbmenu/vb/vb2host/lineip
 
 
 func _ready():
-	primer.get_node("tempHBox/name").grab_focus()
 	$DataSaver.load_player_data()
 	
-# warning-ignore:return_value_discarded
+	# warning-ignore:return_value_discarded
 	get_tree().connect("connected_to_server",self,"start_game")
-	$margin/host/VBox/ip.text = (
-			str(IP.get_local_addresses()).split(",",false)[0].right(1)
+	lineip.text = (str(IP.get_local_addresses()).split(",",false)[0].right(1))
 #			+ "," +
 #			str(IP.get_local_addresses()).split(",",false)[1].right(1))
-			)
 
 
 func start_game():
 	UMB.log(1,"Menu","Connected to server.")
-#	print("\nMenu: Connected to server.\n")
 	set_info()
 	add_me()
 	
@@ -65,16 +62,71 @@ func add_me():
 
 
 ####################################SIGNALS####################################
-
-func _on_primer_join_pressed():
-	primer.visible = false
-	join.visible = true
+func deploy_server_listener() -> void:
+	if get_node("/root").has_node("ServerListener"):
+		print("!!!Menu: there is already a Server Listener")
+		return
 	
 	var listener = listener_pl.instance()
 	listener.connect("new_server",self,"_on_ServerListener_new_server")
 	get_parent().add_child(listener)
+func destroy_server_listener() -> void:
+	if not get_node("/root").has_node("ServerListener"):
+		print("!!!Menu: no Server Listener to destroy")
+		return
 	
+	get_node("/root/ServerListener").queue_free()
+	print("Menu: destroyed Server Listener")
+
+
+
+func deploy_server_advertiser() -> void:
+	var ad = advertiser_pl.instance()
+	get_parent().add_child(ad)
+
+func save_player_data() -> void:
 	$DataSaver.save_player_data()
+
+
+func Join(var _ip, var _port):
+	ip = _ip
+	port = int(_port)
+	NetworkInterface.join(ip,port)
+	
+	destroy_server_listener()
+	save_player_data()
+
+
+func Host(var _port):
+	port = int(_port)
+	NetworkInterface.host(port,max_peer)
+	
+	save_player_data()
+	destroy_server_listener()
+	deploy_server_advertiser()
+	start_game()
+
+
+func _on_ServerListener_new_server(__ip):
+	NetworkInterface.join(__ip,NetworkInterface.DEFAULT_PORT)
+	destroy_server_listener()
+	UMB.log(1,"Menu","Joining to "+str(__ip))
+	print("                      ---- Joining to ",__ip)
+
+
+
+
+
+
+
+
+
+#################################### OLD UI ####################################
+
+func _on_primer_join_pressed():
+	primer.visible = false
+	join.visible = true
+	deploy_server_listener()
 
 
 func _on_primer_host_pressed():
@@ -95,41 +147,10 @@ func _on_host_cancel_pressed():
 
 
 func _on_join_join_pressed():
-	
-	ip = join_ip.text
-	port = int(join_port.text)
-	NetworkInterface.join(ip,port)
-	
-	get_node("/root/ServerListener").queue_free()
-	
-	$DataSaver.save_player_data()
+	Join(join_ip.text,join_port.text)
+
 
 
 func _on_host_host_pressed():
-	
-	port = int(host_port.text)
-	NetworkInterface.host(port)
-	
-	$DataSaver.save_player_data()
-	
-	var ad = advertiser_pl.instance()
-	get_parent().add_child(ad)
-	
-	start_game()
+	Host(host_port.text)
 
-
-func _on_name_text_changed(new_text):
-	Name = new_text
-	NetworkInterface.Name = new_text
-
-
-func _on_ColorPicker_color_changed(_color):
-	self.color =  _color
-	NetworkInterface.color = _color
-
-
-func _on_ServerListener_new_server(__ip):
-	NetworkInterface.join(__ip,NetworkInterface.DEFAULT_PORT)
-	get_node("/root/ServerListener").queue_free()
-	UMB.log(1,"Menu","Joining to "+str(__ip))
-	print("                      ---- Joining to ",__ip)

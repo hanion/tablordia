@@ -66,7 +66,7 @@ func join(var ip: String = "127.0.0.1", var port: int = 4014) -> void:
 	get_tree().set_network_peer(_net)
 
 
-func host(var port: int = 4014, var max_peer: int = 4) -> void:
+func host(var port: int = 4014, var max_peer: int = 8) -> void:
 	var _net = NetworkedMultiplayerENet.new()
 	_net.create_server(port, max_peer)
 	get_tree().set_network_peer(_net)

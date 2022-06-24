@@ -26,7 +26,7 @@ var table_mat_carpet = preload("res://InGame/Table/Carpet012_2K-PNG/carpet.tres"
 # 1: Medium
 # 2: High
 # 3: Ultra
-const default_preset = 0
+const default_preset = 1
 
 # The available display resolutions
 const display_resolutions = [
@@ -73,7 +73,8 @@ const presets = [
 	# Ultra
 	{
 		"environment/glow_enabled": [true, "Enabled"],
-		"environment/ss_reflections_enabled": [true, "Enabled"],
+		"environment/ss_reflections_enabled": [false, "Disabled"],
+#		"environment/ss_reflections_enabled": [true, "Enabled"], # reflections broken with 2 lights
 		"environment/ssao_enabled": [true, "High-quality"],
 		"environment/ssao_blur": [Environment.SSAO_BLUR_2x2, ""],
 		"environment/ssao_quality": [Environment.SSAO_QUALITY_MEDIUM, ""],
@@ -92,7 +93,8 @@ func open_ui() -> void:
 	pu.popup()
 	visible = true
 	Std.is_blocked_by_ui = true
-	initialize()
+	if get_node("/root/").has_node("Main"):
+		initialize()
 
 func initialize() -> void:
 	if not environment == null: return
@@ -109,7 +111,7 @@ func initialize() -> void:
 	
 	# Initialize the project on the default preset
 	gq.select(default_preset)
-#	_on_graphics_preset_change(default_preset)
+	_on_graphics_preset_change(default_preset)
 
 	# Cache screen size into a variable
 	var screen_size := OS.get_screen_size()

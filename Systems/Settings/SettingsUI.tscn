@@ -36,14 +36,6 @@ msg_example = NodePath("pu/tabs/Misc/vb/msg")
 [node name="SettingsSaver" type="Node" parent="."]
 script = ExtResource( 2 )
 
-[node name="TextureRect1" type="TextureRect" parent="."]
-visible = false
-margin_left = -149.012
-margin_top = -361.928
-margin_right = 5001.99
-margin_bottom = 4528.07
-texture = ExtResource( 4 )
-
 [node name="TextureRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -52,6 +44,14 @@ margin_top = -65.0
 margin_right = 72.0
 margin_bottom = 62.0
 color = Color( 0.0705882, 0.0705882, 0.0705882, 0.721569 )
+
+[node name="TextureRect1" type="TextureRect" parent="."]
+visible = false
+margin_left = -149.012
+margin_top = -361.928
+margin_right = 5001.99
+margin_bottom = 4528.07
+texture = ExtResource( 4 )
 
 [node name="pu" type="WindowDialog" parent="."]
 visible = true

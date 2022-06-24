@@ -4,8 +4,9 @@ const SAVE_DIR = "user://saves/"
 
 var save_path = SAVE_DIR + "save.dat"
 
-onready var color_picker = get_node("../margin/primer/tempHBox/ScrollContainer/Panel/ColorPicker")
-onready var name_box = get_node("../margin/primer/tempHBox/name")
+onready var vb1info = get_node("../hbmenu/vb/vb1info")
+onready var name_box = vb1info.get_node("linename")
+onready var color_picker = vb1info.get_node("vbcolor/ColorPickerButton")
 
 
 func save_player_data() -> void:
@@ -47,15 +48,13 @@ func load_player_data() -> void:
 
 
 func write_loaded_data(player_data) -> void:
-	var menu = get_parent()
-	
 	var nam = player_data["name"]
 	name_box.text = nam
-	menu._on_name_text_changed(nam)
+	vb1info._on_linename_text_changed(nam)
 	
 	var color = player_data["color"]
 	color_picker.set_pick_color(color)
-	menu._on_ColorPicker_color_changed(color)
+	vb1info._on_ColorPickerButton_color_changed(color)
 	
 
 
