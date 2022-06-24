@@ -28,6 +28,8 @@ onready var col = $CollisionShape
 onready var mes = $MeshInstance
 onready var tween = $Tween
 
+var visible_card : card
+
 var player
 func _ready():
 	col.shape = col.shape.duplicate(true)
@@ -35,6 +37,10 @@ func _ready():
 	player.connect("started_dragging",self,"on_started_dragging")
 	player.connect("stopped_dragging",self,"on_stopped_dragging")
 
+
+# called when dragging or received state
+func set_new_visible_card_translation() -> void:
+	visible_card.translation = Vector3(0, custom_offset ,0) + translation
 
 
 func add_to_deck(what: card, bypass_can_stack_check:= false,should_check:=true) -> void:
@@ -48,7 +54,6 @@ func add_to_deck(what: card, bypass_can_stack_check:= false,should_check:=true) 
 	elif only_resources:
 		if not what.is_resource: return
 	
-	
 	what.is_in_deck = true
 	what.in_deck = self
 	
@@ -57,7 +62,7 @@ func add_to_deck(what: card, bypass_can_stack_check:= false,should_check:=true) 
 	
 	what.translation = Vector3(0, custom_offset ,0)
 	what.rotation = Vector3(0,0,0)
-	List.reparent_child(what,self)
+#	List.reparent_child(what,self)
 	
 	emit_signal("added_card_to_deck")
 	
@@ -72,6 +77,7 @@ func remove_from_deck(what: card) -> void:
 	if env.empty(): return
 	if not env.back() == what: return
 	
+	visible_card = null
 	
 	what.is_in_deck = false
 	what.in_deck = null
@@ -79,10 +85,10 @@ func remove_from_deck(what: card) -> void:
 	env.erase(what)
 	
 	
-	var old_translation = to_global(what.translation)
-	List.reparent_child(what,get_parent())
-	what.translation = old_translation
-	what.rotation = rotation
+#	var old_translation = to_global(what.translation)
+#	List.reparent_child(what,get_parent())
+#	what.translation = old_translation
+#	what.rotation = rotation
 	
 	what.set_is_hidden(false)
 #
@@ -105,10 +111,11 @@ func order_env() -> void:
 			up_card.visible = false
 			return
 	
+	visible_card = up_card
 	up_card.visible = true
 	up_card.set_is_hidden(is_cards_hidden)
 	tween_up_card(up_card)
-	
+
 
 func tween_up_card(obj:Spatial) -> void:
 	print("	¨tweenup ",obj.name)
@@ -124,11 +131,13 @@ func tween_up_card(obj:Spatial) -> void:
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
 		)
+	
+	obj.translation = translation + Vector3(0,-2*custom_offset,0)
 	tween.interpolate_property(
 		obj,
 		"translation",
 		obj.translation,
-		Vector3(0, custom_offset ,0),
+		translation+Vector3(0, custom_offset ,0),
 		Std.tween_duration,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
@@ -177,11 +186,11 @@ func check_after_onesec() -> void:
 	if not env: return
 	if not env.back().is_in_deck: return
 	if not env.back().in_deck == self: return
-	if env.back().translation == Vector3(0, custom_offset ,0): return
+	if env.back().translation == translation+Vector3(0, custom_offset ,0): return
 	
 	if _is_player_dragging: return
 	
-	env.back().translation = Vector3(0, custom_offset ,0)
+	env.back().translation = translation+Vector3(0, custom_offset ,0)
 #	env.is_in_slot = true
 #	env.in_slot = self
 	

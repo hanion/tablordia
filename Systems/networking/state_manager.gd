@@ -87,11 +87,13 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 		if obj.is_in_slot:
 			obj.is_in_slot = false
 	
-	if obj is card_52:
-		print("a")
-		
+	
+	
+	
+	
 	
 	obj.transform.origin = trans
+	if obj is deck: obj.set_new_visible_card_translation()
 	
 
 
@@ -179,8 +181,8 @@ func process_received_do(do) -> void:
 
 	elif dragged.is_in_deck:
 		dragged.in_deck.remove_from_deck(dragged)
-		if not over is hand:
-			hotfix_snap_when_removing_from_hand(dragged)
+#		if not over is hand:
+#			hotfix_snap_when_removing_from_hand(dragged)
 	
 	elif dragged.is_in_hand:
 		if not over is hand:

@@ -218,7 +218,9 @@ func drag() -> void:
 	
 	# translating object to desired location
 #	dragging.set_translation(new_coord)
-
+	
+	if dragging is deck: dragging.set_new_visible_card_translation()
+	
 	twen.stop_all()
 	
 	twen.interpolate_property(
