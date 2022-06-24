@@ -110,7 +110,7 @@ func remove_card_from_hand(var crd: card) -> void:
 	
 	
 	# cards are visible to everyone in global context
-#	set_card_hidden(crd,false)
+	set_card_hidden(crd,false)
 	
 	inventory.erase(crd)
 #	# keep the global position of card
