@@ -8,6 +8,8 @@ const UNO_pl = preload("res://Games/uno/UNO.tscn")
 const _52_pl = preload("res://Games/52/52.tscn")
 const _52_card_pl = preload("res://Games/52/card_52.tscn")
 const snr_card_pl = preload("res://Games/snr/snr_card.tscn")
+const sh_pl = preload("res://Games/sh/sh.tscn")
+const sh_card_pl = preload("res://Games/sh/sh_card.tscn")
 
 
 const deck_pl = preload("res://InGame/Deck/deck.tscn")
@@ -23,6 +25,7 @@ var deck_index:int = 0
 var uno_index:int = 0
 var card_52_index:int = 0
 var snr_card_index:int = 0
+var sh_card_index:int = 0
 
 
 
@@ -77,6 +80,8 @@ func spawn_Game(info) -> void:
 			board = UNO_pl.instance()
 		"52":
 			board = _52_pl.instance()
+		"SH":
+			board = sh_pl.instance()
 		_:
 			return
 	
@@ -159,6 +164,11 @@ func spawn_Card(info) -> void:
 			crd = snr_card_pl.instance() as snr_card
 			crd.set_name("snrc"+str(snr_card_index))
 			snr_card_index += 1
+		"SH Card":
+			crd = sh_card_pl.instance() as sh_card
+			crd.set_name("shc"+str(sh_card_index))
+			sh_card_index += 1
+		
 	
 	
 	#spawn

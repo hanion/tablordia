@@ -39,10 +39,10 @@ func add_to_slot(obj: card) -> void:
 	obj.in_slot = self
 	
 	env = obj
-	obj.translation = translation + Vector3(0, off_y ,0)
+	obj.translation = global_transform.origin + Vector3(0, off_y ,0)
 	
 	# to fix rotation  (and slot is always 000)
-	obj.rotation = Vector3(0,0,0)
+	obj.rotation = rotation
 	check_after_onesec()
 
 
@@ -97,7 +97,7 @@ func check_after_onesec():
 	if not env.in_slot == self: 
 		print("slotcheck error: 3")
 		return
-	if env.translation == translation + Vector3(0, off_y ,0): 
+	if env.translation == global_transform.origin + Vector3(0, off_y ,0): 
 		return
 	
 	if _is_player_dragging:
@@ -105,7 +105,7 @@ func check_after_onesec():
 		return
 	
 	
-	env.translation = translation + Vector3(0, off_y ,0)
+	env.translation = global_transform.origin + Vector3(0, off_y ,0)
 #	env.is_in_slot = true
 #	env.in_slot = self
 	print("slotcheck: checked ", env.name, " as ", self.name)

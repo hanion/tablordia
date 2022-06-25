@@ -72,3 +72,12 @@ func _on_m7_pressed():
 	hs.selected(info)
 
 
+func _on_m8_pressed() -> void:
+	var info := {
+		"type":"Game",
+		"name":"SH"
+		}
+	hs.selected(info)
+
+
+

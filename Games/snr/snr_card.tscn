@@ -15,11 +15,7 @@ bottom_radius = 0.7
 height = 0.05
 radial_segments = 32
 
-[node name="snr_card" type="Area" groups=[
-"draggable",
-"hand_custom_offset",
-"rotatable",
-]]
+[node name="snr_card" type="Area" groups=["draggable", "hand_custom_offset", "rotatable"]]
 script = ExtResource( 1 )
 mesh = NodePath("mesh")
 back_mat = ExtResource( 2 )

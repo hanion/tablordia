@@ -1,0 +1,43 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Games/sh/sh_card.gd" type="Script" id=1]
+[ext_resource path="res://Games/sh/mats/sh_lib_mat.tres" type="Material" id=2]
+[ext_resource path="res://Games/sh/mats/sh_fas_mat.tres" type="Material" id=3]
+[ext_resource path="res://Games/sh/mats/sh_lpm.tres" type="Material" id=4]
+[ext_resource path="res://Games/sh/mats/sh_fas_article_mat.tres" type="Material" id=5]
+[ext_resource path="res://Games/sh/mats/sh_lib_article_mat.tres" type="Material" id=6]
+[ext_resource path="res://Games/sh/mats/sh_mat_hit.tres" type="Material" id=7]
+[ext_resource path="res://Games/sh/mats/sh_ja_mat.tres" type="Material" id=8]
+[ext_resource path="res://Games/sh/mats/sh_fpm.tres" type="Material" id=9]
+[ext_resource path="res://Games/sh/mats/sh_nein_mat.tres" type="Material" id=10]
+[ext_resource path="res://Games/sh/mats/sh_back_mat.tres" type="Material" id=11]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.72, 0.04, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 1.44, 0.04, 2 )
+
+[node name="sh_card" type="Area" groups=["draggable", "rotatable"]]
+script = ExtResource( 1 )
+mesh = NodePath("mesh")
+lib = ExtResource( 2 )
+fas = ExtResource( 3 )
+hit = ExtResource( 7 )
+l_article = ExtResource( 6 )
+f_article = ExtResource( 5 )
+ja = ExtResource( 8 )
+nein = ExtResource( 10 )
+l_pm = ExtResource( 4 )
+f_pm = ExtResource( 9 )
+back = ExtResource( 11 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )
+shape = SubResource( 1 )
+
+[node name="mesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )
+mesh = SubResource( 2 )
+skeleton = NodePath("")
+material/0 = ExtResource( 11 )

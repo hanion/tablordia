@@ -16,10 +16,7 @@ extents = Vector3( 0.72, 0.04, 1 )
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 1.44, 0.04, 2 )
 
-[node name="br_card" type="Area" groups=[
-"draggable",
-"rotatable",
-]]
+[node name="br_card" type="Area" groups=["draggable", "rotatable"]]
 script = ExtResource( 1 )
 res_mats = [ ExtResource( 4 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ) ]
 item_mats = [ ExtResource( 3 ), ExtResource( 5 ) ]

@@ -66,18 +66,7 @@ margin_left = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
 
-[node name="Credits" type="Panel" parent="pu/tabs"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 36.0
-margin_right = -5.0
-margin_bottom = -5.0
-
-[node name="credit" parent="pu/tabs/Credits" instance=ExtResource( 8 )]
-
 [node name="Simple" type="VBoxContainer" parent="pu/tabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -599,6 +588,17 @@ margin_right = 466.0
 text = "Wood"
 items = [ "Wood", null, false, 0, null, "Marble", null, false, 1, null, "Carpet", null, false, 2, null ]
 selected = 0
+
+[node name="Credits" type="Panel" parent="pu/tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="credit" parent="pu/tabs/Credits" instance=ExtResource( 8 )]
 
 [connection signal="item_selected" from="pu/tabs/Simple/GraphicsQuality/OptionButton" to="." method="_on_graphics_preset_change"]
 [connection signal="item_selected" from="pu/tabs/Simple/DisplayResolution/OptionButton" to="." method="_on_resolution_changed"]

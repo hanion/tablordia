@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/Steel.png" type="Texture" id=2]
@@ -23,6 +23,17 @@
 [ext_resource path="res://Systems/Spawner/spawnmenu/UNO_UI.gd" type="Script" id=21]
 [ext_resource path="res://Systems/Spawner/spawnmenu/inspector/uno_team.gd" type="Script" id=22]
 [ext_resource path="res://assets/52/cardSpadesA.png" type="Texture" id=23]
+[ext_resource path="res://assets/sh/sh_logo.png" type="Texture" id=24]
+[ext_resource path="res://assets/sh/sh_f.png" type="Texture" id=25]
+[ext_resource path="res://assets/sh/sh_l.png" type="Texture" id=26]
+[ext_resource path="res://assets/sh/sh_lib.png" type="Texture" id=27]
+[ext_resource path="res://assets/sh/sh_hit.png" type="Texture" id=28]
+[ext_resource path="res://assets/sh/sh_fm.png" type="Texture" id=29]
+[ext_resource path="res://assets/sh/sh_ja.png" type="Texture" id=30]
+[ext_resource path="res://assets/sh/sh_nein.png" type="Texture" id=31]
+[ext_resource path="res://assets/sh/sh_lm.png" type="Texture" id=32]
+[ext_resource path="res://assets/sh/sh_fas.png" type="Texture" id=33]
+[ext_resource path="res://Systems/Spawner/spawnmenu/SecretHitler.gd" type="Script" id=34]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0980392, 0.121569, 0.137255, 1 )
@@ -467,7 +478,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 drag_to_rearrange_enabled = true
 
-[node name="Boards" type="ScrollContainer" parent="vb/mrgn/hs/games"]
+[node name="Quick" type="ScrollContainer" parent="vb/mrgn/hs/games"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -477,22 +488,22 @@ margin_bottom = -5.0
 scroll_horizontal_enabled = false
 script = ExtResource( 18 )
 
-[node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/Boards"]
+[node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/Quick"]
 margin_right = 813.0
 margin_bottom = 436.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
 
-[node name="m0" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
+[node name="m0" type="Button" parent="vb/mrgn/hs/games/Quick/Grid"]
 visible = false
-margin_right = 192.0
-margin_bottom = 350.0
+margin_right = 159.0
+margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m0"]
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Quick/Grid/m0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -503,22 +514,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m0/vb"]
-margin_right = 172.0
-margin_bottom = 302.0
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Quick/Grid/m0/vb"]
+margin_right = 139.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m0/vb"]
-margin_top = 306.0
-margin_right = 172.0
-margin_bottom = 335.0
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m0/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
 text = "misc"
 align = 1
 
-[node name="m1" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
+[node name="m1" type="Button" parent="vb/mrgn/hs/games/Quick/Grid"]
 margin_right = 159.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
@@ -526,7 +537,7 @@ size_flags_horizontal = 3
 custom_styles/normal = SubResource( 2 )
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m1"]
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Quick/Grid/m1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -537,7 +548,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m1/vb"]
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Quick/Grid/m1/vb"]
 process_priority = -5
 margin_right = 139.0
 margin_bottom = 112.0
@@ -547,22 +558,56 @@ texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m1/vb"]
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m1/vb"]
 margin_top = 116.0
 margin_right = 139.0
 margin_bottom = 145.0
 text = "Board Royale"
 align = 1
 
-[node name="m2" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
+[node name="m8" type="Button" parent="vb/mrgn/hs/games/Quick/Grid"]
 margin_left = 163.0
 margin_right = 322.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
+custom_styles/normal = SubResource( 2 )
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m2"]
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Quick/Grid/m8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Quick/Grid/m8/vb"]
+process_priority = -5
+margin_right = 139.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 24 )
+expand = true
+stretch_mode = 7
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m8/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Secret Hitler"
+align = 1
+
+[node name="m2" type="Button" parent="vb/mrgn/hs/games/Quick/Grid"]
+margin_left = 326.0
+margin_right = 485.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Quick/Grid/m2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -573,7 +618,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m2/vb"]
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Quick/Grid/m2/vb"]
 process_priority = -5
 margin_right = 139.0
 margin_bottom = 112.0
@@ -583,22 +628,22 @@ texture = ExtResource( 19 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m2/vb"]
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m2/vb"]
 margin_top = 116.0
 margin_right = 139.0
 margin_bottom = 145.0
 text = "Chess Board"
 align = 1
 
-[node name="m51" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
-margin_left = 326.0
-margin_right = 485.0
+[node name="m51" type="Button" parent="vb/mrgn/hs/games/Quick/Grid"]
+margin_left = 489.0
+margin_right = 648.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m51"]
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Quick/Grid/m51"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -609,7 +654,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m51/vb"]
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Quick/Grid/m51/vb"]
 process_priority = -5
 margin_right = 139.0
 margin_bottom = 112.0
@@ -619,60 +664,14 @@ texture = SubResource( 3 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m51/vb"]
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m51/vb"]
 margin_top = 116.0
 margin_right = 139.0
 margin_bottom = 145.0
 text = "UNO"
 align = 1
 
-[node name="m3" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
-margin_left = 489.0
-margin_right = 648.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m3/vb"]
-process_priority = -5
-visible = false
-margin_right = 276.0
-margin_bottom = 302.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 16 )
-expand = true
-stretch_mode = 6
-
-[node name="Label2" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m3/vb"]
-margin_right = 139.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Hand"
-align = 1
-valign = 1
-
-[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m3/vb"]
-margin_top = 116.0
-margin_right = 139.0
-margin_bottom = 145.0
-text = "Hand"
-align = 1
-
-[node name="m4" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
+[node name="m5" type="Button" parent="vb/mrgn/hs/games/Quick/Grid"]
 margin_left = 652.0
 margin_right = 811.0
 margin_bottom = 160.0
@@ -680,53 +679,7 @@ rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m4/vb"]
-process_priority = -5
-visible = false
-margin_right = 276.0
-margin_bottom = 302.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 16 )
-expand = true
-stretch_mode = 6
-
-[node name="Label2" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m4/vb"]
-margin_right = 139.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Deck"
-align = 1
-valign = 1
-
-[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m4/vb"]
-margin_top = 116.0
-margin_right = 139.0
-margin_bottom = 145.0
-text = "Deck"
-align = 1
-
-[node name="m5" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
-margin_top = 164.0
-margin_right = 159.0
-margin_bottom = 324.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m5"]
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Quick/Grid/m5"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -734,7 +687,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -7.29201
 
-[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m5/vb"]
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Quick/Grid/m5/vb"]
 process_priority = -5
 margin_right = 141.0
 margin_bottom = 109.0
@@ -745,14 +698,60 @@ texture = ExtResource( 23 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m5/vb"]
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m5/vb"]
 margin_top = 113.0
 margin_right = 141.0
 margin_bottom = 142.0
 text = "Deck of 52 cards"
 align = 1
 
-[node name="m6" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
+[node name="m3" type="Button" parent="vb/mrgn/hs/games/Quick/Grid"]
+margin_top = 164.0
+margin_right = 159.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Quick/Grid/m3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Quick/Grid/m3/vb"]
+process_priority = -5
+visible = false
+margin_right = 276.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m3/vb"]
+margin_right = 139.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hand"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m3/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Hand"
+align = 1
+
+[node name="m4" type="Button" parent="vb/mrgn/hs/games/Quick/Grid"]
 margin_left = 163.0
 margin_top = 164.0
 margin_right = 322.0
@@ -761,7 +760,7 @@ rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m6"]
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Quick/Grid/m4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -772,22 +771,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m6/vb"]
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Quick/Grid/m4/vb"]
 process_priority = -5
+visible = false
+margin_right = 276.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m4/vb"]
 margin_right = 139.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-stretch_mode = 4
+text = "Deck"
+align = 1
+valign = 1
 
-[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m6/vb"]
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m4/vb"]
 margin_top = 116.0
 margin_right = 139.0
 margin_bottom = 145.0
-text = "SNR Rose"
+text = "Deck"
 align = 1
 
-[node name="m7" type="Button" parent="vb/mrgn/hs/games/Boards/Grid"]
+[node name="m6" type="Button" parent="vb/mrgn/hs/games/Quick/Grid"]
 margin_left = 326.0
 margin_top = 164.0
 margin_right = 485.0
@@ -796,7 +807,7 @@ rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Boards/Grid/m7"]
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Quick/Grid/m6"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -807,7 +818,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Boards/Grid/m7/vb"]
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Quick/Grid/m6/vb"]
 process_priority = -5
 margin_right = 139.0
 margin_bottom = 112.0
@@ -815,11 +826,421 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="vb/mrgn/hs/games/Boards/Grid/m7/vb"]
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m6/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "SNR Rose"
+align = 1
+
+[node name="m7" type="Button" parent="vb/mrgn/hs/games/Quick/Grid"]
+margin_left = 489.0
+margin_top = 164.0
+margin_right = 648.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/Quick/Grid/m7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/Quick/Grid/m7/vb"]
+process_priority = -5
+margin_right = 139.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/Quick/Grid/m7/vb"]
 margin_top = 116.0
 margin_right = 139.0
 margin_bottom = 145.0
 text = "SNR Skull"
+align = 1
+
+[node name="SecretHitler" type="ScrollContainer" parent="vb/mrgn/hs/games"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+scroll_horizontal_enabled = false
+script = ExtResource( 34 )
+
+[node name="Grid" type="GridContainer" parent="vb/mrgn/hs/games/SecretHitler"]
+margin_right = 813.0
+margin_bottom = 436.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="mSample" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+visible = false
+margin_right = 161.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/mSample"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/mSample/vb"]
+margin_right = 141.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/mSample/vb"]
+margin_top = 116.0
+margin_right = 141.0
+margin_bottom = 145.0
+text = "misc"
+align = 1
+
+[node name="msh10" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+margin_right = 159.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh10"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh10/vb"]
+margin_right = 139.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 24 )
+expand = true
+stretch_mode = 7
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh10/vb"]
+margin_top = 92.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Secret Hitler 
+Board"
+align = 1
+
+[node name="msh" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+margin_left = 163.0
+margin_right = 322.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh/vb"]
+margin_right = 139.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 27 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Liberal Card"
+align = 1
+
+[node name="msh2" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+margin_left = 326.0
+margin_right = 485.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh2/vb"]
+margin_right = 139.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 33 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh2/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Fascist Card"
+align = 1
+
+[node name="msh3" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+margin_left = 489.0
+margin_right = 648.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh3/vb"]
+margin_right = 139.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 28 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh3/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Hitler Card"
+align = 1
+
+[node name="msh4" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+margin_left = 652.0
+margin_right = 811.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh4/vb"]
+margin_right = 139.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 26 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh4/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Liberal Article"
+align = 1
+
+[node name="msh5" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+margin_top = 164.0
+margin_right = 159.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh5/vb"]
+margin_right = 139.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 25 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh5/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Fascist Article"
+align = 1
+
+[node name="msh6" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+margin_left = 163.0
+margin_top = 164.0
+margin_right = 322.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh6/vb"]
+margin_right = 139.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 30 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh6/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Ja Card"
+align = 1
+
+[node name="msh7" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+margin_left = 326.0
+margin_top = 164.0
+margin_right = 485.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh7/vb"]
+margin_right = 139.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 31 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh7/vb"]
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Nein Card"
+align = 1
+
+[node name="msh8" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+margin_left = 489.0
+margin_top = 164.0
+margin_right = 648.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh8/vb"]
+margin_right = 139.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 32 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh8/vb"]
+margin_top = 92.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Liberal Party 
+Membership"
+align = 1
+
+[node name="msh9" type="Button" parent="vb/mrgn/hs/games/SecretHitler/Grid"]
+margin_left = 652.0
+margin_top = 164.0
+margin_right = 811.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh9"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh9/vb"]
+margin_right = 139.0
+margin_bottom = 88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 29 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="vb/mrgn/hs/games/SecretHitler/Grid/msh9/vb"]
+margin_top = 92.0
+margin_right = 139.0
+margin_bottom = 145.0
+text = "Fascist Party 
+Membership"
 align = 1
 
 [node name="UNO" type="ScrollContainer" parent="vb/mrgn/hs/games"]
@@ -875,7 +1296,7 @@ text = "misc"
 align = 1
 
 [node name="m51" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_right = 189.0
+margin_right = 157.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -894,7 +1315,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m51/vb"]
 process_priority = -5
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -904,14 +1325,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m51/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO"
 align = 1
 
 [node name="m10" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 193.0
-margin_right = 382.0
+margin_left = 161.0
+margin_right = 318.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -929,7 +1350,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m10/vb"]
-margin_right = 169.0
+margin_right = 140.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -939,14 +1360,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m10/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 140.0
 margin_bottom = 145.0
 text = "UNO Card Block"
 align = 1
 
 [node name="m11" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 386.0
-margin_right = 575.0
+margin_left = 322.0
+margin_right = 479.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -964,7 +1385,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m11/vb"]
-margin_right = 169.0
+margin_right = 161.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -974,14 +1395,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m11/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 161.0
 margin_bottom = 145.0
 text = "UNO Card Reverse"
 align = 1
 
 [node name="m12" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 579.0
-margin_right = 768.0
+margin_left = 483.0
+margin_right = 640.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -999,7 +1420,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m12/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1009,14 +1430,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m12/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card +2"
 align = 1
 
 [node name="m13" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 772.0
-margin_right = 961.0
+margin_left = 644.0
+margin_right = 801.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1034,7 +1455,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m13/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1044,14 +1465,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m13/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card +4"
 align = 1
 
 [node name="m14" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
 margin_top = 164.0
-margin_right = 189.0
+margin_right = 157.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1064,12 +1485,9 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m14/vb"]
-margin_right = 207.0
+margin_right = 163.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1079,15 +1497,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m14/vb"]
 margin_top = 116.0
-margin_right = 207.0
+margin_right = 163.0
 margin_bottom = 145.0
-text = "UNO Card Change Color"
+text = "UNO Change Color"
 align = 1
 
 [node name="m0" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 193.0
+margin_left = 161.0
 margin_top = 164.0
-margin_right = 382.0
+margin_right = 318.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1105,7 +1523,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m0/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1115,15 +1533,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m0/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card 0"
 align = 1
 
 [node name="m1" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 386.0
+margin_left = 322.0
 margin_top = 164.0
-margin_right = 575.0
+margin_right = 479.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1141,7 +1559,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m1/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1151,15 +1569,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m1/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card 1"
 align = 1
 
 [node name="m2" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 579.0
+margin_left = 483.0
 margin_top = 164.0
-margin_right = 768.0
+margin_right = 640.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1177,7 +1595,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m2/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1187,15 +1605,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m2/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card 2"
 align = 1
 
 [node name="m3" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 772.0
+margin_left = 644.0
 margin_top = 164.0
-margin_right = 961.0
+margin_right = 801.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1213,7 +1631,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m3/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1223,14 +1641,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m3/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card 3"
 align = 1
 
 [node name="m4" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
 margin_top = 328.0
-margin_right = 189.0
+margin_right = 157.0
 margin_bottom = 488.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1248,7 +1666,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m4/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1258,15 +1676,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m4/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card 4"
 align = 1
 
 [node name="m5" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 193.0
+margin_left = 161.0
 margin_top = 328.0
-margin_right = 382.0
+margin_right = 318.0
 margin_bottom = 488.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1284,7 +1702,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m5/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1294,15 +1712,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m5/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card 5"
 align = 1
 
 [node name="m6" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 386.0
+margin_left = 322.0
 margin_top = 328.0
-margin_right = 575.0
+margin_right = 479.0
 margin_bottom = 488.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1320,7 +1738,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m6/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1330,15 +1748,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m6/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card 6"
 align = 1
 
 [node name="m7" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 579.0
+margin_left = 483.0
 margin_top = 328.0
-margin_right = 768.0
+margin_right = 640.0
 margin_bottom = 488.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1356,7 +1774,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m7/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1366,15 +1784,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m7/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card 7"
 align = 1
 
 [node name="m8" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
-margin_left = 772.0
+margin_left = 644.0
 margin_top = 328.0
-margin_right = 961.0
+margin_right = 801.0
 margin_bottom = 488.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1392,7 +1810,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m8/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1402,14 +1820,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m8/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card 8"
 align = 1
 
 [node name="m9" type="Button" parent="vb/mrgn/hs/games/UNO/Grid"]
 margin_top = 492.0
-margin_right = 189.0
+margin_right = 157.0
 margin_bottom = 652.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
@@ -1427,7 +1845,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/UNO/Grid/m9/vb"]
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1437,7 +1855,7 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/UNO/Grid/m9/vb"]
 margin_top = 116.0
-margin_right = 169.0
+margin_right = 137.0
 margin_bottom = 145.0
 text = "UNO Card 9"
 align = 1
@@ -1482,9 +1900,9 @@ size_flags_vertical = 3
 columns = 5
 
 [node name="s0" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
-margin_right = 148.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 144, 350 )
+margin_right = 157.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
@@ -1500,8 +1918,8 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s0/vb"]
-margin_right = 128.0
-margin_bottom = 302.0
+margin_right = 137.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 4 )
@@ -1509,17 +1927,17 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s0/vb"]
-margin_top = 306.0
-margin_right = 128.0
-margin_bottom = 335.0
+margin_top = 116.0
+margin_right = 137.0
+margin_bottom = 145.0
 text = "Wood"
 align = 1
 
 [node name="s1" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
-margin_left = 152.0
-margin_right = 300.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 144, 350 )
+margin_left = 161.0
+margin_right = 318.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
@@ -1535,8 +1953,8 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s1/vb"]
-margin_right = 128.0
-margin_bottom = 302.0
+margin_right = 137.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 7 )
@@ -1544,17 +1962,17 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s1/vb"]
-margin_top = 306.0
-margin_right = 128.0
-margin_bottom = 335.0
+margin_top = 116.0
+margin_right = 137.0
+margin_bottom = 145.0
 text = "Stone"
 align = 1
 
 [node name="s2" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
-margin_left = 304.0
-margin_right = 452.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 144, 350 )
+margin_left = 322.0
+margin_right = 479.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
@@ -1570,8 +1988,8 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s2/vb"]
-margin_right = 128.0
-margin_bottom = 302.0
+margin_right = 137.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 3 )
@@ -1579,17 +1997,17 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s2/vb"]
-margin_top = 306.0
-margin_right = 128.0
-margin_bottom = 335.0
+margin_top = 116.0
+margin_right = 137.0
+margin_bottom = 145.0
 text = "Food"
 align = 1
 
 [node name="s3" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
-margin_left = 456.0
-margin_right = 604.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 144, 350 )
+margin_left = 483.0
+margin_right = 640.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
@@ -1605,8 +2023,8 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s3/vb"]
-margin_right = 128.0
-margin_bottom = 302.0
+margin_right = 137.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 2 )
@@ -1614,17 +2032,17 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s3/vb"]
-margin_top = 306.0
-margin_right = 128.0
-margin_bottom = 335.0
+margin_top = 116.0
+margin_right = 137.0
+margin_bottom = 145.0
 text = "Steel"
 align = 1
 
 [node name="s4" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
-margin_left = 608.0
-margin_right = 756.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 144, 350 )
+margin_left = 644.0
+margin_right = 801.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
@@ -1640,8 +2058,8 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s4/vb"]
-margin_right = 128.0
-margin_bottom = 302.0
+margin_right = 137.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 5 )
@@ -1649,18 +2067,17 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s4/vb"]
-margin_top = 306.0
-margin_right = 128.0
-margin_bottom = 335.0
+margin_top = 116.0
+margin_right = 137.0
+margin_bottom = 145.0
 text = "Gold"
 align = 1
 
 [node name="s5" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid"]
 visible = false
-margin_top = 204.0
-margin_right = 167.0
-margin_bottom = 404.0
-rect_min_size = Vector2( 144, 350 )
+margin_right = 157.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
@@ -1676,8 +2093,8 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s5/vb"]
-margin_right = 147.0
-margin_bottom = 159.0
+margin_right = 137.0
+margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 4 )
@@ -1685,9 +2102,9 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s5/vb"]
-margin_top = 163.0
-margin_right = 147.0
-margin_bottom = 185.0
+margin_top = 306.0
+margin_right = 137.0
+margin_bottom = 335.0
 text = "resource"
 align = 1
 
@@ -1748,7 +2165,7 @@ text = "item"
 align = 1
 
 [node name="i1" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -1766,7 +2183,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i1/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1776,14 +2193,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i1/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Punch"
 align = 1
 
 [node name="i2" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
-margin_right = 296.0
+margin_left = 159.0
+margin_right = 314.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -1801,7 +2218,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i2/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1811,14 +2228,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i2/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Kick"
 align = 1
 
 [node name="i3" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
-margin_right = 446.0
+margin_left = 318.0
+margin_right = 473.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -1836,7 +2253,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i3/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1846,14 +2263,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i3/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Blow Dart"
 align = 1
 
 [node name="i4" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
-margin_right = 596.0
+margin_left = 477.0
+margin_right = 632.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -1871,7 +2288,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i4/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1881,14 +2298,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i4/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Spiked Club"
 align = 1
 
 [node name="i5" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 600.0
-margin_right = 746.0
+margin_left = 636.0
+margin_right = 791.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -1906,7 +2323,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i5/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1916,14 +2333,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i5/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Fire"
 align = 1
 
 [node name="i6" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
 margin_top = 154.0
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 304.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -1941,7 +2358,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i6/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1951,15 +2368,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i6/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Torch"
 align = 1
 
 [node name="i7" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
+margin_left = 159.0
 margin_top = 154.0
-margin_right = 296.0
+margin_right = 314.0
 margin_bottom = 304.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -1977,7 +2394,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i7/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1987,15 +2404,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i7/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Revolution"
 align = 1
 
 [node name="i8" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
+margin_left = 318.0
 margin_top = 154.0
-margin_right = 446.0
+margin_right = 473.0
 margin_bottom = 304.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2013,7 +2430,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i8/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2023,15 +2440,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i8/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Trap"
 align = 1
 
 [node name="i9" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
+margin_left = 477.0
 margin_top = 154.0
-margin_right = 596.0
+margin_right = 632.0
 margin_bottom = 304.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2049,7 +2466,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i9/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2059,15 +2476,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i9/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Sprint"
 align = 1
 
 [node name="i10" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 600.0
+margin_left = 636.0
 margin_top = 154.0
-margin_right = 746.0
+margin_right = 791.0
 margin_bottom = 304.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2085,7 +2502,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i10/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2095,14 +2512,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i10/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Knockdown"
 align = 1
 
 [node name="i11" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
 margin_top = 308.0
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 458.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2120,7 +2537,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i11/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2130,15 +2547,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i11/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Food Pile"
 align = 1
 
 [node name="i12" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
+margin_left = 159.0
 margin_top = 308.0
-margin_right = 296.0
+margin_right = 314.0
 margin_bottom = 458.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2156,7 +2573,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i12/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2166,15 +2583,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i12/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Wood Pile"
 align = 1
 
 [node name="i13" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
+margin_left = 318.0
 margin_top = 308.0
-margin_right = 446.0
+margin_right = 473.0
 margin_bottom = 458.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2192,7 +2609,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i13/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2202,15 +2619,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i13/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Iron Pile"
 align = 1
 
 [node name="i14" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
+margin_left = 477.0
 margin_top = 308.0
-margin_right = 596.0
+margin_right = 632.0
 margin_bottom = 458.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2228,7 +2645,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i14/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2238,15 +2655,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i14/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Stone Pile"
 align = 1
 
 [node name="i15" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 600.0
+margin_left = 636.0
 margin_top = 308.0
-margin_right = 746.0
+margin_right = 791.0
 margin_bottom = 458.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2264,7 +2681,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i15/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2274,14 +2691,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i15/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Gold Pile"
 align = 1
 
 [node name="i16" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
 margin_top = 462.0
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 612.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2299,7 +2716,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i16/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2309,15 +2726,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i16/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Bandage"
 align = 1
 
 [node name="i17" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
+margin_left = 159.0
 margin_top = 462.0
-margin_right = 296.0
+margin_right = 314.0
 margin_bottom = 612.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2335,7 +2752,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i17/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2345,15 +2762,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i17/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Medkit"
 align = 1
 
 [node name="i18" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
+margin_left = 318.0
 margin_top = 462.0
-margin_right = 446.0
+margin_right = 473.0
 margin_bottom = 612.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2371,7 +2788,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i18/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2381,15 +2798,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i18/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Run Away"
 align = 1
 
 [node name="i19" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
+margin_left = 477.0
 margin_top = 462.0
-margin_right = 596.0
+margin_right = 632.0
 margin_bottom = 612.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2407,7 +2824,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i19/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2417,15 +2834,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i19/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Grenade"
 align = 1
 
 [node name="i20" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 600.0
+margin_left = 636.0
 margin_top = 462.0
-margin_right = 746.0
+margin_right = 791.0
 margin_bottom = 612.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2443,7 +2860,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i20/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2453,14 +2870,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i20/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Bullet"
 align = 1
 
 [node name="i30" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
 margin_top = 616.0
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 766.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2478,7 +2895,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i30/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2488,15 +2905,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i30/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Airdrop"
 align = 1
 
 [node name="i31" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
+margin_left = 159.0
 margin_top = 616.0
-margin_right = 296.0
+margin_right = 314.0
 margin_bottom = 766.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2514,7 +2931,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i31/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2524,15 +2941,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i31/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Backpack"
 align = 1
 
 [node name="i32" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
+margin_left = 318.0
 margin_top = 616.0
-margin_right = 446.0
+margin_right = 473.0
 margin_bottom = 766.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2550,7 +2967,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i32/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2560,15 +2977,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i32/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Chest"
 align = 1
 
 [node name="i33" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
+margin_left = 477.0
 margin_top = 616.0
-margin_right = 596.0
+margin_right = 632.0
 margin_bottom = 766.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2586,7 +3003,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i33/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2596,15 +3013,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i33/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Pocket Knife"
 align = 1
 
 [node name="i34" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 600.0
+margin_left = 636.0
 margin_top = 616.0
-margin_right = 746.0
+margin_right = 791.0
 margin_bottom = 766.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2622,7 +3039,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i34/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2632,14 +3049,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i34/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Fishing Rod"
 align = 1
 
 [node name="i35" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
 margin_top = 770.0
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 920.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2657,7 +3074,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i35/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2667,15 +3084,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i35/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Pot"
 align = 1
 
 [node name="i36" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
+margin_left = 159.0
 margin_top = 770.0
-margin_right = 296.0
+margin_right = 314.0
 margin_bottom = 920.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2693,7 +3110,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i36/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2703,15 +3120,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i36/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Swing Kit"
 align = 1
 
 [node name="i37" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
+margin_left = 318.0
 margin_top = 770.0
-margin_right = 446.0
+margin_right = 473.0
 margin_bottom = 920.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2729,7 +3146,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i37/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2739,15 +3156,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i37/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Pickaxe"
 align = 1
 
 [node name="i38" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
+margin_left = 477.0
 margin_top = 770.0
-margin_right = 596.0
+margin_right = 632.0
 margin_bottom = 920.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2765,7 +3182,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i38/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2775,15 +3192,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i38/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Shovel"
 align = 1
 
 [node name="i39" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 600.0
+margin_left = 636.0
 margin_top = 770.0
-margin_right = 746.0
+margin_right = 791.0
 margin_bottom = 920.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2801,7 +3218,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i39/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2811,14 +3228,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i39/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Bow & Arrow"
 align = 1
 
 [node name="i40" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
 margin_top = 924.0
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 1074.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2836,7 +3253,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i40/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2846,15 +3263,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i40/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Axe"
 align = 1
 
 [node name="i41" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
+margin_left = 159.0
 margin_top = 924.0
-margin_right = 296.0
+margin_right = 314.0
 margin_bottom = 1074.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2872,7 +3289,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i41/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2882,15 +3299,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i41/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Slingshot"
 align = 1
 
 [node name="i42" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
+margin_left = 318.0
 margin_top = 924.0
-margin_right = 446.0
+margin_right = 473.0
 margin_bottom = 1074.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2908,7 +3325,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i42/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2918,15 +3335,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i42/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Hammer"
 align = 1
 
 [node name="i43" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
+margin_left = 477.0
 margin_top = 924.0
-margin_right = 596.0
+margin_right = 632.0
 margin_bottom = 1074.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2944,7 +3361,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i43/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2954,15 +3371,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i43/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Spear"
 align = 1
 
 [node name="i44" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 600.0
+margin_left = 636.0
 margin_top = 924.0
-margin_right = 746.0
+margin_right = 791.0
 margin_bottom = 1074.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -2980,7 +3397,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i44/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2990,14 +3407,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i44/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Harpoon"
 align = 1
 
 [node name="i45" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
 margin_top = 1078.0
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 1228.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3015,7 +3432,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i45/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3025,15 +3442,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i45/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Knife"
 align = 1
 
 [node name="i46" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
+margin_left = 159.0
 margin_top = 1078.0
-margin_right = 296.0
+margin_right = 314.0
 margin_bottom = 1228.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3051,7 +3468,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i46/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3061,15 +3478,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i46/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Cowbar"
 align = 1
 
 [node name="i47" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
+margin_left = 318.0
 margin_top = 1078.0
-margin_right = 446.0
+margin_right = 473.0
 margin_bottom = 1228.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3087,7 +3504,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i47/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3097,15 +3514,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i47/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Revolver"
 align = 1
 
 [node name="i48" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
+margin_left = 477.0
 margin_top = 1078.0
-margin_right = 596.0
+margin_right = 632.0
 margin_bottom = 1228.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3123,7 +3540,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i48/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3133,15 +3550,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i48/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Shotgun"
 align = 1
 
 [node name="i49" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 600.0
+margin_left = 636.0
 margin_top = 1078.0
-margin_right = 746.0
+margin_right = 791.0
 margin_bottom = 1228.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3159,7 +3576,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i49/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3169,14 +3586,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i49/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Old Pistol"
 align = 1
 
 [node name="i50" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
 margin_top = 1232.0
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 1382.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3210,9 +3627,9 @@ text = "Sawed-off Shotgun"
 align = 1
 
 [node name="i51" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
+margin_left = 159.0
 margin_top = 1232.0
-margin_right = 296.0
+margin_right = 314.0
 margin_bottom = 1382.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3230,7 +3647,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i51/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3240,15 +3657,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i51/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Short Rifle"
 align = 1
 
 [node name="i52" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
+margin_left = 318.0
 margin_top = 1232.0
-margin_right = 446.0
+margin_right = 473.0
 margin_bottom = 1382.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3266,7 +3683,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i52/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3276,15 +3693,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i52/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Bola"
 align = 1
 
 [node name="i53" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
+margin_left = 477.0
 margin_top = 1232.0
-margin_right = 596.0
+margin_right = 632.0
 margin_bottom = 1382.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3302,7 +3719,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i53/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3312,15 +3729,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i53/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Boomerang"
 align = 1
 
 [node name="i54" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 600.0
+margin_left = 636.0
 margin_top = 1232.0
-margin_right = 746.0
+margin_right = 791.0
 margin_bottom = 1382.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3338,7 +3755,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i54/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3348,14 +3765,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i54/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Bottle"
 align = 1
 
 [node name="i55" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
 margin_top = 1386.0
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 1536.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3373,7 +3790,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i55/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3383,15 +3800,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i55/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Sextant"
 align = 1
 
 [node name="i56" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
+margin_left = 159.0
 margin_top = 1386.0
-margin_right = 296.0
+margin_right = 314.0
 margin_bottom = 1536.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3409,7 +3826,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i56/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3419,15 +3836,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i56/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Raft"
 align = 1
 
 [node name="i57" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
+margin_left = 318.0
 margin_top = 1386.0
-margin_right = 446.0
+margin_right = 473.0
 margin_bottom = 1536.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3445,7 +3862,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i57/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3455,15 +3872,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i57/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Radio"
 align = 1
 
 [node name="i58" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
+margin_left = 477.0
 margin_top = 1386.0
-margin_right = 596.0
+margin_right = 632.0
 margin_bottom = 1536.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3481,7 +3898,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i58/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3491,15 +3908,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i58/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Compass"
 align = 1
 
 [node name="i59" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 600.0
+margin_left = 636.0
 margin_top = 1386.0
-margin_right = 746.0
+margin_right = 791.0
 margin_bottom = 1536.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3517,7 +3934,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i59/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3527,14 +3944,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i59/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Sailboat"
 align = 1
 
 [node name="i60" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
 margin_top = 1540.0
-margin_right = 146.0
+margin_right = 155.0
 margin_bottom = 1690.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3552,7 +3969,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i60/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3562,15 +3979,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i60/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Sailing 101"
 align = 1
 
 [node name="i61" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 150.0
+margin_left = 159.0
 margin_top = 1540.0
-margin_right = 296.0
+margin_right = 314.0
 margin_bottom = 1690.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3588,7 +4005,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i61/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3598,15 +4015,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i61/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Snorkel"
 align = 1
 
 [node name="i62" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 300.0
+margin_left = 318.0
 margin_top = 1540.0
-margin_right = 446.0
+margin_right = 473.0
 margin_bottom = 1690.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3624,7 +4041,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i62/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3634,15 +4051,15 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i62/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Spyglass"
 align = 1
 
 [node name="i63" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid"]
-margin_left = 450.0
+margin_left = 477.0
 margin_top = 1540.0
-margin_right = 596.0
+margin_right = 632.0
 margin_bottom = 1690.0
 rect_min_size = Vector2( 144, 150 )
 size_flags_horizontal = 3
@@ -3660,7 +4077,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i63/vb"]
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -3670,7 +4087,7 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Items/Grid/i63/vb"]
 margin_top = 106.0
-margin_right = 126.0
+margin_right = 135.0
 margin_bottom = 135.0
 text = "Buoy"
 align = 1
@@ -3700,7 +4117,7 @@ columns = 5
 visible = false
 margin_right = 211.0
 margin_bottom = 300.0
-rect_min_size = Vector2( 144, 350 )
+rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
@@ -3731,9 +4148,9 @@ text = "misc"
 align = 1
 
 [node name="m1" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid"]
-margin_right = 150.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 144, 350 )
+margin_right = 159.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
@@ -3750,8 +4167,8 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1/vb"]
 process_priority = -5
-margin_right = 130.0
-margin_bottom = 302.0
+margin_right = 139.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 1 )
@@ -3759,17 +4176,17 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1/vb"]
-margin_top = 306.0
-margin_right = 130.0
-margin_bottom = 335.0
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
 text = "Board Royale"
 align = 1
 
 [node name="m2" type="Button" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid"]
-margin_left = 154.0
-margin_right = 304.0
-margin_bottom = 350.0
-rect_min_size = Vector2( 144, 350 )
+margin_left = 163.0
+margin_right = 322.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
@@ -3786,8 +4203,8 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2/vb"]
 process_priority = -5
-margin_right = 130.0
-margin_bottom = 302.0
+margin_right = 139.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 16 )
@@ -3795,9 +4212,9 @@ expand = true
 stretch_mode = 6
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2/vb"]
-margin_top = 306.0
-margin_right = 130.0
-margin_bottom = 335.0
+margin_top = 116.0
+margin_right = 139.0
+margin_bottom = 145.0
 text = "Hand"
 align = 1
 
@@ -3833,9 +4250,6 @@ script = ExtResource( 11 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_constants/separation = 10
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SelectionName" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb"]
 margin_right = 208.0
@@ -4044,15 +4458,26 @@ text = "Spawn"
 [node name="Tween" type="Tween" parent="."]
 
 [connection signal="pressed" from="vb/hb/CloseButton" to="." method="_on_CloseButton_pressed"]
-[connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m1" to="vb/mrgn/hs/games/Boards" method="_on_m1_pressed"]
-[connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m2" to="vb/mrgn/hs/games/Boards" method="_on_m2_pressed"]
-[connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m51" to="vb/mrgn/hs/games/Boards" method="_on_m51_pressed"]
-[connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m3" to="vb/mrgn/hs/games/Boards" method="_on_m3_pressed"]
-[connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m4" to="vb/mrgn/hs/games/Boards" method="_on_m4_pressed"]
-[connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m5" to="vb/mrgn/hs/games/Boards" method="_on_m5_pressed"]
-[connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m6" to="vb/mrgn/hs/games/Boards" method="_on_m6_pressed"]
-[connection signal="pressed" from="vb/mrgn/hs/games/Boards/Grid/m7" to="vb/mrgn/hs/games/Boards" method="_on_m7_pressed"]
-[connection signal="pressed" from="vb/mrgn/hs/games/UNO/Grid/m51" to="vb/mrgn/hs/games/Boards" method="_on_m51_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Quick/Grid/m1" to="vb/mrgn/hs/games/Quick" method="_on_m1_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Quick/Grid/m8" to="vb/mrgn/hs/games/Quick" method="_on_m8_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Quick/Grid/m2" to="vb/mrgn/hs/games/Quick" method="_on_m2_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Quick/Grid/m51" to="vb/mrgn/hs/games/Quick" method="_on_m51_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Quick/Grid/m5" to="vb/mrgn/hs/games/Quick" method="_on_m5_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Quick/Grid/m3" to="vb/mrgn/hs/games/Quick" method="_on_m3_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Quick/Grid/m4" to="vb/mrgn/hs/games/Quick" method="_on_m4_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Quick/Grid/m6" to="vb/mrgn/hs/games/Quick" method="_on_m6_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/Quick/Grid/m7" to="vb/mrgn/hs/games/Quick" method="_on_m7_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/SecretHitler/Grid/msh10" to="vb/mrgn/hs/games/SecretHitler" method="_on_msh10_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/SecretHitler/Grid/msh" to="vb/mrgn/hs/games/SecretHitler" method="_on_msh_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/SecretHitler/Grid/msh2" to="vb/mrgn/hs/games/SecretHitler" method="_on_msh2_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/SecretHitler/Grid/msh3" to="vb/mrgn/hs/games/SecretHitler" method="_on_msh3_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/SecretHitler/Grid/msh4" to="vb/mrgn/hs/games/SecretHitler" method="_on_msh4_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/SecretHitler/Grid/msh5" to="vb/mrgn/hs/games/SecretHitler" method="_on_msh5_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/SecretHitler/Grid/msh6" to="vb/mrgn/hs/games/SecretHitler" method="_on_msh6_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/SecretHitler/Grid/msh7" to="vb/mrgn/hs/games/SecretHitler" method="_on_msh7_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/SecretHitler/Grid/msh8" to="vb/mrgn/hs/games/SecretHitler" method="_on_msh8_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/SecretHitler/Grid/msh9" to="vb/mrgn/hs/games/SecretHitler" method="_on_msh9_pressed"]
+[connection signal="pressed" from="vb/mrgn/hs/games/UNO/Grid/m51" to="vb/mrgn/hs/games/Quick" method="_on_m51_pressed"]
 [connection signal="pressed" from="vb/mrgn/hs/games/UNO/Grid/m10" to="vb/mrgn/hs/games/UNO" method="_on_m10_pressed"]
 [connection signal="pressed" from="vb/mrgn/hs/games/UNO/Grid/m11" to="vb/mrgn/hs/games/UNO" method="_on_m11_pressed"]
 [connection signal="pressed" from="vb/mrgn/hs/games/UNO/Grid/m12" to="vb/mrgn/hs/games/UNO" method="_on_m12_pressed"]
