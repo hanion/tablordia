@@ -254,19 +254,13 @@ func prepare_rcm(popup:PopupMenu) -> void:
 		popup.set_item_disabled(popup.get_item_index(77),true)
 		popup.add_separator()
 	
+	
 	if can_make_cards_hidden and can_make_cards_visible:
 		popup.add_item("Make cards visible",2)
 		popup.add_item("Make cards hidden",3)
-		
-		
-#		popup.add_item("Make cards visible",2)
-#		if not can_make_cards_visible:
-#			popup.set_item_disabled(popup.get_item_index(2),true)
-#
-#		popup.add_item("Make cards hidden",3)
-#		if not can_make_cards_hidden:
-#			popup.set_item_disabled(popup.get_item_index(3),true)
-		
+	
+	
+	if env.size() > 0:
 		popup.add_item("Draw",4)
 	
 	if env.size() > 1:
