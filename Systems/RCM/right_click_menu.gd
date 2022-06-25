@@ -23,6 +23,8 @@ func right_clicked(to:Spatial) -> void:
 	if not to.is_in_group("has_rcm"): 
 		if to.get_parent().is_in_group("has_rcm"):
 			to = to.get_parent()
+		elif to is card and to.in_deck and to.in_deck.is_in_group("has_rcm"):
+			to = to.in_deck
 		else:
 			return
 	
