@@ -40,6 +40,7 @@ func _ready():
 
 # called when dragging or received state
 func set_new_visible_card_translation() -> void:
+	if not visible_card: return
 	visible_card.translation = Vector3(0, custom_offset ,0) + translation
 
 
@@ -252,13 +253,11 @@ func prepare_rcm(popup:PopupMenu) -> void:
 		popup.add_item(txt,77)
 		popup.set_item_disabled(popup.get_item_index(77),true)
 		popup.add_separator()
+	
+	if can_make_cards_hidden and can_make_cards_visible:
+		popup.add_item("Make cards visible",2)
+		popup.add_item("Make cards hidden",3)
 		
-		
-		
-		if can_make_cards_hidden and can_make_cards_visible:
-			popup.add_item("Make cards visible",2)
-			popup.add_item("Make cards hidden",3)
-			
 		
 #		popup.add_item("Make cards visible",2)
 #		if not can_make_cards_visible:
