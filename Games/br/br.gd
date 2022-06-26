@@ -98,7 +98,7 @@ const my_paths := {
 func _ready() -> void:
 	Main.br = self
 	
-	write_paths()
+	List.feed_my_paths(my_paths)
 	
 	
 	if not get_tree().is_network_server(): return
@@ -108,12 +108,6 @@ func _ready() -> void:
 	
 	NetworkInterface.send_br_info(resource_dispenser.env,item_dispenser.items)
 
-func write_paths() -> void:
-	for objname in my_paths.keys():
-		if List.paths.has(objname):
-			push_error("List already has this objects path")
-		List.paths[objname] = my_paths[objname]
-	
 
 
 func receive_br_info(res,itm) -> void:

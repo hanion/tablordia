@@ -1,9 +1,7 @@
 extends Spatial
 
 
-const my_paths := {
-	"iskambil":"/root/Main/52/iskambil"
-	}
+
 
 var deste := [] # Array[Vector2(card_value,card_value_second)]
 
@@ -20,11 +18,10 @@ func _ready() -> void:
 
 
 func write_paths() -> void:
-	for objname in my_paths.keys():
-		if List.paths.has(objname):
-			push_error("List already has this objects path")
-		List.paths[objname] = my_paths[objname]
-
+	var my_paths := {
+	get_child(0).name:get_child(0).get_path()
+	}
+	List.feed_my_paths(my_paths)
 
 func create_draw_deck() -> void:
 	for sv in range(4):

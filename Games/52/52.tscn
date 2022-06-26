@@ -3,7 +3,7 @@
 [ext_resource path="res://InGame/Deck/deck.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Games/52/52.gd" type="Script" id=2]
 
-[node name="52" type="Spatial"]
+[node name="isk" type="Spatial"]
 script = ExtResource( 2 )
 
 [node name="iskambil" parent="." instance=ExtResource( 1 )]

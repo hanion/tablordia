@@ -1,9 +1,5 @@
 extends Spatial
 
-const my_paths := {
-	"uno_draw_deck":"/root/Main/UNO/uno_draw_deck",
-	"uno_discard_deck":"/root/Main/UNO/uno_discard_deck"
-	}
 
 var deste := [] # Array[Vector2(card_value,card_value_second)]
 
@@ -20,11 +16,14 @@ func _ready() -> void:
 
 
 func write_paths() -> void:
-	for objname in my_paths.keys():
-		if List.paths.has(objname):
-			push_error("List already has this objects path")
-		List.paths[objname] = my_paths[objname]
-
+	var my_paths := {}
+	
+	for ch in get_children():
+		my_paths[ch.name] = ch.get_path()
+	
+	my_paths[name] = get_path()
+	
+	List.feed_my_paths(my_paths)
 
 
 func create_draw_deck() -> void:

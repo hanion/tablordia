@@ -21,6 +21,10 @@ var resource_index:int = 0
 var item_index:int = 0
 var hand_index:int = 0
 var deck_index:int = 0
+var game_52_index:int = 0
+var game_sh_index:int = 0
+var game_chess_index:int = 0
+var game_uno_index:int = 0
 
 var uno_index:int = 0
 var card_52_index:int = 0
@@ -74,33 +78,29 @@ func spawn_Game(info) -> void:
 	match info["name"]:
 		"Chess Board":
 			board = Board_chess_pl.instance()
+			board.game_chess_index = str(game_chess_index)
+			game_chess_index += 1
 		"Board Royale":
 			board = br_board_pl.instance()
 		"UNO":
 			board = UNO_pl.instance()
+			for ch in board.get_children():
+				ch.name += str(game_uno_index)
+			game_uno_index += 1
 		"52":
 			board = _52_pl.instance()
+			board.get_child(0).name += str(game_52_index)
+			game_52_index +=1
 		"SH":
 			board = sh_pl.instance()
+			for ch in board.get_children():
+				ch.name += str(game_sh_index)
+			game_sh_index += 1
 		_:
 			return
 	
-#
-#	var board_index := 0
-#	var new_name : String = board.name + str(board_index)
-#
-#	while List.paths.has(new_name):
-#		board_index += 1
-#		new_name = board.name + str(board_index)
-#
-#
-#	print(new_name,board.name)
-#	board.name = new_name
-#	print(new_name,board.name)
 	
-	
-	
-	get_node("/root/Main").add_child(board)
+	get_node("/root/Main").add_child(board,true)
 	List.paths[board.name] = board.get_path()
 	tweenit(board, Vector3(0,-0.1,0), Vector3(0,0.004,0))
 

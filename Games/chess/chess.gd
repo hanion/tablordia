@@ -1,11 +1,12 @@
 extends Spatial
 
 var my_paths := {}
+var game_chess_index := "0"
 
 
 func _ready() -> void:
 	get_paths()
-	write_paths()
+	List.feed_my_paths(my_paths)
 	var player = get_node("../player")
 	player.connect("started_dragging",self,"on_started_dragging")
 	player.connect("stopped_dragging",self,"on_stopped_dragging")
@@ -18,7 +19,7 @@ func get_paths() -> void:
 	var w = $w.get_children()
 	var b = $b.get_children()
 	
-	var my_path = "/root/Main/" + self.name # /root/Main/chess0
+	var my_path = str(get_path()) # /root/Main/chess0
 	
 	my_paths[self.name] = my_path
 	
@@ -27,18 +28,13 @@ func get_paths() -> void:
 	
 	
 	for piece in w:
+		piece.name += game_chess_index
 		var final_path: String = base_w + piece.name
 		my_paths[piece.name] = final_path
 	for piece in b:
+		piece.name += game_chess_index
 		var final_path: String = base_b + piece.name
 		my_paths[piece.name] = final_path
-
-
-func write_paths() -> void:
-	for objname in my_paths.keys():
-		if List.paths.has(objname):
-			push_error("List already has this objects path")
-		List.paths[objname] = my_paths[objname]
 
 
 
