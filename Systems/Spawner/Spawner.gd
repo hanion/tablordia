@@ -126,6 +126,7 @@ func spawn_Misc(info) -> void:
 			var ownercolor = List.players[ownerid]["color"]
 			misc.set_hand_owner(ownerid,ownername)
 			misc.set_hand_color(ownercolor)
+			misc.others_can_touch = info["others_can_touch"]
 			
 			
 	

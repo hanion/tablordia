@@ -158,7 +158,13 @@ func drag_start() -> void:
 		if not dragging.is_in_group("draggable"): return
 	
 	if dragging is card:
-		if dragging.is_in_deck and dragging.in_deck.env.back() != dragging: return
+		if dragging.is_in_deck and dragging.in_deck.env.back() != dragging: 
+			dragging = null
+			return
+		if dragging.is_in_hand and not dragging.in_hand.others_can_touch:
+			if not dragging.in_hand.am_i_the_owner: 
+				dragging = null
+				return
 	
 	
 	var obj_translation = dragging.translation
@@ -283,20 +289,8 @@ func dragged_over(var dragged: card,var over: Spatial,var pos: Vector3) -> void:
 
 
 
-"""
-####################################################################################################
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-# TODO FIXME 
-Jitterieness of last moved objects when moving another object !!!??? 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-####################################################################################################
-"""
 
 
 

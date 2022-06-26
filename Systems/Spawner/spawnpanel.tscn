@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/Steel.png" type="Texture" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://assets/sh/sh_lm.png" type="Texture" id=32]
 [ext_resource path="res://assets/sh/sh_fas.png" type="Texture" id=33]
 [ext_resource path="res://Systems/Spawner/spawnmenu/SecretHitler.gd" type="Script" id=34]
+[ext_resource path="res://Systems/Spawner/spawnmenu/inspector/oct.gd" type="Script" id=35]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0980392, 0.121569, 0.137255, 1 )
@@ -4419,10 +4420,20 @@ margin_left = 170.0
 margin_right = 198.0
 margin_bottom = 29.0
 
-[node name="uno_team" type="HBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb"]
+[node name="oct" type="CheckBox" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb"]
 margin_top = 66.0
 margin_right = 198.0
 margin_bottom = 95.0
+focus_mode = 0
+pressed = true
+enabled_focus_mode = 0
+text = "Others Can Touch"
+script = ExtResource( 35 )
+
+[node name="uno_team" type="HBoxContainer" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb"]
+margin_top = 99.0
+margin_right = 198.0
+margin_bottom = 128.0
 script = ExtResource( 22 )
 
 [node name="Label" type="Label" parent="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/uno_team"]
@@ -4506,6 +4517,8 @@ text = "Spawn"
 [connection signal="pressed" from="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount/plus" to="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount" method="_on_plus_pressed"]
 [connection signal="on_owner_changed" from="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/owner" to="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards" method="_on_owner_on_owner_changed"]
 [connection signal="item_selected" from="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/owner/OptionButton" to="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/owner" method="_on_OptionButton_item_selected"]
+[connection signal="oct_checked" from="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/oct" to="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards" method="_on_oct_oct_checked"]
+[connection signal="toggled" from="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/oct" to="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/oct" method="_on_oct_toggled"]
 [connection signal="color_changed" from="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/uno_team" to="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards" method="_on_uno_team_color_changed"]
 [connection signal="item_selected" from="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/uno_team/OptionButton" to="vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/uno_team" method="_on_OptionButton_item_selected"]
 [connection signal="pressed" from="vb/mrgn/hs/configurer/Inspector/vb/vsc/SpawnButton" to="vb/mrgn/hs/configurer/Inspector" method="_on_SpawnButton_pressed"]

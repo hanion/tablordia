@@ -30,6 +30,7 @@ var inventory := []
 
 var is_cards_hidden_to_others := true setget set_chtot
 var is_cards_hidden_to_owner := false setget set_chtow
+var others_can_touch := true
 
 var owner_name: String
 var owner_id: int
@@ -317,7 +318,6 @@ remote func __schtow(_ih) -> void:
 
 
 
-
 func make_hand_collapse() -> void:
 	for c in inventory:
 		c.translation = Vector3(0,offsety,0)
@@ -415,7 +415,9 @@ func bubble_sort_hand_by_second() -> void:
 
 ############################## RCM ##############################
 var cavt:PopupMenu
+var __popup:PopupMenu
 func prepare_rcm(popup:PopupMenu) -> void:
+	__popup = popup
 	popup.clear()
 	
 	prepare_cavt(popup)
@@ -427,7 +429,6 @@ func prepare_rcm(popup:PopupMenu) -> void:
 		popup.add_item("Sort hand",3)
 		if not am_i_the_owner:
 			popup.set_item_disabled(popup.get_item_index(3),true)
-		
 	
 	
 	popup.add_separator("")
