@@ -50,18 +50,23 @@ func reparent_child(var child: Spatial, var new_parent: Spatial):
 	
 	child.get_parent().remove_child(child)
 	child.translation = old_child_local_pos
-#	yield(get_tree().create_timer(5),"timeout")
-#	print("3")
 	new_parent.add_child(child)
 	child.translation = old_child_local_pos
 	
 	
 	
 	paths[child.name] = (str(new_parent.get_path()) + "/" + child.name)
-	print("reparented : ",child.name," to ",paths[child.name]
-		,"\n   & returned:",old_child_local_pos,child.translation)
+#	print("reparented : ",child.name," to ",paths[child.name]
+#		,"\n   & returned:",old_child_local_pos,child.translation)
 	
 	return old_child_local_pos
+
+
+func feed_my_paths(var mp:Dictionary) -> void:
+	for objname in mp.keys():
+		if List.paths.has(objname):
+			push_error("List already has this objects path")
+		List.paths[objname] = mp[objname]
 
 
 
