@@ -188,7 +188,8 @@ func seset(pth:String, val) -> void:
 		"environment/ssao_blur":
 			environment.ssao_blur = val
 		"environment/dof_blur_near_enabled":
-			environment.dof_blur_near_enabled = val
+			environment.dof_blur_near_enabled = false # near blur kinda sucks
+#			environment.dof_blur_near_enabled = val
 		
 		"environment/ss_reflections_enabled":
 			environment.ss_reflections_enabled = val
