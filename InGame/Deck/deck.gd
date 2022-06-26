@@ -139,7 +139,7 @@ func tween_up_card(obj:Spatial) -> void:
 		"translation",
 		obj.translation,
 		translation+Vector3(0, custom_offset ,0),
-		Std.tween_duration,
+		Std.tween_duration/2.0,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
 		)
