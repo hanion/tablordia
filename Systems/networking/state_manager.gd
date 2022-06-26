@@ -69,7 +69,8 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 		obj.sleeping = false
 		obj.linear_velocity = Vector3.ZERO
 	if obj is StaticBody:
-		obj._on_started_dragging_via_network()
+		if obj.has_method("_on_started_dragging_via_network"):
+			obj._on_started_dragging_via_network()
 	
 #	if not currently_processing_do.empty():
 #		print("sm: currently processing: ",currently_processing_do)
