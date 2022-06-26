@@ -46,7 +46,8 @@ func _on_m51_pressed():
 func _on_m5_pressed():
 	var info := {
 		"type":"Game",
-		"name":"52"
+		"name":"52",
+		"inspector_text":"İskambil"
 		}
 	hs.selected(info)
 
@@ -75,7 +76,8 @@ func _on_m7_pressed():
 func _on_m8_pressed() -> void:
 	var info := {
 		"type":"Game",
-		"name":"SH"
+		"name":"SH",
+		"inspector_text":"Secret Hitler"
 		}
 	hs.selected(info)
 

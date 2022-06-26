@@ -20,7 +20,7 @@ func spawn() -> void:
 		"others_can_touch":others_can_touch
 		}
 	Spawner.request_spawn(info)
-	get_node("vb/amount").amount = 1
+	get_node("vb/amount/SpinBox").value = 1
 
 
 

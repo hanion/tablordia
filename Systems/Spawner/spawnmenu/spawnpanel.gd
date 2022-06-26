@@ -11,7 +11,9 @@ func open_menu() -> void:
 	
 	visible = true
 	Std.is_blocked_by_ui = true
-#	get_node("../..").player.get_node("CAM")._lock_movement = true
+	
+	var spawn_button = get_node("vb/mrgn/hs/configurer/Inspector/vb/vsc/SpawnButton")
+	spawn_button.disabled = not get_tree().is_network_server()
 	emit_signal("on_menu_opened")
 
 
