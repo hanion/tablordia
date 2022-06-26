@@ -5,24 +5,26 @@
 [ext_resource path="res://default_env.tres" type="Environment" id=3]
 [ext_resource path="res://InGame/Table/table.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Systems/Spawner/spawnpanel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Systems/Small/SmallScript/Button_TEMP_m_test.gd" type="Script" id=6]
 [ext_resource path="res://Systems/networking/state_manager.gd" type="Script" id=7]
 [ext_resource path="res://Systems/Controls/player.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Systems/Small/SmallScript/Button_TEMP_touch_rc_mode.gd" type="Script" id=9]
-[ext_resource path="res://Systems/Small/SmallScript/CanvasLayer.gd" type="Script" id=10]
+[ext_resource path="res://Systems/Small/SmallScript/vbt.gd" type="Script" id=9]
 [ext_resource path="res://Systems/MainMenu/Main.gd" type="Script" id=11]
 [ext_resource path="res://InGame/Table/Wood067_2K-PNG/wood.tres" type="Material" id=12]
+[ext_resource path="res://Theme/GREEN_theme.tres" type="Theme" id=13]
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Button
+
+onready var spawn_panel = get_node(\"../../SpawnPanel\")
+
+func _on_Button_pressed():
+	if spawn_panel.visible:
+		spawn_panel.close_menu()
+	else:
+		spawn_panel.open_menu()
+"
 
 [sub_resource type="GIProbeData" id=6]
-bounds = AABB( -57.2819, -11, -57, 114.564, 22, 114 )
-cell_size = 0.89503
-to_cell_xform = Transform( 1.11728, 0, 0, 0, 1.11728, 0, 0, 0, 1.11728, 64, 12.2901, 63.685 )
-dynamic_data = PoolIntArray( 0, 8, 128, 32, 128, 1, 0, 0, 1101004800, 1101004800, 1065353216, 1065353216, 1086324736, 1101004800, 0, 1065353216, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
-dynamic_range = 4
-bias = 3.538
-normal_bias = 0.0
-propagation = 0.7
-interior = true
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 1, 1, 1 )
@@ -50,10 +52,39 @@ script = ExtResource( 7 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource( 10 )
 
 [node name="SpawnPanel" parent="CanvasLayer" instance=ExtResource( 5 )]
 visible = false
+
+[node name="vbt" type="VBoxContainer" parent="CanvasLayer"]
+margin_right = 87.0
+margin_bottom = 300.0
+theme = ExtResource( 13 )
+script = ExtResource( 9 )
+
+[node name="b_rcm" type="ToolButton" parent="CanvasLayer/vbt"]
+margin_right = 87.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+focus_mode = 0
+toggle_mode = true
+text = "RCM"
+
+[node name="b_r" type="ToolButton" parent="CanvasLayer/vbt"]
+margin_top = 54.0
+margin_right = 87.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 50 )
+toggle_mode = true
+text = "Rotate"
+
+[node name="b_s" type="ToolButton" parent="CanvasLayer/vbt"]
+margin_top = 108.0
+margin_right = 87.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 0, 50 )
+toggle_mode = true
+text = "Shift"
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 visible = false
@@ -64,8 +95,7 @@ margin_top = 74.0
 margin_right = -519.0
 margin_bottom = 171.0
 __meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
 [node name="Button" type="Button" parent="CanvasLayer/Control"]
@@ -73,30 +103,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 focus_mode = 0
 text = "M"
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Control2" type="Control" parent="CanvasLayer"]
-visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -640.0
-margin_top = 204.0
-margin_right = -519.0
-margin_bottom = 295.0
-__meta__ = {
-"_edit_group_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="CanvasLayer/Control2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-focus_mode = 0
-text = "RCM"
-script = ExtResource( 9 )
+script = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -197,8 +204,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
 [node name="cards" type="Spatial" parent="."]
 
+[connection signal="toggled" from="CanvasLayer/vbt/b_rcm" to="CanvasLayer/vbt" method="_on_b_rcm_toggled"]
+[connection signal="toggled" from="CanvasLayer/vbt/b_r" to="CanvasLayer/vbt" method="_on_b_r_toggled"]
+[connection signal="toggled" from="CanvasLayer/vbt/b_s" to="CanvasLayer/vbt" method="_on_b_s_toggled"]
 [connection signal="pressed" from="CanvasLayer/Control/Button" to="CanvasLayer/Control/Button" method="_on_Button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control2/Button" to="CanvasLayer/Control2/Button" method="_on_Button_pressed"]
 
 [editable path="player"]
 [editable path="player/CAM/position/elevation/zoom/Camera/closeup"]

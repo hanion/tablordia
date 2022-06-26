@@ -24,7 +24,6 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_clip_content = true
 theme = ExtResource( 1 )
 script = ExtResource( 3 )
 
@@ -36,7 +35,7 @@ script = ExtResource( 4 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.17276, 0.289062, 0.183762, 1 )
+color = Color( 0.101961, 0.243137, 0.121569, 1 )
 
 [node name="Ss0624-1" type="Sprite" parent="."]
 visible = false
@@ -389,7 +388,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 1.39
 
 [node name="autojoin" type="Button" parent="hbmenu/space2"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -439,7 +437,6 @@ margin_top = 30.0
 margin_right = 394.0
 margin_bottom = 267.0
 custom_fonts/italics_font = ExtResource( 11 )
-custom_fonts/normal_font = ExtResource( 11 )
 
 [connection signal="pressed" from="hbmenu/vb/vb0pq/play" to="hbmenu" method="_on_play_pressed"]
 [connection signal="pressed" from="hbmenu/vb/vb0pq/credits" to="hbmenu" method="_on_credits_pressed"]

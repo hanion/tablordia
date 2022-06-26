@@ -27,11 +27,19 @@ func _input(event:InputEvent):
 
 ###
 var rc_mode : bool = false
+var rotate_mode : bool = false
+var shift_mode : bool = false
 func handle_touch(_event) -> void:
 	if rc_mode:
 		var obj = get_parent().cast_ray()
 		if obj["collider"]:
 			RCM.right_clicked(obj["collider"])
+	if rotate_mode:
+		var obj = get_parent().cast_ray()
+		if obj["collider"]:
+			get_parent().rotate_one_tick(obj["collider"])
+	
+	shift_held_down = shift_mode
 	
 ###
 
