@@ -18,6 +18,7 @@ func _ready():
 	SettingsUI.initialize()
 	RCM.player = player
 	HUD.player = player
+	HUD.spawn_panel = $CanvasLayer/SpawnPanel
 
 
 
