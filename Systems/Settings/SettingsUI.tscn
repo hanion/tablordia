@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Systems/Settings/set_0.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Systems/Settings/SettingsSaver.gd" type="Script" id=2]
 [ext_resource path="res://Systems/Settings/SettingsUI.gd" type="Script" id=3]
-[ext_resource path="res://assets/br/BR-GAMEBOARD-FINAL-02.png" type="Texture" id=4]
 [ext_resource path="res://Theme/GREEN_theme.tres" type="Theme" id=5]
 [ext_resource path="res://Systems/Settings/SetUiLoader.gd" type="Script" id=6]
 [ext_resource path="res://Systems/UMB/msg.tscn" type="PackedScene" id=7]
@@ -17,10 +16,6 @@ font_data = ExtResource( 9 )
 [node name="SettingsUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 50.0
-margin_top = 50.0
-margin_right = -50.0
-margin_bottom = -50.0
 theme = ExtResource( 5 )
 script = ExtResource( 3 )
 pu = NodePath("pu")
@@ -40,14 +35,6 @@ margin_top = -65.0
 margin_right = 72.0
 margin_bottom = 62.0
 color = Color( 0.0705882, 0.0705882, 0.0705882, 0.721569 )
-
-[node name="TextureRect1" type="TextureRect" parent="."]
-visible = false
-margin_left = -149.012
-margin_top = -361.928
-margin_right = 5001.99
-margin_bottom = 4528.07
-texture = ExtResource( 4 )
 
 [node name="pu" type="WindowDialog" parent="."]
 visible = true
