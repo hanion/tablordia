@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Theme/GREEN_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Theme/credit_stylebox.tres" type="StyleBox" id=3]
 [ext_resource path="res://Systems/Small/SmallScript/credit.gd" type="Script" id=4]
 [ext_resource path="res://assets/font/title2.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/font/credit_title2_font.tres" type="DynamicFont" id=6]
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -22,8 +23,9 @@ margin_right = -20.0
 margin_bottom = -20.0
 rect_clip_content = false
 theme = ExtResource( 1 )
+custom_fonts/italics_font = ExtResource( 5 )
 custom_fonts/bold_font = SubResource( 2 )
-custom_fonts/normal_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 6 )
 custom_styles/normal = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[rainbow freq=0.02][center][wave freq=2 amp=200] yigithanion [/wave]
