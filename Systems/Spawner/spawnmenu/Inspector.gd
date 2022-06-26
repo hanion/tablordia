@@ -33,4 +33,4 @@ func set_selection_name(new) -> void:
 
 func _on_SpawnButton_pressed():
 	scroll.spawn()
-	get_node("../../../../..").close_menu()
+	get_node("../../../../../..").close_menu()
