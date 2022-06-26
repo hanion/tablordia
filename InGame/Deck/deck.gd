@@ -106,7 +106,7 @@ func order_env() -> void:
 		crd.scale = Vector3(1,1,1)
 	
 	var up_card = env.back()
-	if name == "uno_draw_deck" or name == "iskambil":
+	if name.begins_with("uno_draw_deck") or name.begins_with("iskambil"):
 		yield(get_tree().create_timer(0.2),"timeout")
 		if not up_card == env.back(): 
 			up_card.visible = false
