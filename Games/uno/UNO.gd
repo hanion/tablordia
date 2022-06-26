@@ -3,7 +3,7 @@ extends Spatial
 
 var deste := [] # Array[Vector2(card_value,card_value_second)]
 
-onready var uno_draw_deck = $uno_draw_deck
+onready var uno_draw_deck = get_child(0)
 
 func _ready() -> void:
 	write_paths()
@@ -78,7 +78,7 @@ func spawn_all_cards() -> void:
 			"amount":1,
 			"value":c.x,
 			"value_second":c.y,
-			"in_deck":"uno_draw_deck",
+			"in_deck":uno_draw_deck.name,
 			"translation":(uno_draw_deck.translation + Vector3(0,-5,0)),
 			"no UMB":true
 		}
