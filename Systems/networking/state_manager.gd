@@ -180,7 +180,11 @@ func process_received_do(do) -> void:
 #		dragged.in_slot.remove_from_slot(dragged)
 
 	elif dragged.is_in_deck:
-		dragged.in_deck.remove_from_deck(dragged)
+		if not over is deck:
+			dragged.in_deck.remove_from_deck(dragged)
+		if over is deck and not dragged.in_deck == over:
+			dragged.in_deck.remove_from_deck(dragged)
+
 #		if not over is hand:
 #			hotfix_snap_when_removing_from_hand(dragged)
 	
@@ -202,8 +206,11 @@ func process_received_do(do) -> void:
 		over.add_to_slot(dragged)
 
 	elif over is deck:
-		print("    ¨decked ",dragged_name)
-		over.add_to_deck(dragged)
+		if dragged.is_in_deck and dragged.in_deck == over:
+			over.order_env()
+		else:
+			print("    ¨decked ",dragged_name)
+			over.add_to_deck(dragged)
 
 	elif over is hand:
 		if dragged.is_in_hand:
