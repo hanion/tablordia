@@ -188,7 +188,8 @@ func process_received_do(do) -> void:
 		if not over is hand:
 			print("    ¨removed1 ",dragged_name," from ",dragged.in_hand.name)
 			dragged.in_hand.remove_card_from_hand(dragged)
-			hotfix_snap_when_removing_from_hand(dragged)
+			if not over is deck:
+				hotfix_snap_when_removing_from_hand(dragged)
 	
 
 
