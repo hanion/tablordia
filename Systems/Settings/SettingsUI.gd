@@ -20,6 +20,11 @@ var auto_hide_chat_time : int = 10
 var table_mat_marble = preload("res://InGame/Table/Marble016_2K-PNG/marble.tres")
 var table_mat_wood = preload("res://InGame/Table/Wood067_2K-PNG/wood.tres")
 var table_mat_carpet = preload("res://InGame/Table/Carpet012_2K-PNG/carpet.tres")
+var table_mat_rug1 = preload("res://InGame/Table/table_mat_rug1.tres")
+var table_mat_rug2 = preload("res://InGame/Table/table_mat_rug2.tres")
+var table_mat_rug3 = preload("res://InGame/Table/table_mat_rug3.tres")
+var table_mat_rug4 = preload("res://InGame/Table/table_mat_rug4.tres")
+var table_mat_rug5 = preload("res://InGame/Table/table_mat_rug5.tres")
 
 # The preset to use when starting the project
 # 0: Low
@@ -87,6 +92,7 @@ const presets = [
 func _ready():
 	visible = false
 	pu.connect("popup_hide",self,"close_ui")
+	rpc_config("change_table_mat",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 
 
 func open_ui() -> void:
@@ -112,6 +118,9 @@ func initialize() -> void:
 	# Initialize the project on the default preset
 	gq.select(default_preset)
 	_on_graphics_preset_change(default_preset)
+	
+	yield(get_tree().create_timer(0.1),"timeout")
+	seset("shade_table",true)
 
 	# Cache screen size into a variable
 	var screen_size := OS.get_screen_size()
@@ -275,6 +284,10 @@ func _on_chatautohide_time_spin_box_value_changed(value):
 
 
 func _on_table_mat_option_button_item_selected(index):
+	rpc("change_table_mat",index)
+
+
+remote func change_table_mat(index) -> void:
 	var mat
 	match index:
 		0:
@@ -283,8 +296,20 @@ func _on_table_mat_option_button_item_selected(index):
 			mat = table_mat_marble
 		2:
 			mat = table_mat_carpet
+			
+		3:
+			mat = table_mat_rug1
+		4:
+			mat = table_mat_rug2
+		5:
+			mat = table_mat_rug3
+		6:
+			mat = table_mat_rug4
+		7:
+			mat = table_mat_rug5
 		_:
 			return
 	
 	table_mesh.set_surface_material(0,mat)
-	
+
+

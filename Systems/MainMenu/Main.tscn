@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/br/BackRessource.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/BackItem.png" type="Texture" id=2]
@@ -9,20 +9,7 @@
 [ext_resource path="res://Systems/Controls/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Systems/Small/SmallScript/vbt.gd" type="Script" id=9]
 [ext_resource path="res://Systems/MainMenu/Main.gd" type="Script" id=11]
-[ext_resource path="res://InGame/Table/Wood067_2K-PNG/wood.tres" type="Material" id=12]
 [ext_resource path="res://Theme/GREEN_theme.tres" type="Theme" id=13]
-
-[sub_resource type="GDScript" id=7]
-script/source = "extends Button
-
-onready var spawn_panel = get_node(\"../../SpawnPanel\")
-
-func _on_Button_pressed():
-	if spawn_panel.visible:
-		spawn_panel.close_menu()
-	else:
-		spawn_panel.open_menu()
-"
 
 [sub_resource type="GIProbeData" id=6]
 
@@ -86,28 +73,6 @@ rect_min_size = Vector2( 0, 50 )
 toggle_mode = true
 text = "Shift"
 
-[node name="Control" type="Control" parent="CanvasLayer"]
-visible = false
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -640.0
-margin_top = 74.0
-margin_right = -519.0
-margin_bottom = 171.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-focus_mode = 0
-text = "M"
-script = SubResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="environment" type="Spatial" parent="."]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="environment"]
@@ -157,9 +122,6 @@ material/0 = null
 
 [node name="table" parent="tablo" instance=ExtResource( 4 )]
 
-[node name="tableMesh" parent="tablo/table" index="1"]
-material/0 = ExtResource( 12 )
-
 [node name="cardDispenser0" type="Sprite3D" parent="tablo"]
 transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, 1, 0, -0.1, -4.37114e-08, -3.174, 0.55, 2.603 )
 visible = false
@@ -207,8 +169,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 [connection signal="toggled" from="CanvasLayer/vbt/b_rcm" to="CanvasLayer/vbt" method="_on_b_rcm_toggled"]
 [connection signal="toggled" from="CanvasLayer/vbt/b_r" to="CanvasLayer/vbt" method="_on_b_r_toggled"]
 [connection signal="toggled" from="CanvasLayer/vbt/b_s" to="CanvasLayer/vbt" method="_on_b_s_toggled"]
-[connection signal="pressed" from="CanvasLayer/Control/Button" to="CanvasLayer/Control/Button" method="_on_Button_pressed"]
 
 [editable path="player"]
 [editable path="player/CAM/position/elevation/zoom/Camera/closeup"]
-[editable path="tablo/table"]
