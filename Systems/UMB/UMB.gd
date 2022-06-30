@@ -20,9 +20,11 @@ const group_color = [# p
 	Color.lightcoral # 2 = error
 	]
 
+func _ready() -> void:
+	rpc_config("_logs_to_log",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+
 
 func logs(p:int, carrier:String, txt:String) ->  void:
-	rpc_config("_logs_to_log",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	rpc("_logs_to_log",p,carrier,txt)
 remote func _logs_to_log(_p, _carrier, _txt) ->  void:
 	UMB.log(_p,_carrier,_txt)
@@ -30,7 +32,13 @@ remote func _logs_to_log(_p, _carrier, _txt) ->  void:
 func logw(id:int, carrier:String, txt:String) ->  void:
 	rpc_id(id,"_logs_to_log",10,carrier,txt)
 	if not id == NetworkInterface.uid:
+		prints("			nooo,",id,NetworkInterface.uid)
 		UMB.log(10,carrier,txt)
+
+func logc(ids:Array, carrier:String, txt:String) -> void:
+	for id in ids:
+		rpc_id(id,"_logs_to_log",11,carrier,txt)
+
 
 func log(p:int, carrier:String, txt:String) ->  void:
 	var context:String
@@ -38,7 +46,7 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	
 	# 0 == player message
 	# finds player color
-	if p == 0 or p == 10:
+	if p == 0 or p == 10 or p == 11:
 		var col:Color
 		for pid in List.players:
 			if List.players[pid]["name"] == carrier:
@@ -52,6 +60,11 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	# 10 is whisper
 	if p == 10:
 		carrier = "[color=gray][whisper][/color]" + carrier
+		p = 0
+	
+	# 11 is class
+	if p == 11:
+		carrier = "[color=gray][class][/color]" + carrier
 		p = 0
 	
 	

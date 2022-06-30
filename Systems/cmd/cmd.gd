@@ -62,7 +62,7 @@ func w(ea:PoolStringArray) -> void:
 
 
 
-func c(_ea:PoolStringArray) -> void:
+func c(ea:PoolStringArray) -> void:
 	if not List.players[NetworkInterface.uid].has("class"):
 		UMB.log(1,"cmd","you have no class")
 		return
@@ -78,52 +78,56 @@ func c(_ea:PoolStringArray) -> void:
 		UMB.log(1,"cmd","you have no class")
 		return
 	
+	
+	if ea.size() > 0: 
+		c_chat(ea)
+		return
+	
+	
 	for pid in List.players:
 		if not List.players[pid].has("class"): continue
+		if not List.players[pid]["class"] == my_clas: continue
+	
+		var col = List.players[pid]["color"] as Color
+		var color = col.to_html()
 		
-		if List.players[pid]["class"] == my_clas:
-			var col = List.players[pid]["color"] as Color
-			var color = col.to_html()
-			
-			var pname = List.players[pid]["name"]
-			
-			var bb_name:String = "[color=#" + color + "]" + pname + "[/color]"
-			var bb_class:String = "[color=#" + Color.red.to_html() + "]" + my_clas + "[/color]"
-			
-			var txt = bb_name + " is also " + bb_class
-			UMB.log(1,"cmd",txt)
+		var pname = List.players[pid]["name"]
+		
+		var bb_name:String = "[color=#" + color + "]" + pname + "[/color]"
+		var bb_class:String = "[color=#" + Color.red.to_html() + "]" + my_clas + "[/color]"
+		
+		var txt = bb_name + " is also " + bb_class
+		UMB.log(1,"cmd",txt)
+
+func c_chat(ea:PoolStringArray) -> void:
+	var my_clas = List.players[NetworkInterface.uid]["class"]
+	
+	var ids : Array = []
+	
+	for pid in List.players:
+		if not List.players[pid].has("class"): continue
+		if not List.players[pid]["class"] == my_clas: continue
+		
+		ids.append(pid)
+	
+	
+	var txt = ea.join(" ")
+	UMB.logc(ids,NetworkInterface.Name,txt)
+	
+
+
+
+
+
+
+
+
+
+
 
 func set_class(ea:PoolStringArray) -> void:
 	if ea.size() < 1: return
 	List.remote_set_class(NetworkInterface.uid,ea[0])
-
-
-func terrain(ea:PoolStringArray) -> void:
-	if not ea.size() == 3: 
-		UMB.log(1,"Terrain","Correct use is /terrain [seed] [subdivide] [size]")
-		return
-	
-	var settings := {
-		"seed":int(ea[0]),
-		"subdivide":int(ea[1]),
-		"size":int(ea[2])
-		}
-	
-	
-	if ea[0] == "0":
-		var _e= settings.erase("seed")
-	if ea[1] == "0":
-		var _e= settings.erase("subdivide")
-	if ea[2] == "0":
-		var _e= settings.erase("size")
-	
-	
-	
-	
-	var m = get_node("/root/Main")
-	m.set_up_settings(settings)
-	m.get_node("Terrain").generate_terrain()
-
 
 
 
