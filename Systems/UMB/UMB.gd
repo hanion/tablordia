@@ -1,6 +1,7 @@
 extends Control
 
 export(NodePath) onready var chat = get_node(chat) as Control
+export(NodePath) onready var input = get_node(input) as LineEdit
 export(NodePath) onready var out0 = get_node(out0) as Control
 export(NodePath) onready var out1 = get_node(out1) as Control
 
@@ -8,7 +9,8 @@ const bbcodes := [
 	"wave",
 	"tornado",
 	"rainbow",
-	"shake"
+	"shake",
+	"center"
 	]
 
 
@@ -25,15 +27,18 @@ func logs(p:int, carrier:String, txt:String) ->  void:
 remote func _logs_to_log(_p, _carrier, _txt) ->  void:
 	UMB.log(_p,_carrier,_txt)
 
+func logw(id:int, carrier:String, txt:String) ->  void:
+	rpc_id(id,"_logs_to_log",10,carrier,txt)
+	if not id == NetworkInterface.uid:
+		UMB.log(10,carrier,txt)
 
 func log(p:int, carrier:String, txt:String) ->  void:
-	
 	var context:String
 	var color
 	
 	# 0 == player message
 	# finds player color
-	if p == 0:
+	if p == 0 or p == 10:
 		var col:Color
 		for pid in List.players:
 			if List.players[pid]["name"] == carrier:
@@ -42,6 +47,15 @@ func log(p:int, carrier:String, txt:String) ->  void:
 		color = col.to_html()
 	else:
 		color = group_color[p].to_html()
+	
+	
+	# 10 is whisper
+	if p == 10:
+		carrier = "[color=gray][whisper][/color]" + carrier
+		p = 0
+	
+	
+	
 	
 	
 	var bbstart:String = "[color=#" + color + "]"
@@ -82,6 +96,7 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	
 	context = ": " + txt
 	
+	
 	# spawn richlabel text node
 	var msg = chat.write(bbstart, carrier, context + bbend) as Node
 	
@@ -110,6 +125,10 @@ func log(p:int, carrier:String, txt:String) ->  void:
 func _unhandled_key_input(event):
 	if event.is_action_pressed("chat"):
 		chat_opened()
+	elif event.is_action_pressed("chat_cmd"):
+		chat_opened()
+		input.text = "/"
+		input.caret_position = 2
 
 
 
@@ -142,6 +161,7 @@ func fade() -> void:
 	__chat_alpha_process = 2
 	yield(get_tree().create_timer(auto_hide_chat_time),"timeout")
 	if not auto_hide_chat: return
+	if __chat_alpha_process == 0: return
 	if __chat_alpha_process == 1: return
 	
 	for _i in range(100):

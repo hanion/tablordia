@@ -288,6 +288,8 @@ func _on_table_mat_option_button_item_selected(index):
 
 
 remote func change_table_mat(index) -> void:
+	local_chance_table_mat(index)
+func local_chance_table_mat(index) -> void:
 	var mat
 	match index:
 		0:
@@ -311,5 +313,4 @@ remote func change_table_mat(index) -> void:
 			return
 	
 	table_mesh.set_surface_material(0,mat)
-
 

@@ -45,7 +45,7 @@ func _on_input_field_text_entered(txt:String) -> void:
 	UMB.chat_closed()
 	
 	if txt.begins_with('/'):
-		
+		CMD.parse_command(txt)
 		return
 	
 	if txt == '': return

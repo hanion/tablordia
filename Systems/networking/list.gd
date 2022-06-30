@@ -4,6 +4,7 @@ var players := {
 #	id:{
 #			"name": name,
 #			"color": color
+#			"class": "class"
 #		}
 }
 
@@ -22,9 +23,7 @@ func add_player(var id, var p: Dictionary = {}) -> void:
 	
 	
 	players[id] = new_dict
-	
-#	print("L: player added to List, id: ",id)
-	
+
 
 
 func remove_player(var id: int) -> void:
@@ -34,6 +33,15 @@ func remove_player(var id: int) -> void:
 		print("L: player removed from list, name: '",pname,"', id: ",id)
 	else:
 		print("L: player does not exist, id: ",id)
+
+
+func remote_set_class(var id: int, var clas: String) -> void:
+	rpc_config("set_class",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc("set_class",id,clas)
+remote func set_class(var id: int, var clas: String) -> void:
+	if not players.has(id): return
+	players[id]["class"] = clas
+
 
 
 
@@ -71,10 +79,9 @@ func feed_my_paths(var mp:Dictionary) -> void:
 
 
 var paths := {
-	"node_name":"node_path"
-	,
-	"table":"/root/Main/tablo/table"
-	,"deck":"/root/Main/cards/deck"
+	"node_name":"node_path",
+	"table":"/root/Main/tablo/table"#,
+#	"deck":"/root/Main/cards/deck"
 }
 
 """

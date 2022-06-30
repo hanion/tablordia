@@ -93,6 +93,10 @@ func add_card_to_hand(var crd: card, var pos: Vector3) -> void:
 	if am_i_the_owner:
 		set_card_hidden(crd,is_cards_hidden_to_owner)
 	
+	# do card specific actions
+	if crd.has_method("added_to_hand"):
+		crd.call_deferred("added_to_hand")
+	
 	resize_hand()
 
 func remove_card_from_hand(var crd: card) -> void:
@@ -123,6 +127,11 @@ func remove_card_from_hand(var crd: card) -> void:
 	crd.rotation.y = rotation.y
 	
 #	check_after_onemsec(crd,__a)
+	
+	if crd.has_method("removed_from_hand"):
+		crd.call_deferred("removed_from_hand",self)
+	
+	
 
 
 

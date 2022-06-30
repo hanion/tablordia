@@ -54,3 +54,25 @@ func set_is_hidden(_val) -> void:
 	update_material()
 
 
+
+
+func added_to_hand() -> void:
+	in_hand = in_hand as hand
+	if not in_hand.am_i_the_owner: return
+	
+	var clas = "none"
+	match card_value:
+		0:
+			clas = "liberal"
+		1:
+			clas = "fascist"
+		2:
+			clas = "fascist"
+	
+	List.remote_set_class(in_hand.owner_id,clas)
+
+func removed_from_hand(var han:hand) -> void:
+	if not han.am_i_the_owner: return
+	
+	List.remote_set_class(han.owner_id,"none")
+

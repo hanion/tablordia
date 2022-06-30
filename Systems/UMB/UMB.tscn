@@ -38,6 +38,7 @@ mouse_filter = 2
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 chat = NodePath("hs/vs/chat")
+input = NodePath("hs/vs/chat/hbox/input_field")
 out0 = NodePath("hs/vs/SPACE/out2")
 out1 = NodePath("hs/SPACE/out")
 
