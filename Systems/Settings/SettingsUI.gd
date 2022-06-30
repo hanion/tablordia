@@ -99,12 +99,12 @@ func open_ui() -> void:
 	pu.popup()
 	visible = true
 	Std.is_blocked_by_ui = true
-	if get_node("/root/").has_node("Main"):
-		initialize()
+	
+	initialize()
 
 func initialize() -> void:
 	if not environment == null: return
-	
+	if not get_node("/root/").has_node("Main"): return
 	
 	env_parent = get_node("/root/Main/environment")
 	environment = env_parent.get_node("WorldEnvironment").get_environment()
