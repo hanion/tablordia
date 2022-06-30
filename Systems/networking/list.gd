@@ -25,7 +25,6 @@ func add_player(var id, var p: Dictionary = {}) -> void:
 	players[id] = new_dict
 
 
-
 func remove_player(var id: int) -> void:
 	if players.has(id):
 		var pname = players[id]["name"]
@@ -36,7 +35,6 @@ func remove_player(var id: int) -> void:
 
 
 func remote_set_class(var id: int, var clas: String) -> void:
-	rpc_config("set_class",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	rpc("set_class",id,clas)
 remote func set_class(var id: int, var clas: String) -> void:
 	if not players.has(id): return

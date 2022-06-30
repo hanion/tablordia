@@ -22,6 +22,7 @@ const group_color = [# p
 
 func _ready() -> void:
 	rpc_config("_logs_to_log",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	List.rpc_config("set_class",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 
 
 func logs(p:int, carrier:String, txt:String) ->  void:
