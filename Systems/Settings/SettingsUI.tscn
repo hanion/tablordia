@@ -389,10 +389,10 @@ text = "Table material"
 margin_left = 235.0
 margin_right = 466.0
 margin_bottom = 72.0
-text = "Rug 4"
-icon = ExtResource( 12 )
+text = "Rug 5"
+icon = ExtResource( 10 )
 items = [ "Wood", ExtResource( 14 ), false, 0, null, "Marble", ExtResource( 16 ), false, 1, null, "Carpet", ExtResource( 15 ), false, 2, null, "Rug 1", ExtResource( 4 ), false, 3, null, "Rug 2", ExtResource( 11 ), false, 4, null, "Rug 3", ExtResource( 13 ), false, 5, null, "Rug 4", ExtResource( 12 ), false, 6, null, "Rug 5", ExtResource( 10 ), false, 7, null ]
-selected = 6
+selected = 7
 
 [node name="HSeparator" type="HSeparator" parent="pu/tabs/Misc/vb"]
 margin_top = 84.0
