@@ -15,7 +15,7 @@ var chat_dragger_v : VSplitContainer
 var chat_dragger_h : HSplitContainer
 var chat_alpha : float = 1.0
 var auto_hide_chat : bool = true
-var auto_hide_chat_time : int = 3
+var auto_hide_chat_time : int = 10
 
 var table_mat_marble = preload("res://InGame/Table/Marble016_2K-PNG/marble.tres")
 var table_mat_wood = preload("res://InGame/Table/Wood067_2K-PNG/wood.tres")

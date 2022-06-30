@@ -125,7 +125,7 @@ func remove_focus() -> void:
 ######################
 ####### auto hide chat
 var auto_hide_chat := true
-var auto_hide_chat_time := 3
+var auto_hide_chat_time := 10
 var __chat_alpha_process = 0
 func reset_alpha() -> void:
 	__chat_alpha_process = 1
