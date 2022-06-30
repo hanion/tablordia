@@ -34,8 +34,16 @@ export var colors := [
 	Color.yellow,
 	Color.blue,
 	Color.green,
-	Color.black
+	Color.darkslategray
 ]
+export var _colors := [
+	Color( 0.960784, 0.392157, 0.384314, 1 ), 
+	Color( 0.968627, 0.890196, 0.34902, 1 ), 
+	Color( 0, 0.764706, 0.898039, 1 ), 
+	Color( 0.184314, 0.886275, 0.607843, 1 ), 
+	Color.darkslategray
+]
+
 
 func _ready():
 	values_mat = values_mat.duplicate(true) as SpatialMaterial
@@ -48,10 +56,10 @@ func update_material() -> void:
 	
 	if is_hidden:
 		vmat.set_uv1_offset(posses[15])
-		cmat.set_albedo(colors[4])
+		cmat.set_albedo(_colors[4])
 	else:
 		vmat.set_uv1_offset(posses[card_value])
-		cmat.set_albedo(colors[card_value_second])
+		cmat.set_albedo(_colors[card_value_second])
 	
 	
 	value_mesh.set_material_override(vmat)

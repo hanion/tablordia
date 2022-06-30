@@ -13,16 +13,14 @@ size = Vector3( 0.8, 0.02, 0.8 )
 [sub_resource type="CubeMesh" id=3]
 size = Vector3( 1.44, 0.04, 2 )
 
-[node name="uno_card" type="Area" groups=[
-"draggable",
-"rotatable",
-]]
+[node name="uno_card" type="Area" groups=["draggable", "rotatable"]]
 script = ExtResource( 1 )
 value_mesh = NodePath("value_mesh")
 plate_mesh = NodePath("plate_mesh")
 values_mat = ExtResource( 3 )
 plates_mat = ExtResource( 2 )
-colors = [ Color( 0.960784, 0.392157, 0.384314, 1 ), Color( 0.968627, 0.890196, 0.34902, 1 ), Color( 0, 0.764706, 0.898039, 1 ), Color( 0.184314, 0.886275, 0.607843, 1 ), Color( 0, 0, 0, 1 ) ]
+colors = [ Color( 0.96, 0.39, 0.38, 1 ), Color( 1, 1, 0, 1 ), Color( 0, 0, 1, 1 ), Color( 0, 1, 0, 1 ), Color( 0.18, 0.31, 0.31, 1 ) ]
+_colors = [ Color( 0.960784, 0.392157, 0.384314, 1 ), Color( 0.968627, 0.890196, 0.34902, 1 ), Color( 0, 0.764706, 0.898039, 1 ), Color( 0.184314, 0.886275, 0.607843, 1 ), Color( 0.18, 0.31, 0.31, 1 ) ]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )
