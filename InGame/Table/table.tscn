@@ -6,7 +6,7 @@
 extents = Vector3( 100, 0.5, 100 )
 
 [sub_resource type="CubeMesh" id=2]
-size = Vector3( 30, 1, 41.219 )
+size = Vector3( 30, 0.015, 41.219 )
 
 [node name="table" type="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )
@@ -18,5 +18,6 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="tableMesh" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 mesh = SubResource( 2 )
 material/0 = ExtResource( 1 )
