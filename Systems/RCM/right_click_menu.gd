@@ -7,6 +7,7 @@ onready var wa_per0 = $WriteAmountPop/vbc/period
 onready var wa_per1 = $WriteAmountPop/vbc/period2
 onready var wa_per2 = $WriteAmountPop/vbc/period3
 onready var wa_label0 = $WriteAmountPop/vbc/period/Label
+onready var wa_input0 = $WriteAmountPop/vbc/period/LineEdit
 onready var wa_label1 = $WriteAmountPop/vbc/period2/Label
 onready var wa_label2 = $WriteAmountPop/vbc/period3/Label
 
@@ -96,7 +97,7 @@ func open_wa(sigto:Dictionary, title, l0="",l1="",l2="") -> ConfirmationDialog:
 	if not l0 == "":
 		wa_per0.visible = true
 		wa_label0.text = l0
-		
+		wa_input0.text = ""
 	
 	if not l1 == "":
 		wa_per1.visible = true
@@ -157,3 +158,7 @@ func _on_PopupMenu_index_pressed(index):
 	clicked_at(index)
 
 
+
+
+func _on_WriteAmountPop_popup_hide() -> void:
+	close_wa()
