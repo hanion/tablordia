@@ -30,10 +30,12 @@ custom_styles/normal = ExtResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[rainbow freq=0.02][center][wave freq=2 amp=200] yigithanion [/wave]
 
-[url=https://github.com/hanion]github - hanion[/url]"
+[url=https://github.com/hanion]github - hanion[/url]
+[url=https://hanion.itch.io/]itch - hanion[/url]"
 text = " yigithanion 
 
-github - hanion"
+github - hanion
+itch - hanion"
 script = ExtResource( 4 )
 
 [connection signal="meta_clicked" from="." to="." method="_on_credit_meta_clicked"]

@@ -35,6 +35,9 @@ const default_preset = 1
 
 # The available display resolutions
 const display_resolutions = [
+	Vector2(640, 360),
+	Vector2(1024, 576),
+	
 	Vector2(1280, 720),
 	Vector2(1366, 768),
 	Vector2(1600, 900),
@@ -127,7 +130,7 @@ func initialize() -> void:
 
 	# Add resolutions to the display resolution dropdown
 	for resolution in display_resolutions:
-		if resolution.x < screen_size.x and resolution.y < screen_size.y:
+		if resolution.x <= screen_size.x and resolution.y <= screen_size.y:
 			res.add_item(str(resolution.x) + "×" + str(resolution.y))
 
 	# Add a "Fullscreen" item at the end and select it by default
@@ -174,6 +177,8 @@ func _on_resolution_changed(id):
 	if id < res.get_item_count() - 1:
 		OS.set_window_fullscreen(false)
 		OS.set_window_size(display_resolutions[id])
+#		get_tree().set_screen_stretch( SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_KEEP,display_resolutions[id])
+		
 		# May be maximized automatically if the previous window size was bigger than screen size
 		OS.set_window_maximized(false)
 	else:

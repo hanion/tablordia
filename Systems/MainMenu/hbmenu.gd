@@ -70,5 +70,5 @@ func _on_autojoin_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
-	credits_popup.popup(Rect2(Vector2(420,300),Vector2(440,350)))
+	credits_popup.popup()
 	credits_popup.get_close_button().visible = false

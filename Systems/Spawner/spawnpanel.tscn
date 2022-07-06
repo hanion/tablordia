@@ -423,9 +423,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -527.0
+margin_left = -564.0
 margin_top = -227.0
-margin_right = 494.0
+margin_right = 566.0
 margin_bottom = 230.0
 rect_min_size = Vector2( 985, 205 )
 popup_exclusive = true
@@ -462,7 +462,7 @@ margin_bottom = 29.0
 text = " X "
 
 [node name="mrgn" type="MarginContainer" parent="WindowDialog/vb"]
-margin_right = 1021.0
+margin_right = 1130.0
 margin_bottom = 457.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -474,18 +474,18 @@ custom_constants/margin_bottom = 5
 [node name="hs" type="HSplitContainer" parent="WindowDialog/vb/mrgn"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 1016.0
+margin_right = 1125.0
 margin_bottom = 452.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-split_offset = 45
+split_offset = 10
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="games" type="TabContainer" parent="WindowDialog/vb/mrgn/hs"]
-margin_right = 783.0
+margin_right = 835.0
 margin_bottom = 447.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -502,7 +502,7 @@ scroll_horizontal_enabled = false
 script = ExtResource( 18 )
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick"]
-margin_right = 773.0
+margin_right = 825.0
 margin_bottom = 406.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -543,7 +543,7 @@ text = "misc"
 align = 1
 
 [node name="m1" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_right = 151.0
+margin_right = 161.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -563,7 +563,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1/vb"]
 process_priority = -5
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -573,14 +573,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1/vb"]
 margin_top = 116.0
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 145.0
 text = "Board Royale"
 align = 1
 
 [node name="m8" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 155.0
-margin_right = 306.0
+margin_left = 165.0
+margin_right = 326.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -597,7 +597,7 @@ margin_bottom = -5.0
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8/vb"]
 process_priority = -5
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -607,14 +607,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8/vb"]
 margin_top = 116.0
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 145.0
 text = "Secret Hitler"
 align = 1
 
 [node name="m2" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 310.0
-margin_right = 461.0
+margin_left = 330.0
+margin_right = 491.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -633,7 +633,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2/vb"]
 process_priority = -5
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -643,14 +643,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2/vb"]
 margin_top = 116.0
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 145.0
 text = "Chess Board"
 align = 1
 
 [node name="m51" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 465.0
-margin_right = 616.0
+margin_left = 495.0
+margin_right = 656.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -669,7 +669,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51/vb"]
 process_priority = -5
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -679,14 +679,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51/vb"]
 margin_top = 116.0
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 145.0
 text = "UNO"
 align = 1
 
 [node name="m5" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 620.0
-margin_right = 771.0
+margin_left = 660.0
+margin_right = 821.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -702,7 +702,7 @@ margin_bottom = -7.29201
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m5/vb"]
 process_priority = -5
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 109.0
 rect_pivot_offset = Vector2( 80, 0 )
 size_flags_horizontal = 3
@@ -713,14 +713,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m5/vb"]
 margin_top = 113.0
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 142.0
-text = "İskambil"
+text = "Deck of Cards"
 align = 1
 
 [node name="m3" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
 margin_top = 164.0
-margin_right = 151.0
+margin_right = 161.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -739,7 +739,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3/vb"]
 process_priority = -5
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 70.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -749,7 +749,7 @@ stretch_mode = 6
 
 [node name="Label2" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3/vb"]
 margin_top = 74.0
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -766,9 +766,9 @@ text = "Hand"
 align = 1
 
 [node name="m4" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 155.0
+margin_left = 165.0
 margin_top = 164.0
-margin_right = 306.0
+margin_right = 326.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -787,7 +787,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
 process_priority = -5
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 70.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -797,7 +797,7 @@ stretch_mode = 6
 
 [node name="Label2" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
 margin_top = 74.0
-margin_right = 131.0
+margin_right = 141.0
 margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -898,7 +898,7 @@ scroll_horizontal_enabled = false
 script = ExtResource( 34 )
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/SecretHitler"]
-margin_right = 773.0
+margin_right = 825.0
 margin_bottom = 406.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1273,7 +1273,7 @@ scroll_horizontal_enabled = false
 script = ExtResource( 21 )
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/UNO"]
-margin_right = 773.0
+margin_right = 825.0
 margin_bottom = 652.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1908,7 +1908,7 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources"]
-margin_right = 763.0
+margin_right = 815.0
 margin_bottom = 365.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2139,7 +2139,7 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Items"]
-margin_right = 763.0
+margin_right = 815.0
 margin_bottom = 1690.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -4122,7 +4122,7 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc"]
-margin_right = 763.0
+margin_right = 815.0
 margin_bottom = 365.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -4238,7 +4238,7 @@ margin_bottom = -5.0
 scroll_horizontal_enabled = false
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/S&R"]
-margin_right = 773.0
+margin_right = 825.0
 margin_bottom = 406.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -4313,8 +4313,8 @@ text = "SNR Skull"
 align = 1
 
 [node name="configurer" type="TabContainer" parent="WindowDialog/vb/mrgn/hs"]
-margin_left = 791.0
-margin_right = 1011.0
+margin_left = 843.0
+margin_right = 1120.0
 margin_bottom = 447.0
 rect_min_size = Vector2( 220, 0 )
 size_flags_horizontal = 3
@@ -4337,7 +4337,7 @@ anchor_bottom = 1.0
 custom_constants/separation = 10
 
 [node name="SelectionName" type="Label" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb"]
-margin_right = 210.0
+margin_right = 267.0
 margin_bottom = 29.0
 text = "Selected Object Name"
 align = 1
@@ -4345,7 +4345,7 @@ valign = 1
 
 [node name="vsc" type="VSplitContainer" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb"]
 margin_top = 39.0
-margin_right = 210.0
+margin_right = 267.0
 margin_bottom = 406.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -4431,7 +4431,7 @@ __meta__ = {
 }
 
 [node name="Scroll_Boards" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc"]
-margin_right = 210.0
+margin_right = 267.0
 margin_bottom = 309.0
 focus_neighbour_bottom = NodePath("../SpawnButton")
 size_flags_horizontal = 3
@@ -4442,67 +4442,67 @@ script = ExtResource( 20 )
 [node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 205.0
+margin_right = 262.0
 margin_bottom = 304.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="amount" type="HBoxContainer" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb"]
-margin_right = 200.0
+margin_right = 257.0
 margin_bottom = 29.0
 alignment = 1
 script = ExtResource( 13 )
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount"]
-margin_right = 98.0
+margin_right = 126.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 text = "Amount"
 align = 2
 
 [node name="SpinBox" type="SpinBox" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount"]
-margin_left = 102.0
-margin_right = 200.0
+margin_left = 130.0
+margin_right = 257.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 value = 1.0
 
 [node name="owner" type="HBoxContainer" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb"]
 margin_top = 33.0
-margin_right = 200.0
+margin_right = 257.0
 margin_bottom = 62.0
 script = ExtResource( 17 )
 spawnpanel = NodePath("../../../../../../../../../../..")
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/owner"]
-margin_right = 98.0
+margin_right = 126.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 text = "Owner"
 align = 2
 
 [node name="OptionButton" type="OptionButton" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/owner"]
-margin_left = 102.0
-margin_right = 200.0
+margin_left = 130.0
+margin_right = 257.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 
 [node name="uno_team" type="HBoxContainer" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb"]
 margin_top = 66.0
-margin_right = 200.0
+margin_right = 257.0
 margin_bottom = 95.0
 script = ExtResource( 22 )
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/uno_team"]
-margin_right = 98.0
+margin_right = 126.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 text = "Color"
 align = 2
 
 [node name="OptionButton" type="OptionButton" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/uno_team"]
-margin_left = 102.0
-margin_right = 200.0
+margin_left = 130.0
+margin_right = 257.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 text = "Red"
@@ -4511,7 +4511,7 @@ selected = 0
 
 [node name="oct" type="CheckBox" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb"]
 margin_top = 99.0
-margin_right = 200.0
+margin_right = 257.0
 margin_bottom = 128.0
 focus_mode = 0
 pressed = true
@@ -4528,7 +4528,7 @@ margin_bottom = 887.0
 
 [node name="SpawnButton" type="Button" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc"]
 margin_top = 317.0
-margin_right = 210.0
+margin_right = 267.0
 margin_bottom = 367.0
 rect_min_size = Vector2( 0, 50 )
 size_flags_horizontal = 3
@@ -4579,8 +4579,8 @@ text = "Spawn"
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s4" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s4_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_m1_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_m2_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/S&R/Grid/m6" to="WindowDialog/vb/mrgn/hs/games/S&R" method="_on_m6_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/S&R/Grid/m7" to="WindowDialog/vb/mrgn/hs/games/S&R" method="_on_m7_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/S&R/Grid/m6" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m6_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/S&R/Grid/m7" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m7_pressed"]
 [connection signal="amount_changed" from="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount" to="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards" method="_on_amount_amount_changed"]
 [connection signal="value_changed" from="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount/SpinBox" to="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/amount" method="_on_SpinBox_value_changed"]
 [connection signal="on_owner_changed" from="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards/vb/owner" to="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards" method="_on_owner_on_owner_changed"]

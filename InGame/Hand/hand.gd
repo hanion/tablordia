@@ -7,8 +7,8 @@ export var only_resources := false
 
 
 export(int) var SQUEEZING_START = 10
-export(float) var SQUEEZING_X_OFFSET = 0.9
-export(bool) var SORT_BY_SECOND_VALUE = false
+export(float) var SQUEEZING_X_OFFSET = 0.35
+export(bool) var SORT_BY_SECOND_VALUE = true
 export(float) var ON_DRAG_EXTENTS = 0.3
 
 

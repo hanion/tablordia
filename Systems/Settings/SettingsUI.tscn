@@ -36,7 +36,6 @@ msg_example = NodePath("pu/tabs/Misc/vb/msg")
 script = ExtResource( 2 )
 
 [node name="TextureRect" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -65.0
@@ -54,8 +53,8 @@ anchor_bottom = 0.5
 margin_left = -243.0
 margin_top = -168.0
 margin_right = 243.0
-margin_bottom = 168.0
-rect_min_size = Vector2( 480, 335 )
+margin_bottom = 177.0
+rect_min_size = Vector2( 480, 345 )
 popup_exclusive = true
 window_title = "Pause Menu"
 resizable = true
@@ -67,7 +66,38 @@ margin_left = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
 
+[node name="Controls" type="Panel" parent="pu/tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="pu/tabs/Controls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[indent][table=2]
+[cell]Pan Camera[/cell][cell]wasd[/cell]
+[cell]Pan Camera[/cell][cell]ctl+lmb[/cell]
+[cell]Rotate Camera[/cell][cell]ctrl+rmb[/cell]
+[cell][/cell][cell][/cell]
+[cell]Move Deck/Hand[/cell][cell]shift+lmb[/cell]
+[cell][/cell][cell][/cell]
+[cell]Chat[/cell][cell]Enter[/cell]
+[cell]Spawn Menu[/cell][cell]m[/cell]
+[cell]Context Menu[/cell][cell]rmb[/cell]
+
+
+
+
+[cell]                                          [/cell][cell]                                [/cell]"
+text = "	Pan CamerawasdPan Cameractl+lmbRotate Cameractrl+rmbMove Deck/Handshift+lmbChatEnterSpawn MenumContext Menurmb                                                                          "
+
 [node name="Graphics" type="ScrollContainer" parent="pu/tabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -81,7 +111,7 @@ __meta__ = {
 
 [node name="vb" type="VBoxContainer" parent="pu/tabs/Graphics"]
 margin_right = 466.0
-margin_bottom = 290.0
+margin_bottom = 299.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 6 )
@@ -312,37 +342,6 @@ visible = true
 margin_left = 235.0
 margin_right = 466.0
 
-[node name="Controls" type="Panel" parent="pu/tabs"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 36.0
-margin_right = -5.0
-margin_bottom = -5.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="pu/tabs/Controls"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "[indent][table=2]
-[cell]Pan Camera[/cell][cell]wasd[/cell]
-[cell]Pan Camera[/cell][cell]ctl+lmb[/cell]
-[cell]Rotate Camera[/cell][cell]ctrl+rmb[/cell]
-[cell][/cell][cell][/cell]
-[cell]Move Deck/Hand[/cell][cell]shift+lmb[/cell]
-[cell][/cell][cell][/cell]
-[cell]Chat[/cell][cell]Enter[/cell]
-[cell]Spawn Menu[/cell][cell]m[/cell]
-[cell]Context Menu[/cell][cell]rmb[/cell]
-
-
-
-
-[cell]                                          [/cell][cell]                                [/cell]"
-text = "	Pan CamerawasdPan Cameractl+lmbRotate Cameractrl+rmbMove Deck/Handshift+lmbChatEnterSpawn MenumContext Menurmb                                                                          "
-
 [node name="Misc" type="ScrollContainer" parent="pu/tabs"]
 visible = false
 anchor_right = 1.0
@@ -358,7 +357,7 @@ __meta__ = {
 
 [node name="vb" type="VBoxContainer" parent="pu/tabs/Misc"]
 margin_right = 466.0
-margin_bottom = 290.0
+margin_bottom = 299.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -389,10 +388,10 @@ text = "Table material"
 margin_left = 235.0
 margin_right = 466.0
 margin_bottom = 72.0
-text = "Rug 5"
-icon = ExtResource( 10 )
+text = "Wood"
+icon = ExtResource( 14 )
 items = [ "Wood", ExtResource( 14 ), false, 0, null, "Marble", ExtResource( 16 ), false, 1, null, "Carpet", ExtResource( 15 ), false, 2, null, "Rug 1", ExtResource( 4 ), false, 3, null, "Rug 2", ExtResource( 11 ), false, 4, null, "Rug 3", ExtResource( 13 ), false, 5, null, "Rug 4", ExtResource( 12 ), false, 6, null, "Rug 5", ExtResource( 10 ), false, 7, null ]
-selected = 7
+selected = 0
 
 [node name="HSeparator" type="HSeparator" parent="pu/tabs/Misc/vb"]
 margin_top = 84.0
