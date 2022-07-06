@@ -47,7 +47,7 @@ func _on_m5_pressed():
 	var info := {
 		"type":"Game",
 		"name":"52",
-		"inspector_text":"İskambil"
+		"inspector_text":"Deck of Cards"
 		}
 	hs.selected(info)
 

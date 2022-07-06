@@ -6,7 +6,7 @@
 [node name="isk" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="iskambil" parent="." instance=ExtResource( 1 )]
+[node name="doc" parent="." instance=ExtResource( 1 )]
 can_stack = false
 is_cards_hidden = true
 can_make_cards_visible = false
