@@ -44,9 +44,6 @@ popup_exclusive = true
 window_title = "Write Amount"
 resizable = true
 dialog_hide_on_ok = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="vbc" type="VBoxContainer" parent="WriteAmountPop"]
 anchor_right = 1.0
@@ -58,14 +55,11 @@ margin_bottom = -45.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="period" type="HBoxContainer" parent="WriteAmountPop/vbc"]
-margin_top = 28.0
+margin_top = 29.0
 margin_right = 208.0
-margin_bottom = 57.0
+margin_bottom = 58.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -88,9 +82,9 @@ size_flags_vertical = 3
 
 [node name="period2" type="HBoxContainer" parent="WriteAmountPop/vbc"]
 visible = false
-margin_top = 35.0
+margin_top = 45.0
 margin_right = 208.0
-margin_bottom = 66.0
+margin_bottom = 74.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -98,7 +92,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="WriteAmountPop/vbc/period2"]
 margin_right = 102.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Amount:"
@@ -107,15 +101,15 @@ align = 1
 [node name="LineEdit" type="LineEdit" parent="WriteAmountPop/vbc/period2"]
 margin_left = 106.0
 margin_right = 208.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="period3" type="HBoxContainer" parent="WriteAmountPop/vbc"]
 visible = false
-margin_top = 52.0
+margin_top = 45.0
 margin_right = 208.0
-margin_bottom = 83.0
+margin_bottom = 74.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -123,7 +117,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="WriteAmountPop/vbc/period3"]
 margin_right = 102.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Amount:"
@@ -132,7 +126,7 @@ align = 1
 [node name="LineEdit" type="LineEdit" parent="WriteAmountPop/vbc/period3"]
 margin_left = 106.0
 margin_right = 208.0
-margin_bottom = 31.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -146,9 +140,6 @@ margin_top = -98.5
 margin_right = 155.0
 margin_bottom = 98.5
 window_title = "Hand Settings"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="vb" type="VBoxContainer" parent="HandSettings"]
 anchor_right = 1.0
@@ -179,7 +170,7 @@ margin_left = 150.0
 margin_right = 294.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
-text = "0.9"
+text = "0.35"
 placeholder_text = "Spacing (float)"
 
 [node name="squeeze_start" type="HBoxContainer" parent="HandSettings/vb"]
@@ -210,30 +201,32 @@ margin_right = 294.0
 margin_bottom = 95.0
 focus_mode = 0
 size_flags_horizontal = 3
+pressed = true
 text = "Sort by second card value (color)"
 align = 1
 
 [node name="setting3" type="HBoxContainer" parent="HandSettings/vb"]
 visible = false
-margin_top = 105.0
-margin_right = 444.0
-margin_bottom = 136.0
+margin_top = 99.0
+margin_right = 294.0
+margin_bottom = 128.0
 size_flags_horizontal = 3
 
 [node name="sname" type="Label" parent="HandSettings/vb/setting3"]
-margin_right = 220.0
-margin_bottom = 31.0
+margin_right = 145.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 text = "setting0"
 align = 2
 
 [node name="input" type="LineEdit" parent="HandSettings/vb/setting3"]
-margin_left = 224.0
-margin_right = 444.0
-margin_bottom = 31.0
+margin_left = 149.0
+margin_right = 294.0
+margin_bottom = 29.0
 size_flags_horizontal = 3
 text = "0.9"
 
 [connection signal="index_pressed" from="PopupMenu" to="." method="_on_PopupMenu_index_pressed"]
 [connection signal="popup_hide" from="PopupMenu" to="." method="_on_PopupMenu_popup_hide"]
+[connection signal="popup_hide" from="WriteAmountPop" to="." method="_on_WriteAmountPop_popup_hide"]
