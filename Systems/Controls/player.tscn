@@ -46,7 +46,6 @@ script = ExtResource( 1 )
 min_zoom = 1.0
 min_elevation_angle = 5
 max_elevation_angle = 90
-allow_wasd_movement = false
 
 [node name="position" type="Spatial" parent="CAM"]
 

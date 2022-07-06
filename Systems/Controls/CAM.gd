@@ -96,8 +96,8 @@ func _process(delta: float) -> void:
 # MOVEMENT FUNCTIONS
 ##############################
 func _move(delta: float) -> void:
-	if not allow_wasd_movement:
-		return
+	if not allow_wasd_movement: return
+	if Std.is_blocked_by_ui: return
 	var velocity = _get_desiered_velocity() * delta * movement_speed
 	_translate_position(velocity)
 
