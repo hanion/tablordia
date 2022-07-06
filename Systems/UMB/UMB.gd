@@ -157,32 +157,41 @@ func remove_focus() -> void:
 
 ######################
 ####### auto hide chat
+enum cs {FADE, SHOW, REST}
+var chat_state = cs.FADE
+
 var auto_hide_chat := true
 var auto_hide_chat_time := 10
-var __chat_alpha_process = 0
 func reset_alpha() -> void:
-	__chat_alpha_process = 1
+	chat_state = cs.SHOW
+	
 	for _i in range(6):
-		if __chat_alpha_process == 2: return
+		if chat_state == cs.FADE: return
 		yield(get_tree().create_timer(0.01),"timeout")
 		modulate.a = lerp(modulate.a,SettingsUI.chat_alpha,0.2)
 	modulate.a = SettingsUI.chat_alpha
-	__chat_alpha_process = 0
+	
+	chat_state = cs.REST
 
 func fade() -> void:
+	chat_state = cs.FADE
+	
 	if not auto_hide_chat: return
-	if __chat_alpha_process == 1: return
-	__chat_alpha_process = 2
+	if chat_state == cs.SHOW: return
+	
 	yield(get_tree().create_timer(auto_hide_chat_time),"timeout")
 	if not auto_hide_chat: return
-	if __chat_alpha_process == 0: return
-	if __chat_alpha_process == 1: return
+	if chat_state == cs.SHOW: return
+	
 	
 	for _i in range(100):
-		if __chat_alpha_process == 1: return
+		if chat_state == cs.SHOW: return
+		
 		yield(get_tree().create_timer(0.01),"timeout")
 		modulate.a = lerp(modulate.a,-1,0.01)
-	__chat_alpha_process = 0
+	
+	chat_state = cs.REST
+
 ####### /auto hide chat
 ######################
 
