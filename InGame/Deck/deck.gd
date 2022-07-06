@@ -333,8 +333,7 @@ func draw_cards(amo) -> void:
 		yield(get_tree().create_timer(DRAWING_DELAY),"timeout")
 		draw_card()
 		if env.size() == 0:
-			UMB.log(1,name,"Not enough cards in deck to draw.")
-			UMB.log(1,name,"Drawn " + str(cards_drawn) + " cards.")
+			UMB.log(1,name,"Not enough cards in deck to draw.\nDrawn " + str(cards_drawn) + " cards.")
 			return
 		
 
@@ -351,8 +350,8 @@ func draw_card() -> void:
 	
 	cards_drawn += 1
 	
-	if drawing_amount == cards_drawn:
-		UMB.log(1,name,"Drawn " + str(cards_drawn) + " cards.")
+#	if drawing_amount == cards_drawn:
+#		UMB.log(1,name,"Drawn " + str(cards_drawn) + " cards.")
 #		print(name,": Drawn ",cards_drawn," cards.")
 
 

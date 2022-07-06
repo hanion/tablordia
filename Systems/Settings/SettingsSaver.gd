@@ -52,7 +52,8 @@ func load_settings() -> void:
 			
 			file.close()
 			print("Succesfully loaded settings")
-			UMB.log(1,"Settings","Succesfully loaded settings")
+#			 NO need for this in release
+#			UMB.log(1,"Settings","Succesfully loaded settings") 
 		else:
 			print("!! Error while loading settings. ",er)
 			UMB.log(2,"Settings","Error while loading settings : "+str(er))

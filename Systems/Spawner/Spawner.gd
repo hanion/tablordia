@@ -65,10 +65,11 @@ func _spawn(info) -> void:
 			push_error("Spawner: Unknown type to spawn")
 			return
 	
-	if not info.has("no UMB"):
-		if info["name"] == "resource": return
-		if info["name"] == "item": return
-		UMB.log(1,"Spawner","Spawned "+info["type"]+" "+info["name"])
+#	there is no more need for this in release
+#	if not info.has("no UMB"):
+#		if info["name"] == "resource": return
+#		if info["name"] == "item": return
+#		UMB.log(1,"Spawner","Spawned "+info["type"]+" "+info["name"])
 
 
 
