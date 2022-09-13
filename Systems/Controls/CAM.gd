@@ -9,18 +9,18 @@ signal camera_moved(new_location)
 # EXPORT PARAMS
 ########################
 # movement
-export (float, 0, 100, 0.5) var movement_speed = 20
+export (float, 0, 100, 0.5) var movement_speed = 20.0
 # zoom
-export (float, 0, 100, 0.5) var min_zoom = 0
-export (float, 0, 100, 0.5) var max_zoom = 20
-export (float, 0, 100, 0.5) var zoom_speed = 20
+export (float, 0, 100, 0.5) var min_zoom = 0.0
+export (float, 0, 100, 0.5) var max_zoom = 20.0
+export (float, 0, 100, 0.5) var zoom_speed = 20.0
 export (float, 0, 1, 0.05) var zoom_speed_damp = 0.8
 # rotation
 export (int, 0, 90) var min_elevation_angle = 10 
 export (int, 0, 90) var max_elevation_angle = 80
-export (float, -100, 100, 0.5) var rotation_speed = -20
+export (float, -100, 100, 0.5) var rotation_speed = -20.0
 # pan
-export (float, 0, 10, 0.1) var pan_speed = 2
+export (float, 0, 10, 0.1) var pan_speed = 2.0
 # flags
 export var allow_wasd_movement: bool = true
 export var allow_zoom: bool = true

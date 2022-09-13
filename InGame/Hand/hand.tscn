@@ -18,7 +18,6 @@ shape = SubResource( 1 )
 
 [node name="handMesh" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
-material/0 = null
 
 [node name="Tween" type="Tween" parent="."]
 

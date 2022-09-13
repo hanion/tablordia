@@ -117,7 +117,6 @@ multirun/other_window_args="join"
 
 window/size/width=1280
 window/size/height=720
-window/size/always_on_top=true
 window/size/test_width=1280
 window/size/test_height=720
 window/handheld/orientation="sensor_landscape"
@@ -231,6 +230,11 @@ settings_ui={
 chat_cmd={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777346,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+toggle_hud={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":72,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

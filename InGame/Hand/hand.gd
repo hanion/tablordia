@@ -14,7 +14,7 @@ export(float) var ON_DRAG_EXTENTS = 0.3
 
 export(float) var offsetx = 1.44
 export(float) var offsety = 0.15
-export(float) var offsetz = 0
+export(float) var offsetz = 0.0
 
 export(float) var tween_duration = 0.2
 

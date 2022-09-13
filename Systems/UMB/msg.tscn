@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0, 0, 0, 0.807843 )
+bg_color = Color( 0, 0, 0, 0 )
 
 [node name="msg" type="RichTextLabel"]
 margin_right = 546.0

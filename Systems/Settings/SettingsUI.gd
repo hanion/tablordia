@@ -25,6 +25,7 @@ var table_mat_rug2 = preload("res://InGame/Table/table_mat_rug2.tres")
 var table_mat_rug3 = preload("res://InGame/Table/table_mat_rug3.tres")
 var table_mat_rug4 = preload("res://InGame/Table/table_mat_rug4.tres")
 var table_mat_rug5 = preload("res://InGame/Table/table_mat_rug5.tres")
+var table_mat_base_color = preload("res://InGame/Table/base_color_mat.tres")
 
 # The preset to use when starting the project
 # 0: Low
@@ -96,6 +97,7 @@ func _ready():
 	visible = false
 	pu.connect("popup_hide",self,"close_ui")
 	rpc_config("change_table_mat",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc_config("change_table_color",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 
 
 func open_ui() -> void:
@@ -177,7 +179,8 @@ func _on_resolution_changed(id):
 	if id < res.get_item_count() - 1:
 		OS.set_window_fullscreen(false)
 		OS.set_window_size(display_resolutions[id])
-#		get_tree().set_screen_stretch( SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_KEEP,display_resolutions[id])
+#		get_tree().set_screen_stretch( SceneTree.STRETCH_MODE_2D,
+# SceneTree.STRETCH_ASPECT_KEEP,display_resolutions[id])
 		
 		# May be maximized automatically if the previous window size was bigger than screen size
 		OS.set_window_maximized(false)
@@ -317,5 +320,14 @@ func local_chance_table_mat(index) -> void:
 		_:
 			return
 	
+	table_mesh.set_surface_material(0,mat)
+
+
+
+func _on_ColorPickerButton_color_changed(color: Color) -> void:
+	rpc("change_table_color",color)
+remote func change_table_color(col) -> void:
+	var mat = table_mat_base_color
+	mat.albedo_color = col
 	table_mesh.set_surface_material(0,mat)
 
