@@ -20,6 +20,9 @@ func _ready():
 	# warning-ignore:return_value_discarded
 	get_tree().connect("connected_to_server",self,"start_game")
 	lineip.text = (str(IP.get_local_addresses()).split(",",false)[0].right(1))
+	if OS.get_name() == "Windows":
+		lineip.text = (str(IP.get_local_addresses()).split(",",false)[1].right(1))
+	
 
 
 func start_game():
