@@ -11,6 +11,7 @@ func _unhandled_key_input(event:InputEventKey):
 	handle_control(event)
 	handle_shift(event)
 	handle_spawnmenu(event)
+	handle_hud(event)
 	handle_settings_ui(event)
 
 
@@ -72,6 +73,11 @@ func handle_spawnmenu(event) -> void:
 				spawn_panel.open_menu()
 			
 
+
+func handle_hud(event) -> void:
+	if event is InputEventKey:
+		if event.is_action_pressed("toggle_hud"):
+			HUD.visible = not HUD.visible
 
 
 func handle_pan(event) -> void:
