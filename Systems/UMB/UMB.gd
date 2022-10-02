@@ -65,7 +65,12 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	
 	# 11 is class
 	if p == 11:
-		carrier = "[color=gray][class][/color]" + carrier
+		var clas_name
+		for pid in List.players:
+			if List.players[pid]["name"] == carrier:
+				clas_name = List.players[pid]["class"]
+		
+		carrier = "[color=gray]["+clas_name+"][/color]" + carrier
 		p = 0
 	
 	
@@ -166,7 +171,7 @@ func reset_alpha() -> void:
 	chat_state = cs.SHOW
 	
 	for _i in range(6):
-		if chat_state == cs.FADE: return
+		if chat_state != cs.SHOW: return
 		yield(get_tree().create_timer(0.01),"timeout")
 		modulate.a = lerp(modulate.a,SettingsUI.chat_alpha,0.2)
 	modulate.a = SettingsUI.chat_alpha
@@ -177,15 +182,15 @@ func fade() -> void:
 	chat_state = cs.FADE
 	
 	if not auto_hide_chat: return
-	if chat_state == cs.SHOW: return
+	if chat_state != cs.FADE: return
 	
 	yield(get_tree().create_timer(auto_hide_chat_time),"timeout")
 	if not auto_hide_chat: return
-	if chat_state == cs.SHOW: return
+	if chat_state != cs.FADE: return
 	
 	
 	for _i in range(100):
-		if chat_state == cs.SHOW: return
+		if chat_state != cs.FADE: return
 		
 		yield(get_tree().create_timer(0.01),"timeout")
 		modulate.a = lerp(modulate.a,-1,0.01)
