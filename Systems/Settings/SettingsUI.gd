@@ -75,7 +75,7 @@ const presets = [
 
 	# High
 	{
-		"environment/glow_enabled": [true, "Enabled"],
+#		"environment/glow_enabled": [true, "Enabled"],
 		"environment/ss_reflections_enabled": [false, "Disabled"],
 		"environment/ssao_enabled": [true, "Medium-quality"],
 		"environment/ssao_blur": [Environment.SSAO_BLUR_1x1, ""],
@@ -85,9 +85,9 @@ const presets = [
 
 	# Ultra
 	{
-		"environment/glow_enabled": [true, "Enabled"],
-		"environment/ss_reflections_enabled": [false, "Disabled"],
-#		"environment/ss_reflections_enabled": [true, "Enabled"], # reflections broken with 2 lights
+#		"environment/glow_enabled": [true, "Enabled"],
+#		"environment/ss_reflections_enabled": [false, "Disabled"],
+		"environment/ss_reflections_enabled": [true, "Enabled"], # reflections broken with 2 lights
 		"environment/ssao_enabled": [true, "High-quality"],
 		"environment/ssao_blur": [Environment.SSAO_BLUR_2x2, ""],
 		"environment/ssao_quality": [Environment.SSAO_QUALITY_MEDIUM, ""],
