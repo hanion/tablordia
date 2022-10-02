@@ -1,0 +1,5 @@
+[gd_resource type="ProceduralSky" format=2]
+
+[resource]
+sun_angle_min = 0.0
+sun_angle_max = 12.35

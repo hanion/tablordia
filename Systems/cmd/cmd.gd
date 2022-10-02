@@ -1,7 +1,7 @@
 extends Node
 # CMD
 const valid_commands : Array = [
-	"quit","say","table","kick","w","c","set_class"
+	"quit","say","table","kick","w","c","set_class","table_inf"
 	]
 
 func parse_command(var txt: String) -> void:
@@ -48,8 +48,16 @@ func say(ea:PoolStringArray) -> void:
 
 
 func table(ea:PoolStringArray) -> void:
+	if not ea: return
 	var num : int = int(ea[0])
 	SettingsUI.local_chance_table_mat(num)
+
+func table_inf(ea:PoolStringArray) -> void:
+	if not ea: return
+	var num : int = int(ea[0])
+	print("a ",num)
+	SettingsUI.change_table_mesh(num)
+	
 
 
 func w(ea:PoolStringArray) -> void:

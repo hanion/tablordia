@@ -15,7 +15,8 @@ var settings := {
 	
 	
 	"shading" : true,
-	"shade_table" : true
+	"shade_table" : true,
+	"black_sky":true
 	}
 
 

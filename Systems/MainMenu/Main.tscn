@@ -13,10 +13,10 @@
 [ext_resource path="res://Theme/GREEN_theme.tres" type="Theme" id=13]
 
 [sub_resource type="GIProbeData" id=6]
-bounds = AABB( -57.2819, -11, -57, 114.564, 22, 114 )
-cell_size = 0.89503
-to_cell_xform = Transform( 1.11728, 0, 0, 0, 1.11728, 0, 0, 0, 1.11728, 64, 12.2901, 63.685 )
-dynamic_data = PoolIntArray( 0, 8, 128, 32, 128, 1, 0, 0, 1101004800, 1086324736, 1065353216, 0, 1101004800, 1101004800, 1065353216, 1065353216, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+bounds = AABB( -200, -11, -200, 400, 22, 400 )
+cell_size = 6.25
+to_cell_xform = Transform( 0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 32, 1.76, 32 )
+dynamic_data = PoolIntArray( 0, 7, 64, 4, 64, 1, 0, 32644, 1086324736, 1086324736, 0, 0, 1101004800, 1086324736, 1065353216, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
 dynamic_range = 4
 bias = 3.538
 normal_bias = 0.0
@@ -94,6 +94,7 @@ directional_shadow_max_distance = 150.0
 
 [node name="DirectionalLight2" type="DirectionalLight" parent="environment"]
 transform = Transform( -0.786354, 0.264956, -0.558073, -0.603107, -0.524938, 0.600585, -0.133825, 0.80885, 0.572584, 3.84951, 11.0713, -9.56406 )
+visible = false
 light_energy = 0.154
 light_specular = 0.0
 shadow_enabled = true
@@ -104,7 +105,8 @@ directional_shadow_max_distance = 150.0
 environment = ExtResource( 3 )
 
 [node name="GIProbe" type="GIProbe" parent="environment"]
-extents = Vector3( 57.2819, 11, 57 )
+subdiv = 0
+extents = Vector3( 200, 11, 200 )
 bias = 3.538
 interior = true
 data = SubResource( 6 )

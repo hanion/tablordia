@@ -27,6 +27,9 @@ var table_mat_rug4 = preload("res://InGame/Table/table_mat_rug4.tres")
 var table_mat_rug5 = preload("res://InGame/Table/table_mat_rug5.tres")
 var table_mat_base_color = preload("res://InGame/Table/base_color_mat.tres")
 
+var sky_black = preload("res://sky_black.tres")
+var sky_default = preload("res://sky_default.tres")
+
 # The preset to use when starting the project
 # 0: Low
 # 1: Medium
@@ -56,7 +59,7 @@ const presets = [
 		"environment/ssao_enabled": [false, "Disabled"],
 		"environment/ssao_blur": [Environment.SSAO_BLUR_1x1, ""],
 		"environment/ssao_quality": [Environment.SSAO_QUALITY_LOW, ""],
-		"rendering/quality/filters/msaa": [Viewport.MSAA_DISABLED, "Disabled"],
+		"rendering/quality/filters/msaa": [Viewport.MSAA_DISABLED, "Disabled"]
 	},
 
 	# Medium
@@ -98,6 +101,7 @@ func _ready():
 	pu.connect("popup_hide",self,"close_ui")
 	rpc_config("change_table_mat",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	rpc_config("change_table_color",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc_config("_change_table_mesh",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 
 
 func open_ui() -> void:
@@ -173,6 +177,8 @@ func _on_graphics_preset_change(preset: int) -> void:
 	
 	seset("shade_table",(not preset == 0))
 	
+	seset("black_sky",(not preset == 0))
+	
 	$SettingsSaver.load_settings()
 
 func _on_resolution_changed(id):
@@ -220,7 +226,9 @@ func seset(pth:String, val) -> void:
 			var mat = table_mesh.get_surface_material(0) as SpatialMaterial
 			mat.flags_unshaded = not val
 			table_mesh.set_surface_material(0,mat)
-	
+		"black_sky":
+			environment.background_sky = sky_black if val else sky_default
+		
 	$SettingsSaver.write_seset(pth, val)
 
 func load_set_to_ui(pth:String, val) -> void:
@@ -321,6 +329,19 @@ func local_chance_table_mat(index) -> void:
 			return
 	
 	table_mesh.set_surface_material(0,mat)
+
+func change_table_mesh(num:int) -> void:
+	rpc("_change_table_mesh",num)
+remote func _change_table_mesh(num) -> void:
+	var inf_table = table_mesh.get_parent().get_node("tableMeshInf")
+	print(inf_table)
+	if num == 1:
+		inf_table.visible = true
+		table_mesh.visible = false
+	else:
+		inf_table.visible = false
+		table_mesh.visible = true
+		
 
 
 
