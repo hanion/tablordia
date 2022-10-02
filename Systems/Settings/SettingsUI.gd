@@ -11,6 +11,7 @@ export(NodePath) onready var msg_example = get_node(msg_example) as RichTextLabe
 var env_parent
 var environment
 var table_mesh : MeshInstance
+var inf_table_mesh : MeshInstance
 var chat_dragger_v : VSplitContainer
 var chat_dragger_h : HSplitContainer
 var chat_alpha : float = 1.0
@@ -122,6 +123,8 @@ func initialize() -> void:
 	chat_dragger_v = UMB.get_node("hs/vs")
 	
 	table_mesh = get_node("/root/Main/tablo/table/tableMesh")
+	inf_table_mesh = get_node("/root/Main/tablo/table/tableMeshInf")
+	
 	
 	
 	# Initialize the project on the default preset
@@ -328,27 +331,31 @@ func local_chance_table_mat(index) -> void:
 		_:
 			return
 	
+	local_change_table_mesh(int(index < 3))
+	inf_table_mesh.set_surface_material(0,mat)
 	table_mesh.set_surface_material(0,mat)
 
 func change_table_mesh(num:int) -> void:
 	rpc("_change_table_mesh",num)
 remote func _change_table_mesh(num) -> void:
-	var inf_table = table_mesh.get_parent().get_node("tableMeshInf")
-	print(inf_table)
+	local_chance_table_mat(num)
+func local_change_table_mesh(num) -> void:
 	if num == 1:
-		inf_table.visible = true
+		inf_table_mesh.visible = true
 		table_mesh.visible = false
 	else:
-		inf_table.visible = false
+		inf_table_mesh.visible = false
 		table_mesh.visible = true
-		
+
 
 
 
 func _on_ColorPickerButton_color_changed(color: Color) -> void:
 	rpc("change_table_color",color)
 remote func change_table_color(col) -> void:
+	local_change_table_mesh(1)
 	var mat = table_mat_base_color
 	mat.albedo_color = col
 	table_mesh.set_surface_material(0,mat)
+	inf_table_mesh.set_surface_material(0,mat)
 
