@@ -1,7 +1,7 @@
 extends Node
 # CMD
 const valid_commands : Array = [
-	"quit","say","table","kick","w","c","set_class","table_inf"
+	"quit","say","table","kick","w","c","set_class","table_inf","help__"
 	]
 
 func parse_command(var txt: String) -> void:
@@ -125,7 +125,12 @@ func c_chat(ea:PoolStringArray) -> void:
 
 
 
-
+func help__(_ea:PoolStringArray) -> void:
+	var text = ""
+	for com in valid_commands:
+		text += com + ", "
+	
+	UMB.log(1,"cmd","commands: "+text)
 
 
 
