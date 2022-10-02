@@ -19,6 +19,7 @@ func _ready():
 	RCM.player = player
 	HUD.player = player
 	HUD.spawn_panel = $CanvasLayer/SpawnPanel
+	UMB.fade()
 
 
 

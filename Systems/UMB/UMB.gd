@@ -160,10 +160,11 @@ func remove_focus() -> void:
 	out1.visible = false
 	chat.ledit.visible = true
 
+
 ######################
 ####### auto hide chat
 enum cs {FADE, SHOW, REST}
-var chat_state = cs.FADE
+var chat_state = cs.REST
 
 var auto_hide_chat := true
 var auto_hide_chat_time := 10
@@ -179,6 +180,7 @@ func reset_alpha() -> void:
 	chat_state = cs.REST
 
 func fade() -> void:
+	if chat_state == cs.FADE: return
 	chat_state = cs.FADE
 	
 	if not auto_hide_chat: return
@@ -187,7 +189,6 @@ func fade() -> void:
 	yield(get_tree().create_timer(auto_hide_chat_time),"timeout")
 	if not auto_hide_chat: return
 	if chat_state != cs.FADE: return
-	
 	
 	for _i in range(100):
 		if chat_state != cs.FADE: return
