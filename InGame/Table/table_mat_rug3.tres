@@ -7,8 +7,9 @@
 [ext_resource path="res://InGame/Table/RugPack/rug3/normal.png" type="Texture" id=5]
 
 [resource]
+albedo_color = Color( 0.737255, 0.737255, 0.737255, 1 )
 albedo_texture = ExtResource( 2 )
-metallic_specular = 0.15
+metallic_specular = 0.0
 metallic_texture = ExtResource( 3 )
 roughness_texture = ExtResource( 4 )
 normal_enabled = true

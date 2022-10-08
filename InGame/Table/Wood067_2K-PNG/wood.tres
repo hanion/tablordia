@@ -5,9 +5,9 @@
 [ext_resource path="res://InGame/Table/Wood067_2K-PNG/Wood067_2K_Color.png" type="Texture" id=3]
 
 [resource]
-albedo_color = Color( 0.909804, 0.909804, 0.909804, 1 )
+albedo_color = Color( 0.737255, 0.737255, 0.737255, 1 )
 albedo_texture = ExtResource( 3 )
-metallic_specular = 0.1
+metallic_specular = 0.0
 roughness_texture = ExtResource( 1 )
 normal_enabled = true
 normal_scale = 1.0
