@@ -132,8 +132,10 @@ func close_wa() -> void:
 func open_hand_settings(target,method) -> AcceptDialog:
 	hand_settings.popup()
 	
-	if not hand_settings.is_connected("confirmed",target,method):
-		hand_settings.connect("confirmed",target,method)
+#	if not hand_settings.is_connected("confirmed",target,method):
+#		hand_settings.connect("confirmed",target,method)
+	if not hand_settings.is_connected("hide",target,method):
+		hand_settings.connect("hide",target,method)
 	
 	Std.is_blocked_by_ui = true
 	

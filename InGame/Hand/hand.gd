@@ -537,13 +537,13 @@ func _on_hs_confirmed() -> void:
 		rpc_config("set_hand_settings",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 		rpc("set_hand_settings",squeeze_spacing,squeeze_start,sort_by_second_val)
 		
-		_hs.disconnect("confirmed",self,"_on_hs_confirmed")
+		_hs.disconnect("hide",self,"_on_hs_confirmed")
 		RCM.close_hand_settings()
 
 remote func set_hand_settings(sq_sp:float, sq_st:int, sbsv:bool) -> void:
-	print(sq_sp,sq_st,sbsv)
 	SQUEEZING_X_OFFSET = sq_sp
 	SQUEEZING_START = sq_st
 	SORT_BY_SECOND_VALUE = sbsv
+	resize_hand()
 
 
