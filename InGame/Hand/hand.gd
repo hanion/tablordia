@@ -91,9 +91,10 @@ func add_card_to_hand(var crd: card, var pos: Vector3) -> void:
 	crd.rotation_degrees = Vector3(0,0,0)
 	
 	# change cards hidden val
-	set_card_hidden(crd,is_cards_hidden_to_others)
 	if am_i_the_owner:
 		set_card_hidden(crd,is_cards_hidden_to_owner)
+	else:
+		set_card_hidden(crd,is_cards_hidden_to_others)
 	
 	# do card specific actions
 	if crd.has_method("added_to_hand"):
