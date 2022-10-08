@@ -53,6 +53,8 @@ func set_hand_color(color) -> void:
 	
 	var mat = SpatialMaterial.new()
 	mat.set_albedo(color)
+	mat.metallic = 0.0
+	mat.metallic_specular = 0.0
 	hand_mesh.set_surface_material(0,mat)
 
 
