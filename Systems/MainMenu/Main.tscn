@@ -87,7 +87,7 @@ text = "Shift"
 
 [node name="DirectionalLight" type="DirectionalLight" parent="environment"]
 transform = Transform( -0.990024, 1.11684e-07, 0.140901, 0.11269, 0.600294, 0.7918, -0.084582, 0.799779, -0.594305, -2, 11.0713, -9.56406 )
-light_energy = 1.63
+light_energy = 1.4
 light_specular = 1.388
 shadow_enabled = true
 directional_shadow_max_distance = 150.0
