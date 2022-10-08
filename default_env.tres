@@ -5,16 +5,20 @@
 [resource]
 background_mode = 2
 background_sky = ExtResource( 1 )
+ambient_light_color = Color( 0.290196, 0.290196, 0.290196, 1 )
+ambient_light_sky_contribution = 0.0
 fog_enabled = true
 fog_color = Color( 0, 0, 0, 1 )
-fog_depth_begin = 0.0
+fog_depth_begin = 5.0
+fog_depth_end = 80.0
 tonemap_mode = 2
-tonemap_exposure = 1.12
-tonemap_white = 2.77
-auto_exposure_enabled = true
+tonemap_white = 16.0
+auto_exposure_scale = 0.5
 auto_exposure_min_luma = 0.48
 auto_exposure_max_luma = 10.43
 auto_exposure_speed = 1.0
+ssao_intensity = 9.33
+ssao_quality = 2
 dof_blur_far_distance = 30.0
 dof_blur_near_distance = 0.92
 dof_blur_near_transition = 0.01

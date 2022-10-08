@@ -180,7 +180,7 @@ func _on_graphics_preset_change(preset: int) -> void:
 	
 	seset("shade_table",(not preset == 0))
 	
-	seset("black_sky",(not preset == 0))
+#	seset("black_sky",(not preset == 0))
 	
 	$SettingsSaver.load_settings()
 
@@ -224,13 +224,16 @@ func seset(pth:String, val) -> void:
 		
 		
 		"shading":
-			env_parent.visible = val
+			for child in env_parent.get_children():
+				if child is DirectionalLight:
+					child.shadow_enabled = val
+#			env_parent.visible = val
 		"shade_table":
 			var mat = table_mesh.get_surface_material(0) as SpatialMaterial
 			mat.flags_unshaded = not val
 			table_mesh.set_surface_material(0,mat)
-		"black_sky":
-			environment.background_sky = sky_black if val else sky_default
+#		"black_sky":
+#			environment.background_sky = sky_black if val else sky_default
 		
 	$SettingsSaver.write_seset(pth, val)
 

@@ -14,14 +14,14 @@
 
 [sub_resource type="GIProbeData" id=6]
 bounds = AABB( -200, -11, -200, 400, 22, 400 )
-cell_size = 6.25
-to_cell_xform = Transform( 0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 32, 1.76, 32 )
-dynamic_data = PoolIntArray( 0, 7, 64, 4, 64, 1, 0, 32644, 1086324736, 1086324736, 0, 0, 1101004800, 1086324736, 1065353216, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+cell_size = 3.125
+to_cell_xform = Transform( 0.32, 0, 0, 0, 0.32, 0, 0, 0, 0.32, 64, 3.52, 64 )
+dynamic_data = PoolIntArray( 0, 8, 128, 8, 128, 1, 0, 0, 1101004800, 1086324736, 1065353216, 0, 1101004800, 1101004800, 1065353216, 1065353216, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
 dynamic_range = 4
+energy = 1.47
 bias = 3.538
 normal_bias = 0.0
 propagation = 0.7
-interior = true
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 1, 1, 1 )
@@ -87,17 +87,15 @@ text = "Shift"
 
 [node name="DirectionalLight" type="DirectionalLight" parent="environment"]
 transform = Transform( -0.990024, 1.11684e-07, 0.140901, 0.11269, 0.600294, 0.7918, -0.084582, 0.799779, -0.594305, -2, 11.0713, -9.56406 )
+light_energy = 1.63
 light_specular = 1.388
 shadow_enabled = true
-shadow_color = Color( 0.419608, 0.419608, 0.419608, 1 )
 directional_shadow_max_distance = 150.0
 
 [node name="DirectionalLight2" type="DirectionalLight" parent="environment"]
 transform = Transform( -0.786354, 0.264956, -0.558073, -0.603107, -0.524938, 0.600585, -0.133825, 0.80885, 0.572584, 3.84951, 11.0713, -9.56406 )
 visible = false
-light_energy = 0.154
 light_specular = 0.0
-shadow_enabled = true
 shadow_color = Color( 0.419608, 0.419608, 0.419608, 1 )
 directional_shadow_max_distance = 150.0
 
@@ -105,10 +103,10 @@ directional_shadow_max_distance = 150.0
 environment = ExtResource( 3 )
 
 [node name="GIProbe" type="GIProbe" parent="environment"]
-subdiv = 0
+visible = false
 extents = Vector3( 200, 11, 200 )
+energy = 1.47
 bias = 3.538
-interior = true
 data = SubResource( 6 )
 
 [node name="tablo" type="Spatial" parent="."]

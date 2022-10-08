@@ -1,11 +1,11 @@
 [gd_resource type="SpatialMaterial" load_steps=2 format=2]
 
-[ext_resource path="res://assets/sh/sh_fas.png" type="Texture" id=1]
+[ext_resource path="res://assets/sh/sh_t.png" type="Texture" id=1]
 
 [resource]
 albedo_color = Color( 0.737255, 0.737255, 0.737255, 1 )
 albedo_texture = ExtResource( 1 )
 metallic_specular = 0.0
-uv1_scale = Vector3( 0.68, 0, 0.5 )
-uv1_offset = Vector3( 0.508, 0, 0.5 )
+uv1_scale = Vector3( 0.144, 0, 0.2 )
+uv1_offset = Vector3( 0.497, 0, 0.5 )
 uv1_triplanar = true

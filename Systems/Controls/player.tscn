@@ -59,6 +59,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 transform = Transform( 1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, 0, 0, 0 )
 
 [node name="closeup" parent="CAM/position/elevation/zoom/Camera" instance=ExtResource( 3 )]
-transform = Transform( 0.8, 0, 0, 0, 0, -0.8, 0, 0.8, 0, 0, 0, -1.5 )
+transform = Transform( 0.8, 0, 0, 0, 0, -0.8, 0, 0.8, 0, 0, 0, -1.203 )
 
 [node name="Tween" type="Tween" parent="."]

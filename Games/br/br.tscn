@@ -21,6 +21,7 @@ extents = Vector3( 5.15, 0.05, 4.89 )
 size = Vector3( 10.3, 0.1, 9.78 )
 
 [sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.737255, 0.737255, 0.737255, 1 )
 albedo_texture = ExtResource( 1 )
 metallic_specular = 0.06
 roughness = 0.27
