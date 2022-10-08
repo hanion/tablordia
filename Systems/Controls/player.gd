@@ -185,7 +185,10 @@ func drag_start() -> void:
 	
 	
 	if dragging.is_in_group("custom_offset"):
-		_dragging_offset += dragging.custom_offset
+		if dragging is RigidBody:
+			_dragging_offset = dragging.custom_offset
+		else:
+			_dragging_offset += dragging.custom_offset
 	
 	
 	is_dragging = true
