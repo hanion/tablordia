@@ -91,6 +91,7 @@ func update_material():
 
 
 func set_is_hidden(val) -> void:
+	.set_is_hidden(val)
 	if is_item:
 		var mat
 		if val:
