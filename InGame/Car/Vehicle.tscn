@@ -1,0 +1,87 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://InGame/Car/camaro_mesh.tscn" type="PackedScene" id=1]
+[ext_resource path="res://InGame/Car/Wheel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://InGame/Car/Vehicle.gd" type="Script" id=3]
+
+[sub_resource type="PhysicsMaterial" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.71035, 0.181037, 1.31485 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( 0.75, 0, 1, -0.75, 0, 1, 0.75, 0, -1, -0.75, 0, -1, 0, 1, 0 )
+
+[node name="Vehicle" type="VehicleBody"]
+mass = 50.0
+physics_material_override = SubResource( 2 )
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.286687, 0.119001 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500314, 0.119001 )
+shape = SubResource( 3 )
+
+[node name="camaro_mesh" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
+
+[node name="wheel1" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, 1.41454 )
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.3
+wheel_rest_length = 0.051
+wheel_friction_slip = 1.1
+suspension_travel = 0.3
+suspension_stiffness = 100.0
+damping_compression = 10.0
+damping_relaxation = 10.0
+
+[node name="Wheel" parent="wheel1" instance=ExtResource( 2 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
+
+[node name="wheel2" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, 1.415 )
+use_as_traction = true
+use_as_steering = true
+wheel_radius = 0.3
+wheel_rest_length = 0.051
+wheel_friction_slip = 1.1
+suspension_travel = 0.3
+suspension_stiffness = 100.0
+damping_compression = 10.0
+damping_relaxation = 10.0
+
+[node name="Wheel" parent="wheel2" instance=ExtResource( 2 )]
+transform = Transform( -0.8, 1.20797e-07, -5.28019e-15, 0, -3.49691e-08, -0.8, -1.20797e-07, -0.8, 3.49691e-08, 0, 0, 0 )
+
+[node name="wheel3" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8, 0, -1 )
+use_as_traction = true
+wheel_radius = 0.3
+wheel_rest_length = 0.051
+wheel_friction_slip = 1.1
+suspension_travel = 0.3
+suspension_stiffness = 100.0
+damping_compression = 10.0
+damping_relaxation = 10.0
+
+[node name="Wheel" parent="wheel3" instance=ExtResource( 2 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0 )
+
+[node name="wheel4" type="VehicleWheel" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, -1 )
+use_as_traction = true
+wheel_radius = 0.3
+wheel_rest_length = 0.051
+wheel_friction_slip = 1.1
+suspension_travel = 0.3
+suspension_stiffness = 100.0
+damping_compression = 10.0
+damping_relaxation = 10.0
+
+[node name="Wheel" parent="wheel4" instance=ExtResource( 2 )]
+transform = Transform( -0.8, 1.20797e-07, -5.28019e-15, 0, -3.49691e-08, -0.8, -1.20797e-07, -0.8, 3.49691e-08, 0, 0, 0 )
