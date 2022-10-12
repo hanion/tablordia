@@ -8,6 +8,7 @@ export var only_resources := false
 
 export(int) var SQUEEZING_START = 10
 export(float) var SQUEEZING_X_OFFSET = 0.35
+export(float) var DEFAULT_X_OFFSET = 1.44
 export(bool) var SORT_BY_SECOND_VALUE = true
 export(float) var ON_DRAG_EXTENTS = 0.3
 
@@ -195,14 +196,14 @@ func resize_hand() -> void:
 		offsetx = SQUEEZING_X_OFFSET
 		is_squeezing = true
 	else:
-		offsetx = 1.44
+		offsetx = DEFAULT_X_OFFSET
 		is_squeezing = false
 	
 	
 	# to not make it tiny when there is no card
 	if inv_size == 0: inv_size = 0.5
 	
-	var siz = inv_size * offsetx + offsetx/6
+	var siz = inv_size * offsetx + offsetx/6 + int(is_squeezing)*DEFAULT_X_OFFSET/1.2
 	
 	
 	tweenit(col,"shape:extents:x",col.shape.extents.x,siz/2)
@@ -213,17 +214,13 @@ func resize_hand() -> void:
 func find_index(var relativex: float) -> int:
 	var inv_size = inventory.size()
 	
-	# because positions are relative to hand
-	# we need to find where is center of hand
-	var half_of_handx = ( (inv_size - 1) * offsetx ) / 2
-	
-	
 	for i in inv_size:
 		# position of (i)cards left edge
-		var posx = (i * offsetx) - half_of_handx - (1.44/2)
+		var posx = inventory[i].translation.x
 		
 		# test to see if new card is further than posx(i)card
-		if relativex > posx:
+		##	 -0.72 is left vert of card, must have in squeezing mode
+		if (relativex - posx) > -int(is_squeezing)*(DEFAULT_X_OFFSET/2):
 			# if its further than (i)card go to next card
 			continue
 		else:
