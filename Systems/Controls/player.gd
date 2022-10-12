@@ -167,29 +167,29 @@ func drag_start() -> void:
 				return
 	
 	
-	var obj_translation = dragging.translation
-	var cast_translation = current["position"]
 	
-	var angle = dragging.get_parent().rotation.y
+	var offset_from_center
 	
-	# relative = global
-	var relative_translation = Std.complex_rotate_reverse(obj_translation,angle)
+	# to find dragging offset from dragged object
+	if not dragging is RigidBody:
+		var obj_translation = dragging.translation
+		var cast_translation = current["position"]
+		var angle = dragging.get_parent().rotation.y
+		# relative = global
+		var relative_translation = Std.complex_rotate_reverse(obj_translation,angle)
+		
+		offset_from_center = relative_translation - cast_translation
+		offset_from_center = Std.complex_rotate(offset_from_center,angle)
 	
-	var offset_from_center = relative_translation - cast_translation
+	# if dragging is rigidBody it drags from objects center
+	else:
+		offset_from_center = -Std.get_global(dragging.get_parent())
 	
-	
-	offset_from_center = Std.complex_rotate(offset_from_center,angle)
-	
-	_dragging_offset = offset_from_center*Vector3(1,0,1) + \
-		Vector3(0,cast_translation.y-obj_translation.y,0)*0
+	_dragging_offset = offset_from_center*Vector3(1,0,1)
 	
 	
 	if dragging.is_in_group("custom_offset"):
-		if dragging is RigidBody:
-			_dragging_offset = dragging.custom_offset
-		else:
-			_dragging_offset += dragging.custom_offset
-	
+		_dragging_offset += dragging.custom_offset
 	
 	is_dragging = true
 	if cast_ray():
