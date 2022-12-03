@@ -25,14 +25,7 @@ func _ready():
 func __headless_cleanups():
 	if "--headless" in OS.get_cmdline_args():
 		yield(get_tree().create_timer(5),"timeout")
-		print("	clearing head")
-		player.define_pointer_state(Vector3(0,-10,0))
-		yield(get_tree().create_timer(1),"timeout")
-		player.define_pointer_state(Vector3(0,-11,0))
-		yield(get_tree().create_timer(1),"timeout")
-		player.define_pointer_state(Vector3(0,-12,0))
 		$environment.queue_free()
-		
 
 
 func _spawn_player(var pid):

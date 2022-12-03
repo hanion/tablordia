@@ -26,7 +26,6 @@ func _ready():
 	__start_headleass_server()
 
 func __start_headleass_server():
-	print("	cmdline_args = ",OS.get_cmdline_args())
 	if "--headless" in OS.get_cmdline_args():
 		yield(get_tree().create_timer(3),"timeout")
 		VisualServer.viewport_set_active(get_tree().get_root().get_viewport_rid(), false)
@@ -37,7 +36,6 @@ func __start_headleass_server():
 
 
 func start_game():
-#	UMB.log(1,"Menu","Connected to server.")
 	set_info()
 	add_me()
 	
