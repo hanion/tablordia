@@ -502,8 +502,8 @@ scroll_horizontal_enabled = false
 script = ExtResource( 18 )
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick"]
-margin_right = 813.0
-margin_bottom = 324.0
+margin_right = 825.0
+margin_bottom = 406.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
@@ -543,7 +543,7 @@ text = "misc"
 align = 1
 
 [node name="m1" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_right = 161.0
+margin_right = 162.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -563,7 +563,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1/vb"]
 process_priority = -5
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -573,14 +573,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1/vb"]
 margin_top = 116.0
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 145.0
 text = "Board Royale"
 align = 1
 
 [node name="m8" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 165.0
-margin_right = 326.0
+margin_left = 166.0
+margin_right = 328.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -597,7 +597,7 @@ margin_bottom = -5.0
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8/vb"]
 process_priority = -5
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -607,14 +607,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8/vb"]
 margin_top = 116.0
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 145.0
 text = "Secret Hitler"
 align = 1
 
 [node name="m2" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 330.0
-margin_right = 491.0
+margin_left = 332.0
+margin_right = 494.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -633,7 +633,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2/vb"]
 process_priority = -5
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -643,14 +643,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2/vb"]
 margin_top = 116.0
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 145.0
 text = "Chess Board"
 align = 1
 
 [node name="m51" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 495.0
-margin_right = 656.0
+margin_left = 498.0
+margin_right = 660.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -669,7 +669,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51/vb"]
 process_priority = -5
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -679,14 +679,14 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51/vb"]
 margin_top = 116.0
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 145.0
 text = "UNO"
 align = 1
 
 [node name="m5" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 660.0
-margin_right = 821.0
+margin_left = 664.0
+margin_right = 825.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -720,7 +720,7 @@ align = 1
 
 [node name="m3" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
 margin_top = 164.0
-margin_right = 161.0
+margin_right = 162.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -739,7 +739,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3/vb"]
 process_priority = -5
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 70.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -749,7 +749,7 @@ stretch_mode = 6
 
 [node name="Label2" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3/vb"]
 margin_top = 74.0
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -766,9 +766,9 @@ text = "Hand"
 align = 1
 
 [node name="m4" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 165.0
+margin_left = 166.0
 margin_top = 164.0
-margin_right = 326.0
+margin_right = 328.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -787,7 +787,7 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
 process_priority = -5
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 70.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -797,7 +797,7 @@ stretch_mode = 6
 
 [node name="Label2" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
 margin_top = 74.0
-margin_right = 141.0
+margin_right = 142.0
 margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1908,8 +1908,8 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources"]
-margin_right = 736.0
-margin_bottom = 160.0
+margin_right = 815.0
+margin_bottom = 365.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
@@ -2139,7 +2139,7 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Items"]
-margin_right = 736.0
+margin_right = 815.0
 margin_bottom = 1690.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -4122,8 +4122,8 @@ __meta__ = {
 }
 
 [node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc"]
-margin_right = 292.0
-margin_bottom = 160.0
+margin_right = 815.0
+margin_bottom = 365.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
@@ -4442,8 +4442,8 @@ script = ExtResource( 20 )
 [node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/Scroll_Boards"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 180.0
-margin_bottom = 133.0
+margin_right = 262.0
+margin_bottom = 304.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 

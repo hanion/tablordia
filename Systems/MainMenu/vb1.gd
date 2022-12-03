@@ -18,6 +18,9 @@ func _ready() -> void: _on_linename_text_changed($linename.text)
 func _on_linename_text_changed(new_text: String) -> void:
 	is_name_valid = not (new_text.length() < 3)
 	
+	if is_name_valid and new_text == "server":
+		is_name_valid = false
+	
 	tweenit(vbcolor, is_name_valid)
 	
 	tweenit(vbjh,is_name_valid and is_color_selected)

@@ -16,6 +16,7 @@ func on_sp_menu_opened() -> void:
 	
 	for playerid in List.players:
 		var playername = List.players[playerid]["name"]
+		if playername == "server": continue
 		om.add_item(playername)
 	
 	_on_OptionButton_item_selected(0)

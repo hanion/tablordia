@@ -1,6 +1,6 @@
 extends Control
 
-export(int,2,30) var max_peer = 8
+export(int,2,30) var max_peer = 16
 
 
 var ip = "127.0.0.1"
@@ -23,10 +23,21 @@ func _ready():
 	if OS.get_name() == "Windows":
 		lineip.text = (str(IP.get_local_addresses()).split(",",false)[1].right(1))
 	
+	__start_headleass_server()
+
+func __start_headleass_server():
+	print("	cmdline_args = ",OS.get_cmdline_args())
+	if "--headless" in OS.get_cmdline_args():
+		yield(get_tree().create_timer(3),"timeout")
+		VisualServer.viewport_set_active(get_tree().get_root().get_viewport_rid(), false)
+		Name = "server"
+		color = Color.slategray
+		Host(port)
+
 
 
 func start_game():
-	UMB.log(1,"Menu","Connected to server.")
+#	UMB.log(1,"Menu","Connected to server.")
 	set_info()
 	add_me()
 	

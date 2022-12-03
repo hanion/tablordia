@@ -10,6 +10,8 @@ onready var color_picker = vb1info.get_node("vbcolor/ColorPickerButton")
 
 
 func save_player_data() -> void:
+	if "--headless" in OS.get_cmdline_args(): return
+	
 	var data := {
 		"name":get_parent().Name,
 		"color":get_parent().color

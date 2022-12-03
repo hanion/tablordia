@@ -12,8 +12,8 @@
 [ext_resource path="res://Systems/credit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/font/credit_title2_font.tres" type="DynamicFont" id=11]
 
-[sub_resource type="DynamicFont" id=1]
-size = 45
+[sub_resource type="DynamicFont" id=3]
+size = 21
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
@@ -21,8 +21,8 @@ font_data = ExtResource( 6 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 21
+[sub_resource type="DynamicFont" id=1]
+size = 45
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
@@ -70,6 +70,19 @@ margin_bottom = 720.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.39
+
+[node name="version_info" type="RichTextLabel" parent="hbmenu/space"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -34.0
+margin_right = 119.0
+size_flags_horizontal = 3
+custom_fonts/normal_font = SubResource( 3 )
+custom_styles/normal = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "   v2.5"
+text = "   v2.5"
+scroll_active = false
 
 [node name="vb" type="VBoxContainer" parent="hbmenu"]
 margin_left = 471.0
@@ -320,9 +333,9 @@ text = "HOST"
 
 [node name="vb3join" type="VBoxContainer" parent="hbmenu/vb"]
 visible = false
-margin_top = 611.0
+margin_top = 430.0
 margin_right = 337.0
-margin_bottom = 754.0
+margin_bottom = 573.0
 
 [node name="lineip" type="LineEdit" parent="hbmenu/vb/vb3join"]
 margin_right = 337.0
@@ -419,6 +432,7 @@ text = "AUTO JOIN"
 script = ExtResource( 2 )
 
 [node name="smalcredit" type="RichTextLabel" parent="hbmenu/space2"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0

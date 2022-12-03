@@ -140,6 +140,7 @@ __meta__ = {
 tag_container = NodePath("hb")
 
 [node name="hb" type="HBoxContainer" parent="hs/vs/chat/tags"]
+margin_right = 325.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -153,7 +154,8 @@ scroll_horizontal_enabled = false
 script = ExtResource( 5 )
 
 [node name="vb" type="VBoxContainer" parent="hs/vs/chat/scroll"]
-margin_right = 313.0
+margin_right = 325.0
+margin_bottom = 180.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3

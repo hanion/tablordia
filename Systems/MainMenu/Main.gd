@@ -20,7 +20,19 @@ func _ready():
 	HUD.player = player
 	HUD.spawn_panel = $CanvasLayer/SpawnPanel
 	UMB.fade()
+	__headless_cleanups()
 
+func __headless_cleanups():
+	if "--headless" in OS.get_cmdline_args():
+		yield(get_tree().create_timer(5),"timeout")
+		print("	clearing head")
+		player.define_pointer_state(Vector3(0,-10,0))
+		yield(get_tree().create_timer(1),"timeout")
+		player.define_pointer_state(Vector3(0,-11,0))
+		yield(get_tree().create_timer(1),"timeout")
+		player.define_pointer_state(Vector3(0,-12,0))
+		$environment.queue_free()
+		
 
 
 func _spawn_player(var pid):
@@ -36,6 +48,9 @@ func _spawn_player(var pid):
 	
 	var material = get_player_material(pid)
 	plo.get_child(0).set_surface_material(0, material)
+	
+	if List.players[pid]["name"] == "server":
+		plo.get_child(0).visible = false
 	
 	others.add_child(plo)
 	

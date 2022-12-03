@@ -14,8 +14,9 @@ func open_menu() -> void:
 	wd.popup_centered()
 	Std.is_blocked_by_ui = true
 	
-	var spawn_button = get_node("WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/SpawnButton")
-	spawn_button.disabled = not get_tree().is_network_server()
+	# commented: when running in dedicated server, peers cant spawn
+#	var spawn_button = get_node("WindowDialog/vb/mrgn/hs/configurer/Inspector/vb/vsc/SpawnButton")
+#	spawn_button.disabled = not get_tree().is_network_server()
 	emit_signal("on_menu_opened")
 
 
