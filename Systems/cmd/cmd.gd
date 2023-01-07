@@ -61,6 +61,7 @@ func table_inf(ea:PoolStringArray) -> void:
 
 
 func w(ea:PoolStringArray) -> void:
+	if ea.size() < 1: return
 	for pid in List.players:
 		if List.players[pid]["name"] == ea[0]:
 			ea.remove(0)
