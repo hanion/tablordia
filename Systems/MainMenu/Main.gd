@@ -20,12 +20,6 @@ func _ready():
 	HUD.player = player
 	HUD.spawn_panel = $CanvasLayer/SpawnPanel
 	UMB.fade()
-	__headless_cleanups()
-
-func __headless_cleanups():
-	if "--headless" in OS.get_cmdline_args():
-		yield(get_tree().create_timer(5),"timeout")
-		$environment.queue_free()
 
 
 func _spawn_player(var pid):

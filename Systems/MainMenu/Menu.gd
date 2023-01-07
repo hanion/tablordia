@@ -26,7 +26,7 @@ func _ready():
 	__start_headleass_server()
 
 func __start_headleass_server():
-	if "--headless" in OS.get_cmdline_args():
+	if "--server" in OS.get_cmdline_args():
 		yield(get_tree().create_timer(3),"timeout")
 		VisualServer.viewport_set_active(get_tree().get_root().get_viewport_rid(), false)
 		Name = "server"

@@ -1,7 +1,7 @@
 extends Node
 # CMD
 const valid_commands : Array = [
-	"quit","say","table","kick","w","c","set_class","table_inf","help__"
+	"quit","say","table","kick","w","c","set_class","table_inf","help__","join"
 	]
 
 func parse_command(var txt: String) -> void:
@@ -143,4 +143,7 @@ func set_class(ea:PoolStringArray) -> void:
 	List.remote_set_class(NetworkInterface.uid,ea[0])
 
 
+
+func join():
+	NetworkInterface.join("93.190.8.118")
 

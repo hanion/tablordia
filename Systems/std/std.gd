@@ -130,6 +130,8 @@ func should_i_send_dragged_state(drgd: card, ovr) -> bool:
 	return false
 
 
+func get_time() -> String:
+	return ("[" + str(OS.get_time()["hour"]) + "." + str(OS.get_time()["minute"]) + "]")
 
 
 

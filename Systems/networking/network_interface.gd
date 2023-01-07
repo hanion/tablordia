@@ -10,6 +10,7 @@ onready var server = $server
 onready var client = $client
 var Main
 
+var last_joined_ip_and_port = []
 
 ####################################SIGNALS####################################
 
@@ -34,7 +35,7 @@ func got_info_of_new_peer(id) -> void:
 	var col = List.players[id]["color"].to_html()
 	
 	var txt = "[color=#"+col+"]"+nam+"[/color] connected"
-	UMB.log(1, "Network", txt)
+	UMB.log(1, "Network", txt + Std.get_time())
 	
 	Main._spawn_player(id)
 #	Main._spawn_hand(id)
@@ -55,8 +56,10 @@ func _player_disconnected(id):
 	List.remove_player(id)
 
 func _on_server_disconnected() -> void:
-	UMB.log(2,"Network","Server disconnected")
+	UMB.log(2,"Network","Server disconnected" + Std.get_time())
 	
+	yield(get_tree().create_timer(1),"timeout")
+	join(last_joined_ip_and_port[0],last_joined_ip_and_port[1])
 ###################################INTERFACE###################################
 
 
@@ -64,6 +67,9 @@ func join(var ip: String = "127.0.0.1", var port: int = 4014) -> void:
 	var _net = NetworkedMultiplayerENet.new()
 	_net.create_client(ip, port)
 	get_tree().set_network_peer(_net)
+	
+	last_joined_ip_and_port[0] = ip
+	last_joined_ip_and_port[1] = port
 
 
 func host(var port: int = 4014, var max_peer: int = 16) -> void:
