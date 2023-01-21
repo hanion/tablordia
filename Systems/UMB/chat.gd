@@ -17,7 +17,7 @@ func write(bbstart:String, carrier:String, bbend:String) -> Node:
 	UMB.reset_alpha()
 	
 	if last_carrier == carrier:
-		var ms = "[color=#00ffffff]"+carrier+"[/color]" # transparent name
+		var ms = "[color=#00ffffff][i]"+carrier+"[/i][/color]" # transparent name
 		
 		last_msg.bbcode_text += "\n" + ms + bbstart + bbend
 		

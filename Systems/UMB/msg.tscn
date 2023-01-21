@@ -1,4 +1,19 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/font/Montserrat-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 10.0
@@ -21,9 +36,14 @@ corner_radius_bottom_left = 5
 margin_right = 546.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
+custom_fonts/italics_font = SubResource( 3 )
+custom_fonts/bold_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 2 )
 custom_styles/normal = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[color=#fff08080][wave freq=40 amp=15
-]{Spawner}: Game \"Monopoly\" doesn't exist [/wave][/color]"
-text = "{Spawner}: Game \"Monopoly\" doesn't exist "
+]{Spawner}: Game \"Monopoly\" doesn't exist [/wave][/color]
+[color=#00ffffff][i]carrier[/i][/color]"
+text = "{Spawner}: Game \"Monopoly\" doesn't exist 
+carrier"
 fit_content_height = true
