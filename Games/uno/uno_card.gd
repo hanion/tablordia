@@ -24,9 +24,10 @@ const posses := [
 	Vector3(0.193,0,0.266), #12 +2
 	Vector3(0.057,0,0.695), #13 +4
 	Vector3(0.945,0,0.266), #14 color_change
-	Vector3(0.196,0,0.695), #15 uno (back)
+#	Vector3(0.196,0,0.695), #15 uno (back)
+	Vector3(0    ,0,0.695), #16 empty 
+	Vector3(0    ,0,0.695)  #16 empty 
 	
-	Vector3(0    ,0,0.695)  #16 empty
 	]
 
 export var colors := [
