@@ -10,7 +10,7 @@ onready var server = $server
 onready var client = $client
 var Main
 
-var last_joined_ip_and_port = []
+var last_joined_ip_and_port = ["127.0.0.1",4014]
 
 ####################################SIGNALS####################################
 
