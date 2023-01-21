@@ -144,7 +144,6 @@ __meta__ = {
 tag_container = NodePath("hb")
 
 [node name="hb" type="HBoxContainer" parent="hs/vs/chat/tags"]
-margin_right = 325.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -158,8 +157,7 @@ scroll_horizontal_enabled = false
 script = ExtResource( 5 )
 
 [node name="vb" type="VBoxContainer" parent="hs/vs/chat/scroll"]
-margin_right = 325.0
-margin_bottom = 180.0
+margin_right = 313.0
 mouse_filter = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -189,8 +187,8 @@ custom_styles/normal = SubResource( 3 )
 bbcode_enabled = true
 bbcode_text = "[color=green][Player0]:[/color] halooooo
 [color=red]{Spawner}: [/color] Spawned Chess"
-text = "[Player0]: halooooo
-{Spawner}:  Spawned Chess"
+text = "[color=green][Player0]:[/color] halooooo
+[color=red]{Spawner}: [/color] Spawned Chess"
 scroll_following = true
 
 [node name="input_field" type="LineEdit" parent="hs/vs/chat/hbox"]
