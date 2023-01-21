@@ -6,5 +6,5 @@
 albedo_texture = ExtResource( 1 )
 metallic_specular = 0.0
 uv1_scale = Vector3( 0.099, 0.003, 0.083 )
-uv1_offset = Vector3( 0.928, -0.003, 0.917 )
+uv1_offset = Vector3( 0.928, 0, 0.917 )
 uv1_triplanar = true

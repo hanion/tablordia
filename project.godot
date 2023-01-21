@@ -16,7 +16,7 @@ _global_script_classes=[ {
 }, {
 "base": "Spatial",
 "class": "card",
-"language": "GDScript",
+"language": "",
 "path": "res://InGame/Card/card.gd"
 }, {
 "base": "card",
