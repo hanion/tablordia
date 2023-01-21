@@ -39,7 +39,7 @@ func save_settings() -> void:
 #		print("Settings saved.")
 #		UMB.log(1,"Settings","Settings saved.")
 	else:
-		print("!! Error while saving player data. ",er)
+		print("sdata:	!! Error while saving player data. ",er)
 		UMB.log(2,"Settings","Error while saving settings : "+str(er))
 
 func load_settings() -> void:
@@ -52,11 +52,11 @@ func load_settings() -> void:
 			write_loaded_data(_settings)
 			
 			file.close()
-			print("Succesfully loaded settings")
+			print("sdata:	Loaded settings")
 #			 NO need for this in release
 #			UMB.log(1,"Settings","Succesfully loaded settings") 
 		else:
-			print("!! Error while loading settings. ",er)
+			print("sdata:	!! Error while loading settings. ",er)
 			UMB.log(2,"Settings","Error while loading settings : "+str(er))
 
 

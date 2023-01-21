@@ -10,7 +10,7 @@ onready var color_picker = vb1info.get_node("vbcolor/ColorPickerButton")
 
 
 func save_player_data() -> void:
-	if "--headless" in OS.get_cmdline_args(): return
+	if "--server" in OS.get_cmdline_args(): return
 	
 	var data := {
 		"name":get_parent().Name,
@@ -28,9 +28,9 @@ func save_player_data() -> void:
 	if er == OK:
 		file.store_var(data)
 		file.close()
-		print("Player Data saved.")
+		print("data: 	Player data saved.")
 	else:
-		print("!! Error while saving player data. ",er)
+		print("data: 	!! Error while saving player data. ",er)
 	
 
 func load_player_data() -> void:
@@ -43,10 +43,10 @@ func load_player_data() -> void:
 			write_loaded_data(player_data)
 			
 			file.close()
-			print("Succesfully loaded player data")
+			print("data: 	Player data loaded.")
 			
 		else:
-			print("!! Error while loading player data. ",er)
+			print("data: 	!! Error while loading player data. ",er)
 
 
 func write_loaded_data(player_data) -> void:

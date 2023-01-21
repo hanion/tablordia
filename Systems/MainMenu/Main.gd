@@ -20,6 +20,8 @@ func _ready():
 	HUD.player = player
 	HUD.spawn_panel = $CanvasLayer/SpawnPanel
 	UMB.fade()
+	
+	print("	-Game is ready-\n")
 
 
 func _spawn_player(var pid):

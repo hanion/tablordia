@@ -111,7 +111,7 @@ bbcode_text = "
 [center][wave freq=5 amp=50][rainbow freq=0.1]TABLORDIA
 "
 text = "
-[center][wave freq=5 amp=50][rainbow freq=0.1]TABLORDIA
+TABLORDIA
 "
 scroll_active = false
 
@@ -445,7 +445,7 @@ custom_fonts/normal_font = SubResource( 3 )
 custom_styles/normal = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[rainbow freq=0.02][center][wave freq=2 amp=80] yigithanion [/wave]"
-text = "[rainbow freq=0.02][center][wave freq=2 amp=80] yigithanion [/wave]"
+text = " yigithanion "
 scroll_active = false
 
 [node name="CreditsPopup" type="AcceptDialog" parent="."]
@@ -479,10 +479,6 @@ margin_top = 30.0
 margin_right = 394.0
 margin_bottom = 287.0
 custom_fonts/italics_font = ExtResource( 11 )
-text = "[rainbow freq=0.02][center][wave freq=2 amp=200] yigithanion [/wave]
-
-[url=https://github.com/hanion]github - hanion[/url]
-[url=https://hanion.itch.io/]itch - hanion[/url]"
 
 [connection signal="pressed" from="hbmenu/vb/vb0pq/play" to="hbmenu" method="_on_play_pressed"]
 [connection signal="pressed" from="hbmenu/vb/vb0pq/credits" to="hbmenu" method="_on_credits_pressed"]

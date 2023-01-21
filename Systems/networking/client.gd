@@ -50,6 +50,8 @@ remote func receive_do_from_server(do:Dictionary) -> void:
 # called from state_packager
 func send_packaged_state_to_server(packaged_state):
 #	print(" c: sending packed state")
+	if not get_tree().network_peer: return
+	
 	if get_tree().network_peer.get_connection_status() == 2:
 		NetworkInterface.server.rpc_unreliable_id(1,"receive_state_from_client",packaged_state)
 

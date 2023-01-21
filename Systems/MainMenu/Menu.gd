@@ -66,7 +66,7 @@ func add_me():
 ####################################SIGNALS####################################
 func deploy_server_listener() -> void:
 	if get_node("/root").has_node("ServerListener"):
-		print("!!!Menu: there is already a Server Listener")
+		print("Menu: 	!!!There is already a Server Listener")
 		return
 	
 	var listener = listener_pl.instance()
@@ -74,11 +74,11 @@ func deploy_server_listener() -> void:
 	get_parent().add_child(listener)
 func destroy_server_listener() -> void:
 	if not get_node("/root").has_node("ServerListener"):
-		print("!!!Menu: no Server Listener to destroy")
+#		print("Menu: 	!!!There is no Server Listener to destroy") # so its fine
 		return
 	
 	get_node("/root/ServerListener").queue_free()
-	print("Menu: destroyed Server Listener")
+	print("Menu: 	Destroyed Server Listener")
 
 
 
@@ -113,7 +113,7 @@ func _on_ServerListener_new_server(__ip):
 	NetworkInterface.join(__ip,NetworkInterface.DEFAULT_PORT)
 	destroy_server_listener()
 	UMB.log(1,"Menu","Joining to "+str(__ip))
-	print("                      ---- Joining to ",__ip)
+	print("ServerListener:	Found a server, joining with ip = ",__ip)
 
 
 

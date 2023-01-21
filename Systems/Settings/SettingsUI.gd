@@ -145,7 +145,6 @@ func initialize() -> void:
 	# Add a "Fullscreen" item at the end and select it by default
 	res.add_item("Fullscreen")
 	res.select(0)
-	$SettingsSaver.load_settings()
 
 
 func close_ui() -> void:
