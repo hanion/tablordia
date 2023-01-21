@@ -1,7 +1,7 @@
 extends Node
 # CMD
 const valid_commands : Array = [
-	"quit","say","table","kick","w","c","set_class","table_inf","help__","join"
+	"quit","say","table","kick","w","c","set_class","table_inf","help__","join", "shut_down_server__"
 	]
 
 func parse_command(var txt: String) -> void:
@@ -145,6 +145,36 @@ func set_class(ea:PoolStringArray) -> void:
 
 
 
-func join():
+func join(_ea:PoolStringArray):
 	NetworkInterface.join("93.190.8.118")
+
+
+
+func shut_down_server__(_ea:PoolStringArray) -> void:
+	UMB.logs(1,"cmd",NetworkInterface.Name + "::")
+	yield(get_tree().create_timer(1),"timeout")
+	UMB.logs(1,"cmd","Server is shutting down...")
+	yield(get_tree().create_timer(1),"timeout")
+	
+	rpc_config("_server_side_shut_down_server",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc_id(1,"_server_side_shut_down_server")
+	rpc_config("_clients_side_shut_down_server",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc("_clients_side_shut_down_server")
+	
+
+remote func _server_side_shut_down_server() -> void:
+	var sender_id = get_tree().get_rpc_sender_id()
+	
+	if List.players.has(sender_id):
+		var sender_name = List.players[sender_id]["name"]
+		print("cmd:	",sender_name,"	is shutting down the server.")
+		get_tree().quit()
+
+remote func _clients_side_shut_down_server() -> void:
+	yield(get_tree().create_timer(2),"timeout")
+	UMB.log(1,"cmd","Client is shutting down...")
+	yield(get_tree().create_timer(5),"timeout")
+	get_tree().quit()
+
+
 
