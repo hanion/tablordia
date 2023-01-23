@@ -127,7 +127,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/multirun/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/multirun/plugin.cfg", "res://addons/project-statistics/plugin.cfg" )
 
 [input]
 
@@ -245,3 +245,7 @@ toggle_hud={
 vram_compression/import_etc=true
 quality/filters/msaa=3
 environment/default_environment="res://default_env.tres"
+
+[statistics]
+
+force_include=PoolStringArray(  )
