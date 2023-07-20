@@ -309,8 +309,8 @@ func define_obj_state(drgn) -> void:
 	var state = {
 		drgn.name:{
 			"O": Std.get_global(drgn),
+			"R": drgn.rotation
 #			"O": drgn.global_transform.origin,
-			"R":drgn.rotation
 		}
 	}
 	
