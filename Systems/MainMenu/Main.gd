@@ -23,8 +23,9 @@ func _ready():
 	
 	print("	-Game is ready-\n")
 	
-	yield(get_tree().create_timer(0.1),"timeout")
-	CMD.mj([])
+	if not get_tree().is_network_server():
+		yield(get_tree().create_timer(0.1),"timeout")
+		CMD.mj([])
 
 
 func _spawn_player(var pid):
