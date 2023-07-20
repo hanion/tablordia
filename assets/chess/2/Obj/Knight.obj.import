@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Knight.obj-45b8cd87fe1a0d603ac48b5bb19594ee.mesh"
+
+[deps]
+
+files=[ "res://.import/Knight.obj-45b8cd87fe1a0d603ac48b5bb19594ee.mesh" ]
+
+source_file="res://assets/chess/2/Obj/Knight.obj"
+dest_files=[ "res://.import/Knight.obj-45b8cd87fe1a0d603ac48b5bb19594ee.mesh", "res://.import/Knight.obj-45b8cd87fe1a0d603ac48b5bb19594ee.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -3,20 +3,20 @@
 [ext_resource path="res://Games/chess/chess_piece.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Games/chess/chess_board_mesh.tres" type="ArrayMesh" id=2]
 [ext_resource path="res://Games/chess/chess_board_collision.tres" type="Shape" id=3]
+[ext_resource path="res://assets/chess/2/Obj/King.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://Games/chess/chess_black.tres" type="Material" id=6]
-[ext_resource path="res://Games/chess/chess_piece_pawn.tres" type="ArrayMesh" id=10]
+[ext_resource path="res://assets/chess/2/Obj/Pawn.obj" type="ArrayMesh" id=7]
+[ext_resource path="res://assets/chess/2/Obj/Queen.obj" type="ArrayMesh" id=8]
+[ext_resource path="res://assets/chess/2/Obj/Knight.obj" type="ArrayMesh" id=9]
+[ext_resource path="res://assets/chess/2/Obj/Rook.obj" type="ArrayMesh" id=10]
 [ext_resource path="res://Games/chess/chess_piece_pawn_collision.tres" type="Shape" id=11]
 [ext_resource path="res://Games/chess/chess_piece_rook_collision.tres" type="Shape" id=12]
-[ext_resource path="res://Games/chess/chess_piece_rook.tres" type="ArrayMesh" id=13]
+[ext_resource path="res://assets/chess/2/Obj/Bishop.obj" type="ArrayMesh" id=13]
 [ext_resource path="res://Games/chess/chess.gd" type="Script" id=14]
 [ext_resource path="res://Games/chess/chess_piece_knight_collision.tres" type="Shape" id=15]
-[ext_resource path="res://Games/chess/chess_piece_knight.tres" type="ArrayMesh" id=16]
-[ext_resource path="res://Games/chess/chess_piece_bishop.tres" type="ArrayMesh" id=17]
 [ext_resource path="res://Games/chess/chess_piece_bishop_collision.tres" type="Shape" id=18]
 [ext_resource path="res://Games/chess/chess_piece_queen_collision.tres" type="Shape" id=19]
-[ext_resource path="res://Games/chess/chess_piece_queen.tres" type="ArrayMesh" id=20]
 [ext_resource path="res://Games/chess/chess_piece_king_collision.tres" type="Shape" id=21]
-[ext_resource path="res://Games/chess/chess_piece_king.tres" type="ArrayMesh" id=22]
 
 [node name="chess" type="StaticBody" groups=["shift_draggable"]]
 script = ExtResource( 14 )
@@ -34,7 +34,8 @@ shape = ExtResource( 3 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.36, 0.24, 2.5 )
 
 [node name="MeshInstance" parent="w/wking" index="0"]
-mesh = ExtResource( 22 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.35, 0 )
+mesh = ExtResource( 4 )
 
 [node name="CollisionShape" parent="w/wking" index="1"]
 shape = ExtResource( 21 )
@@ -43,7 +44,8 @@ shape = ExtResource( 21 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.36, 0.24, 2.5 )
 
 [node name="MeshInstance" parent="w/wqueen" index="0"]
-mesh = ExtResource( 20 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.04, 0 )
+mesh = ExtResource( 8 )
 
 [node name="CollisionShape" parent="w/wqueen" index="1"]
 shape = ExtResource( 19 )
@@ -52,7 +54,8 @@ shape = ExtResource( 19 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.08, 0.24, 2.5 )
 
 [node name="MeshInstance" parent="w/wbishop" index="0"]
-mesh = ExtResource( 17 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.3, 0 )
+mesh = ExtResource( 13 )
 
 [node name="CollisionShape" parent="w/wbishop" index="1"]
 shape = ExtResource( 18 )
@@ -61,7 +64,8 @@ shape = ExtResource( 18 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.08, 0.24, 2.5 )
 
 [node name="MeshInstance" parent="w/wbishop2" index="0"]
-mesh = ExtResource( 17 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.3, 0 )
+mesh = ExtResource( 13 )
 
 [node name="CollisionShape" parent="w/wbishop2" index="1"]
 shape = ExtResource( 18 )
@@ -70,7 +74,8 @@ shape = ExtResource( 18 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.8, 0.24, 2.5 )
 
 [node name="MeshInstance" parent="w/wknight" index="0"]
-mesh = ExtResource( 16 )
+transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0.34, 0 )
+mesh = ExtResource( 9 )
 
 [node name="CollisionShape" parent="w/wknight" index="1"]
 shape = ExtResource( 15 )
@@ -79,7 +84,8 @@ shape = ExtResource( 15 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.8, 0.24, 2.5 )
 
 [node name="MeshInstance" parent="w/wknight2" index="0"]
-mesh = ExtResource( 16 )
+transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0.34, 0 )
+mesh = ExtResource( 9 )
 
 [node name="CollisionShape" parent="w/wknight2" index="1"]
 shape = ExtResource( 15 )
@@ -88,7 +94,8 @@ shape = ExtResource( 15 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.52, 0.24, 2.5 )
 
 [node name="MeshInstance" parent="w/wrook" index="0"]
-mesh = ExtResource( 13 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.615, 0 )
+mesh = ExtResource( 10 )
 
 [node name="CollisionShape" parent="w/wrook" index="1"]
 shape = ExtResource( 12 )
@@ -97,7 +104,8 @@ shape = ExtResource( 12 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.52, 0.24, 2.5 )
 
 [node name="MeshInstance" parent="w/wrook2" index="0"]
-mesh = ExtResource( 13 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.615, 0 )
+mesh = ExtResource( 10 )
 
 [node name="CollisionShape" parent="w/wrook2" index="1"]
 shape = ExtResource( 12 )
@@ -106,7 +114,8 @@ shape = ExtResource( 12 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.52, 0.24, 1.8 )
 
 [node name="MeshInstance" parent="w/wpawn" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 
 [node name="CollisionShape" parent="w/wpawn" index="1"]
 shape = ExtResource( 11 )
@@ -115,7 +124,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8, 0.24, 1.8 )
 
 [node name="MeshInstance" parent="w/wpawn2" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 
 [node name="CollisionShape" parent="w/wpawn2" index="1"]
 shape = ExtResource( 11 )
@@ -124,7 +134,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.08, 0.24, 1.8 )
 
 [node name="MeshInstance" parent="w/wpawn3" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 
 [node name="CollisionShape" parent="w/wpawn3" index="1"]
 shape = ExtResource( 11 )
@@ -133,7 +144,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.36, 0.24, 1.8 )
 
 [node name="MeshInstance" parent="w/wpawn4" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 
 [node name="CollisionShape" parent="w/wpawn4" index="1"]
 shape = ExtResource( 11 )
@@ -142,7 +154,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.36, 0.24, 1.8 )
 
 [node name="MeshInstance" parent="w/wpawn5" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 
 [node name="CollisionShape" parent="w/wpawn5" index="1"]
 shape = ExtResource( 11 )
@@ -151,7 +164,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.08, 0.24, 1.8 )
 
 [node name="MeshInstance" parent="w/wpawn6" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 
 [node name="CollisionShape" parent="w/wpawn6" index="1"]
 shape = ExtResource( 11 )
@@ -160,7 +174,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.8, 0.24, 1.8 )
 
 [node name="MeshInstance" parent="w/wpawn7" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 
 [node name="CollisionShape" parent="w/wpawn7" index="1"]
 shape = ExtResource( 11 )
@@ -169,7 +184,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.52, 0.24, 1.8 )
 
 [node name="MeshInstance" parent="w/wpawn8" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 
 [node name="CollisionShape" parent="w/wpawn8" index="1"]
 shape = ExtResource( 11 )
@@ -177,20 +193,22 @@ shape = ExtResource( 11 )
 [node name="b" type="Spatial" parent="."]
 
 [node name="bking" parent="b" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.36, 0.24, -2.5 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.36, 0.24, -2.5 )
 
 [node name="MeshInstance" parent="b/bking" index="0"]
-mesh = ExtResource( 22 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.35, 0 )
+mesh = ExtResource( 4 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bking" index="1"]
 shape = ExtResource( 21 )
 
 [node name="bqueen" parent="b" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.36, 0.24, -2.5 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.36, 0.24, -2.5 )
 
 [node name="MeshInstance" parent="b/bqueen" index="0"]
-mesh = ExtResource( 20 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.04, 0 )
+mesh = ExtResource( 8 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bqueen" index="1"]
@@ -200,7 +218,8 @@ shape = ExtResource( 19 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.08, 0.24, -2.5 )
 
 [node name="MeshInstance" parent="b/bbishop" index="0"]
-mesh = ExtResource( 17 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.3, 0 )
+mesh = ExtResource( 13 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bbishop" index="1"]
@@ -210,7 +229,8 @@ shape = ExtResource( 18 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.08, 0.24, -2.5 )
 
 [node name="MeshInstance" parent="b/bbishop2" index="0"]
-mesh = ExtResource( 17 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.3, 0 )
+mesh = ExtResource( 13 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bbishop2" index="1"]
@@ -220,7 +240,8 @@ shape = ExtResource( 18 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.8, 0.24, -2.5 )
 
 [node name="MeshInstance" parent="b/bknight" index="0"]
-mesh = ExtResource( 16 )
+transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0.34, 0 )
+mesh = ExtResource( 9 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bknight" index="1"]
@@ -230,7 +251,8 @@ shape = ExtResource( 15 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.8, 0.24, -2.5 )
 
 [node name="MeshInstance" parent="b/bknight2" index="0"]
-mesh = ExtResource( 16 )
+transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, 0, 0.34, 0 )
+mesh = ExtResource( 9 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bknight2" index="1"]
@@ -240,7 +262,8 @@ shape = ExtResource( 15 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.52, 0.24, -2.5 )
 
 [node name="MeshInstance" parent="b/brook" index="0"]
-mesh = ExtResource( 13 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.615, 0 )
+mesh = ExtResource( 10 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/brook" index="1"]
@@ -250,7 +273,8 @@ shape = ExtResource( 12 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.52, 0.24, -2.5 )
 
 [node name="MeshInstance" parent="b/brook2" index="0"]
-mesh = ExtResource( 13 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.615, 0 )
+mesh = ExtResource( 10 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/brook2" index="1"]
@@ -260,7 +284,8 @@ shape = ExtResource( 12 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.52, 0.24, -1.8 )
 
 [node name="MeshInstance" parent="b/bpawn" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bpawn" index="1"]
@@ -270,7 +295,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.8, 0.24, -1.8 )
 
 [node name="MeshInstance" parent="b/bpawn2" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bpawn2" index="1"]
@@ -280,7 +306,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.08, 0.24, -1.8 )
 
 [node name="MeshInstance" parent="b/bpawn3" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bpawn3" index="1"]
@@ -290,7 +317,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.36, 0.24, -1.8 )
 
 [node name="MeshInstance" parent="b/bpawn4" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bpawn4" index="1"]
@@ -300,7 +328,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.36, 0.24, -1.8 )
 
 [node name="MeshInstance" parent="b/bpawn5" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bpawn5" index="1"]
@@ -310,7 +339,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.08, 0.24, -1.8 )
 
 [node name="MeshInstance" parent="b/bpawn6" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bpawn6" index="1"]
@@ -320,7 +350,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.8, 0.24, -1.8 )
 
 [node name="MeshInstance" parent="b/bpawn7" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bpawn7" index="1"]
@@ -330,7 +361,8 @@ shape = ExtResource( 11 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.52, 0.24, -1.8 )
 
 [node name="MeshInstance" parent="b/bpawn8" index="0"]
-mesh = ExtResource( 10 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.23, 0 )
+mesh = ExtResource( 7 )
 material/0 = ExtResource( 6 )
 
 [node name="CollisionShape" parent="b/bpawn8" index="1"]
