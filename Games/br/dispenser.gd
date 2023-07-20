@@ -71,7 +71,7 @@ func request_spawn_brc() -> void:
 		"name":dispense,
 		"amount":1,
 		"value":_get_brc_card_value(),
-		"translation":(translation + Vector3(0,off_y,0))
+		"translation":(global_translation + Vector3(0,off_y,0))
 	}
 	Spawner.request_spawn(info)
 	

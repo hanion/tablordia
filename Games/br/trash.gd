@@ -37,7 +37,7 @@ func add_to_trash(what: card) -> void:
 	what.in_trash = self
 	
 	env.append(what)
-	what.translation = translation + Vector3(0, off_y ,0)
+	what.global_translation = global_translation + Vector3(0, off_y ,0)
 	
 	# to fix rotation  (and slot is always 000)
 	what.rotation = Vector3(0,0,0)
@@ -146,12 +146,12 @@ func check_after_onesec():
 	if not env: return
 	if not env.back().is_in_trash: return
 	if not env.back().in_trash == self: return
-	if env.back().translation == translation + Vector3(0, off_y ,0): return
+	if env.back().global_translation == global_translation + Vector3(0, off_y ,0): return
 	
 	if _is_player_dragging:
 		return
 	
-	env.back().translation = translation + Vector3(0, off_y ,0)
+	env.back().global_translation = global_translation + Vector3(0, off_y ,0)
 #	env.is_in_slot = true
 #	env.in_slot = self
 	
