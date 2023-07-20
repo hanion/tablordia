@@ -31,13 +31,15 @@ var card_52_index:int = 0
 var snr_card_index:int = 0
 var sh_card_index:int = 0
 
-
+onready var request_collector = $request_collector
 
 func request_spawn(info) -> void:
 	NetworkInterface.request_spawn(info)
 
 func receive_requested_spawn(info) -> void:
 	_spawn(info)
+	if get_tree().is_network_server():
+		request_collector.collect(info)
 
 func _spawn(info) -> void:
 #	var info  = {
@@ -122,7 +124,22 @@ func spawn_Misc(info) -> void:
 			hand_index += 1
 			cards_folder.add_child(misc)
 			
+			
 			var ownerid = info["owner_id"]
+			
+			# owner player disconnected
+			# before this client joined
+			if not List.players.has(ownerid):
+				yield(get_tree().create_timer(0.1),"timeout")
+				if not List.players.has(ownerid):
+					List.paths[misc.name] = misc.get_path()
+					return
+			
+			if not List.players[ownerid].has("name"):
+				yield(get_tree().create_timer(0.1),"timeout")
+				if not List.players[ownerid].has("name"):
+					List.paths[misc.name] = misc.get_path()
+					return
 			var ownername = List.players[ownerid]["name"]
 			var ownercolor = List.players[ownerid]["color"]
 			misc.set_hand_owner(ownerid,ownername)

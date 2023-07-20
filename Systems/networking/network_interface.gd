@@ -28,7 +28,24 @@ func _player_connected(id):
 	List.add_player(id)
 	client.give_my_info_to(id)
 	if get_tree().is_network_server():
-		client.rpc_id(id,"receive_alws",$server/state_processor.alws)
+		catch_up_the_midjoiner(id)
+
+
+func catch_up_the_midjoiner(id : int) -> void:
+	#UMB.logs(1,"NI","im("+str(uid)+" "+Name+") calling catchup on " + str(id) )
+	client.rpc_id(id,"receive_request_collection",Spawner.request_collector.request_collection)
+	client.rpc_id(id,"receive_alws",$server/state_processor.alws)
+	
+	if NetworkInterface.Main.br:
+		server.send_br_invs(id)
+	
+	yield(get_tree().create_timer(0.5),"timeout")
+	client.rpc_id(id,"receive_do_collection",$client/midjoin_manager.do_collection)
+	
+	
+
+
+
 
 func got_info_of_new_peer(id) -> void:
 	var nam = List.players[id]["name"]
@@ -43,6 +60,9 @@ func got_info_of_new_peer(id) -> void:
 
 
 func _player_disconnected(id):
+	if not List.players.has(id): return
+	if not List.players[id].has("name"): return
+	
 	var nam = List.players[id]["name"]
 	var col = List.players[id]["color"] as Color
 	var txt = "[color=#"+str(col.to_html())+"]" + nam + "[/color]"

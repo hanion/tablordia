@@ -2,9 +2,9 @@ extends Node
 
 
 var world_state := {}
-var world_state_collection := {}
+#var world_state_collection := {}
 var alws := {} # all_latest_world_states
-var update_frame_time = 1
+var update_frame_time = 3
 
 func _physics_process(_delta):
 	if not get_tree().has_network_peer(): return
@@ -15,9 +15,9 @@ func _physics_process(_delta):
 		return
 	
 	
-	if _has_been_20_fps():
+#	if _has_been_20_fps():
 #		print("**sending do _pp")
-		process_world_state()
+	process_world_state()
 
 func process_world_state():
 	if get_parent().world_state_up.empty(): return
@@ -32,7 +32,7 @@ func process_world_state():
 #	print("  s:sp: processed state   ",world_state)
 	get_parent().world_state_up.clear()
 	
-	if world_state.empty(): return
+	#if world_state.empty(): return
 	
 	
 	###########################################################################
@@ -64,14 +64,24 @@ func update_obj(obn, obs, time) -> void:
 	if not alws.has(obn):
 		alws[obn] = obs.duplicate(true)
 		alws[obn]["T"] = time
+		
 	
 	assert(alws[obn].has("T"), "no")
 	
 	if alws[obn]["T"] < time:
-		alws[obn] = obs.duplicate(true)
+		
+		# prop = "R" or "O" or "T"
+		for prop in obs.keys():
+			if not alws[obn].has(prop):
+				alws[obn][prop] = obs[prop]
+				continue
+			
+			if not alws[obn][prop] == obs[prop]:
+				alws[obn][prop] = obs[prop]
+			
+		
+		
 		alws[obn]["T"] = time
-	
-#	print("obn:",obn,"\nobs:",obs,"\n")
 
 
 

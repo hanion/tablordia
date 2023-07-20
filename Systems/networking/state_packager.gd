@@ -29,12 +29,12 @@ func collect_state(state:Dictionary) -> void:
 
 
 func _physics_process(_delta):
-	if _has_been_20_fps():
-		var packaged_state = package_state()
-		
-		if not packaged_state: return
-		
-		send_packaged_state(packaged_state)
+#	if _has_been_20_fps():
+	var packaged_state = package_state()
+	
+	if not packaged_state: return
+	
+	send_packaged_state(packaged_state)
 
 
 
@@ -66,6 +66,29 @@ func package_state():
 				continue
 			
 			if state_collection[key][subkey] == new_state[key][subkey]:
+
+				# sends rotation every time
+				# no matter if it changed or not
+				# should solve sync problem of rotations
+				# across clients
+				# 
+				# FIXED:
+				# it only sends it 5 times,
+				# then deletes it
+				
+				if subkey == "R":
+					if state_collection[key].has("R_count"):
+						state_collection[key]["R_count"] = state_collection[key]["R_count"] + 1
+						if state_collection[key]["R_count"] > 5:
+							state_collection[key]["R_count"] = 0
+							new_state[key].erase(subkey)
+							Std.erase_if_empty(new_state,key)
+							continue
+					else:
+						state_collection[key]["R_count"] = 1
+					
+					continue
+
 				new_state[key].erase(subkey)
 				Std.erase_if_empty(new_state,key)
 				# TEST this makes it so that it sends info every other tick

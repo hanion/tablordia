@@ -120,5 +120,6 @@ func notify_dispenser() -> void:
 	update_material()
 	is_hidden = false
 	is_in_dispenser = false
-	in_dispenser.notify()
+	if in_dispenser:
+		in_dispenser.notify()
 

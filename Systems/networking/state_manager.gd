@@ -43,6 +43,14 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 	
 	assert(obj != null, "M: !!! object is null")
 	
+	# the received object does not exist here FIXME
+	
+	
+	
+	
+	
+	
+	
 	if player.dragging == obj: return
 	if _id == NetworkInterface.uid: return
 	

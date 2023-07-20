@@ -2,6 +2,8 @@ extends Node
 
 var world_state_up := {}
 
+onready var midjoin_manager = $"../client/midjoin_manager"
+
 ####################################SERVER#####################################
 func _ready():
 	rpc_config("receive_state_from_client",MultiplayerAPI.RPC_MODE_REMOTESYNC)
@@ -29,6 +31,7 @@ remote func receive_do_from_client(do:Dictionary) -> void:
 		)
 	
 #	print("  s: received DO state from client ",do)
+	midjoin_manager.collect_do(do)
 	NetworkInterface.client.rpc("receive_do_from_server",do)
 """ /DO """
 
@@ -54,12 +57,19 @@ remote func receive_br_info(res,itm) -> void:
 	NetworkInterface.client.rpc_id(0,"receive_br_info",res,itm)
 
 remote func request_invs() -> void:
-	var res_inv = NetworkInterface.Main.resource_dispenser.env
-	var itm_inv = NetworkInterface.Main.item_dispenser.items
+	var res_inv = NetworkInterface.Main.br.resource_dispenser.env
+	var itm_inv = NetworkInterface.Main.br.item_dispenser.items
 	
 	var sender = get_tree().get_rpc_sender_id()
 	
 	NetworkInterface.client.rpc_id(sender,"receive_invs",res_inv,itm_inv)
+
+
+func send_br_invs(id : int) -> void:
+	var res_inv = NetworkInterface.Main.br.resource_dispenser.env
+	var itm_inv = NetworkInterface.Main.br.item_dispenser.items
+	NetworkInterface.client.rpc_id(id,"receive_invs",res_inv,itm_inv)
+
 
 
 

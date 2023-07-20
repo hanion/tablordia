@@ -113,3 +113,5 @@ func _ready() -> void:
 func receive_br_info(res,itm) -> void:
 	resource_dispenser.set_received_inv(res)
 	item_dispenser.set_received_inv(itm)
+	
+	print("received it")

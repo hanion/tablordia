@@ -35,6 +35,7 @@ func send_do_state(do_state) -> void:
 		"NI: Can not send empty do state"
 		)
 	
+	do_state["T_do"] = OS.get_system_time_msecs()
 	NetworkInterface.server.rpc_id(1,"receive_do_from_client",do_state)
 remote func receive_do_from_server(do:Dictionary) -> void:
 	assert(
@@ -103,6 +104,9 @@ remote func receive_requested_spawn(info) -> void:
 	Spawner.receive_requested_spawn(info)
 
 
+remote func receive_request_collection(request_collection:Dictionary) -> void:
+	$midjoin_manager.process_spawn_requests(request_collection)
+
 remote func receive_alws(alws) -> void:
 	$alws_processor.process_alws(alws)
 
@@ -111,6 +115,16 @@ remote func receive_deck_info(named_deck,deck_name) -> void:
 	if get_tree().get_network_unique_id() == 1: return
 	Std.get_object(deck_name).receive_deck_from_server(named_deck)
 
+remote func receive_invs(res_inv, itm_inv) -> void:
+	if NetworkInterface.Main.br:
+		NetworkInterface.Main.br.receive_br_info(res_inv, itm_inv)
+		print("called it ", res_inv, itm_inv)
+
+
+
+remote func receive_do_collection(do_collection:Dictionary) -> void:
+	for do_obj in do_collection:
+		NetworkInterface.send_received_do_to_main(do_collection[do_obj])
 
 
 

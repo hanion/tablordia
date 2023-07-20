@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Systems/networking/client.gd" type="Script" id=1]
 [ext_resource path="res://Systems/networking/server.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Systems/networking/alws_processor.gd" type="Script" id=4]
 [ext_resource path="res://Systems/networking/state_processor.gd" type="Script" id=5]
 [ext_resource path="res://Systems/networking/network_interface.gd" type="Script" id=6]
+[ext_resource path="res://Systems/networking/spawn_request_processor.gd" type="Script" id=7]
 
 [node name="network_interface" type="Node"]
 script = ExtResource( 6 )
@@ -18,6 +19,9 @@ script = ExtResource( 3 )
 
 [node name="alws_processor" type="Node" parent="client"]
 script = ExtResource( 4 )
+
+[node name="midjoin_manager" type="Node" parent="client"]
+script = ExtResource( 7 )
 
 [node name="server" type="Node" parent="."]
 script = ExtResource( 2 )
