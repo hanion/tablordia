@@ -40,3 +40,4 @@ render_target_v_flip = true
 margin_left = -435.0
 margin_right = 435.0
 custom_colors/font_color = Color( 0.309804, 0.968627, 0.847059, 1 )
+text = "unknown"
