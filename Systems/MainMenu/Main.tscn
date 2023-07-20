@@ -40,6 +40,9 @@ script = ExtResource( 7 )
 [node name="CAM" parent="player" index="2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 
+[node name="elevation" parent="player/CAM/position" index="0"]
+transform = Transform( 1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 0, 0 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SpawnPanel" parent="CanvasLayer" instance=ExtResource( 5 )]
