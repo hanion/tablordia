@@ -89,7 +89,14 @@ func add_card_to_hand(var crd: card, var pos: Vector3) -> void:
 	var global_pos = List.reparent_child(crd,self)
 	
 	crd.translation = Std.complex_rotate(global_pos - translation,rotation.y)
-	crd.rotation_degrees = Vector3(0,0,0)
+#	tweenit(crd, "translation", 
+#		crd.translation, 
+#		Std.complex_rotate(global_pos - translation,rotation.y),
+#		0.1)
+	
+#	crd.rotation_degrees = Vector3(0,0,0)
+	var init_rot = crd.rotation_degrees - rotation_degrees
+	tweenit(crd, "rotation_degrees", init_rot, Vector3(0,0,0), 0.1)
 	
 	# change cards hidden val
 	if am_i_the_owner:
