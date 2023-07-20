@@ -27,8 +27,8 @@ func _ready():
 func _player_connected(id):
 	List.add_player(id)
 	client.give_my_info_to(id)
-	if get_tree().is_network_server():
-		catch_up_the_midjoiner(id)
+#	if get_tree().is_network_server():
+#		catch_up_the_midjoiner(id)
 
 
 func catch_up_the_midjoiner(id : int) -> void:
@@ -78,7 +78,7 @@ func _player_disconnected(id):
 func _on_server_disconnected() -> void:
 	UMB.log(2,"Network","Server disconnected" + Std.get_time())
 	
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(0.1),"timeout")
 	join(last_joined_ip_and_port[0],last_joined_ip_and_port[1])
 ###################################INTERFACE###################################
 

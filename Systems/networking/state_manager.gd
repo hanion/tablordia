@@ -178,6 +178,9 @@ func process_received_do(do) -> void:
 	)
 	
 #	tween.stop_all()
+	
+	if not dragged:
+		return
 
 	if dragged.is_in_dispenser:
 		dragged.notify_dispenser()

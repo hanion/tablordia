@@ -1,7 +1,8 @@
 extends Node
 # CMD
 const valid_commands : Array = [
-	"quit","say","table","kick","w","c","set_class","table_inf","help__","join", "shut_down_server__"
+	"quit","say","table","kick","w","c","set_class","table_inf","help__","join",
+	"shut_down_server__","mj"
 	]
 
 func parse_command(var txt: String) -> void:
@@ -146,7 +147,8 @@ func set_class(ea:PoolStringArray) -> void:
 
 
 func join(_ea:PoolStringArray):
-	NetworkInterface.join("93.190.8.118")
+	return
+	#NetworkInterface.join("93.190.8.118")
 
 
 
@@ -167,7 +169,7 @@ remote func _server_side_shut_down_server() -> void:
 	
 	if List.players.has(sender_id):
 		var sender_name = List.players[sender_id]["name"]
-		print("cmd:	",sender_name,"	is shutting down the server.")
+		print("cmd	",sender_name,"	is shutting down the server.")
 		get_tree().quit()
 
 remote func _clients_side_shut_down_server() -> void:
@@ -175,6 +177,20 @@ remote func _clients_side_shut_down_server() -> void:
 	UMB.log(1,"cmd","Client is shutting down...")
 	yield(get_tree().create_timer(5),"timeout")
 	get_tree().quit()
+
+
+func mj(_ea:PoolStringArray) -> void:
+	UMB.log(1,"cmd","preparing objects...")
+	rpc_config("_servers_mj",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc_id(1,"_servers_mj")
+
+remote func _servers_mj() -> void:
+	var sender_id = get_tree().get_rpc_sender_id()
+	
+	if not List.players.has(sender_id): return
+	NetworkInterface.catch_up_the_midjoiner(sender_id)
+	
+
 
 
 

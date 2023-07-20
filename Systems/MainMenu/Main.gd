@@ -22,6 +22,9 @@ func _ready():
 	UMB.fade()
 	
 	print("	-Game is ready-\n")
+	
+	yield(get_tree().create_timer(0.1),"timeout")
+	CMD.mj([])
 
 
 func _spawn_player(var pid):
