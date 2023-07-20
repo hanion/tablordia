@@ -121,17 +121,33 @@ func rotate_one_tick(obj, is_reverse := false) -> void:
 	var dir = -1 if is_reverse else 1
 	
 	
+	var c_obj = obj
+	
 	if obj is card and obj.is_in_hand and obj.in_hand:
-		obj.in_hand.rotate_y(deg2rad(rotatiton_one_tick*dir))
-		define_obj_state(obj.in_hand)
+		c_obj = obj.in_hand
 	elif obj is card and obj.is_in_deck and obj.in_deck:
-		obj.in_deck.rotate_y(deg2rad(rotatiton_one_tick*dir))
-		define_obj_state(obj.in_deck)
+		c_obj = obj.in_deck
 	else:
-		obj.rotate_y(deg2rad(rotatiton_one_tick*dir))
-		define_obj_state(obj)
+		c_obj = obj
+	
+	_rotate_tweenit(c_obj, deg2rad(rotatiton_one_tick*dir))
+	define_obj_state(c_obj)
+	yield(get_tree().create_timer(0.06),"timeout")
+	define_obj_state(c_obj)
 
 
+func _rotate_tweenit(obj,final) -> void:
+	twen.stop_all()
+	twen.interpolate_property(
+		obj,
+		"rotation",
+		obj.rotation,
+		obj.rotation+Vector3(0,final,0),
+		Std.tween_duration/2,
+		Tween.TRANS_LINEAR,
+		Tween.EASE_IN
+		)
+	twen.start()
 
 
 
