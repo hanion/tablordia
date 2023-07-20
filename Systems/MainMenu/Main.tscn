@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/br/BackRessource.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/BackItem.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Systems/networking/state_manager.gd" type="Script" id=7]
 [ext_resource path="res://Systems/Controls/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Systems/Small/SmallScript/vbt.gd" type="Script" id=9]
+[ext_resource path="res://InGame/Table/Wood067_2K-PNG/wood.tres" type="Material" id=10]
 [ext_resource path="res://Systems/MainMenu/Main.gd" type="Script" id=11]
 [ext_resource path="res://Theme/GREEN_theme.tres" type="Theme" id=13]
 
@@ -123,6 +124,9 @@ mesh = SubResource( 5 )
 
 [node name="tableMesh" parent="tablo/table" index="1"]
 material/0 = ExtResource( 6 )
+
+[node name="tableMeshInf" parent="tablo/table" index="2"]
+material/0 = ExtResource( 10 )
 
 [node name="cardDispenser0" type="Sprite3D" parent="tablo"]
 transform = Transform( 0.1, 0, 0, 0, -4.37114e-09, 1, 0, -0.1, -4.37114e-08, -3.174, 0.55, 2.603 )
