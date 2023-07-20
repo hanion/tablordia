@@ -87,8 +87,8 @@ margin_right = 119.0
 size_flags_horizontal = 3
 custom_fonts/normal_font = SubResource( 4 )
 custom_styles/normal = SubResource( 2 )
-bbcode_text = "   v3.2"
-text = "   v3.2"
+bbcode_text = "   v3.3"
+text = "   v3.3"
 scroll_active = false
 
 [node name="vb" type="VBoxContainer" parent="hbmenu"]
