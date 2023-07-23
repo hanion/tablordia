@@ -118,17 +118,22 @@ func manage_look_closeup(event) -> void:
 func rotate_one_tick(obj, is_reverse := false) -> void:
 	if not obj.is_in_group("rotatable"): return
 	
-	var dir = -1 if is_reverse else 1
+	var dir = -1.0 if is_reverse else 1.0
 	
 	
 	var c_obj = obj
 	
 	if obj is card and obj.is_in_hand and obj.in_hand:
 		c_obj = obj.in_hand
+		dir = (dir/3.0)
 	elif obj is card and obj.is_in_deck and obj.in_deck:
 		c_obj = obj.in_deck
 	else:
 		c_obj = obj
+		
+		if obj is hand:
+			dir = (dir/3.0)
+	
 	
 	_rotate_tweenit(c_obj, deg2rad(rotatiton_one_tick*dir))
 	define_obj_state(c_obj)
