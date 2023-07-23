@@ -87,9 +87,9 @@ func bring_back_old_card() -> void:
 		)
 	tween.interpolate_property(
 		old_card,
-		"translation",
-		old_card.translation,
-		translation + Vector3(0, off_y ,0),
+		"global_translation",
+		old_card.global_translation,
+		global_translation + Vector3(0, off_y ,0),
 		Std.tween_duration,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
