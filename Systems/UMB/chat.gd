@@ -11,12 +11,13 @@ export(NodePath) onready var msg_container = get_node(msg_container) as Control
 export(NodePath) onready var tags = get_node(tags) as ScrollContainer
 
 var last_carrier := ""
+var last_tag := -1
 var last_msg : RichTextLabel
-func write(bbstart:String, carrier:String, bbend:String) -> Node:
+func write(bbstart:String, carrier:String, bbend:String, tag:int) -> Node:
 	UMB.chat_closed()
 	UMB.reset_alpha()
 	
-	if last_carrier == carrier:
+	if last_carrier == carrier and last_tag == tag:
 		var ms = "[color=#00ffffff][i]"+carrier+"[/i][/color]" # transparent name
 		
 		last_msg.bbcode_text += "\n" + ms + bbstart + bbend
@@ -37,6 +38,7 @@ func write(bbstart:String, carrier:String, bbend:String) -> Node:
 	
 	
 	last_carrier = carrier
+	last_tag = tag
 	last_msg = msg
 	return msg
 

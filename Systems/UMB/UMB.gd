@@ -119,14 +119,16 @@ func log(p:int, carrier:String, txt:String) ->  void:
 	context = ": " + txt
 	
 	
-	# spawn richlabel text node
-	var msg = chat.write(bbstart, carrier, context + bbend) as Node
-	
-	msg.add_to_group("message")
-	
 	# add msg to according group
 	var tag_number := str(p)
 	chat.tags.add_tag(tag_number)
+	
+	
+	# spawn richlabel text node
+	var msg = chat.write(bbstart, carrier, context + bbend, p) as Node
+	
+	msg.add_to_group("message")
+	
 	msg.add_to_group(tag_number)
 	
 	
