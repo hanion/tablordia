@@ -23,6 +23,12 @@ func add_tag(tag:String) -> void:
 	tag_container.add_child(tg,true)
 	
 	tag_texts_array[text] = true
+	
+	# Debug messages are disabled by default 
+	if text == "Debug":
+		tg.pressed = false
+	
+	
 
 
 func _on_tag_toggled(toggle,txt) -> void:
@@ -51,6 +57,8 @@ func turn_tag_to_text(tag:String) -> String:
 			text = "System"
 		"2":
 			text = "Error"
+		"3":
+			text = "Debug"
 		_:
 			text = tag
 			UMB.log(2,"UMB::tags","wrong tag '"+tag+"' ")
@@ -66,6 +74,8 @@ func turn_text_to_tag(text:String) -> String:
 			tag = "1"
 		"Error":
 			tag = "2"
+		"Debug":
+			tag = "3"
 		_:
 			tag = text
 			UMB.log(2,"UMB::tags","wrong text '"+text+"' ")

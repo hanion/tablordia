@@ -17,7 +17,8 @@ const bbcodes := [
 const group_color = [# p
 	Color.white,     # 0 = chat message
 	Color.slategray, # 1 = system message
-	Color.lightcoral # 2 = error
+	Color.lightcoral,# 2 = error
+	Color.darkgray   # 3 = debug log 
 	]
 
 func _ready() -> void:
