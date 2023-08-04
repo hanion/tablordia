@@ -12,6 +12,7 @@ onready var wa_label1 = $WriteAmountPop/vbc/period2/Label
 onready var wa_label2 = $WriteAmountPop/vbc/period3/Label
 
 onready var hand_settings = $HandSettings
+onready var confirm_remove_object = $ConfirmRemoveObject
 
 var player
 var current_object = null
@@ -164,3 +165,28 @@ func _on_PopupMenu_index_pressed(index):
 
 func _on_WriteAmountPop_popup_hide() -> void:
 	close_wa()
+
+
+
+
+func open_confirm_remove_object(target, method, object_name:String) -> void:
+	confirm_remove_object.popup()
+	
+	if not confirm_remove_object.is_connected("confirmed",target,method):
+		confirm_remove_object.connect("confirmed",target,method,[object_name,self.confirm_remove_object])
+	
+	
+	if object_name == "br":
+		object_name = "Board Royale"
+	
+	confirm_remove_object.dialog_text = "Remove " + object_name + " ?"
+	
+	Std.is_blocked_by_ui = true
+
+
+func _on_ConfirmRemoveObject_popup_hide():
+	Std.is_blocked_by_ui = false
+
+
+
+

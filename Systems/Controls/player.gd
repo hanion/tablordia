@@ -37,6 +37,7 @@ func _input(event):
 		manage_dragging(event)
 		manage_rotating(event)
 		manage_look_closeup(event)
+		manage_remove_object(event)
 
 func _physics_process(_delta):
 	if is_dragging:
@@ -112,6 +113,21 @@ func manage_look_closeup(event) -> void:
 			close_up.look_closeup(current['collider'],false)
 
 
+func manage_remove_object(event) -> void:
+	if  event is InputEventKey and event.is_action_pressed("remove_object"):
+		if Controls.shift_held_down and Controls.ctrl_held_down:
+			var object = current['collider']
+			if object.name != "table":
+#			if object.is_in_group("removable"):
+				RCM.open_confirm_remove_object(self, "_on_confirm_remove_object", object.name)
+		
+
+
+func _on_confirm_remove_object(object_name,popup):
+	if popup.is_connected("confirmed",self,"_on_confirm_remove_object"):
+		popup.disconnect("confirmed",self,"_on_confirm_remove_object")
+	Remover.remote_remove_objects(object_name)
+	
 
 
 

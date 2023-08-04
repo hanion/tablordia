@@ -101,6 +101,7 @@ NetworkInterface="*res://Systems/networking/network_interface.tscn"
 List="*res://Systems/networking/list.tscn"
 CMD="*res://Systems/cmd/cmd.tscn"
 Spawner="*res://Systems/Spawner/Spawner.tscn"
+Remover="*res://Systems/Spawner/Remover.tscn"
 UMB="*res://Systems/UMB/UMB.tscn"
 HUD="*res://Systems/HUD/HUD.tscn"
 RCM="*res://Systems/RCM/right_click_menu.tscn"
@@ -237,6 +238,11 @@ chat_cmd={
 toggle_hud={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":72,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+remove_object={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

@@ -115,3 +115,7 @@ func receive_br_info(res,itm) -> void:
 	item_dispenser.set_received_inv(itm)
 	
 	print("received it")
+
+func _exit_tree():
+	List.remove_my_paths(my_paths)
+

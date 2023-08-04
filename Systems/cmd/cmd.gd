@@ -2,7 +2,8 @@ extends Node
 # CMD
 const valid_commands : Array = [
 	"quit","say","table","kick","w","c","set_class","table_inf","help__","join",
-	"shut_down_server__","mj"
+	"shut_down_server__","mj",
+	"remove_all"
 	]
 
 func parse_command(var txt: String) -> void:
@@ -192,5 +193,7 @@ remote func _servers_mj() -> void:
 	
 
 
+func remove_all(_ea:PoolStringArray) -> void:
+	Remover.remove_all()
 
 

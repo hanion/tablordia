@@ -74,10 +74,19 @@ func feed_my_paths(var mp:Dictionary) -> void:
 			push_error("List already has this objects path")
 		List.paths[objname] = mp[objname]
 
+func remove_my_paths(var mp:Dictionary) -> void:
+	for objname in mp.keys():
+		if List.paths.has(objname):
+			List.paths.erase(objname)
+#		else:
+#			push_error("List does not have this objects path, " + objname)
+
+
+
 
 
 var paths := {
-	"node_name":"node_path",
+#	"node_name":"node_path",
 	"table":"/root/Main/tablo/table"#,
 #	"deck":"/root/Main/cards/deck"
 }
