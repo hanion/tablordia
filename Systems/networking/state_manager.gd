@@ -181,21 +181,25 @@ func process_received_do(do) -> void:
 	
 	if not dragged:
 		return
+	if not is_instance_valid(dragged): return 
 
 	if dragged.is_in_dispenser:
 		dragged.notify_dispenser()
 
 	elif dragged.is_in_trash:
-		dragged.in_trash.remove_from_trash(dragged)
+		if is_instance_valid(dragged.in_trash):
+			dragged.in_trash.remove_from_trash(dragged)
 
 #	elif dragged.is_in_slot:
 #		dragged.in_slot.remove_from_slot(dragged)
 
 	elif dragged.is_in_deck:
 		if not over is deck:
-			dragged.in_deck.remove_from_deck(dragged)
+			if is_instance_valid(dragged.in_deck):
+				dragged.in_deck.remove_from_deck(dragged)
 		if over is deck and not dragged.in_deck == over:
-			dragged.in_deck.remove_from_deck(dragged)
+			if is_instance_valid(dragged.in_deck):
+				dragged.in_deck.remove_from_deck(dragged)
 
 #		if not over is hand:
 #			hotfix_snap_when_removing_from_hand(dragged)
@@ -203,9 +207,10 @@ func process_received_do(do) -> void:
 	elif dragged.is_in_hand:
 		if not over is hand:
 			print("    ¨removed1 ",dragged_name," from ",dragged.in_hand.name)
-			dragged.in_hand.remove_card_from_hand(dragged)
-			if not over is deck:
-				hotfix_snap_when_removing_from_hand(dragged)
+			if is_instance_valid(dragged.in_hand):
+				dragged.in_hand.remove_card_from_hand(dragged)
+				if not over is deck:
+					hotfix_snap_when_removing_from_hand(dragged)
 	
 
 
