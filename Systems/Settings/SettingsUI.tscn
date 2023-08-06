@@ -80,7 +80,6 @@ anchor_bottom = 1.0
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[indent][table=2]
-[cell]Pan Camera[/cell][cell]wasd[/cell]
 [cell]Pan Camera[/cell][cell]ctl+lmb[/cell]
 [cell]Rotate Camera[/cell][cell]ctrl+rmb[/cell]
 
@@ -91,7 +90,7 @@ bbcode_text = "[indent][table=2]
 [cell]Context Menu[/cell][cell]rmb[/cell]
 [cell]Toggle HUD[/cell][cell]h[/cell]
 [cell]                                         [/cell][cell]                                [/cell]"
-text = "	Pan CamerawasdPan Cameractl+lmbRotate Cameractrl+rmbMove Deck/Handshift+lmbChatEnterSpawn MenumContext MenurmbToggle HUDh                                                                         "
+text = "	Pan Cameractl+lmbRotate Cameractrl+rmbMove Deck/Handshift+lmbChatEnterSpawn MenumContext MenurmbToggle HUDh                                                                         "
 
 [node name="Graphics" type="ScrollContainer" parent="pu/tabs"]
 visible = false
@@ -109,8 +108,8 @@ __meta__ = {
 [node name="vb" type="VBoxContainer" parent="pu/tabs/Graphics"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 292.0
-margin_bottom = 275.0
+margin_right = 461.0
+margin_bottom = 294.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 6 )
@@ -357,8 +356,8 @@ __meta__ = {
 [node name="vb" type="VBoxContainer" parent="pu/tabs/Misc"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 408.0
-margin_bottom = 258.0
+margin_right = 461.0
+margin_bottom = 294.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
