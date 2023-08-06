@@ -71,7 +71,7 @@ func reparent_child(var child: Spatial, var new_parent: Spatial):
 func feed_my_paths(var mp:Dictionary) -> void:
 	for objname in mp.keys():
 		if List.paths.has(objname):
-			push_error("List already has this objects path")
+			push_error("List already has this objects path" + objname)
 		List.paths[objname] = mp[objname]
 
 func remove_my_paths(var mp:Dictionary) -> void:
