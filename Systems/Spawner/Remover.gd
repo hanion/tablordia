@@ -1,5 +1,8 @@
 extends Node
 
+var remove_request_collection_of_names := []
+
+
 
 var cleared_twice = false
 func remove_all() -> void:
@@ -25,7 +28,8 @@ func remote_remove_objects(object_name : String) -> void:
 	rpc_id(0,"_remote_to_local_remove_object",object_name)
 
 remote func _remote_to_local_remove_object(object_name : String) -> void:
-	remove_object(object_name) 
+	remove_object(object_name)
+	remove_request_collection_of_names.append(object_name)
 
 func remove_object(object_name : String) -> void:
 	if not List.paths.has(object_name): return
@@ -44,7 +48,6 @@ func remove_object(object_name : String) -> void:
 # warning-ignore:return_value_discarded
 	List.paths.erase(object_name)
 	object.queue_free()
-
 
 
 func __object_checks(object) -> bool:
@@ -105,3 +108,16 @@ func __object_checks(object) -> bool:
 			remove_object(object.env.name)
 	
 	return true
+
+
+
+
+# called from server->client when midjoin
+func remove_collected_rqs(array: Array) -> void:
+	yield(get_tree().create_timer(0.5),"timeout")
+	
+	print("got remove requests array = ",array)
+	
+	for object_name in array:
+		remove_object(object_name)
+

@@ -11,7 +11,7 @@ onready var prepping_deck = get_child(0)
 
 func init(spawn_type: String, spawn_name) -> void:
 	write_paths()
-	yield(get_tree().create_timer(1),"timeout")
+	yield(get_tree().create_timer(0.1),"timeout")
 	if not get_tree().is_network_server(): return
 	create_draw_deck()
 	spawn_all_cards(spawn_type, spawn_name)

@@ -107,6 +107,9 @@ remote func receive_requested_spawn(info) -> void:
 remote func receive_request_collection(request_collection:Dictionary) -> void:
 	$midjoin_manager.process_spawn_requests(request_collection)
 
+remote func receive_remove_requests(remove_request_names:Array) -> void:
+	Remover.remove_collected_rqs(remove_request_names)
+
 remote func receive_alws(alws) -> void:
 	$alws_processor.process_alws(alws)
 

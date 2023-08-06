@@ -34,6 +34,7 @@ func _player_connected(id):
 func catch_up_the_midjoiner(id : int) -> void:
 	#UMB.logs(1,"NI","im("+str(uid)+" "+Name+") calling catchup on " + str(id) )
 	client.rpc_id(id,"receive_request_collection",Spawner.request_collector.request_collection)
+	client.rpc_id(id,"receive_remove_requests",Remover.remove_request_collection_of_names)
 	client.rpc_id(id,"receive_alws",$server/state_processor.alws)
 	
 	if NetworkInterface.Main.br:
