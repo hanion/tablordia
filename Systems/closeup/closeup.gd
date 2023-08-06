@@ -112,13 +112,16 @@ func move_mesh(var pos) -> void:
 func set_material(obj):
 	var mat: SpatialMaterial 
 	var card_value = obj.card_value
+	var card_value_second = obj.card_value_second
+	
 	if obj.is_resource:
 		mat = res_mats[card_value].duplicate(true)
-	else:
+	elif obj.is_item:
 		var base = 1 if card_value > 29 else 0
 		mat = itm_mats[base].duplicate(true)
 		mat.set_uv1_offset(items[base][card_value-(30*base)])
-	
+	elif obj.is_expansion_skill:
+		mat = $expansion_skills.get_mat(card_value, card_value_second)
 	mat.flags_unshaded = true
 	mat.flags_transparent = true
 	$mesh.set_material_override(mat)

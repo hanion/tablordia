@@ -109,10 +109,14 @@ var _is_player_dragging := false
 func on_started_dragging(it) -> void:
 	if not it is br_card: return
 	if only_items and it.is_item:
-		col.shape.extents.y = 0.16
+		col.shape.extents.y = 0.3
+		col.shape.extents.x = 1
+		col.shape.extents.z = 1.3
 		mes.visible = is_mesh_visible
 	elif only_resources and it.is_resource:
-		col.shape.extents.y = 0.16
+		col.shape.extents.y = 0.3
+		col.shape.extents.x = 1
+		col.shape.extents.z = 1.3
 		mes.visible = is_mesh_visible
 	
 	if env.empty(): return
@@ -123,6 +127,8 @@ func on_started_dragging(it) -> void:
 
 func on_stopped_dragging() -> void:
 	col.shape.extents.y = 0.04
+	col.shape.extents.x = 0.75
+	col.shape.extents.z = 1.05
 	mes.visible = false
 	
 	if env.empty(): return

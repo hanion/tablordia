@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Spatial",
+"class": "DeckPrep",
+"language": "GDScript",
+"path": "res://InGame/deck_prep.gd"
+}, {
 "base": "card",
 "class": "br_card",
 "language": "GDScript",
@@ -60,6 +65,7 @@ _global_script_classes=[ {
 "path": "res://Games/uno/uno_card.gd"
 } ]
 _global_script_class_icons={
+"DeckPrep": "",
 "br_card": "",
 "card": "",
 "card_52": "",

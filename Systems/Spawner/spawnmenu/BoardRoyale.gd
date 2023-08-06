@@ -37,6 +37,16 @@ func br_pressed(naame, naem, val) -> void:
 	get_parent().get_parent().selected(info)
 
 
+func skill_pack_pressed(value : int) -> void:
+	var info := {
+		"type":"Expansion",
+		"name":"exp_skill_pack",
+		"inspector_text":"Skills Expansion",
+		"value_second": value
+		}
+	get_parent().get_parent().selected(info)
+
+
 
 func _on_s0_pressed():
 	br_pressed("resource","Wood",1)
@@ -74,3 +84,29 @@ func _on_m2_pressed():
 		"name":"Hand"
 		}
 	get_parent().get_parent().selected(info)
+
+
+func _on_e1_pressed():
+	br_pressed("exp_skill","Skills Expansion Pack",-1)
+
+
+func _on_e2_pressed():
+	skill_pack_pressed(0)
+
+
+func _on_e3_pressed():
+	skill_pack_pressed(1)
+
+
+func _on_e4_pressed():
+	skill_pack_pressed(2)
+
+
+func _on_e5_pressed():
+	skill_pack_pressed(3)
+
+func _on_e6_pressed():
+	skill_pack_pressed(4)
+
+func _on_e7_pressed():
+	skill_pack_pressed(5)

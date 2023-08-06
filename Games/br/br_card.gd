@@ -5,6 +5,9 @@ class_name br_card
 export(Array,SpatialMaterial) var res_mats := []
 export(Array,SpatialMaterial) var item_mats := []
 
+var is_expansion_skill := false
+
+
 const items := [
 	[
 	Vector3(0.95,0,0.874), # 0 back
@@ -84,6 +87,8 @@ func update_material():
 		var base = 1 if card_value > 29 else 0
 		mat = item_mats[base].duplicate(true)
 		mat.set_uv1_offset(items[base][card_value-(30*base)])
+	elif is_expansion_skill:
+		mat = $expansion_skills.get_mat(card_value, card_value_second)
 	
 	set_material(mat)
 
@@ -105,14 +110,21 @@ func set_is_hidden(val) -> void:
 			set_material(mat)
 		return
 	
-	var mat
+	elif is_resource:
+		var mat
+		if val:
+			mat = res_mats[0].duplicate(true)
+		else:
+			mat = res_mats[card_value].duplicate(true)
+		set_material(mat)
 	
-	if val:
-		mat = res_mats[0].duplicate(true)
-	else:
-		mat = res_mats[card_value].duplicate(true)
+	elif is_expansion_skill:
+		var new_card_val = 0 if val else card_value
+		var mat = $expansion_skills.get_mat(new_card_val, card_value_second)
+		set_material(mat)
+		
+		
 	
-	set_material(mat)
 
 
 

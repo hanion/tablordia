@@ -11,6 +11,8 @@ const snr_card_pl = preload("res://Games/snr/snr_card.tscn")
 const sh_pl = preload("res://Games/sh/sh.tscn")
 const sh_card_pl = preload("res://Games/sh/sh_card.tscn")
 
+const expansion_skills_pl = preload("res://assets/br/expansions/Expansion_Pack.tscn")
+
 
 const deck_pl = preload("res://InGame/Deck/deck.tscn")
 const hand_pl = preload("res://InGame/Hand/hand.tscn")
@@ -19,12 +21,15 @@ var cards_folder
 
 var resource_index:int = 0
 var item_index:int = 0
+var exp_skill_index:int = 0
 var hand_index:int = 0
 var deck_index:int = 0
 var game_52_index:int = 0
 var game_sh_index:int = 0
 var game_chess_index:int = 0
 var game_uno_index:int = 0
+
+var expansion_skills_index:int = 0
 
 var uno_index:int = 0
 var card_52_index:int = 0
@@ -61,6 +66,8 @@ func _spawn(info) -> void:
 		"Card":
 			for _a in range(info["amount"]):
 				spawn_Card(info)
+		"Expansion":
+			spawn_Expansion(info)
 		_:
 			UMB.logs(2,"Spawner","Unknown type to spawn,\n    info: "+str(info))
 			print("!!!Spawner: Unknown type to spawn,\n    info: ",info)
@@ -170,6 +177,12 @@ func spawn_Card(info) -> void:
 			crd.is_resource = true
 			crd.set_type("resource")
 			crd.update_material()
+		"exp_skill":
+			crd = br_card_pl.instance() as br_card
+			crd.set_name("exp_skill"+str(exp_skill_index))
+			exp_skill_index += 1
+			crd.is_expansion_skill = true
+			crd.update_material()
 			
 		"Uno Card":
 			crd = uno_card_pl.instance() as uno_card
@@ -221,6 +234,32 @@ func spawn_Card(info) -> void:
 		tweenit(crd, tr - Vector3(0,0.1,0), tr)
 	else:
 		tweenit(crd, Vector3(0,0.04,0), Vector3(0,1,0))
+
+
+
+func spawn_Expansion(info) -> void:
+	var expansion
+	
+	match info["name"]:
+		"exp_skill_pack":
+			expansion = expansion_skills_pl.instance()
+			
+			if info.has("value_second"):
+				expansion.skill_pack_number = info["value_second"]
+			
+			expansion.set_name("expansion_skills_pack"+str(expansion_skills_index))
+			for ch in expansion.get_children():
+				ch.name += str(expansion_skills_index)
+			
+			expansion_skills_index += 1
+	
+	get_node("/root/Main").add_child(expansion,true)
+	List.paths[expansion.name] = expansion.get_path()
+	tweenit(expansion, Vector3(0,-0.1,0), Vector3(0,0.004,0))
+
+
+
+
 
 
 
