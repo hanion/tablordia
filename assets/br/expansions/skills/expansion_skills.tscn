@@ -1,0 +1,25 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Games/br/expansion_skills.gd" type="Script" id=1]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_salesman.png" type="Texture" id=2]
+[ext_resource path="res://assets/br/expansions/skills/exp_skills.tres" type="Material" id=3]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_pack.tres" type="Material" id=4]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_marine.png" type="Texture" id=5]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_influencer.png" type="Texture" id=6]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_scavenger.png" type="Texture" id=7]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_diplomat.png" type="Texture" id=8]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_engineer.png" type="Texture" id=9]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_medic.png" type="Texture" id=10]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_dealer.png" type="Texture" id=11]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_hacker.png" type="Texture" id=12]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_survivalist.png" type="Texture" id=13]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_cook.png" type="Texture" id=14]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skills_2.tres" type="Material" id=15]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_mad_scientist.png" type="Texture" id=16]
+
+[node name="expansion_skills" type="Node"]
+script = ExtResource( 1 )
+exp_skill_pack = ExtResource( 4 )
+exp_skills = ExtResource( 3 )
+exp_skills2 = ExtResource( 15 )
+exp_skills_images = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 16 ), ExtResource( 2 ) ]

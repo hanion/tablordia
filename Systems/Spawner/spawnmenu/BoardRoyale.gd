@@ -110,3 +110,26 @@ func _on_e6_pressed():
 
 func _on_e7_pressed():
 	skill_pack_pressed(5)
+
+
+func _on_es2_1_pressed():
+	br_pressed("exp_skill","Skills Expansion Pack",-1)
+
+func _on_es2_2_pressed():
+	skill_pack_pressed(6)
+
+func _on_es2_3_pressed():
+	skill_pack_pressed(7)
+
+func _on_es2_4_pressed():
+	skill_pack_pressed(8)
+
+func _on_es2_5_pressed():
+	skill_pack_pressed(9)
+
+func _on_es2_6_pressed():
+	skill_pack_pressed(10)
+
+func _on_es2_7_pressed():
+	skill_pack_pressed(11)
+

@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path.s3tc="res://.import/exp_skill_mad_scientist.png-e7f30fff7d13e8007add4102fda1a09b.s3tc.stex"
+path.etc2="res://.import/exp_skill_mad_scientist.png-e7f30fff7d13e8007add4102fda1a09b.etc2.stex"
+path.etc="res://.import/exp_skill_mad_scientist.png-e7f30fff7d13e8007add4102fda1a09b.etc.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2", "etc" ],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://assets/br/expansions/skills2/exp_skill_mad_scientist.png"
+dest_files=[ "res://.import/exp_skill_mad_scientist.png-e7f30fff7d13e8007add4102fda1a09b.s3tc.stex", "res://.import/exp_skill_mad_scientist.png-e7f30fff7d13e8007add4102fda1a09b.etc2.stex", "res://.import/exp_skill_mad_scientist.png-e7f30fff7d13e8007add4102fda1a09b.etc.stex" ]
+
+[params]
+
+compress/mode=2
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=true
+flags/filter=true
+flags/mipmaps=true
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=false
+svg/scale=1.0

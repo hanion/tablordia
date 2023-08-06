@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/materials/items/materyal1.tres" type="Material" id=1]
 [ext_resource path="res://assets/materials/resources/resource_back.tres" type="Material" id=2]
@@ -11,15 +11,7 @@
 [ext_resource path="res://assets/materials/resources/resource_stone.tres" type="Material" id=9]
 [ext_resource path="res://assets/materials/resources/resource_gold.tres" type="Material" id=10]
 [ext_resource path="res://Systems/closeup/closeup.gd" type="Script" id=11]
-[ext_resource path="res://Games/br/expansion_skills.gd" type="Script" id=12]
-[ext_resource path="res://assets/br/expansions/exp_skill_survivalist.png" type="Texture" id=13]
-[ext_resource path="res://assets/br/expansions/exp_skill_marine.png" type="Texture" id=14]
-[ext_resource path="res://assets/br/expansions/exp_skill_engineer.png" type="Texture" id=15]
-[ext_resource path="res://assets/br/expansions/exp_skill_scavenger.png" type="Texture" id=16]
-[ext_resource path="res://assets/br/expansions/exp_skill_diplomat.png" type="Texture" id=17]
-[ext_resource path="res://assets/br/expansions/exp_skill_pack.tres" type="Material" id=18]
-[ext_resource path="res://assets/br/expansions/exp_skill_medic.png" type="Texture" id=19]
-[ext_resource path="res://assets/br/expansions/exp_skills.tres" type="Material" id=20]
+[ext_resource path="res://assets/br/expansions/skills/expansion_skills.tscn" type="PackedScene" id=12]
 
 [sub_resource type="ArrayMesh" id=2]
 resource_name = "card_Cube001"
@@ -61,8 +53,4 @@ visible = false
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
-[node name="expansion_skills" type="Node" parent="."]
-script = ExtResource( 12 )
-exp_skill_pack = ExtResource( 18 )
-exp_skills = ExtResource( 20 )
-exp_skills_images = [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 13 ) ]
+[node name="expansion_skills" parent="." instance=ExtResource( 12 )]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Games/br/br_card.gd" type="Script" id=1]
 [ext_resource path="res://assets/materials/resources/resource_stone.tres" type="Material" id=2]
@@ -9,15 +9,8 @@
 [ext_resource path="res://assets/materials/resources/resource_food.tres" type="Material" id=7]
 [ext_resource path="res://assets/materials/resources/resource_wood.tres" type="Material" id=8]
 [ext_resource path="res://assets/materials/resources/resource_gold.tres" type="Material" id=9]
-[ext_resource path="res://assets/br/expansions/exp_skill_diplomat.png" type="Texture" id=10]
-[ext_resource path="res://Games/br/expansion_skills.gd" type="Script" id=11]
-[ext_resource path="res://assets/br/expansions/exp_skill_pack.tres" type="Material" id=12]
-[ext_resource path="res://assets/br/expansions/exp_skill_marine.png" type="Texture" id=13]
-[ext_resource path="res://assets/br/expansions/exp_skill_engineer.png" type="Texture" id=14]
-[ext_resource path="res://assets/br/expansions/exp_skill_scavenger.png" type="Texture" id=15]
-[ext_resource path="res://assets/br/expansions/exp_skill_medic.png" type="Texture" id=16]
-[ext_resource path="res://assets/br/expansions/exp_skills.tres" type="Material" id=17]
-[ext_resource path="res://assets/br/expansions/exp_skill_survivalist.png" type="Texture" id=18]
+[ext_resource path="res://assets/br/expansions/skills/expansion_skills.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skills_2.tres" type="Material" id=25]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.72, 0.04, 1 )
@@ -48,10 +41,6 @@ shape = SubResource( 1 )
 [node name="mesh" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04, 0 )
 mesh = SubResource( 2 )
-material/0 = ExtResource( 17 )
+material/0 = ExtResource( 25 )
 
-[node name="expansion_skills" type="Node" parent="."]
-script = ExtResource( 11 )
-exp_skill_pack = ExtResource( 12 )
-exp_skills = ExtResource( 17 )
-exp_skills_images = [ ExtResource( 10 ), ExtResource( 14 ), ExtResource( 13 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 18 ) ]
+[node name="expansion_skills" parent="." instance=ExtResource( 10 )]

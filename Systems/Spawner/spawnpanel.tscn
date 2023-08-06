@@ -1,6 +1,6 @@
-[gd_scene load_steps=125 format=2]
+[gd_scene load_steps=137 format=2]
 
-[ext_resource path="res://assets/br/expansions/exp_skill_pack.png" type="Texture" id=1]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_pack.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/Steel.png" type="Texture" id=2]
 [ext_resource path="res://assets/br/Food.png" type="Texture" id=3]
 [ext_resource path="res://assets/br/Wood.png" type="Texture" id=4]
@@ -15,7 +15,7 @@
 [ext_resource path="res://Systems/Spawner/spawnmenu/inspector/amount.gd" type="Script" id=13]
 [ext_resource path="res://assets/uno/edited_better_cut.png" type="Texture" id=14]
 [ext_resource path="res://assets/br/base2.png" type="Texture" id=15]
-[ext_resource path="res://assets/br/expansions/exp_skill_diplomat.png" type="Texture" id=16]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_diplomat.png" type="Texture" id=16]
 [ext_resource path="res://Systems/Spawner/spawnmenu/inspector/owner.gd" type="Script" id=17]
 [ext_resource path="res://Systems/Spawner/spawnmenu/Boards.gd" type="Script" id=18]
 [ext_resource path="res://assets/sm/sm_chess.png" type="Texture" id=19]
@@ -23,7 +23,7 @@
 [ext_resource path="res://Systems/Spawner/spawnmenu/UNO_UI.gd" type="Script" id=21]
 [ext_resource path="res://Systems/Spawner/spawnmenu/inspector/uno_team.gd" type="Script" id=22]
 [ext_resource path="res://assets/sm/sm_hand.png" type="Texture" id=23]
-[ext_resource path="res://assets/br/expansions/exp_skill_engineer.png" type="Texture" id=24]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_engineer.png" type="Texture" id=24]
 [ext_resource path="res://assets/sh/sh_f.png" type="Texture" id=25]
 [ext_resource path="res://assets/sh/sh_l.png" type="Texture" id=26]
 [ext_resource path="res://assets/sh/sh_lib.png" type="Texture" id=27]
@@ -42,10 +42,16 @@
 [ext_resource path="res://assets/sm/sm_br.png" type="Texture" id=40]
 [ext_resource path="res://assets/sm/sm_uno.png" type="Texture" id=41]
 [ext_resource path="res://assets/sm/sm_sh.png" type="Texture" id=42]
-[ext_resource path="res://assets/br/expansions/exp_skill_marine.png" type="Texture" id=43]
-[ext_resource path="res://assets/br/expansions/exp_skill_medic.png" type="Texture" id=44]
-[ext_resource path="res://assets/br/expansions/exp_skill_scavenger.png" type="Texture" id=45]
-[ext_resource path="res://assets/br/expansions/exp_skill_survivalist.png" type="Texture" id=46]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_marine.png" type="Texture" id=43]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_medic.png" type="Texture" id=44]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_scavenger.png" type="Texture" id=45]
+[ext_resource path="res://assets/br/expansions/skills/exp_skill_survivalist.png" type="Texture" id=46]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_cook.png" type="Texture" id=47]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_dealer.png" type="Texture" id=48]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_hacker.png" type="Texture" id=49]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_influencer.png" type="Texture" id=50]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_mad_scientist.png" type="Texture" id=51]
+[ext_resource path="res://assets/br/expansions/skills2/exp_skill_salesman.png" type="Texture" id=52]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0980392, 0.121569, 0.137255, 1 )
@@ -79,6 +85,36 @@ region = Rect2( 1.51312, 3275.67, 572.333, 820.529 )
 flags = 23
 atlas = ExtResource( 46 )
 region = Rect2( 1.51312, 3275.67, 572.333, 820.529 )
+
+[sub_resource type="AtlasTexture" id=3503]
+flags = 23
+atlas = ExtResource( 47 )
+region = Rect2( 3276.41, 1144.53, 818.549, 1145.15 )
+
+[sub_resource type="AtlasTexture" id=3504]
+flags = 23
+atlas = ExtResource( 48 )
+region = Rect2( 3276.41, 1144.53, 818.549, 1145.15 )
+
+[sub_resource type="AtlasTexture" id=3505]
+flags = 23
+atlas = ExtResource( 49 )
+region = Rect2( 3276.41, 1144.53, 818.549, 1145.15 )
+
+[sub_resource type="AtlasTexture" id=3506]
+flags = 23
+atlas = ExtResource( 50 )
+region = Rect2( 3276.41, 1144.53, 818.549, 1145.15 )
+
+[sub_resource type="AtlasTexture" id=3507]
+flags = 23
+atlas = ExtResource( 51 )
+region = Rect2( 3276.41, 1144.53, 818.549, 1145.15 )
+
+[sub_resource type="AtlasTexture" id=3508]
+flags = 23
+atlas = ExtResource( 52 )
+region = Rect2( 3276.41, 1144.53, 818.549, 1145.15 )
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 23
@@ -1243,6 +1279,254 @@ margin_top = 116.0
 margin_right = 136.0
 margin_bottom = 145.0
 text = "Survivalist"
+align = 1
+
+[node name="Skills2" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 800.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="es2_1" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+margin_right = 156.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_1/vb"]
+margin_right = 136.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_1/vb"]
+margin_top = 116.0
+margin_right = 136.0
+margin_bottom = 145.0
+text = "Skills Pack"
+align = 1
+
+[node name="es2_2" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+margin_left = 160.0
+margin_right = 316.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_2/vb"]
+margin_right = 136.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3503 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_2/vb"]
+margin_top = 116.0
+margin_right = 136.0
+margin_bottom = 145.0
+text = "Cook"
+align = 1
+
+[node name="es2_3" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+margin_left = 320.0
+margin_right = 476.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_3/vb"]
+margin_right = 136.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3504 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_3/vb"]
+margin_top = 116.0
+margin_right = 136.0
+margin_bottom = 145.0
+text = "Dealer"
+align = 1
+
+[node name="es2_4" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+margin_left = 480.0
+margin_right = 636.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_4/vb"]
+margin_right = 136.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3505 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_4/vb"]
+margin_top = 116.0
+margin_right = 136.0
+margin_bottom = 145.0
+text = "Hacker"
+align = 1
+
+[node name="es2_5" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+margin_left = 640.0
+margin_right = 795.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_5/vb"]
+margin_right = 135.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3506 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_5/vb"]
+margin_top = 116.0
+margin_right = 135.0
+margin_bottom = 145.0
+text = "Influencer"
+align = 1
+
+[node name="es2_6" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+margin_top = 164.0
+margin_right = 156.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_6/vb"]
+margin_right = 136.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3507 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_6/vb"]
+margin_top = 116.0
+margin_right = 136.0
+margin_bottom = 145.0
+text = "Mad Scientist"
+align = 1
+
+[node name="es2_7" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+margin_left = 160.0
+margin_top = 164.0
+margin_right = 316.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_7/vb"]
+margin_right = 136.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3508 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_7/vb"]
+margin_top = 116.0
+margin_right = 136.0
+margin_bottom = 145.0
+text = "Salesman"
 align = 1
 
 [node name="Military" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions"]
@@ -4972,6 +5256,13 @@ text = "Spawn"
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e5" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e5_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e6" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e6_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e7" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e7_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_1_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_2_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_3" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_3_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_4" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_4_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_5" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_5_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_6" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_6_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_7" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_7_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_m1_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_m2_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s0" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s0_pressed"]
