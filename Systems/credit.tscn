@@ -28,13 +28,13 @@ custom_fonts/bold_font = SubResource( 2 )
 custom_fonts/normal_font = ExtResource( 6 )
 custom_styles/normal = ExtResource( 3 )
 bbcode_enabled = true
-bbcode_text = "[rainbow freq=0.02][center][wave freq=2 amp=200] yigithanion [/wave]
+bbcode_text = "[rainbow freq=0.02][center][wave freq=2 amp=200] hanion [/wave]
 
-[url=https://github.com/hanion]github - hanion[/url]
+[url=https://hanion.dev]hanion.dev[/url]
 [url=https://hanion.itch.io/]itch - hanion[/url]"
-text = " yigithanion 
+text = " hanion 
 
-github - hanion
+hanion.dev
 itch - hanion"
 script = ExtResource( 4 )
 
