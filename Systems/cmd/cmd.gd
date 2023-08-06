@@ -3,6 +3,7 @@ extends Node
 const valid_commands : Array = [
 	"quit","say","table","kick","w","c","set_class","table_inf","help__","join",
 	"shut_down_server__","mj",
+	"dice",
 	"remove_all"
 	]
 
@@ -195,5 +196,23 @@ remote func _servers_mj() -> void:
 
 func remove_all(_ea:PoolStringArray) -> void:
 	Remover.remove_all()
+
+
+func dice(ea:PoolStringArray) -> void:
+	if ea.size() < 1: return
+	
+	var until : int = int(ea[0])
+	
+	if until == null or until < 1: return
+	
+	UMB.logs(1,"Dice","Rolling dice [0-"+ea[0]+"] ...")
+	
+	yield(get_tree().create_timer(1),"timeout")
+	
+	randomize()
+	var random_number = rand_range(0,until+1)
+	UMB.logs(1,"Dice", str(int(random_number)))
+
+
 
 
