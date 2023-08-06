@@ -36,6 +36,8 @@ func _ready():
 	player = get_node("/root/Main/player")
 	player.connect("started_dragging",self,"on_started_dragging")
 	player.connect("stopped_dragging",self,"on_stopped_dragging")
+	
+	mes.visible = is_mesh_visible
 
 
 # called when dragging or received state
@@ -158,20 +160,30 @@ func on_started_dragging(it) -> void:
 	
 	if not it is card: return
 	if only_items and it.is_item:
-		col.shape.extents.y = 0.16
+		col.shape.extents.y = 0.3
+		col.shape.extents.x = 1
+		col.shape.extents.z = 1.3
 	elif only_resources and it.is_resource:
-		col.shape.extents.y = 0.16
+		col.shape.extents.y = 0.3
+		col.shape.extents.x = 1
+		col.shape.extents.z = 1.3
 	elif not only_items and not only_resources:
-		col.shape.extents.y = 0.16
+		col.shape.extents.y = 0.3
+		col.shape.extents.x = 1
+		col.shape.extents.z = 1.3
 	
 	_is_player_dragging = true
 
 func on_stopped_dragging() -> void:
 	
+	# no
 	if not can_draw:
 		col.shape.extents.y = 0.16
 	else:
 		col.shape.extents.y = 0.02
+	
+	col.shape.extents.x = 0.75
+	col.shape.extents.z = 1.05
 	
 	if not env.empty():
 		for c in env:

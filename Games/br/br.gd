@@ -85,8 +85,10 @@ const my_paths := {
 	
 	"dispenser":"/root/Main/br/dispenser",
 	"dispenser2":"/root/Main/br/dispenser2",
-	"trash":"/root/Main/br/trash",
-	"trash2":"/root/Main/br/trash2",
+#	"trash":"/root/Main/br/trash",
+#	"trash2":"/root/Main/br/trash2",
+	"trash_deck":"/root/Main/br/trash_deck",
+	"trash_deck2":"/root/Main/br/trash_deck2",
 	
 	"slot":"/root/Main/br/slot",
 	"slot2":"/root/Main/br/slot2",
