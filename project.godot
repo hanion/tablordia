@@ -98,6 +98,7 @@ run/main_scene="res://Systems/MainMenu/Menu.tscn"
 config/use_custom_user_dir=true
 boot_splash/show_image=false
 config/icon="res://tablordia.svg"
+config/windows_native_icon="res://assets/icon.ico"
 config/quit_on_go_back=false
 
 [autoload]
