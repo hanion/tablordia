@@ -106,6 +106,7 @@ func order_env() -> void:
 	for crd in env:
 		crd.translation = old_pos.translation
 		crd.scale = Vector3(1,1,1)
+		crd.visible = false
 	
 	var up_card = env.back()
 	if name.begins_with("uno_draw_deck") or name.begins_with("doc"):
