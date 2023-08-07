@@ -80,6 +80,7 @@ func remove_from_deck(what: card) -> void:
 	if env.empty(): return
 	if not env.back() == what: return
 	
+	
 	visible_card = null
 	
 	what.is_in_deck = false
@@ -258,6 +259,7 @@ func receive_deck_from_server(named_deck) -> void:
 
 ############################## RCM ##############################
 var _wa
+var _jd
 var sender_id := 0
 func prepare_rcm(popup:PopupMenu) -> void:
 	popup.clear()
@@ -279,6 +281,10 @@ func prepare_rcm(popup:PopupMenu) -> void:
 	
 	if env.size() > 1:
 		popup.add_item("Shuffle Deck",1)
+	
+	
+	if env.size() > 0:
+		popup.add_item("Join deck",5)
 
 
 remote func rcms(a,b,c):
@@ -298,6 +304,8 @@ func rcm_selected(id,_index,_text) -> void:
 			order_env()
 		4:
 			open_wa_panel()
+		5:
+			open_jd_panel()
 			
 			
 
@@ -316,9 +324,30 @@ func _on_wa_confirmed() -> void:
 		
 		rpc_config("request_draw_cards",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 		rpc("request_draw_cards",amo)
-#		draw_cards(amo)
 		_wa.disconnect("confirmed",self,"_on_wa_confirmed")
 		RCM.close_wa()
+
+
+
+
+func open_jd_panel() -> void:
+	if not sender_id == get_tree().get_network_unique_id(): return
+	var _sigto := {"target":self,"method":"_on_jd_confirmed"}
+	_jd = RCM.open_jd(_sigto)
+
+
+
+func _on_jd_confirmed() -> void:
+	var _jd_input = _jd.get_node_or_null("vbc/period/LineEdit")
+	if not _jd_input or not is_instance_valid(_jd_input): return
+	
+	var deck_name : String = _jd_input.text
+	if deck_name == "" or deck_name == null or deck_name.empty(): return
+
+	rpc_config("request_join_decks",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc("request_join_decks",deck_name)
+	_jd.disconnect("confirmed",self,"_on_jd_confirmed")
+	RCM.close_jd()
 
 
 ############################## RCM ##############################
@@ -380,3 +409,39 @@ func __find_requester_hand() -> hand:
 #	print(name,": Couldn't find the requester hand")
 	return null
 
+
+
+
+### Join decks
+remote func request_join_decks(deck_name) -> void:
+	join_decks(deck_name)
+
+func join_decks(deck_name) -> void:
+	var deck_to_join = __find_deck_by_name(deck_name) as deck
+	if deck_to_join == null:
+		UMB.log(2,name,"Couldn't find the deck to join, returning")
+		return
+	
+
+	var all_cards := env.duplicate(true)
+	
+	for i in range(all_cards.size()-1, -1, -1):
+		remove_from_deck(all_cards[i])
+	
+	for crd in all_cards:
+		deck_to_join.add_to_deck(crd)
+	
+	yield(get_tree().create_timer(0.3),"timeout")
+	deck_to_join.order_env()
+	order_env()
+	UMB.log(1,name,"Joined deck to " + str(deck_name) + ".")
+	
+
+
+
+func __find_deck_by_name(deck_name) -> deck:
+	if not List.paths.has(deck_name): return null
+	
+	var deck_by_name = get_node_or_null(List.paths[deck_name])
+	
+	return deck_by_name

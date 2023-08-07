@@ -11,6 +11,9 @@ onready var wa_input0 = $WriteAmountPop/vbc/period/LineEdit
 onready var wa_label1 = $WriteAmountPop/vbc/period2/Label
 onready var wa_label2 = $WriteAmountPop/vbc/period3/Label
 
+onready var jd = $JoinDeckPop
+onready var jd_input = $JoinDeckPop/vbc/period/LineEdit
+
 onready var hand_settings = $HandSettings
 onready var confirm_remove_object = $ConfirmRemoveObject
 
@@ -127,6 +130,28 @@ func open_wa(sigto:Dictionary, title, l0="",l1="",l2="") -> ConfirmationDialog:
 func close_wa() -> void:
 	wa.visible = false
 	Std.is_blocked_by_ui = false
+
+
+
+func open_jd(sigto:Dictionary) -> ConfirmationDialog:
+	jd.popup()
+	
+	
+	if not jd.is_connected("confirmed",sigto["target"],sigto["method"]):
+		jd.connect("confirmed",sigto["target"],sigto["method"])
+	
+	
+	Std.is_blocked_by_ui = true
+	jd_input.grab_focus()
+	
+	return jd
+
+func close_jd() -> void:
+	jd.visible = false
+	Std.is_blocked_by_ui = false
+
+
+
 
 
 

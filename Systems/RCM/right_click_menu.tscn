@@ -130,6 +130,60 @@ margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="JoinDeckPop" type="ConfirmationDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -157.5
+margin_top = -47.0
+margin_right = 157.5
+margin_bottom = 47.0
+focus_next = NodePath("vbc/period/LineEdit")
+popup_exclusive = true
+window_title = "Join Deck"
+resizable = true
+dialog_hide_on_ok = false
+
+[node name="vbc" type="VBoxContainer" parent="JoinDeckPop"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="period" type="HBoxContainer" parent="JoinDeckPop/vbc"]
+margin_top = 6.0
+margin_right = 299.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="JoinDeckPop/vbc/period"]
+margin_right = 147.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Deck to join: "
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="JoinDeckPop/vbc/period"]
+margin_left = 151.0
+margin_right = 299.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_length = 20
+placeholder_text = "deck_name"
+placeholder_alpha = 0.351
+
 [node name="HandSettings" type="AcceptDialog" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -228,7 +282,6 @@ size_flags_horizontal = 3
 text = "0.9"
 
 [node name="ConfirmRemoveObject" type="ConfirmationDialog" parent="."]
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
