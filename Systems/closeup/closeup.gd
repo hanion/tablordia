@@ -122,6 +122,9 @@ func set_material(obj):
 		mat.set_uv1_offset(items[base][card_value-(30*base)])
 	elif obj.is_expansion_skill:
 		mat = $expansion_skills.get_mat(card_value, card_value_second)
+	elif obj.is_expansion_military:
+		mat = $expansion_military.get_mat(card_value, card_value_second)
+	
 	mat.flags_unshaded = true
 	mat.flags_transparent = true
 	$mesh.set_material_override(mat)

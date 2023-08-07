@@ -118,11 +118,12 @@ func order_env() -> void:
 	visible_card = up_card
 	up_card.visible = true
 	up_card.set_is_hidden(is_cards_hidden)
+	yield(get_tree().create_timer(0.1),"timeout")
 	tween_up_card(up_card)
 
 
 func tween_up_card(obj:Spatial) -> void:
-	print("	¨tweenup ",obj.name)
+#	print("	¨tweenup ",obj.name)
 	tween.stop_all()
 	if make_scale_effect:
 		var old_scale = obj.scale

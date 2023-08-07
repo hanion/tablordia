@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/materials/items/materyal1.tres" type="Material" id=1]
 [ext_resource path="res://assets/materials/resources/resource_back.tres" type="Material" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/materials/resources/resource_gold.tres" type="Material" id=10]
 [ext_resource path="res://Systems/closeup/closeup.gd" type="Script" id=11]
 [ext_resource path="res://assets/br/expansions/skills/expansion_skills.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/br/expansions/military/expansion_military.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ArrayMesh" id=2]
 resource_name = "card_Cube001"
@@ -54,3 +55,5 @@ mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="expansion_skills" parent="." instance=ExtResource( 12 )]
+
+[node name="expansion_military" parent="." instance=ExtResource( 13 )]

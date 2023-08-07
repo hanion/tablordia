@@ -40,11 +40,12 @@ func br_pressed(naame, naem, val) -> void:
 func skill_pack_pressed(value : int) -> void:
 	var info := {
 		"type":"Expansion",
-		"name":"exp_skill_pack",
+		"name":"exp_skill",
 		"inspector_text":"Skills Expansion",
 		"value_second": value
 		}
 	get_parent().get_parent().selected(info)
+
 
 
 
@@ -132,4 +133,14 @@ func _on_es2_6_pressed():
 
 func _on_es2_7_pressed():
 	skill_pack_pressed(11)
+
+
+
+func _on_em1_pressed():
+	var info := {
+		"type":"Expansion",
+		"name":"exp_military",
+		"inspector_text":"Military Expansion"
+		}
+	get_parent().get_parent().selected(info)
 

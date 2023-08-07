@@ -29,12 +29,7 @@ func add_to_pdeck(value, value_second) -> void:
 
 
 func create_draw_deck() -> void:
-	for i in range(8):
-		pdeck.append(i)
-	
 	print("DeckPrep: created pdeck")
-	
-	pdeck = shuffle(pdeck)
 
 
 

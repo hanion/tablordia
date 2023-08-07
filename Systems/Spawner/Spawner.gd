@@ -11,7 +11,7 @@ const snr_card_pl = preload("res://Games/snr/snr_card.tscn")
 const sh_pl = preload("res://Games/sh/sh.tscn")
 const sh_card_pl = preload("res://Games/sh/sh_card.tscn")
 
-const expansion_skills_pl = preload("res://assets/br/expansions/Expansion_Pack.tscn")
+const expansion_pl = preload("res://assets/br/expansions/Expansion_Pack.tscn")
 
 
 const deck_pl = preload("res://InGame/Deck/deck.tscn")
@@ -22,6 +22,7 @@ var cards_folder
 var resource_index:int = 0
 var item_index:int = 0
 var exp_skill_index:int = 0
+var exp_military_index:int = 0
 var hand_index:int = 0
 var deck_index:int = 0
 var game_52_index:int = 0
@@ -29,7 +30,7 @@ var game_sh_index:int = 0
 var game_chess_index:int = 0
 var game_uno_index:int = 0
 
-var expansion_skills_index:int = 0
+var expansion_index:int = 0
 
 var uno_index:int = 0
 var card_52_index:int = 0
@@ -177,13 +178,20 @@ func spawn_Card(info) -> void:
 			crd.is_resource = true
 			crd.set_type("resource")
 			crd.update_material()
+		
 		"exp_skill":
 			crd = br_card_pl.instance() as br_card
 			crd.set_name("exp_skill"+str(exp_skill_index))
 			exp_skill_index += 1
 			crd.is_expansion_skill = true
 			crd.update_material()
-			
+		"exp_military":
+			crd = br_card_pl.instance() as br_card
+			crd.set_name("exp_military"+str(exp_military_index))
+			exp_military_index += 1
+			crd.is_expansion_military = true
+			crd.update_material()
+		
 		"Uno Card":
 			crd = uno_card_pl.instance() as uno_card
 			crd.set_name("unoc"+str(uno_index))
@@ -238,20 +246,19 @@ func spawn_Card(info) -> void:
 
 
 func spawn_Expansion(info) -> void:
-	var expansion
+	var expansion = expansion_pl.instance()
 	
-	match info["name"]:
-		"exp_skill_pack":
-			expansion = expansion_skills_pl.instance()
-			
-			if info.has("value_second"):
-				expansion.skill_pack_number = info["value_second"]
-			
-			expansion.set_name("expansion_skills_pack"+str(expansion_skills_index))
-			for ch in expansion.get_children():
-				ch.name += str(expansion_skills_index)
-			
-			expansion_skills_index += 1
+	expansion.set_name(info["name"]+"_pack_"+str(expansion_index))
+	
+	expansion.expansion_name = info["name"]
+	
+	if info.has("value_second"):
+		expansion.pack_second_value = info["value_second"]
+	
+	for ch in expansion.get_children():
+		ch.name += str(expansion_index)
+	
+	expansion_index += 1
 	
 	get_node("/root/Main").add_child(expansion,true)
 	List.paths[expansion.name] = expansion.get_path()

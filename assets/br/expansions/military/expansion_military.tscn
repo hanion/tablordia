@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/br/expansions/military/expansion_military.gd" type="Script" id=1]
+[ext_resource path="res://assets/br/expansions/military/exp_military1.tres" type="Material" id=2]
+[ext_resource path="res://assets/br/expansions/military/exp_military0.tres" type="Material" id=3]
+
+[node name="expansion_military" type="Node"]
+script = ExtResource( 1 )
+exp_military0 = ExtResource( 3 )
+exp_military1 = ExtResource( 2 )

@@ -1,0 +1,10 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://assets/br/expansions/military/exp_military0.png" type="Texture" id=1]
+
+[resource]
+albedo_texture = ExtResource( 1 )
+metallic_specular = 0.0
+uv1_scale = Vector3( 0.07, 0.004, 0.071 )
+uv1_offset = Vector3( 0.951, 0, 0.929 )
+uv1_triplanar = true
