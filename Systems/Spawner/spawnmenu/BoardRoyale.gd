@@ -149,7 +149,16 @@ func _on_em1_pressed():
 func _on_ei0_pressed():
 	var info := {
 		"type":"Expansion",
-		"name":"exp_island",
+		"name":"exp_island_item",
 		"inspector_text":"The Island Pack"
+		}
+	get_parent().get_parent().selected(info)
+
+
+func _on_ei1_pressed():
+	var info := {
+		"type":"Expansion",
+		"name":"exp_island_resource",
+		"inspector_text":"Resource Pack"
 		}
 	get_parent().get_parent().selected(info)

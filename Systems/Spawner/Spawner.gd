@@ -180,12 +180,20 @@ func spawn_Card(info) -> void:
 			crd.set_type("resource")
 			crd.update_material()
 		
-		"exp_island":
+		"exp_island_item":
 			crd = br_card_pl.instance() as br_card
 			crd.set_name("item"+str(item_index))
 			item_index += 1
 			crd.is_item = true
 			crd.set_type("item")
+			crd.update_material()
+		
+		"exp_island_resource":
+			crd = br_card_pl.instance() as br_card
+			crd.set_name("resource"+str(resource_index))
+			resource_index += 1
+			crd.is_resource = true
+			crd.set_type("resource")
 			crd.update_material()
 		
 		"exp_skill":
@@ -271,7 +279,13 @@ func spawn_Expansion(info) -> void:
 	
 	get_node("/root/Main").add_child(expansion,true)
 	List.paths[expansion.name] = expansion.get_path()
-	tweenit(expansion, Vector3(0,-0.1,0), Vector3(0,0.004,0))
+	
+	if info.has("translation"):
+		var tr = info["translation"] as Vector3
+		assert(tr, "translation must be a valid Vector3")
+		tweenit(expansion, Vector3(0,-0.1,0), tr)
+	else:
+		tweenit(expansion, Vector3(0,-0.1,0), Vector3(0,0.004,0))
 
 
 

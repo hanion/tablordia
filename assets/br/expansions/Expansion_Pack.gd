@@ -3,7 +3,7 @@ extends DeckPrep
 var pack_second_value := 0
 var expansion_name := "exp_skill" # "exp_military"
 
-var exp_island_env := [
+var exp_island_item_env := [
 	1,1,2,3,3,4,5,5,
 	6,7,7,8,8,9,10,11,
 	12,13,14,15,16,16,17,17,
@@ -65,12 +65,27 @@ func create_draw_deck() -> void:
 			prepping_deck.can_make_cards_hidden = false
 		
 		
-		"exp_island":
-			for card_value in shuffle(exp_island_env):
+		"exp_island_item":
+			for card_value in shuffle(exp_island_item_env):
 				add_to_pdeck(card_value, pack_second_value)
 			prepping_deck.can_make_cards_visible = false
 			prepping_deck.can_make_cards_hidden = false
-			
+			prepping_deck.only_items = true
+		
+		"exp_island_resource":
+			var env := []
+			for _a in range(30):
+				env.append(1)
+				env.append(2)
+				env.append(3)
+				env.append(4)
+			for _i in range(20):
+				env.append(5)
+			for card_value in shuffle(env):
+				add_to_pdeck(card_value, pack_second_value)
+			prepping_deck.can_make_cards_visible = false
+			prepping_deck.can_make_cards_hidden = false
+			prepping_deck.only_resources = true
 		
 	
 	

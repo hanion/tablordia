@@ -5,9 +5,6 @@ export(Array,SpatialMaterial) var item_mats := []
 
 onready var Main = get_parent()
 
-onready var resource_dispenser = $dispenser
-onready var item_dispenser = $dispenser2
-
 
 const items := [
 	[
@@ -83,8 +80,8 @@ const items := [
 const my_paths := {
 	"board":"/root/Main/br/board",
 	
-	"dispenser":"/root/Main/br/dispenser",
-	"dispenser2":"/root/Main/br/dispenser2",
+#	"dispenser":"/root/Main/br/dispenser",
+#	"dispenser2":"/root/Main/br/dispenser2",
 #	"trash":"/root/Main/br/trash",
 #	"trash2":"/root/Main/br/trash2",
 	"trash_deck":"/root/Main/br/trash_deck",
@@ -105,18 +102,23 @@ func _ready() -> void:
 	
 	if not get_tree().is_network_server(): return
 	
-	resource_dispenser.create_inventory()
-	item_dispenser.create_inventory()
+	# resource dispenser
+	var info := {
+		"type":"Expansion",
+		"name":"exp_island_resource",
+		"translation":Vector3(3.17,0.046,-2.6)
+		}
+	Spawner.request_spawn(info)
 	
-	NetworkInterface.send_br_info(resource_dispenser.env,item_dispenser.items)
-
-
-
-func receive_br_info(res,itm) -> void:
-	resource_dispenser.set_received_inv(res)
-	item_dispenser.set_received_inv(itm)
+	# item dispenser
+	var info2 := {
+		"type":"Expansion",
+		"name":"exp_island_item",
+		"translation":Vector3(-3.17,0.046, 2.6)
+		}
+	Spawner.request_spawn(info2)
 	
-	print("received it")
+
 
 func _exit_tree():
 	List.remove_my_paths(my_paths)

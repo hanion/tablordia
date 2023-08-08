@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=2]
+[gd_scene load_steps=141 format=2]
 
 [ext_resource path="res://assets/br/expansions/skills/exp_skill_pack.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/Steel.png" type="Texture" id=2]
@@ -53,14 +53,10 @@
 [ext_resource path="res://assets/br/expansions/skills2/exp_skill_mad_scientist.png" type="Texture" id=51]
 [ext_resource path="res://assets/br/expansions/skills2/exp_skill_salesman.png" type="Texture" id=52]
 [ext_resource path="res://assets/br/expansions/military/exp_military0.png" type="Texture" id=53]
+[ext_resource path="res://assets/br/BackRessource.png" type="Texture" id=54]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0980392, 0.121569, 0.137255, 1 )
-
-[sub_resource type="AtlasTexture" id=3510]
-flags = 23
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 2869.89, 2296.56 )
 
 [sub_resource type="AtlasTexture" id=3497]
 flags = 23
@@ -126,6 +122,11 @@ region = Rect2( 3276.41, 1144.53, 818.549, 1145.15 )
 flags = 23
 atlas = ExtResource( 53 )
 region = Rect2( 2.65565, 2.60716, 3685.85, 4044.48 )
+
+[sub_resource type="AtlasTexture" id=3510]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 2869.89, 2296.56 )
 
 [sub_resource type="AtlasTexture" id=19]
 flags = 23
@@ -1011,62 +1012,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="The Island" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 36.0
-margin_right = -5.0
-margin_bottom = -5.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-scroll_horizontal_enabled = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 800.0
-margin_bottom = 332.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 5
-
-[node name="ei0" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid"]
-margin_right = 159.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 144, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0/vb"]
-margin_right = 142.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = SubResource( 3510 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0/vb"]
-margin_top = 116.0
-margin_right = 142.0
-margin_bottom = 145.0
-text = "The Island Pack"
-align = 1
-
 [node name="Skills" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -1648,6 +1594,93 @@ margin_top = 116.0
 margin_right = 139.0
 margin_bottom = 145.0
 text = "Military Pack"
+align = 1
+
+[node name="The Island" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 800.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="ei0" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid"]
+margin_right = 159.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0/vb"]
+margin_right = 142.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3510 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0/vb"]
+margin_top = 116.0
+margin_right = 142.0
+margin_bottom = 145.0
+text = "The Island Pack"
+align = 1
+
+[node name="ei1" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid"]
+margin_left = 163.0
+margin_right = 321.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei1/vb"]
+margin_right = 138.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 54 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei1/vb"]
+margin_top = 116.0
+margin_right = 138.0
+margin_bottom = 145.0
+text = "Resource Pack"
 align = 1
 
 [node name="Misc" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale"]
@@ -5312,7 +5345,6 @@ text = "Spawn"
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m4_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m6_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m7" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m7_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_ei0_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e1_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e2_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e3" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e3_pressed"]
@@ -5328,6 +5360,8 @@ text = "Spawn"
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_6" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_6_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_7" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_7_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Military/Grid/em1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_em1_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_ei0_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_ei1_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_m1_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_m2_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s0" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s0_pressed"]
