@@ -136,3 +136,26 @@ func get_time() -> String:
 
 
 
+
+func shuffle_array(array:Array) -> Array:
+	randomize()
+	
+	var siz = array.size()
+	
+	for i in range(siz):
+		i = siz - i
+		i -= 1
+		
+		if i == 0: continue
+		
+		var ran = randi() % i
+		
+		var first_val = array[i]
+		var second_val = array[ran]
+		
+		array[i] = second_val
+		array[ran] = first_val
+	
+	return array
+
+
