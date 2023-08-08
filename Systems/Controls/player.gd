@@ -231,6 +231,10 @@ func drag_start() -> void:
 	is_dragging = true
 	if cast_ray():
 		move_pointer()
+	
+	if dragging.has_method("on_started_moving"):
+		dragging.on_started_moving()
+	
 	emit_signal("started_dragging",dragging)
 
 
@@ -267,41 +271,27 @@ func drag() -> void:
 	
 	if dragging is deck: dragging.set_new_visible_card_translation()
 	
-	twen.stop_all()
-	
-	twen.interpolate_property(
-		dragging,
-		"translation",
-		dragging.translation,
-		new_coord,
-		Std.tween_duration/3,
-		Tween.TRANS_LINEAR,
-		Tween.EASE_IN
-		)
-	twen.start()
-	
+	# This is better than tween:
+	# it only lasts as long as dragging,
+	# so no overriding of position after stopped dragging
+	# fixes issues with container up card positioning
+	dragging.translation = lerp(dragging.translation,new_coord,0.4)
 	
 	# send loc
 	define_obj_state(dragging) 
 
 
 func drag_stop() -> void:
-#	if dragging is deck:
-#		dragging.stopped_dragging()
-	emit_signal("stopped_dragging")
 	
-	"""
-#	$Tween.stop_all()
-	this fucker is the problem for flickering
-	tween should end even if player stopped clicking
-	dragged object should reach its destination
-	"""
 	
 	dragged_over(dragging, current['collider'], current['position'])
-#	dragged_over(dragging, current['collider'], current['collider'].global_transform.origin)
-	
 	
 	is_dragging = false
+	
+	emit_signal("stopped_dragging")
+	if dragging.has_method("on_stopped_moving"):
+		dragging.on_stopped_moving()
+	
 	clear_dragging_after_delay()
 
 
