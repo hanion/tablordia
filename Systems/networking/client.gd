@@ -7,7 +7,6 @@ func _ready():
 	rpc_config("receive_world_state_from_server",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	rpc_config("receive_do_from_server",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	
-	rpc_config("receive_br_info",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	rpc_config("receive_requested_spawn",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	rpc_config("receive_alws",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 
@@ -97,9 +96,6 @@ remote func notify_existing_player_about_me(var you: Dictionary) -> void:
 
 
 
-remote func receive_br_info(res,itm) -> void:
-	NetworkInterface.Main.br.receive_br_info(res,itm)
-
 remote func receive_requested_spawn(info) -> void:
 	Spawner.receive_requested_spawn(info)
 
@@ -117,12 +113,6 @@ remote func receive_deck_info(named_deck,deck_name) -> void:
 	if not get_tree().get_rpc_sender_id() == 1: return
 	if get_tree().get_network_unique_id() == 1: return
 	Std.get_object(deck_name).receive_deck_from_server(named_deck)
-
-remote func receive_invs(res_inv, itm_inv) -> void:
-	if NetworkInterface.Main.br:
-		NetworkInterface.Main.br.receive_br_info(res_inv, itm_inv)
-		print("called it ", res_inv, itm_inv)
-
 
 
 remote func receive_do_collection(do_collection:Dictionary) -> void:

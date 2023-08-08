@@ -9,9 +9,7 @@ func _ready():
 	rpc_config("receive_state_from_client",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	rpc_config("receive_do_from_client",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	
-	rpc_config("receive_br_info",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	rpc_config("request_spawn",MultiplayerAPI.RPC_MODE_REMOTESYNC)
-#	rpc_config("_get_players_place",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 
 remote func receive_state_from_client(state: Dictionary) -> void:
 	assert(
@@ -47,28 +45,6 @@ func send_processed_world_state_to_client(world_state):
 #	print("  s: sending world state to client")
 	get_parent().client.rpc_unreliable_id(0,"receive_world_state_from_server",world_state)
 
-
-
-remote func receive_br_info(res,itm) -> void:
-	var sender = get_tree().get_rpc_sender_id()
-	if not sender == 1:
-		push_error("Clients can't send game info!")
-	 
-	NetworkInterface.client.rpc_id(0,"receive_br_info",res,itm)
-
-remote func request_invs() -> void:
-	var res_inv = NetworkInterface.Main.br.resource_dispenser.env
-	var itm_inv = NetworkInterface.Main.br.item_dispenser.items
-	
-	var sender = get_tree().get_rpc_sender_id()
-	
-	NetworkInterface.client.rpc_id(sender,"receive_invs",res_inv,itm_inv)
-
-
-func send_br_invs(id : int) -> void:
-	var res_inv = NetworkInterface.Main.br.resource_dispenser.env
-	var itm_inv = NetworkInterface.Main.br.item_dispenser.items
-	NetworkInterface.client.rpc_id(id,"receive_invs",res_inv,itm_inv)
 
 
 

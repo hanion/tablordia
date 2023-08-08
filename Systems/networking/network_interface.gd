@@ -37,8 +37,6 @@ func catch_up_the_midjoiner(id : int) -> void:
 	client.rpc_id(id,"receive_remove_requests",Remover.remove_request_collection_of_names)
 	client.rpc_id(id,"receive_alws",$server/state_processor.alws)
 	
-	if NetworkInterface.Main.br:
-		server.send_br_invs(id)
 	
 	yield(get_tree().create_timer(0.5),"timeout")
 	client.rpc_id(id,"receive_do_collection",$client/midjoin_manager.do_collection)
@@ -115,11 +113,6 @@ func send_received_do_to_main(do) -> void:
 
 func send_received_world_state_to_main(world_state):
 	Main.process_received_world_state(world_state)
-
-
-
-func send_br_info(res_env,itm_env) -> void:
-	server.rpc_id(1,"receive_br_info",res_env,itm_env)
 
 
 
