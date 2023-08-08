@@ -199,7 +199,7 @@ margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/normal = SubResource( 5627 )
-max_length = 50
+max_length = 5000
 context_menu_enabled = false
 caret_blink = true
 
