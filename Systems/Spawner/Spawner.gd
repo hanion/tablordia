@@ -232,6 +232,12 @@ func spawn_Card(info) -> void:
 	cards_folder.add_child(crd)
 	List.paths[crd.name] = crd.get_path()
 	
+	# no tween please
+	if info.has("translation"):
+		var tr = info["translation"]
+		crd.translation = tr
+	else:
+		crd.translation = Vector3(0,0.04,0)
 	
 	
 	crd.card_value = info["value"]
@@ -254,11 +260,6 @@ func spawn_Card(info) -> void:
 	
 	
 	
-	if info.has("translation"):
-		var tr = info["translation"]
-		tweenit(crd, tr - Vector3(0,0.1,0), tr)
-	else:
-		tweenit(crd, Vector3(0,0.04,0), Vector3(0,1,0))
 
 
 
