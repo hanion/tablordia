@@ -47,10 +47,7 @@ func _spawn_player(var pid):
 	
 	others.add_child(plo)
 	
-#	var col = List.players[pid]["color"].to_html()
-#	var nam = List.players[pid]["name"]
-#	var extxt = "[color=#"+col+"]" + nam
-#	UMB.log(1,"Main","Spawned " + extxt)
+	List.players[pid]["pointer"] = plo
 
 
 func get_player_material(id) -> SpatialMaterial:

@@ -5,6 +5,7 @@ var players := {
 #			"name": name,
 #			"color": color
 #			"class": "class"
+#			"pointer": pointer_object
 #		}
 }
 
@@ -28,6 +29,10 @@ func add_player(var id, var p: Dictionary = {}) -> void:
 func remove_player(var id: int) -> void:
 	if players.has(id):
 		var pname = players[id]["name"]
+		if players[id].has("pointer"):
+			var players_pointer = players[id]["pointer"]
+			if is_instance_valid(players_pointer):
+				players_pointer.queue_free()
 		var _er = players.erase(id)
 		print("L: player removed from list, name: '",pname,"', id: ",id)
 	else:
