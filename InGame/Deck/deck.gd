@@ -43,7 +43,7 @@ func _ready():
 # called when dragging or received state
 func set_new_visible_card_translation() -> void:
 	if not visible_card: return
-	visible_card.translation = Vector3(0, custom_offset ,0) + translation
+	visible_card.global_translation = Vector3(0, custom_offset ,0) + global_translation
 
 
 func add_to_deck(what: card, bypass_can_stack_check:= false,should_check:=true) -> void:
@@ -63,7 +63,7 @@ func add_to_deck(what: card, bypass_can_stack_check:= false,should_check:=true) 
 	env.append(what)
 	
 	
-	what.translation = Vector3(0, custom_offset ,0)
+	what.global_translation = Vector3(0, custom_offset ,0) + global_translation
 	what.rotation = Vector3(0,0,0)
 #	List.reparent_child(what,self)
 	
@@ -89,13 +89,8 @@ func remove_from_deck(what: card) -> void:
 	env.erase(what)
 	
 	
-#	var old_translation = to_global(what.translation)
-#	List.reparent_child(what,get_parent())
-#	what.translation = old_translation
-#	what.rotation = rotation
-	
 	what.set_is_hidden(false)
-#
+	
 	emit_signal("removed_card_from_deck")
 	
 	order_env()
@@ -105,7 +100,7 @@ func order_env() -> void:
 	if env.empty(): return
 	
 	for crd in env:
-		crd.translation = old_pos.translation
+		crd.global_translation = old_pos.global_translation
 		crd.scale = Vector3(1,1,1)
 		crd.visible = false
 	
@@ -138,25 +133,25 @@ func tween_up_card(obj:Spatial) -> void:
 		Tween.EASE_IN_OUT
 		)
 	
-	obj.translation = translation + Vector3(0,-2*custom_offset,0)
+	obj.global_translation = global_translation + Vector3(0,-2*custom_offset,0)
 	tween.interpolate_property(
 		obj,
 		"translation",
-		obj.translation,
-		translation+Vector3(0, custom_offset ,0),
+		obj.global_translation,
+		global_translation+Vector3(0, custom_offset ,0),
 		Std.tween_duration/2.0,
 		Tween.TRANS_LINEAR,
 		Tween.EASE_IN_OUT
 		)
 	tween.start()
+	obj.set_collision_layer_bit(0,true)
 
 
 
 var _is_player_dragging := false
 func on_started_dragging(it) -> void:
 	if it == self:
-		for c in env:
-			c.set_collision_layer_bit(0,false)
+		env.back().set_collision_layer_bit(0,false)
 	
 	if not can_draw:
 		col.shape.extents.y = 0.16
@@ -189,8 +184,7 @@ func on_stopped_dragging() -> void:
 	col.shape.extents.z = 1.05
 	
 	if not env.empty():
-		for c in env:
-			c.set_collision_layer_bit(0,true)
+		env.back().set_collision_layer_bit(0,true)
 	
 	_is_player_dragging = false
 
@@ -198,15 +192,16 @@ func on_stopped_dragging() -> void:
 
 
 func check_after_onesec() -> void:
+	return
 	yield(get_tree().create_timer(0.1),"timeout")
 	if not env: return
 	if not env.back().is_in_deck: return
 	if not env.back().in_deck == self: return
-	if env.back().translation == translation+Vector3(0, custom_offset ,0): return
+	if env.back().global_translation == global_translation+Vector3(0, custom_offset ,0): return
 	
 	if _is_player_dragging: return
 	
-	env.back().translation = translation+Vector3(0, custom_offset ,0)
+	env.back().global_translation = global_translation+Vector3(0, custom_offset ,0)
 #	env.is_in_slot = true
 #	env.in_slot = self
 	
@@ -263,9 +258,10 @@ var _jd
 var sender_id := 0
 func prepare_rcm(popup:PopupMenu) -> void:
 	popup.clear()
-	if env.size() > 0:
+	var card_number = env.size()
+	if card_number > 0:
 		var txt = "Has "+str(env.size())+" card"
-		if env.size() > 1: txt += "s"
+		if card_number > 1: txt += "s"
 		popup.add_item(txt,77)
 		popup.set_item_disabled(popup.get_item_index(77),true)
 		popup.add_separator()
@@ -276,14 +272,14 @@ func prepare_rcm(popup:PopupMenu) -> void:
 		popup.add_item("Make cards hidden",3)
 	
 	
-	if env.size() > 0:
+	if card_number > 0:
 		popup.add_item("Draw",4)
 	
-	if env.size() > 1:
+	if card_number > 1:
 		popup.add_item("Shuffle Deck",1)
 	
 	
-	if env.size() > 0:
+	if card_number > 0:
 		popup.add_item("Join deck",5)
 
 
