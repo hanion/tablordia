@@ -2,7 +2,7 @@ extends Node
 # CMD
 const valid_commands : Array = [
 	"quit","say","table","kick","w","c","set_class","table_inf","help__","join",
-	"shut_down_server__","mj",
+	"shut_down_server__","mj","do",
 	"dice",
 	"remove_all"
 	]
@@ -191,7 +191,18 @@ remote func _servers_mj() -> void:
 	
 	if not List.players.has(sender_id): return
 	NetworkInterface.catch_up_the_midjoiner(sender_id)
+
+func do(_ea:PoolStringArray) -> void:
+	UMB.log(1,"cmd","preparing objects do...")
+	rpc_config("_servers_do",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc_id(1,"_servers_do")
+
+remote func _servers_do() -> void:
+	var sender_id = get_tree().get_rpc_sender_id()
 	
+	if not List.players.has(sender_id): return
+	NetworkInterface.catch_up_the_midjoiner_on_do(sender_id)
+
 
 
 func remove_all(_ea:PoolStringArray) -> void:

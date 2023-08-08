@@ -39,9 +39,10 @@ func catch_up_the_midjoiner(id : int) -> void:
 	
 	
 	yield(get_tree().create_timer(0.5),"timeout")
+	catch_up_the_midjoiner_on_do(id)
+
+func catch_up_the_midjoiner_on_do(id:int) -> void:
 	client.rpc_id(id,"receive_do_collection",$client/midjoin_manager.do_collection)
-	
-	
 
 
 
