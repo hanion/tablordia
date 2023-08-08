@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=2]
+[gd_scene load_steps=140 format=2]
 
 [ext_resource path="res://assets/br/expansions/skills/exp_skill_pack.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/Steel.png" type="Texture" id=2]
@@ -53,6 +53,14 @@
 [ext_resource path="res://assets/br/expansions/skills2/exp_skill_mad_scientist.png" type="Texture" id=51]
 [ext_resource path="res://assets/br/expansions/skills2/exp_skill_salesman.png" type="Texture" id=52]
 [ext_resource path="res://assets/br/expansions/military/exp_military0.png" type="Texture" id=53]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0980392, 0.121569, 0.137255, 1 )
+
+[sub_resource type="AtlasTexture" id=3510]
+flags = 23
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 2869.89, 2296.56 )
 
 [sub_resource type="AtlasTexture" id=3497]
 flags = 23
@@ -389,9 +397,6 @@ flags = 23
 atlas = ExtResource( 15 )
 region = Rect2( 2437, 3415, 484, 681 )
 
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.0980392, 0.121569, 0.137255, 1 )
-
 [sub_resource type="AtlasTexture" id=4]
 flags = 20
 atlas = ExtResource( 14 )
@@ -577,7 +582,405 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 drag_to_rearrange_enabled = true
 
+[node name="Quick" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+scroll_horizontal_enabled = false
+script = ExtResource( 18 )
+
+[node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 820.0
+margin_bottom = 414.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="m0" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+visible = false
+margin_right = 160.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m0/vb"]
+margin_right = 140.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m0/vb"]
+margin_top = 116.0
+margin_right = 140.0
+margin_bottom = 145.0
+text = "misc"
+align = 1
+
+[node name="m1" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+margin_right = 160.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+custom_styles/normal = SubResource( 2 )
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1/vb"]
+process_priority = -5
+margin_right = 140.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 40 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1/vb"]
+margin_top = 116.0
+margin_right = 140.0
+margin_bottom = 145.0
+text = "Board Royale"
+align = 1
+
+[node name="m8" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+margin_left = 164.0
+margin_right = 324.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+custom_styles/normal = SubResource( 2 )
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8/vb"]
+process_priority = -5
+margin_right = 140.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 42 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8/vb"]
+margin_top = 116.0
+margin_right = 140.0
+margin_bottom = 145.0
+text = "Secret Hitler"
+align = 1
+
+[node name="m2" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+margin_left = 328.0
+margin_right = 488.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2/vb"]
+process_priority = -5
+margin_right = 140.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2/vb"]
+margin_top = 116.0
+margin_right = 140.0
+margin_bottom = 145.0
+text = "Chess Board"
+align = 1
+
+[node name="m51" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+margin_left = 492.0
+margin_right = 652.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51/vb"]
+process_priority = -5
+margin_right = 140.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 41 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51/vb"]
+margin_top = 116.0
+margin_right = 140.0
+margin_bottom = 145.0
+text = "UNO"
+align = 1
+
+[node name="m5" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+margin_left = 656.0
+margin_right = 815.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -7.29201
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m5/vb"]
+process_priority = -5
+margin_right = 139.0
+margin_bottom = 109.0
+rect_pivot_offset = Vector2( 80, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 38 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m5/vb"]
+margin_top = 113.0
+margin_right = 139.0
+margin_bottom = 142.0
+text = "Deck of Cards"
+align = 1
+
+[node name="m3" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+margin_top = 164.0
+margin_right = 160.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3/vb"]
+process_priority = -5
+margin_right = 140.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 23 )
+expand = true
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3/vb"]
+margin_top = 74.0
+margin_right = 140.0
+margin_bottom = 145.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hand"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3/vb"]
+visible = false
+margin_top = 116.0
+margin_right = 138.0
+margin_bottom = 145.0
+text = "Hand"
+align = 1
+
+[node name="m4" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+margin_left = 164.0
+margin_top = 164.0
+margin_right = 324.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
+process_priority = -5
+margin_right = 140.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 39 )
+expand = true
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
+margin_top = 74.0
+margin_right = 140.0
+margin_bottom = 145.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Deck"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
+visible = false
+margin_top = 116.0
+margin_right = 138.0
+margin_bottom = 145.0
+text = "Deck"
+align = 1
+
+[node name="m6" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+visible = false
+margin_left = 310.0
+margin_top = 164.0
+margin_right = 461.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6/vb"]
+process_priority = -5
+margin_right = 131.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 36 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6/vb"]
+margin_top = 116.0
+margin_right = 131.0
+margin_bottom = 145.0
+text = "SNR Rose"
+align = 1
+
+[node name="m7" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+visible = false
+margin_left = 310.0
+margin_top = 164.0
+margin_right = 461.0
+margin_bottom = 324.0
+rect_min_size = Vector2( 140, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m7"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m7/vb"]
+process_priority = -5
+margin_right = 131.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 37 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m7/vb"]
+margin_top = 116.0
+margin_right = 131.0
+margin_bottom = 145.0
+text = "SNR Skull"
+align = 1
+
 [node name="BoardRoyale" type="TabContainer" parent="WindowDialog/vb/mrgn/hs/games"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -608,7 +1011,62 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="The Island" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 36.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 800.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
+
+[node name="ei0" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid"]
+margin_right = 159.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 144, 160 )
+size_flags_horizontal = 3
+flat = true
+
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -5.0
+
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0/vb"]
+margin_right = 142.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 3510 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0/vb"]
+margin_top = 116.0
+margin_right = 142.0
+margin_bottom = 145.0
+text = "The Island Pack"
+align = 1
+
 [node name="Skills" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -889,7 +1347,7 @@ margin_bottom = 145.0
 text = "Survivalist"
 align = 1
 
-[node name="Skills2" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions"]
+[node name="Skills II" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -904,7 +1362,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2"]
+[node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II"]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 800.0
@@ -913,14 +1371,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
 
-[node name="es2_1" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+[node name="es2_1" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid"]
 margin_right = 156.0
 margin_bottom = 160.0
 rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_1"]
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -928,7 +1386,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -5.0
 
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_1/vb"]
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_1/vb"]
 margin_right = 136.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
@@ -937,14 +1395,14 @@ texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_1/vb"]
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_1/vb"]
 margin_top = 116.0
 margin_right = 136.0
 margin_bottom = 145.0
 text = "Skills Pack"
 align = 1
 
-[node name="es2_2" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+[node name="es2_2" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid"]
 margin_left = 160.0
 margin_right = 316.0
 margin_bottom = 160.0
@@ -952,7 +1410,7 @@ rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_2"]
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -960,7 +1418,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -5.0
 
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_2/vb"]
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_2/vb"]
 margin_right = 136.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
@@ -969,14 +1427,14 @@ texture = SubResource( 3503 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_2/vb"]
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_2/vb"]
 margin_top = 116.0
 margin_right = 136.0
 margin_bottom = 145.0
 text = "Cook"
 align = 1
 
-[node name="es2_3" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+[node name="es2_3" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid"]
 margin_left = 320.0
 margin_right = 476.0
 margin_bottom = 160.0
@@ -984,7 +1442,7 @@ rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_3"]
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -992,7 +1450,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -5.0
 
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_3/vb"]
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_3/vb"]
 margin_right = 136.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
@@ -1001,14 +1459,14 @@ texture = SubResource( 3504 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_3/vb"]
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_3/vb"]
 margin_top = 116.0
 margin_right = 136.0
 margin_bottom = 145.0
 text = "Dealer"
 align = 1
 
-[node name="es2_4" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+[node name="es2_4" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid"]
 margin_left = 480.0
 margin_right = 636.0
 margin_bottom = 160.0
@@ -1016,7 +1474,7 @@ rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_4"]
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -1024,7 +1482,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -5.0
 
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_4/vb"]
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_4/vb"]
 margin_right = 136.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
@@ -1033,14 +1491,14 @@ texture = SubResource( 3505 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_4/vb"]
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_4/vb"]
 margin_top = 116.0
 margin_right = 136.0
 margin_bottom = 145.0
 text = "Hacker"
 align = 1
 
-[node name="es2_5" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+[node name="es2_5" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid"]
 margin_left = 640.0
 margin_right = 795.0
 margin_bottom = 160.0
@@ -1048,7 +1506,7 @@ rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_5"]
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_5"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -1056,7 +1514,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -5.0
 
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_5/vb"]
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_5/vb"]
 margin_right = 135.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
@@ -1065,14 +1523,14 @@ texture = SubResource( 3506 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_5/vb"]
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_5/vb"]
 margin_top = 116.0
 margin_right = 135.0
 margin_bottom = 145.0
 text = "Influencer"
 align = 1
 
-[node name="es2_6" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+[node name="es2_6" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid"]
 margin_top = 164.0
 margin_right = 156.0
 margin_bottom = 324.0
@@ -1080,7 +1538,7 @@ rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_6"]
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_6"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -1088,7 +1546,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -5.0
 
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_6/vb"]
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_6/vb"]
 margin_right = 136.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
@@ -1097,14 +1555,14 @@ texture = SubResource( 3507 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_6/vb"]
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_6/vb"]
 margin_top = 116.0
 margin_right = 136.0
 margin_bottom = 145.0
 text = "Mad Scientist"
 align = 1
 
-[node name="es2_7" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid"]
+[node name="es2_7" type="Button" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid"]
 margin_left = 160.0
 margin_top = 164.0
 margin_right = 316.0
@@ -1113,7 +1571,7 @@ rect_min_size = Vector2( 144, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_7"]
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_7"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
@@ -1121,7 +1579,7 @@ margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -5.0
 
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_7/vb"]
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_7/vb"]
 margin_right = 136.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
@@ -1130,7 +1588,7 @@ texture = SubResource( 3508 )
 expand = true
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_7/vb"]
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_7/vb"]
 margin_top = 116.0
 margin_right = 136.0
 margin_bottom = 145.0
@@ -3536,404 +3994,6 @@ margin_bottom = 135.0
 text = "Buoy"
 align = 1
 
-[node name="Quick" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 36.0
-margin_right = -5.0
-margin_bottom = -5.0
-scroll_horizontal_enabled = false
-script = ExtResource( 18 )
-
-[node name="Grid" type="GridContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 820.0
-margin_bottom = 414.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-columns = 5
-
-[node name="m0" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-visible = false
-margin_right = 160.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m0"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m0/vb"]
-margin_right = 140.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m0/vb"]
-margin_top = 116.0
-margin_right = 140.0
-margin_bottom = 145.0
-text = "misc"
-align = 1
-
-[node name="m1" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_right = 160.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-custom_styles/normal = SubResource( 2 )
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1/vb"]
-process_priority = -5
-margin_right = 140.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 40 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1/vb"]
-margin_top = 116.0
-margin_right = 140.0
-margin_bottom = 145.0
-text = "Board Royale"
-align = 1
-
-[node name="m8" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 164.0
-margin_right = 324.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-custom_styles/normal = SubResource( 2 )
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8/vb"]
-process_priority = -5
-margin_right = 140.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 42 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8/vb"]
-margin_top = 116.0
-margin_right = 140.0
-margin_bottom = 145.0
-text = "Secret Hitler"
-align = 1
-
-[node name="m2" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 328.0
-margin_right = 488.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2/vb"]
-process_priority = -5
-margin_right = 140.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 19 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2/vb"]
-margin_top = 116.0
-margin_right = 140.0
-margin_bottom = 145.0
-text = "Chess Board"
-align = 1
-
-[node name="m51" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 492.0
-margin_right = 652.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51/vb"]
-process_priority = -5
-margin_right = 140.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 41 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51/vb"]
-margin_top = 116.0
-margin_right = 140.0
-margin_bottom = 145.0
-text = "UNO"
-align = 1
-
-[node name="m5" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 656.0
-margin_right = 815.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -7.29201
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m5/vb"]
-process_priority = -5
-margin_right = 139.0
-margin_bottom = 109.0
-rect_pivot_offset = Vector2( 80, 0 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 38 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m5/vb"]
-margin_top = 113.0
-margin_right = 139.0
-margin_bottom = 142.0
-text = "Deck of Cards"
-align = 1
-
-[node name="m3" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_top = 164.0
-margin_right = 160.0
-margin_bottom = 324.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3/vb"]
-process_priority = -5
-margin_right = 140.0
-margin_bottom = 70.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 23 )
-expand = true
-stretch_mode = 6
-
-[node name="Label2" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3/vb"]
-margin_top = 74.0
-margin_right = 140.0
-margin_bottom = 145.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Hand"
-align = 1
-valign = 1
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3/vb"]
-visible = false
-margin_top = 116.0
-margin_right = 138.0
-margin_bottom = 145.0
-text = "Hand"
-align = 1
-
-[node name="m4" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-margin_left = 164.0
-margin_top = 164.0
-margin_right = 324.0
-margin_bottom = 324.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
-process_priority = -5
-margin_right = 140.0
-margin_bottom = 70.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 39 )
-expand = true
-stretch_mode = 6
-
-[node name="Label2" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
-margin_top = 74.0
-margin_right = 140.0
-margin_bottom = 145.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Deck"
-align = 1
-valign = 1
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
-visible = false
-margin_top = 116.0
-margin_right = 138.0
-margin_bottom = 145.0
-text = "Deck"
-align = 1
-
-[node name="m6" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-visible = false
-margin_left = 310.0
-margin_top = 164.0
-margin_right = 461.0
-margin_bottom = 324.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6/vb"]
-process_priority = -5
-margin_right = 131.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 36 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6/vb"]
-margin_top = 116.0
-margin_right = 131.0
-margin_bottom = 145.0
-text = "SNR Rose"
-align = 1
-
-[node name="m7" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
-visible = false
-margin_left = 310.0
-margin_top = 164.0
-margin_right = 461.0
-margin_bottom = 324.0
-rect_min_size = Vector2( 140, 160 )
-size_flags_horizontal = 3
-flat = true
-
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m7"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 10.0
-margin_top = 10.0
-margin_right = -10.0
-margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m7/vb"]
-process_priority = -5
-margin_right = 131.0
-margin_bottom = 112.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 37 )
-expand = true
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m7/vb"]
-margin_top = 116.0
-margin_right = 131.0
-margin_bottom = 145.0
-text = "SNR Skull"
-align = 1
-
 [node name="SecretHitler" type="ScrollContainer" parent="WindowDialog/vb/mrgn/hs/games"]
 visible = false
 anchor_right = 1.0
@@ -5243,28 +5303,6 @@ text = "Spawn"
 
 [connection signal="popup_hide" from="WindowDialog" to="." method="_on_WindowDialog_popup_hide"]
 [connection signal="pressed" from="WindowDialog/vb/hb/CloseButton" to="." method="_on_CloseButton_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e1_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e2_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e3" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e3_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e4" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e4_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e5" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e5_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e6" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e6_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e7" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e7_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_1_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_2_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_3" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_3_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_4" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_4_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_5" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_5_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_6" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_6_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills2/Grid/es2_7" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_7_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Military/Grid/em1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_em1_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_m1_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_m2_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s0" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s0_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s1_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s2_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s3" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s3_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s4" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s4_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m1" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m1_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m8" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m8_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m2" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m2_pressed"]
@@ -5274,6 +5312,29 @@ text = "Spawn"
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m4_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m6_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m7" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m7_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/The Island/Grid/ei0" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_ei0_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e1_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e2_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e3" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e3_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e4" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e4_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e5" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e5_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e6" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e6_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e7" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e7_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_1_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_2_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_3" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_3_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_4" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_4_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_5" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_5_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_6" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_6_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills II/Grid/es2_7" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_es2_7_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Military/Grid/em1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_em1_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_m1_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Misc/Grid/m2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_m2_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s0" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s0_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s1_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s2" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s2_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s3" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s3_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Resources/Grid/s4" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_s4_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/SecretHitler/Grid/msh10" to="WindowDialog/vb/mrgn/hs/games/SecretHitler" method="_on_msh10_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/SecretHitler/Grid/msh" to="WindowDialog/vb/mrgn/hs/games/SecretHitler" method="_on_msh_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/SecretHitler/Grid/msh2" to="WindowDialog/vb/mrgn/hs/games/SecretHitler" method="_on_msh2_pressed"]

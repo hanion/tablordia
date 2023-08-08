@@ -144,3 +144,12 @@ func _on_em1_pressed():
 		}
 	get_parent().get_parent().selected(info)
 
+
+
+func _on_ei0_pressed():
+	var info := {
+		"type":"Expansion",
+		"name":"exp_island",
+		"inspector_text":"The Island Pack"
+		}
+	get_parent().get_parent().selected(info)

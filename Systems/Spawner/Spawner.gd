@@ -22,6 +22,7 @@ var cards_folder
 var resource_index:int = 0
 var item_index:int = 0
 var exp_skill_index:int = 0
+var exp_island_index:int = 0
 var exp_military_index:int = 0
 var hand_index:int = 0
 var deck_index:int = 0
@@ -177,6 +178,14 @@ func spawn_Card(info) -> void:
 			resource_index += 1
 			crd.is_resource = true
 			crd.set_type("resource")
+			crd.update_material()
+		
+		"exp_island":
+			crd = br_card_pl.instance() as br_card
+			crd.set_name("item"+str(item_index))
+			item_index += 1
+			crd.is_item = true
+			crd.set_type("item")
 			crd.update_material()
 		
 		"exp_skill":
