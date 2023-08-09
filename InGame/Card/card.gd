@@ -37,6 +37,19 @@ onready var col = $CollisionShape
 func set_is_hidden(val) -> void:
 	if is_hidden == val: return
 	is_hidden = val
+	
+	if global_translation.y < 0 and not is_in_hand: return
+	
+	for i in range(1,11):
+		var num : float = float(i)/10.0
+		scale.x = 1-num
+		yield(get_tree().create_timer(0.001),"timeout")
+	
+	for i in range(1,11):
+		var num : float = float(i)/10.0
+		scale.x = num
+		yield(get_tree().create_timer(0.001),"timeout")
+	scale = Vector3(1,1,1)
 
 
 
