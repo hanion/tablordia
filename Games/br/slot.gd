@@ -28,6 +28,7 @@ func _ready():
 func add_to_slot(obj: card) -> void:
 #	if env:
 #		if not env == obj: return
+	obj.set_is_hidden(false)
 	
 	if only_items:
 		if not obj.is_item: return
