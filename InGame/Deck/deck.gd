@@ -205,7 +205,7 @@ func check_after_onesec() -> void:
 #	env.is_in_slot = true
 #	env.in_slot = self
 	
-	print("checked deck")
+#	print("checked deck")
 	check_after_onesec()
 
 

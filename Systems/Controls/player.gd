@@ -309,11 +309,11 @@ func dragged_over(var dragged: card,var over: Spatial,var pos: Vector3) -> void:
 	
 	if not Std.should_i_send_dragged_state(dragged,over): return
 	
-	print(
-	"\ndragged over",
-	"        d:",dragged.name,
-	",        o:",over.name,
-	",        p:",pos)
+#	print(
+#	"\ndragged over",
+#	"        d:",dragged.name,
+#	",        o:",over.name,
+#	",        p:",pos)
 	define_do_state(dragged,over,pos)
 
 

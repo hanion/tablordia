@@ -58,7 +58,6 @@ func table(ea:PoolStringArray) -> void:
 func table_inf(ea:PoolStringArray) -> void:
 	if not ea: return
 	var num : int = int(ea[0])
-	print("a ",num)
 	SettingsUI.change_table_mesh(num)
 	
 

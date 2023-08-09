@@ -203,7 +203,7 @@ func process_received_do(do) -> void:
 
 	elif dragged.is_in_hand:
 		if not over is hand:
-			print("    ¨removed1 ",dragged_name," from ",dragged.in_hand.name)
+#			print("    ¨removed1 ",dragged_name," from ",dragged.in_hand.name)
 			if is_instance_valid(dragged.in_hand):
 				dragged.in_hand.remove_card_from_hand(dragged)
 				if not over is deck:
@@ -212,31 +212,31 @@ func process_received_do(do) -> void:
 
 
 	if over is trash:
-		print("    ¨trashed ",dragged_name)
+#		print("    ¨trashed ",dragged_name)
 		over.add_to_trash(dragged)
 
 	elif over is slot:
-		print("    ¨slotted ",dragged_name, dragged.is_in_slot)
+#		print("    ¨slotted ",dragged_name, dragged.is_in_slot)
 		over.add_to_slot(dragged)
 
 	elif over is deck:
 		if dragged.is_in_deck and dragged.in_deck == over:
 			over.order_env()
 		else:
-			print("    ¨decked ",dragged_name)
+#			print("    ¨decked ",dragged_name)
 			over.add_to_deck(dragged)
 
 	elif over is hand:
 		if dragged.is_in_hand:
 			if over == dragged.in_hand:
-				print("    ¨reordering card prob")
+#				print("    ¨reordering card prob")
 				over.reorder_card(dragged, pos)
 			else:
-				print("    ¨changed hands")
+#				print("    ¨changed hands")
 				dragged.in_hand.remove_card_from_hand(dragged)
 				over.add_card_to_hand(dragged, pos)
 		else:
-			print("    ¨added ",dragged_name," to ",over.name)
+#			print("    ¨added ",dragged_name," to ",over.name)
 			over.add_card_to_hand(dragged, pos)
 	
 	# over is nothing: table

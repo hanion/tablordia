@@ -69,7 +69,6 @@ func check_if_still_moving():
 	var new_pos = translation
 	
 	if old_pos == new_pos:
-		print("stopped")
 		on_stopped_dragging()
 	else:
 		check_if_still_moving()
