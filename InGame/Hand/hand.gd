@@ -116,18 +116,6 @@ func remove_card_from_hand(var crd: card) -> void:
 	crd.in_hand = null
 	
 	
-#	var difference = crd.translation - translation
-#	difference = Std.complex_rotate(difference,rotation.y)
-	# keep the global position of card
-#	List.reparent_child(crd,cards)
-	
-#	crd.translation = Std.complex_rotate(global_pos - translation,rotation.y)
-#	crd.rotation_degrees = Vector3(0,0,0)
-	
-	
-	# cards are visible to everyone in global context
-	set_card_hidden(crd,false)
-	
 	inventory.erase(crd)
 #	# keep the global position of card
 	var old_translation = to_global(crd.translation)
@@ -136,8 +124,6 @@ func remove_card_from_hand(var crd: card) -> void:
 	resize_hand()
 	crd.translation = old_translation
 	crd.rotation.y = rotation.y
-	
-#	check_after_onemsec(crd,__a)
 	
 	if crd.has_method("removed_from_hand"):
 		crd.call_deferred("removed_from_hand",self)

@@ -179,9 +179,8 @@ func process_received_do(do) -> void:
 	
 #	tween.stop_all()
 	
-	if not dragged:
-		return
-	if not is_instance_valid(dragged): return 
+	if not dragged or not is_instance_valid(dragged): return 
+
 
 	if dragged.is_in_dispenser:
 		dragged.notify_dispenser()
@@ -201,9 +200,7 @@ func process_received_do(do) -> void:
 			if is_instance_valid(dragged.in_deck):
 				dragged.in_deck.remove_from_deck(dragged)
 
-#		if not over is hand:
-#			hotfix_snap_when_removing_from_hand(dragged)
-	
+
 	elif dragged.is_in_hand:
 		if not over is hand:
 			print("    ¨removed1 ",dragged_name," from ",dragged.in_hand.name)
@@ -241,7 +238,13 @@ func process_received_do(do) -> void:
 		else:
 			print("    ¨added ",dragged_name," to ",over.name)
 			over.add_card_to_hand(dragged, pos)
-
+	
+	# over is nothing: table
+	else:
+		# every card in table is not hidden
+		dragged.set_is_hidden(false)
+		dragged.set_collision_layer_bit(0,true)
+		
 
 #	print("<uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu\n\n")
 	
@@ -252,10 +255,7 @@ func process_received_do(do) -> void:
 
 
 
-func hotfix_snap_when_removing_from_hand(var crd):
-#	"""
-	
-#	TODO: wtf bro 
+func hotfix_snap_when_removing_from_hand(var crd: card):
 #		it flicks when dragged out of hand
 	
 	var __a = crd.translation
@@ -264,18 +264,11 @@ func hotfix_snap_when_removing_from_hand(var crd):
 		var diff = __a - crd.translation
 		
 		if diff.x > 0.01 or diff.z > 0.01:
-#			prints(__a,crd.translation, i, diff)
 			crd.translation=__a
 			continue
 		
 		if diff.x < 0.01 and diff.z < 0.01:
 			prints("			'nosnap took ",i)
 			break
-#	"""
-	
-	"""
-	var __pos0 = crd.translation
-	yield(get_tree().create_timer(0.01559),"timeout")
-	crd.translation = __pos0
-	"""
+
 
