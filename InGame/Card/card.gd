@@ -35,6 +35,7 @@ onready var col = $CollisionShape
 
 
 func set_is_hidden(val) -> void:
+	if is_hidden == val: return
 	is_hidden = val
 
 
