@@ -5,13 +5,13 @@
 [ext_resource path="res://assets/materials/resources/resource_back.tres" type="Material" id=3]
 [ext_resource path="res://assets/materials/resources/resource_stone.tres" type="Material" id=4]
 [ext_resource path="res://Games/br/br.gd" type="Script" id=5]
+[ext_resource path="res://InGame/Container/container.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Games/br/slot.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/materials/items/materyal0.tres" type="Material" id=9]
 [ext_resource path="res://assets/materials/items/materyal1.tres" type="Material" id=10]
 [ext_resource path="res://assets/materials/resources/resource_food.tres" type="Material" id=11]
 [ext_resource path="res://assets/materials/resources/resource_gold.tres" type="Material" id=12]
 [ext_resource path="res://assets/materials/resources/resource_steel.tres" type="Material" id=13]
-[ext_resource path="res://InGame/Deck/deck.tscn" type="PackedScene" id=14]
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.1, 0.1, 0.1 )
@@ -31,7 +31,7 @@ uv1_triplanar = true
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 5.15, 0.05, 4.89 )
 
-[node name="br" type="StaticBody" groups=["shift_draggable"]]
+[node name="br" type="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016, 0 )
 script = ExtResource( 5 )
 __meta__ = {
@@ -72,16 +72,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86737, 0.046, 0 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
 
-[node name="trash_deck" parent="." instance=ExtResource( 14 )]
+[node name="trash_container" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17472, 0.0459997, -2.7039 )
-is_mesh_visible = false
-only_resources = true
+is_cards_hidden = false
+holds = 1
 can_make_cards_visible = false
 can_make_cards_hidden = false
 
-[node name="trash_deck2" parent="." instance=ExtResource( 14 )]
+[node name="trash_container2" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.175, 0.046, 2.704 )
-is_mesh_visible = false
-only_items = true
+is_cards_hidden = false
+holds = 2
 can_make_cards_visible = false
 can_make_cards_hidden = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=2]
+[gd_scene load_steps=143 format=2]
 
 [ext_resource path="res://assets/br/expansions/skills/exp_skill_pack.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/Steel.png" type="Texture" id=2]
@@ -54,6 +54,35 @@
 [ext_resource path="res://assets/br/expansions/skills2/exp_skill_salesman.png" type="Texture" id=52]
 [ext_resource path="res://assets/br/expansions/military/exp_military0.png" type="Texture" id=53]
 [ext_resource path="res://assets/br/BackRessource.png" type="Texture" id=54]
+
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+
+uniform float vignette_intensity = 0.4;
+uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
+uniform vec4 vignette_rgb : hint_color = vec4(0.0, 0.0, 0.0, 1.0);
+
+float vignette(vec2 uv){
+	uv *= 1.0 - uv.xy;
+	float vignette = uv.x * uv.y * 15.0;
+	return pow(vignette, vignette_intensity * vignette_opacity);
+}
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 text = texture(TEXTURE, UV);
+	
+	text.rgba *= (vignette_rgb.rgba);
+	text.rgba *= (1.0 - vignette(UV));
+	
+	COLOR = vec4((text.rgb)*color.rgb,text.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=3511]
+shader = SubResource( 7 )
+shader_param/vignette_intensity = 0.6
+shader_param/vignette_opacity = 0.6
+shader_param/vignette_rgb = Color( 0, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.0980392, 0.121569, 0.137255, 1 )
@@ -505,7 +534,13 @@ margin_left = -163.0
 margin_top = -142.0
 margin_right = 220.0
 margin_bottom = 181.0
-color = Color( 0.0705882, 0.0705882, 0.0705882, 0.721569 )
+color = Color( 0.0705882, 0.0705882, 0.0705882, 0.207843 )
+
+[node name="vignette" type="ColorRect" parent="."]
+material = SubResource( 3511 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [node name="Tween" type="Tween" parent="."]
 
@@ -859,7 +894,7 @@ margin_bottom = 145.0
 text = "Hand"
 align = 1
 
-[node name="m4" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
+[node name="m9" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
 margin_left = 164.0
 margin_top = 164.0
 margin_right = 324.0
@@ -868,18 +903,15 @@ rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
 flat = true
 
-[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4"]
+[node name="vb" type="VBoxContainer" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m9"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 10.0
 margin_top = 10.0
 margin_right = -10.0
 margin_bottom = -5.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
+[node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m9/vb"]
 process_priority = -5
 margin_right = 140.0
 margin_bottom = 70.0
@@ -889,29 +921,29 @@ texture = ExtResource( 39 )
 expand = true
 stretch_mode = 6
 
-[node name="Label2" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
+[node name="Label2" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m9/vb"]
 margin_top = 74.0
 margin_right = 140.0
 margin_bottom = 145.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Deck"
+text = "Container"
 align = 1
 valign = 1
 
-[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4/vb"]
+[node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m9/vb"]
 visible = false
 margin_top = 116.0
-margin_right = 138.0
+margin_right = 140.0
 margin_bottom = 145.0
 text = "Deck"
 align = 1
 
 [node name="m6" type="Button" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid"]
 visible = false
-margin_left = 310.0
+margin_left = 328.0
 margin_top = 164.0
-margin_right = 461.0
+margin_right = 488.0
 margin_bottom = 324.0
 rect_min_size = Vector2( 140, 160 )
 size_flags_horizontal = 3
@@ -927,7 +959,7 @@ margin_bottom = -5.0
 
 [node name="TextureRect" type="TextureRect" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6/vb"]
 process_priority = -5
-margin_right = 131.0
+margin_right = 140.0
 margin_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -937,7 +969,7 @@ stretch_mode = 6
 
 [node name="Label" type="Label" parent="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6/vb"]
 margin_top = 116.0
-margin_right = 131.0
+margin_right = 140.0
 margin_bottom = 145.0
 text = "SNR Rose"
 align = 1
@@ -5342,7 +5374,7 @@ text = "Spawn"
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m51" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m51_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m5" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m5_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m3" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m3_pressed"]
-[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m4" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m4_pressed"]
+[connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m9" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m9_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m6" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m6_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/Quick/Grid/m7" to="WindowDialog/vb/mrgn/hs/games/Quick" method="_on_m7_pressed"]
 [connection signal="pressed" from="WindowDialog/vb/mrgn/hs/games/BoardRoyale/Expansions/Skills/Grid/e1" to="WindowDialog/vb/mrgn/hs/games/BoardRoyale" method="_on_e1_pressed"]

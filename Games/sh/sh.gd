@@ -1,5 +1,9 @@
 extends Spatial
 
+func get_game_spawn_name() -> String:
+	return "SH"
+
+
 
 func _ready() -> void:
 	write_paths()

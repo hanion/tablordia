@@ -11,8 +11,8 @@ onready var wa_input0 = $WriteAmountPop/vbc/period/LineEdit
 onready var wa_label1 = $WriteAmountPop/vbc/period2/Label
 onready var wa_label2 = $WriteAmountPop/vbc/period3/Label
 
-onready var jd = $JoinDeckPop
-onready var jd_input = $JoinDeckPop/vbc/period/LineEdit
+onready var jd = $JoinContainerPop
+onready var jd_input = $JoinContainerPop/vbc/period/LineEdit
 
 onready var hand_settings = $HandSettings
 onready var confirm_remove_object = $ConfirmRemoveObject
@@ -28,8 +28,8 @@ func right_clicked(to:Spatial) -> void:
 	if not to.is_in_group("has_rcm"): 
 		if to.get_parent().is_in_group("has_rcm"):
 			to = to.get_parent()
-		elif to is card and to.in_deck and to.in_deck.is_in_group("has_rcm"):
-			to = to.in_deck
+		elif to is card and is_instance_valid(to.in_container) and to.in_container.is_in_group("has_rcm"):
+			to = to.in_container
 		else:
 			return
 	
@@ -211,6 +211,12 @@ func open_confirm_remove_object(target, method, object_name:String) -> void:
 
 func _on_ConfirmRemoveObject_popup_hide():
 	Std.is_blocked_by_ui = false
+
+
+func _on_JoinContainerPop_popup_hide():
+	Std.is_blocked_by_ui = false
+
+
 
 
 

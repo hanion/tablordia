@@ -1,7 +1,9 @@
-extends DeckPrep
+extends ContainerPrep
 
 var pack_second_value := 0
 var expansion_name := "exp_skill" # "exp_military"
+
+
 
 var exp_island_item_env := [
 	1,1,2,3,3,4,5,5,
@@ -17,7 +19,7 @@ var exp_island_item_env := [
 ]
 
 var exp_skill_env := [
-	8,7,6,5,4,3,2,1
+	1,2,3,4,5,6,7,8
 ]
 
 var exp_military_env := [
@@ -43,34 +45,34 @@ var exp_military_env := [
 
 
 func _ready():
-	init("Card",expansion_name)
+	init(expansion_name)
+#	queue_free()
 
 
 
 
 
 # only called in server
-func create_draw_deck() -> void:
-	
+func create_draw_container() -> void:
 	match expansion_name:
 		"exp_skill":
 			for card_value in exp_skill_env:
-				add_to_pdeck(card_value, pack_second_value)
+				add_to_pcon(card_value, pack_second_value)
 		
 		
 		"exp_military":
 			for card_value in shuffle(exp_military_env):
-				add_to_pdeck(card_value, pack_second_value)
-			prepping_deck.can_make_cards_visible = false
-			prepping_deck.can_make_cards_hidden = false
+				add_to_pcon(card_value, pack_second_value)
+			prepping_con.can_make_cards_visible = false
+			prepping_con.can_make_cards_hidden = false
 		
 		
 		"exp_island_item":
 			for card_value in shuffle(exp_island_item_env):
-				add_to_pdeck(card_value, pack_second_value)
-			prepping_deck.can_make_cards_visible = false
-			prepping_deck.can_make_cards_hidden = false
-			prepping_deck.only_items = true
+				add_to_pcon(card_value, pack_second_value)
+			prepping_con.can_make_cards_visible = false
+			prepping_con.can_make_cards_hidden = false
+			prepping_con.holds = 2
 		
 		"exp_island_resource":
 			var env := []
@@ -82,11 +84,11 @@ func create_draw_deck() -> void:
 			for _i in range(20):
 				env.append(5)
 			for card_value in shuffle(env):
-				add_to_pdeck(card_value, pack_second_value)
-			prepping_deck.can_make_cards_visible = false
-			prepping_deck.can_make_cards_hidden = false
-			prepping_deck.only_resources = true
+				add_to_pcon(card_value, pack_second_value)
+			prepping_con.can_make_cards_visible = false
+			prepping_con.can_make_cards_hidden = false
+			prepping_con.holds = 1
 		
 	
 	
-	print("exp: created pdeck (",expansion_name,")")
+	print("exp: created expansion packet (",expansion_name,")")

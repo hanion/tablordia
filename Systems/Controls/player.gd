@@ -142,8 +142,6 @@ func rotate_one_tick(obj, is_reverse := false) -> void:
 	if obj is card and obj.is_in_hand and obj.in_hand:
 		c_obj = obj.in_hand
 		dir = (dir/3.0)
-	elif obj is card and obj.is_in_deck and obj.in_deck:
-		c_obj = obj.in_deck
 	else:
 		c_obj = obj
 		
@@ -185,20 +183,24 @@ func drag_start() -> void:
 				dragging = dragging.get_parent()
 			elif dragging.get_parent().get_parent().is_in_group("shift_draggable"):
 				dragging = dragging.get_parent().get_parent()
-			elif dragging is card and dragging.is_in_deck:
-				if dragging.in_deck.is_in_group("shift_draggable"):
-					dragging = dragging.in_deck
-					
+			elif dragging is card and dragging.is_in_container:
+				if dragging.in_container.is_in_group("shift_draggable"):
+					dragging = dragging.in_container
+			
 			else:
 				return
 	else:
 		if not dragging.is_in_group("draggable"): return
 	
 	if dragging is card:
-		if dragging.is_in_deck and dragging.in_deck.env.back() != dragging: 
+		if dragging.is_in_container and is_instance_valid(dragging.in_container) \
+			and not dragging.in_container.card_inv.empty() \
+			and dragging.in_container.card_inv.back() != dragging:
+			
 			dragging = null
 			return
-		if dragging.is_in_hand and not dragging.in_hand.others_can_touch:
+		
+		elif dragging.is_in_hand and not dragging.in_hand.others_can_touch:
 			if not dragging.in_hand.am_i_the_owner: 
 				dragging = null
 				return
@@ -269,8 +271,6 @@ func drag() -> void:
 	# translating object to desired location
 #	dragging.set_translation(new_coord)
 	
-	if dragging is deck: dragging.set_new_visible_card_translation()
-	
 	# This is better than tween:
 	# it only lasts as long as dragging,
 	# so no overriding of position after stopped dragging
@@ -340,7 +340,8 @@ func define_obj_state(drgn) -> void:
 #			"O": drgn.global_transform.origin,
 		}
 	}
-	
+
+#	STATE.set_last_state(drgn.name,state)
 	NetworkInterface.collect_state(state)
 
 
@@ -351,5 +352,6 @@ func define_do_state(d,o,p) ->  void:
 		"p":p
 		}
 	
+#	STATE.set_last_do_state(d.name,do_state)
 	NetworkInterface.send_do_state(do_state)
 	

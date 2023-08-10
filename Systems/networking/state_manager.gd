@@ -45,14 +45,11 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 	
 	# the received object does not exist here FIXME
 	
-	
-	
-	
-	
-	
-	
 	if player.dragging == obj: return
 	if _id == NetworkInterface.uid: return
+	
+	
+#	STATE.set_last_state(obj_name, obj_state)
 	
 	
 	if obj_state.has("R"):
@@ -80,10 +77,7 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 		if obj.has_method("_on_started_dragging_via_network"):
 			obj._on_started_dragging_via_network()
 	
-#	if not currently_processing_do.empty():
-#		print("sm: currently processing: ",currently_processing_do)
 	if currently_processing_do.has(obj_name):
-		print("sm: currently processing: ",currently_processing_do)
 		return
 	
 	var trans = obj_state["O"]
@@ -97,34 +91,7 @@ func process_obj(obj_state: Dictionary, _id: int, obj_name: String) -> void:
 			obj.is_in_slot = false
 	
 	
-	
-	
-	
-	
 	obj.transform.origin = trans
-	if obj is deck: obj.set_new_visible_card_translation()
-	
-
-
-	"""
-	//||\\ this works NOOOOOOOOOOOO
-	IT WAS TWEEN NOOOOOOOOOOOOOOOO
-
-	"""
-#	tween.seek(99999)
-#	tween.stop_all()
-#	tween.interpolate_property(
-#		obj,
-#		"translation",
-#		obj.transform.origin,
-#		trans,
-#		tween_duration,
-#		Tween.TRANS_LINEAR,
-#		Tween.EASE_IN_OUT
-#	)
-#	tween.start()
-
-
 
 
 func process_pointer(pointer_state: Dictionary, id: int) -> void:
@@ -159,12 +126,14 @@ func move_player_pointer(player_id, transform_origin):
 
 
 
-
-func process_received_do(do) -> void:
+func process_received_do(do) -> bool:
 	var dragged_name = do["d"]
 	var over_name = do["o"]
 	var pos = do["p"]
 	pos.y = clamp(pos.y,0,100) # genius clamp, cards never go under zero
+	
+#	STATE.set_last_do_state(dragged_name, do)
+	
 	
 	##### add
 	currently_processing_do.append(dragged_name)
@@ -177,28 +146,23 @@ func process_received_do(do) -> void:
 	",        p:",pos
 	)
 	
+	
 #	tween.stop_all()
 	
-	if not dragged or not is_instance_valid(dragged): return 
+	if not dragged or not is_instance_valid(dragged): 
+		return false
 
 
-	if dragged.is_in_dispenser:
-		dragged.notify_dispenser()
-
-	elif dragged.is_in_trash:
-		if is_instance_valid(dragged.in_trash):
-			dragged.in_trash.remove_from_trash(dragged)
+	if dragged.is_in_container:
+		if not is_instance_valid(dragged.in_container):
+			print("	nooo instance is not valid of dragged in s do 9898")
+			return false
+		
+		if not dragged.in_container == over: 
+			var _result = dragged.in_container.remove_card_from_container(dragged)
 
 #	elif dragged.is_in_slot:
 #		dragged.in_slot.remove_from_slot(dragged)
-
-	elif dragged.is_in_deck:
-		if not over is deck:
-			if is_instance_valid(dragged.in_deck):
-				dragged.in_deck.remove_from_deck(dragged)
-		if over is deck and not dragged.in_deck == over:
-			if is_instance_valid(dragged.in_deck):
-				dragged.in_deck.remove_from_deck(dragged)
 
 
 	elif dragged.is_in_hand:
@@ -206,25 +170,22 @@ func process_received_do(do) -> void:
 #			print("    ¨removed1 ",dragged_name," from ",dragged.in_hand.name)
 			if is_instance_valid(dragged.in_hand):
 				dragged.in_hand.remove_card_from_hand(dragged)
-				if not over is deck:
-					hotfix_snap_when_removing_from_hand(dragged)
+#				if not over is deck:
+#					hotfix_snap_when_removing_from_hand(dragged)
 	
 
 
-	if over is trash:
-#		print("    ¨trashed ",dragged_name)
-		over.add_to_trash(dragged)
+	if over is container:
+		if dragged.is_in_container and dragged.in_container == over:
+			over.order_env()
+		else:
+			if not over.add_card_to_container(dragged):
+				dragged.set_is_hidden(false)
 
 	elif over is slot:
 #		print("    ¨slotted ",dragged_name, dragged.is_in_slot)
 		over.add_to_slot(dragged)
 
-	elif over is deck:
-		if dragged.is_in_deck and dragged.in_deck == over:
-			over.order_env()
-		else:
-#			print("    ¨decked ",dragged_name)
-			over.add_to_deck(dragged)
 
 	elif over is hand:
 		if dragged.is_in_hand:
@@ -244,14 +205,15 @@ func process_received_do(do) -> void:
 		# every card in table is not hidden
 		dragged.set_is_hidden(false)
 		dragged.set_collision_layer_bit(0,true)
-		
+	
 
 #	print("<uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu\n\n")
 	
 	##### remove
 	yield(get_tree().create_timer(0.3),"timeout")
 	currently_processing_do.erase(dragged_name)
-
+	
+	return true
 
 
 
@@ -261,6 +223,9 @@ func hotfix_snap_when_removing_from_hand(var crd: card):
 	var __a = crd.translation
 	for i in range(10):
 		yield(get_tree().create_timer(0.005),"timeout")
+		
+		if crd.is_in_container: return
+		
 		var diff = __a - crd.translation
 		
 		if diff.x > 0.01 or diff.z > 0.01:

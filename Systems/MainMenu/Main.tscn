@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/br/BackRessource.png" type="Texture" id=1]
 [ext_resource path="res://assets/br/BackItem.png" type="Texture" id=2]
@@ -12,6 +12,35 @@
 [ext_resource path="res://InGame/Table/Wood067_2K-PNG/wood.tres" type="Material" id=10]
 [ext_resource path="res://Systems/MainMenu/Main.gd" type="Script" id=11]
 [ext_resource path="res://Theme/GREEN_theme.tres" type="Theme" id=13]
+
+[sub_resource type="Shader" id=6315]
+code = "shader_type canvas_item;
+
+uniform float vignette_intensity = 0.4;
+uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
+uniform vec4 vignette_rgb : hint_color = vec4(0.0, 0.0, 0.0, 1.0);
+
+float vignette(vec2 uv){
+	uv *= 1.0 - uv.xy;
+	float vignette = uv.x * uv.y * 15.0;
+	return pow(vignette, vignette_intensity * vignette_opacity);
+}
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 text = texture(TEXTURE, UV);
+	
+	text.rgba *= (vignette_rgb.rgba);
+	text.rgba *= (1.0 - vignette(UV));
+	
+	COLOR = vec4((text.rgb)*color.rgb,text.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=6316]
+shader = SubResource( 6315 )
+shader_param/vignette_intensity = 0.25
+shader_param/vignette_opacity = 0.3
+shader_param/vignette_rgb = Color( 0, 0, 0, 1 )
 
 [sub_resource type="GIProbeData" id=6]
 
@@ -42,6 +71,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
 
 [node name="elevation" parent="player/CAM/position" index="0"]
 transform = Transform( 1, 0, 0, 0, 0.642787, 0.766044, 0, -0.766044, 0.642787, 0, 0, 0 )
+
+[node name="vignette" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="vignette" type="ColorRect" parent="vignette"]
+material = SubResource( 6316 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

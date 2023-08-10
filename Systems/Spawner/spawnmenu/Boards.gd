@@ -28,13 +28,6 @@ func _on_m3_pressed():
 	hs.selected(info)
 
 
-func _on_m4_pressed():
-	var info := {
-		"type":"Misc",
-		"name":"Deck"
-		}
-	hs.selected(info)
-
 func _on_m51_pressed():
 	var info := {
 		"type":"Game",
@@ -78,6 +71,15 @@ func _on_m8_pressed() -> void:
 		"type":"Game",
 		"name":"SH",
 		"inspector_text":"Secret Hitler"
+		}
+	hs.selected(info)
+
+
+
+func _on_m9_pressed():
+	var info := {
+		"type":"Misc",
+		"name":"Container"
 		}
 	hs.selected(info)
 

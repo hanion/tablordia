@@ -110,6 +110,7 @@ func add_card_to_hand(var crd: card, var pos: Vector3) -> void:
 	
 	resize_hand()
 
+
 func remove_card_from_hand(var crd: card) -> void:
 	
 	crd.is_in_hand = false
@@ -127,8 +128,7 @@ func remove_card_from_hand(var crd: card) -> void:
 	
 	if crd.has_method("removed_from_hand"):
 		crd.call_deferred("removed_from_hand",self)
-	
-	
+
 
 
 
@@ -150,6 +150,10 @@ func order_inventory() -> void:
 		var posy:float
 		
 		var kart = inventory[i]
+		if not kart or not is_instance_valid(kart):
+			inventory.remove(i)
+			return
+		
 		
 		if is_squeezing:
 			# (rotate) and (move in y) card slightly to make them not zfight
@@ -209,6 +213,9 @@ func find_index(var relativex: float) -> int:
 	
 	for i in inv_size:
 		# position of (i)cards left edge
+		if not inventory[i] or not is_instance_valid(inventory[i]):
+			inventory.remove(i)
+			return 0
 		var posx = inventory[i].translation.x
 		
 		# test to see if new card is further than posx(i)card
@@ -349,14 +356,13 @@ func shuffle_hand() -> void:
 	send_deck_to_others()
 
 
+# TODO change this from deck to hand, confusing
 func send_deck_to_others() -> void:
-#	print("sending deck to others")
 	var named_deck := []
 	for c in inventory:
 		named_deck.append(c.name)
 	NetworkInterface.send_deck_to_others(named_deck,self.name)
 func receive_deck_from_server(named_deck) -> void:
-#	print(self.name,": received named deck from server",named_deck)
 	inventory.clear()
 	for nc in named_deck:
 		var crd = Std.get_object(nc)
@@ -411,6 +417,10 @@ func bubble_sort_hand_by_second() -> void:
 	inventory = arr
 
 
+
+
+func get_card_index(crd : card) -> int:
+	return inventory.find(crd)
 
 
 

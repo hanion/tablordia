@@ -51,6 +51,7 @@ func package_state():
 		
 		if not state_collection.has(key):
 			state_collection[key] = new_state[key].duplicate(true)
+#			STATE.set_last_state(key, state_collection[key])
 			continue
 		
 		for subkey in new_state[key].keys(): # subkey = O, R
@@ -63,6 +64,7 @@ func package_state():
 			
 			if not state_collection[key].has(subkey):
 				state_collection[key][subkey] = new_state[key][subkey]
+#				STATE.set_last_state(key, state_collection[key])
 				continue
 			
 			if state_collection[key][subkey] == new_state[key][subkey]:
@@ -97,6 +99,9 @@ func package_state():
 				continue
 			
 			state_collection[key][subkey] = new_state[key][subkey]
+#			if key != "pointer":
+#				STATE.set_last_state(key, state_collection[key])
+			
 			
 		
 	

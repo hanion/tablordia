@@ -32,17 +32,11 @@ func _player_connected(id):
 
 
 func catch_up_the_midjoiner(id : int) -> void:
-	#UMB.logs(1,"NI","im("+str(uid)+" "+Name+") calling catchup on " + str(id) )
-	client.rpc_id(id,"receive_request_collection",Spawner.request_collector.request_collection)
-	client.rpc_id(id,"receive_remove_requests",Remover.remove_request_collection_of_names)
-	client.rpc_id(id,"receive_alws",$server/state_processor.alws)
+	if not get_tree().is_network_server(): return
 	
-	
-	yield(get_tree().create_timer(0.5),"timeout")
-	catch_up_the_midjoiner_on_do(id)
+	STATE_SAVER.get_current_state_and_save()
+	client.rpc_id(id, "receive_WORLD_STATE_from_server", STATE.WORLD_STATE)
 
-func catch_up_the_midjoiner_on_do(id:int) -> void:
-	client.rpc_id(id,"receive_do_collection",$client/midjoin_manager.do_collection)
 
 
 
@@ -121,9 +115,41 @@ func request_spawn(info) -> void:
 	server.rpc_id(1,"request_spawn",info)
 
 
+# used by hand, change it
 func send_deck_to_others(named_deck,deck_name) -> void:
 	client.rpc_config("receive_deck_info",MultiplayerAPI.RPC_MODE_REMOTESYNC)
 	client.rpc_id(0,"receive_deck_info",named_deck,deck_name)
+
+
+
+
+
+
+
+# Container Data Sync
+func request_container_data(container_name : String) -> void:
+	rpc_config("_request_container_data_from_server",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc_id(1,"_request_container_data_from_server",container_name)
+
+remote func _request_container_data_from_server(container_name : String) -> void:
+	var sender_id = get_tree().get_rpc_sender_id()
+	var con = Std.get_object(container_name) as container
+	if not con or not is_instance_valid(con): return
+	send_container_data_to_client(sender_id, container_name, con.data_inv)
+
+func send_container_data_to_client(sender_id,container_name,container_data:Array) -> void:
+	rpc_config("receive_container_data",MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	rpc_id(sender_id,"receive_container_data", container_name, container_data)
+
+remote func receive_container_data(container_name:String, container_data:Array) -> void:
+	var con = Std.get_object(container_name) as container
+	if not con or not is_instance_valid(con): return
+	
+	con.data_inv = container_data
+	con.order_env()
+#	for data in container_data:
+#		con.add_data_to_container(data)
+
 
 
 

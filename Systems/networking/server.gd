@@ -2,8 +2,6 @@ extends Node
 
 var world_state_up := {}
 
-onready var midjoin_manager = $"../client/midjoin_manager"
-
 ####################################SERVER#####################################
 func _ready():
 	rpc_config("receive_state_from_client",MultiplayerAPI.RPC_MODE_REMOTESYNC)
@@ -14,7 +12,7 @@ func _ready():
 remote func receive_state_from_client(state: Dictionary) -> void:
 	assert(
 		not state.empty(),
-		"State Cant BE EMPTY M F"
+		"State Cant BE EMPTY"
 		)
 	
 #	print("  s: received packed state from client ",state)
@@ -25,11 +23,10 @@ remote func receive_state_from_client(state: Dictionary) -> void:
 remote func receive_do_from_client(do:Dictionary) -> void:
 	assert(
 		not do.empty(),
-		"DO State Cant BE EMPTY M F"
+		"DO State Cant BE EMPTY"
 		)
 	
 #	print("  s: received DO state from client ",do)
-	midjoin_manager.collect_do(do)
 	NetworkInterface.client.rpc("receive_do_from_server",do)
 """ /DO """
 

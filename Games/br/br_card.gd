@@ -132,19 +132,4 @@ func set_is_hidden(val) -> void:
 		else:
 			mat = res_mats[card_value].duplicate(true)
 		set_material(mat)
-	
-	
-	
-	
-
-
-
-func notify_dispenser() -> void:
-	update_material()
-	is_hidden = false
-	is_in_dispenser = false
-	
-	if not in_dispenser: return
-	if not is_instance_valid(in_dispenser): return
-	in_dispenser.notify()
 

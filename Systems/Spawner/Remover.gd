@@ -53,26 +53,20 @@ func remove_object(object_name : String) -> void:
 func __object_checks(object) -> bool:
 	if object is card:
 		
-		if object.is_in_hand:
+		if object.is_in_container:
+			if not is_instance_valid(object.in_container):
+				print("!trying to remove an object, in_container is not valid, "+object.name)
+				return true
+			
+			object.in_container.remove_card_from_container(object)
+		
+		elif object.is_in_hand:
 			if not is_instance_valid(object.in_hand):
 				print("!trying to remove an object in_hand and hand is not valid, "+object.name)
 				return true
 			
 			object.in_hand.remove_card_from_hand(object)
 		
-		elif object.is_in_deck:
-			if not is_instance_valid(object.in_deck):
-				print("!trying to remove an object in_deck and deck is not valid, "+object.name)
-				return true
-			
-			object.in_deck.remove_from_deck(object)
-		
-		elif object.is_in_dispenser:
-			if not is_instance_valid(object.in_dispenser):
-				print("1trying to remove an object in_dispenset and dispenser is not valid, "+object.name)
-				return true
-			
-			object.in_dispenser.notify()
 		
 		elif object.is_in_slot:
 			if not is_instance_valid(object.in_slot):
@@ -80,15 +74,13 @@ func __object_checks(object) -> bool:
 				return true
 			
 			object.in_slot.remove_from_slot(object)
-		
-		elif object.is_in_trash:
-			if not is_instance_valid(object.in_trash):
-				print("!trying to remove an object in_trash and trash is not valid, "+object.name)
-				return true
-			
-			object.in_trash.remove_from_trash(object)
 	
 	
+	
+	elif object is container:
+		for in_contaiener_obj in object.card_inv:
+			if not is_instance_valid(in_contaiener_obj): continue
+			remove_object(in_contaiener_obj.name)
 	
 	elif object is hand:
 		for in_hand_obj in object.inventory:
@@ -97,27 +89,10 @@ func __object_checks(object) -> bool:
 			remove_object(in_hand_obj.name)
 	
 	
-	elif object is deck or object is trash:
-		for in_deck_obj in object.env:
-			if not is_instance_valid(in_deck_obj): continue
-			remove_object(in_deck_obj.name)
-	
-	
 	elif object is slot:
 		if is_instance_valid(object.env):
 			remove_object(object.env.name)
 	
 	return true
 
-
-
-
-# called from server->client when midjoin
-func remove_collected_rqs(array: Array) -> void:
-	yield(get_tree().create_timer(0.5),"timeout")
-	
-	print("got remove requests array = ",array)
-	
-	for object_name in array:
-		remove_object(object_name)
 

@@ -116,8 +116,10 @@ remote func receive_deck_info(named_deck,deck_name) -> void:
 
 
 remote func receive_do_collection(do_collection:Dictionary) -> void:
-	for do_obj in do_collection:
-		NetworkInterface.send_received_do_to_main(do_collection[do_obj])
+	get_node("/root/Main").process_received_do_collection(do_collection)
+	
 
+remote func receive_WORLD_STATE_from_server(WS : Dictionary) -> void:
+	STATE.LOAD_STATE(WS)
 
 

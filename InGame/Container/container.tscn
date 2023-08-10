@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://InGame/Deck/deck.gd" type="Script" id=1]
+[ext_resource path="res://InGame/Container/container.gd" type="Script" id=1]
+[ext_resource path="res://InGame/Container/rcm_manager.gd" type="Script" id=2]
+[ext_resource path="res://InGame/Container/shuffler.gd" type="Script" id=3]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.727, 0.02, 1.006 )
@@ -19,12 +21,11 @@ surfaces/0 = {
 "vertex_count": 720
 }
 
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.101961, 0.184314, 0.235294, 1 )
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.2, 0.392157, 0.698039, 1 )
 
-[node name="deck" type="Area" groups=["draggable", "has_rcm", "rotatable", "shift_draggable"]]
+[node name="container" type="Area" groups=["draggable", "has_rcm", "rotatable", "shift_draggable"]]
 script = ExtResource( 1 )
-is_cards_hidden = false
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0139329, 0 )
@@ -33,9 +34,12 @@ shape = SubResource( 1 )
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0.0127558, 0 )
 mesh = SubResource( 2 )
-material/0 = SubResource( 4 )
-
-[node name="old_card_pos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.924, 0 )
+material/0 = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="rcm_manager" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="shuffler" type="Node" parent="rcm_manager"]
+script = ExtResource( 3 )

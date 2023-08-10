@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Theme/GREEN_theme.tres" type="Theme" id=1]
 [ext_resource path="res://Systems/MainMenu/autojoin.gd" type="Script" id=2]
@@ -11,6 +11,35 @@
 [ext_resource path="res://Systems/MainMenu/hbmenu.gd" type="Script" id=9]
 [ext_resource path="res://Systems/credit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/font/credit_title2_font.tres" type="DynamicFont" id=11]
+
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+
+uniform float vignette_intensity = 0.4;
+uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
+uniform vec4 vignette_rgb : hint_color = vec4(0.0, 0.0, 0.0, 1.0);
+
+float vignette(vec2 uv){
+	uv *= 1.0 - uv.xy;
+	float vignette = uv.x * uv.y * 15.0;
+	return pow(vignette, vignette_intensity * vignette_opacity);
+}
+
+void fragment(){
+	vec4 color = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 text = texture(TEXTURE, UV);
+	
+	text.rgba *= (vignette_rgb.rgba);
+	text.rgba *= (1.0 - vignette(UV));
+	
+	COLOR = vec4((text.rgb)*color.rgb,text.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 7 )
+shader_param/vignette_intensity = 0.6
+shader_param/vignette_opacity = 0.6
+shader_param/vignette_rgb = Color( 0, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 21
@@ -52,6 +81,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.101961, 0.243137, 0.121569, 1 )
 
+[node name="vignette" type="ColorRect" parent="."]
+material = SubResource( 6 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
 [node name="Ss0624-1" type="Sprite" parent="."]
 visible = false
 position = Vector2( 636.77, 355.863 )
@@ -87,7 +122,7 @@ margin_right = 119.0
 size_flags_horizontal = 3
 custom_fonts/normal_font = SubResource( 4 )
 custom_styles/normal = SubResource( 2 )
-text = "   v3.4"
+text = "   v4.0"
 scroll_active = false
 
 [node name="vb" type="VBoxContainer" parent="hbmenu"]

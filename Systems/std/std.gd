@@ -1,5 +1,7 @@
 extends Node
 
+var card_pl = preload("res://InGame/Card/card.tscn")
+
 export(float,0.05,1.0) var tween_duration = 0.1
 # for player
 var is_blocked_by_ui := false
@@ -21,6 +23,9 @@ func get_object(var object_name) -> Node:
 	if not object_path: return null
 	
 	var object = get_node(object_path)
+	if not object or not is_instance_valid(object):
+		push_error("std:get_object -> object invalid " + object_path)
+		return null
 	
 	return object
 
@@ -114,18 +119,14 @@ func has_all(dict: Dictionary, key, key1 = null, key2 = null) -> bool:
 
 
 func should_i_send_dragged_state(drgd: card, ovr) -> bool:
+	if drgd.is_in_container: return true
 	if drgd.is_in_hand: return true
-	if drgd.is_in_dispenser: return true
-	if drgd.is_in_trash: return true
 	if drgd.is_in_slot: return true
 	if drgd.in_slot: return true
-	if drgd.is_in_deck: return true
-	if drgd.in_deck: return true
 	
+	if ovr is container: return true
 	if ovr is hand: return true
-	if ovr is trash: return true
 	if ovr is slot: return true
-	if ovr is deck: return true
 	
 	return false
 
@@ -137,7 +138,7 @@ func get_time() -> String:
 
 
 
-func shuffle_array(array:Array) -> Array:
+func shuffle_array(array:Array) -> void:
 	randomize()
 	
 	var siz = array.size()
@@ -156,6 +157,3 @@ func shuffle_array(array:Array) -> Array:
 		array[i] = second_val
 		array[ran] = first_val
 	
-	return array
-
-

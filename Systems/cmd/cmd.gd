@@ -2,7 +2,7 @@ extends Node
 # CMD
 const valid_commands : Array = [
 	"quit","say","table","kick","w","c","set_class","table_inf","help__","join",
-	"shut_down_server__","mj","do",
+	"shut_down_server__","mj","do","saver","loader",
 	"dice",
 	"remove_all"
 	]
@@ -223,6 +223,11 @@ func dice(ea:PoolStringArray) -> void:
 	var random_number = rand_range(0,until+1)
 	UMB.logs(1,"Dice", str(int(random_number)))
 
+func saver(_ea) -> void:
+	STATE_SAVER.get_current_state_and_save()
 
+func loader(_ea) -> void:
+	STATE_SAVER.LOAD_FROM_FILE()
+	
 
 

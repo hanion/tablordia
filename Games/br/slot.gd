@@ -17,7 +17,7 @@ var _is_player_dragging = false
 
 func _ready():
 	col.shape = col.shape.duplicate(true)
-	var player = get_node("../../player")
+	var player = get_node("../../../player")
 	player.connect("started_dragging",self,"on_started_dragging")
 	player.connect("stopped_dragging",self,"on_stopped_dragging")
 

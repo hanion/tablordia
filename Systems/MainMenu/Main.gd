@@ -10,9 +10,13 @@ onready var player = $player
 onready var others = $others
 onready var cards = $cards
 
+var is_auto_save_on : bool = true
+
 var br
 
 func _ready():
+	get_tree().set_auto_accept_quit(false)
+	
 	NetworkInterface.Main = self
 	Spawner.cards_folder = cards
 	SettingsUI.initialize()
@@ -20,12 +24,13 @@ func _ready():
 	HUD.player = player
 	HUD.spawn_panel = $CanvasLayer/SpawnPanel
 	UMB.fade()
+	STATE_SAVER.cards = cards
 	
 	print("	-Game is ready-\n")
 	
 	if not get_tree().is_network_server():
-		yield(get_tree().create_timer(0.1),"timeout")
 		CMD.mj([])
+		yield(get_tree().create_timer(0.1),"timeout")
 
 
 func _spawn_player(var pid):
@@ -94,6 +99,14 @@ func process_received_world_state(world_state) -> void:
 func process_received_do(do) -> void:
 	state_manager.process_received_do(do)
 
+func process_received_do_collection(do_collection) -> void:
+	state_manager.process_received_do_collection(do_collection)
 
 
 
+func _notification(what):
+	if (what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST):
+		if is_auto_save_on:
+			STATE_SAVER.get_current_state_and_save()
+		
+		get_tree().quit()

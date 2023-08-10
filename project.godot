@@ -10,9 +10,9 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Spatial",
-"class": "DeckPrep",
+"class": "ContainerPrep",
 "language": "GDScript",
-"path": "res://InGame/deck_prep.gd"
+"path": "res://InGame/container_prep.gd"
 }, {
 "base": "card",
 "class": "br_card",
@@ -30,9 +30,9 @@ _global_script_classes=[ {
 "path": "res://Games/52/card_52.gd"
 }, {
 "base": "Area",
-"class": "deck",
+"class": "container",
 "language": "GDScript",
-"path": "res://InGame/Deck/deck.gd"
+"path": "res://InGame/Container/container.gd"
 }, {
 "base": "Spatial",
 "class": "hand",
@@ -54,27 +54,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Games/snr/snr_card.gd"
 }, {
-"base": "Area",
-"class": "trash",
-"language": "GDScript",
-"path": "res://Games/br/trash.gd"
-}, {
 "base": "card",
 "class": "uno_card",
 "language": "GDScript",
 "path": "res://Games/uno/uno_card.gd"
 } ]
 _global_script_class_icons={
-"DeckPrep": "",
+"ContainerPrep": "",
 "br_card": "",
 "card": "",
 "card_52": "",
-"deck": "",
+"container": "",
 "hand": "",
 "sh_card": "",
 "slot": "",
 "snr_card": "",
-"trash": "",
 "uno_card": ""
 }
 
@@ -105,6 +99,9 @@ config/quit_on_go_back=false
 
 Std="*res://Systems/std/std.tscn"
 NetworkInterface="*res://Systems/networking/network_interface.tscn"
+STATE="*res://Systems/STATE/STATE.tscn"
+STATE_SAVER="*res://Systems/STATE/STATE_SAVER.tscn"
+ID="*res://Systems/STATE/ID.tscn"
 List="*res://Systems/networking/list.tscn"
 CMD="*res://Systems/cmd/cmd.tscn"
 Spawner="*res://Systems/Spawner/Spawner.tscn"

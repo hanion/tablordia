@@ -1,5 +1,8 @@
 extends Spatial
 
+func get_game_spawn_name() -> String:
+	return "Chess Board"
+
 var my_paths := {}
 var game_chess_index := "0"
 
@@ -7,7 +10,7 @@ var game_chess_index := "0"
 func _ready() -> void:
 	get_paths()
 	List.feed_my_paths(my_paths)
-	var player = get_node("../player")
+	var player = get_node("../../player")
 	player.connect("started_dragging",self,"on_started_dragging")
 	player.connect("stopped_dragging",self,"on_stopped_dragging")
 	
