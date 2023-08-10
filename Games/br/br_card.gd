@@ -5,8 +5,6 @@ class_name br_card
 export(Array,SpatialMaterial) var res_mats := []
 export(Array,SpatialMaterial) var item_mats := []
 
-var is_expansion_skill := false
-var is_expansion_military := false
 
 
 const items := [
@@ -100,7 +98,21 @@ func update_material():
 
 func set_is_hidden(val) -> void:
 	.set_is_hidden(val)
-	if is_item:
+	if is_expansion_skill:
+		var new_card_val = 0 if val else card_value
+		var mat = $expansion_skills.get_mat(new_card_val, card_value_second)
+		set_material(mat)
+	
+	elif is_expansion_military:
+		var mat 
+		if val:
+			mat = item_mats[0].duplicate(true)
+			mat.set_uv1_offset(items[0][0])
+		else:
+			mat = $expansion_military.get_mat(card_value, card_value_second)
+		set_material(mat)
+	
+	elif is_item:
 		var mat
 		if val:
 			mat = item_mats[0].duplicate(true)
@@ -121,19 +133,7 @@ func set_is_hidden(val) -> void:
 			mat = res_mats[card_value].duplicate(true)
 		set_material(mat)
 	
-	elif is_expansion_skill:
-		var new_card_val = 0 if val else card_value
-		var mat = $expansion_skills.get_mat(new_card_val, card_value_second)
-		set_material(mat)
 	
-	elif is_expansion_military:
-		var mat 
-		if val:
-			mat = item_mats[0].duplicate(true)
-			mat.set_uv1_offset(items[0][0])
-		else:
-			mat = $expansion_military.get_mat(card_value, card_value_second)
-		set_material(mat)
 	
 	
 

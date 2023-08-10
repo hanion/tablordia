@@ -24,6 +24,9 @@ var is_in_slot := false
 var in_slot
 
 
+var is_expansion_skill := false
+var is_expansion_military := false
+
 
 var is_resource := false
 var is_item := false

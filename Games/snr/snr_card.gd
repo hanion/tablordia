@@ -24,6 +24,6 @@ func update_material() -> void:
 
 
 func set_is_hidden(_val) -> void:
-	is_hidden = _val
+	.set_is_hidden(_val)
 	update_material()
 
