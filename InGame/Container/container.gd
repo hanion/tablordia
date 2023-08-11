@@ -111,7 +111,7 @@ func add_card_to_container(crd : card) -> bool:
 
 
 func remove_card_from_container(crd : card) -> bool:
-	prints("	removing from container ", crd.name, crd.is_in_container, card_inv.size())
+#	prints("	removing from container ", crd.name, crd.is_in_container, card_inv.size())
 	if not can_draw: return false
 	if card_inv.empty(): return false
 	
