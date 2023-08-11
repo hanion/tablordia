@@ -134,25 +134,16 @@ func spawn_Misc(info : Dictionary) -> Spatial:
 			
 			
 			var ownerid = info["owner_id"]
+			var hand_owner_name = info["hand_owner_name"]
+			misc.set_hand_owner(ownerid,hand_owner_name)
 			
-			# owner player disconnected
-			# before this client joined
-			if not List.players.has(ownerid):
-				yield(get_tree().create_timer(0.1),"timeout")
-				if not List.players.has(ownerid):
-					List.paths[misc.name] = misc.get_path()
-					return misc 
-			
-			if not List.players[ownerid].has("name"):
-				yield(get_tree().create_timer(0.1),"timeout")
-				if not List.players[ownerid].has("name"):
-					List.paths[misc.name] = misc.get_path()
-					return misc
-			var ownername = List.players[ownerid]["name"]
-			var ownercolor = List.players[ownerid]["color"]
-			misc.set_hand_owner(ownerid,ownername)
+			var ownercolor = info["hand_owner_color"]
 			misc.set_hand_color(ownercolor)
+			
 			misc.others_can_touch = info["others_can_touch"]
+			
+			List.paths[misc.name] = misc.get_path()
+			
 	
 	
 	if info.has("spawned_name") and info["spawned_name"]:

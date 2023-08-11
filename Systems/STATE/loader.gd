@@ -71,6 +71,8 @@ func load_obj(state : Dictionary) -> void:
 	add_if_has(info, state, "in_hand_index")
 	add_if_has(info, state, "owner_id")
 	add_if_has(info, state, "owner_name")
+	add_if_has(info, state, "hand_owner_name")
+	add_if_has(info, state, "hand_owner_color")
 	add_if_has(info, state, "others_can_touch")
 	
 	

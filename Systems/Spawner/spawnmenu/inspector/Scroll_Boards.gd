@@ -5,6 +5,8 @@ var amount:int = 1
 var type:String
 var naem:String
 var owner_id:int
+var hand_owner_name : String
+var hand_owner_color: Color
 var val:int
 var val_second:int = 0
 var others_can_touch:bool = true
@@ -15,6 +17,8 @@ func spawn() -> void:
 		"name":naem,
 		"amount":amount,
 		"owner_id":owner_id,
+		"hand_owner_name" : hand_owner_name,
+		"hand_owner_color": hand_owner_color,
 		"value":val,
 		"value_second":val_second,
 		"others_can_touch":others_can_touch
@@ -47,6 +51,9 @@ func _on_amount_amount_changed(am):
 
 func _on_owner_on_owner_changed(ownerid):
 	owner_id = ownerid
+	if List.players.has(owner_id) and List.players[owner_id].has("name"):
+		hand_owner_name = List.players[owner_id]["name"]
+		hand_owner_color = List.players[owner_id]["color"]
 
 
 func _on_uno_team_color_changed(a):

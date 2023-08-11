@@ -97,6 +97,8 @@ func update_hand_state(han : hand) -> void:
 		"instance":           han, # [Area3D:5674]
 		"owner_id":           han.owner_id,
 		"owner_name":         han.owner_name,
+		"hand_owner_name":    han.owner_name,
+		"hand_owner_color":   han.owner_color,
 		"others_can_touch":   han.others_can_touch,
 		
 		"card_inv":           _get_card_inv_id_array(han.inventory),

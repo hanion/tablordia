@@ -33,8 +33,9 @@ var is_cards_hidden_to_others := true setget set_chtot
 var is_cards_hidden_to_owner := false setget set_chtow
 var others_can_touch := true
 
-var owner_name: String
 var owner_id: int
+var owner_name: String
+var owner_color: Color
 var am_i_the_owner:bool = false
 
 var is_squeezing := false
@@ -57,6 +58,7 @@ func set_hand_color(color) -> void:
 	mat.metallic = 0.0
 	mat.metallic_specular = 0.0
 	hand_mesh.set_surface_material(0,mat)
+	owner_color = color
 
 
 func set_hand_owner(_owner_id, _owner_name) -> void:
@@ -65,6 +67,11 @@ func set_hand_owner(_owner_id, _owner_name) -> void:
 	nametag.text = owner_name
 	
 	am_i_the_owner = (get_tree().get_network_unique_id() == owner_id)
+	
+	if NetworkInterface.Name == owner_name:
+		am_i_the_owner = true
+		owner_id = NetworkInterface.uid
+		set_hand_color(List.players[NetworkInterface.uid]["color"])
 
 
 
@@ -432,21 +439,29 @@ func prepare_rcm(popup:PopupMenu) -> void:
 	__popup = popup
 	popup.clear()
 	
+	var card_number = inventory.size()
+	if card_number > 0:
+		var txt = "Has "+str(card_number)+" card"
+		if card_number > 1: txt += "s"
+		popup.add_item(txt,77)
+		popup.set_item_disabled(popup.get_item_index(77),true)
+		popup.add_separator()
+	
+	
 	prepare_cavt(popup)
 	if inventory.size() > 1:
-		popup.add_item("Shuffle hand",2)
-		if not am_i_the_owner:
-			popup.set_item_disabled(popup.get_item_index(2),true)
+		popup.add_item("Shuffle hand",20)
+		popup.add_item("Sort hand",30)
 		
-		popup.add_item("Sort hand",3)
-		if not am_i_the_owner:
-			popup.set_item_disabled(popup.get_item_index(3),true)
+		
+		popup.set_item_disabled(popup.get_item_index(20),not am_i_the_owner)
+		popup.set_item_disabled(popup.get_item_index(30),not am_i_the_owner)
 	
 	
 	popup.add_separator("")
-	popup.add_item("Hand Settings",1)
+	popup.add_item("Hand Settings",5)
 	if not am_i_the_owner:
-		popup.set_item_disabled(popup.get_item_index(1),true)
+		popup.set_item_disabled(popup.get_item_index(5),true)
 	
 	
 	
@@ -508,13 +523,13 @@ remote func rcms(a,b=-1,c=-1):
 
 func rcm_selected(id, _index=-1, _text=-1) -> void:
 	match id:
-		1:
+		5:
 			_open_hans_settings()
-		2:
+		20:
 			make_hand_collapse()
 			shuffle_hand()
 			order_inventory()
-		3:
+		30:
 			if SORT_BY_SECOND_VALUE:
 				bubble_sort_hand_by_second()
 			else:

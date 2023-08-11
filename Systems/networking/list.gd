@@ -9,6 +9,8 @@ var players := {
 #		}
 }
 
+var disconnected_players := {}
+
 func _clear_list():
 	players.clear()
 	print("L: list cleard")
@@ -33,6 +35,8 @@ func remove_player(var id: int) -> void:
 			var players_pointer = players[id]["pointer"]
 			if is_instance_valid(players_pointer):
 				players_pointer.queue_free()
+		
+		disconnected_players[id] = players[id]
 		var _er = players.erase(id)
 		print("L: player removed from list, name: '",pname,"', id: ",id)
 	else:
@@ -44,6 +48,9 @@ func remote_set_class(var id: int, var clas: String) -> void:
 remote func set_class(var id: int, var clas: String) -> void:
 	if not players.has(id): return
 	players[id]["class"] = clas
+
+
+
 
 
 
