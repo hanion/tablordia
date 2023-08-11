@@ -190,12 +190,23 @@ func join_containers(container_name) -> void:
 	# data
 	var all_datas := parent.data_inv.duplicate(true)
 	parent.data_inv.clear()
-	for card_data in all_datas:
-		container_to_join.add_data_to_container(card_data)
+	
+	for joining_data in container_to_join.data_inv:
+		all_datas.append(joining_data)
+	container_to_join.data_inv.clear()
+	
+	Std.shuffle_array(all_datas)
+	
+	container_to_join.data_inv = all_datas.duplicate(true)
 	
 	# cards
 	var all_cards := parent.card_inv.duplicate(true)
 	parent.card_inv.clear()
+	
+	for joining_card in container_to_join.card_inv:
+		all_cards.append(joining_card)
+	container_to_join.card_inv.clear()
+	
 	for crd in all_cards:
 		container_to_join.add_card_to_container(crd)
 	
